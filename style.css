@@ -35,9 +35,8 @@ body {
 
 .tab-content {
   display: none;
-  padding: 20px;
+  padding: 80px;
   border: 1px solid #ccc;
-  border-top: none;
 }
 
 #home {
@@ -57,3 +56,50 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+    table {
+	  padding: 10px;
+      width: 100%;
+	  display: block;
+	  height: 700px;
+      border-collapse: collapse;
+	  table-layout: auto;
+	  overflow-y: scroll;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+	
+
+    img {
+		width: auto;
+    }
+	
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+	  /* flex-direction: column; */
+      justify-content: center;
+      align-items: flex-start; /* Align items to the top */
+      background-color: #f0f0f0;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px; /* Optional, to add some space from the very top */
+	  position: fixed;
+    }
+	
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
