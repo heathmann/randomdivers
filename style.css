@@ -102,7 +102,7 @@ button:hover {
 	  position: fixed;
     }
 	
-	@media (max-width: 1024px) or (max-height: 800px) {
+	@media (max-device-width: 1024px) or (max-device-height: 800px) {
 		.tab-button {
 			padding: 0px;
 		}
