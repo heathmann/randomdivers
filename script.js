@@ -278,7 +278,6 @@ function getThreeUnique(max) {
 }
 
 function changeMessage() {
-	const messageElement = document.getElementById("message");
 	
 	const categorySelections = [];
 	for (let i = 0; i < 3; i++) {
