@@ -331,6 +331,7 @@ function changeMessage() {
         var row = table.insertRow(i);
 		if (i == 1) {
 			row.insertCell(0).innerHTML = finalResults[0][0];
+			row.style.fontWeight = 'bold';
 			row.insertCell(1).innerHTML = finalResults[1][0];
 			row.insertCell(2).innerHTML = finalResults[2][0];
 		} else {
