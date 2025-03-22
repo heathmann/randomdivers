@@ -102,11 +102,11 @@ button:hover {
 	  position: fixed;
     }
 	
-	@media (max-width: 600px) {
+	@media (max-width: 1024px) {
 		.tab-button {
 			padding: 0px;
 		}
 		img {
-			height: 50px;
+			height: 1px;
 		}
 	}
