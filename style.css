@@ -1,7 +1,7 @@
 /* style.css */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
+  background-color: #000000;
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -13,49 +13,53 @@ body {
 .container {
   text-align: center;
   padding: 20px;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.tabs {
-  display: flex;
+  /* border-radius: 10px; */
+  /* background-color: #fff; */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .tab-button {
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
+  background-color: #f2df0c;
+  border: 1px solid #000000;
   padding: 10px;
   cursor: pointer;
   margin-right: 5px;
+  margin-top: 0px;
 }
 
 .tab-button:hover {
-  background-color: #ddd;
+  background-color: #d6c61a;
 }
 
 .tab-content {
   display: none;
-  padding: 80px;
-  border: 1px solid #ccc;
+  margin-top: 80px;
+  /* padding: 80px; */
+  /* border: 1px solid #ccc; */
 }
 
-#home {
-  display: block; /* Initially show the Home tab content */
+h1 {
+	text-align: center;
+	color: #f2df0c;
 }
+
+/* #home { */
+  /* display: block; Initially show the Home tab content */
+/* } */
 
 button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #007BFF;
-  color: white;
+  background-color: #f2df0c;
+  color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #d6c61a;
 }
 
     table {
@@ -66,6 +70,7 @@ button:hover {
       border-collapse: collapse;
 	  table-layout: auto;
 	  overflow-y: scroll;
+	  background-color: #e0f7fa;
     }
 
     table, th, td {
@@ -74,7 +79,7 @@ button:hover {
 
     th, td {
       padding: 8px;
-      text-align: left;
+      text-align: center;
     }
 	
 
@@ -87,10 +92,4 @@ button:hover {
       gap: 10px;
       margin-top: 20px; /* Optional, to add some space from the very top */
 	  position: fixed;
-    }
-	
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
     }
