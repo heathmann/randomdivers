@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Simple Web App</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    table {
+      width: 100%;
+	  display: block;
+	  height: 700px;
+      border-collapse: collapse;
+	  table-layout: auto;
+	  overflow-y: scroll;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+	
+
+    img {
+		width: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <button class="tab-button" onclick="openTab('randomizer')">Randomizer</button>
+    <button class="tab-button" onclick="openTab('primary')">Primary Weapons</button>
+    <button class="tab-button" onclick="openTab('side')">Side Arms</button>
+	<button class="tab-button" onclick="openTab('throw')">Throwables</button>
+	<button class="tab-button" onclick="openTab('strat')">Stratagems</button>
+	<button class="tab-button" onclick="openTab('boost')">Boosters</button>
+	<button class="tab-button" onclick="openTab('armour')">Armours</button>
+  </div>
+
+  <div id="randomizer" class="tab-content">
+  <div class="container">
+    <h1>Randomizer</h1>
+	<div id="table-results"></div>
+    <button onclick="changeMessage()">Click me to roll!</button>
+  </div>
+  </div>
+  <div id="primary" class="tab-content">
+    <h1>Primary Weapons</h1>
+    <div id="table-primary"></div>
+  </div>
+  <div id="side" class="tab-content">
+    <h1>Side Arms</h1>
+    <div id="table-side"></div>
+  </div>
+  <div id="throw" class="tab-content">
+    <h1>Throwables</h1>
+    <div id="table-throw"></div>
+  </div>
+  <div id="strat" class="tab-content">
+    <h1>Stratagems</h1>
+    <div id="table-strat"></div>
+  </div>
+  <div id="boost" class="tab-content">
+    <h1>Boosters</h1>
+    <div id="table-boost"></div>
+  </div>
+  <div id="armour" class="tab-content">
+    <h1>Armours</h1>
+    <div id="table-armour"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
