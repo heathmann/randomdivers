@@ -303,9 +303,9 @@ function changeMessage() {
 	const table = document.createElement('table');
 
 	if (mediaQuery.matches) {
-		table.style.height = '175px';
+		table.style.height = '200px';
 	} else if (mediaQuery2.matches) {
-		table.style.height = '175px';
+		table.style.height = '200px';
 	} else {
 		table.style.height = '315px';
 	}
