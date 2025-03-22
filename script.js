@@ -301,6 +301,7 @@ function changeMessage() {
 	
 	const table = document.createElement('table');
 
+	table.style.overflow = 'hidden';
 	if (mediaQuery.matches) {
 		table.style.height = '200px';
 	} else if (mediaQuery2.matches) {
