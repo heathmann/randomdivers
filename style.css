@@ -32,9 +32,16 @@ body {
   background-color: #d6c61a;
 }
 
+.row {
+	  justify-content: center;
+      display: flex;
+	  margin-top: 5px;
+      gap: 10px;  /* Space between buttons in a row */
+}
+
 .tab-content {
   display: none;
-  margin-top: 50px;
+  margin-top: 100px;
   /* padding: 80px; */
   /* border: 1px solid #ccc; */
 }
@@ -97,15 +104,15 @@ button:hover {
 
     .button-container {
       display: flex;
+	  flex-direction: column;
       gap: 10px;
-      margin-top: 20px; /* Optional, to add some space from the very top */
+      margin-top: 15px; /* Optional, to add some space from the very top */
 	  position: fixed;
     }
 	
 	@media (max-device-width: 1024px) or (max-device-height: 800px) {
 		.tab-button {
 			padding: 2px;
-			flex-direction: column;
 		}
 		img {
 			height: 65px;

@@ -8,13 +8,17 @@
 </head>
 <body>
   <div class="button-container">
-    <button class="tab-button" onclick="openTab('randomizer')">Randomizer</button>
-    <button class="tab-button" onclick="openTab('primary')">Primary Weapons</button>
-    <button class="tab-button" onclick="openTab('side')">Side Arms</button>
-	<button class="tab-button" onclick="openTab('throw')">Throwables</button>
-	<button class="tab-button" onclick="openTab('strat')">Stratagems</button>
-	<button class="tab-button" onclick="openTab('boost')">Boosters</button>
-	<button class="tab-button" onclick="openTab('armour')">Armours</button>
+	<div class="row">
+		<button class="tab-button" onclick="openTab('randomizer')">Randomizer</button>
+		<button class="tab-button" onclick="openTab('primary')">Primary Weapons</button>
+		<button class="tab-button" onclick="openTab('side')">Side Arms</button>
+		<button class="tab-button" onclick="openTab('throw')">Throwables</button>
+	</div>
+	<div class="row">
+		<button class="tab-button" onclick="openTab('strat')">Stratagems</button>
+		<button class="tab-button" onclick="openTab('boost')">Boosters</button>
+		<button class="tab-button" onclick="openTab('armour')">Armours</button>
+	</div>
   </div>
 
   <div id="randomizer" class="tab-content">

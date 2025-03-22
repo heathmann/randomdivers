@@ -234,16 +234,8 @@ const MasterList = [
 	]
 ];
 
-// Combine all arrays into one
-//const combinedArray = [...array1, ...array2, ...array3, ...array4, ...array5, ...array6];
-
-// Function to shuffle the combined array
-function shuffleArray(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];  // Swap elements
-    }
-}
+	var mediaQuery = window.matchMedia('(max-width: 1024px)');
+	var mediaQuery2 = window.matchMedia('(max-width: 800px)');
 
 function createTable(data, tableName) {
 	// Create the table element
@@ -309,7 +301,14 @@ function changeMessage() {
 	];
 	
 	const table = document.createElement('table');
-	table.style.height = '315px';
+
+	if (mediaQuery.matches) {
+		table.style.height = '150px';
+	} else if (mediaQuery2.matches) {
+		table.style.height = '150px';
+	} else {
+		table.style.height = '315px';
+	}
 	
   const headerRow = document.createElement('tr');
   
@@ -360,18 +359,7 @@ function changeMessage() {
 	const container = document.getElementById('table-results');
 	container.innerHTML = '';
 	container.appendChild(table);
-  
-	// const firstUrl = MasterList[categorySelections[0]][threeUnique[categorySelections[0]][0]][1];
-	// const first = document.getElementById("image1");
-	// first.src = firstUrl;
 
-	// const secondUrl = MasterList[categorySelections[1]][threeUnique[categorySelections[1]][1]][1];
-	// const second = document.getElementById("image2");
-	// second.src = secondUrl;
-
-	// const thirdUrl = MasterList[categorySelections[2]][threeUnique[categorySelections[2]][2]][1];
-	// const third = document.getElementById("image3");
-	// third.src = thirdUrl;
 }
 
 function openTab(tabName) {
