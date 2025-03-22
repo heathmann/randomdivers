@@ -91,6 +91,7 @@ button:hover {
 	
 
     img {
+		height: 200px;
 		width: auto;
     }
 
@@ -104,5 +105,8 @@ button:hover {
 	@media (max-width: 600px) {
 		.tab-button {
 			padding: 0px;
+		}
+		img {
+			height: 80px;
 		}
 	}

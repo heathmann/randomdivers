@@ -309,7 +309,7 @@ function changeMessage() {
 	];
 	
 	const table = document.createElement('table');
-	table.style.height = '270px';
+	table.style.height = '315px';
 	
   const headerRow = document.createElement('tr');
   
