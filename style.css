@@ -117,4 +117,7 @@ button:hover {
 		img {
 			height: 65px;
 		}
+		.tab-content {
+			margin-top: 50px;
+		}
 	}
