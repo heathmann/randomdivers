@@ -104,9 +104,10 @@ button:hover {
 	
 	@media (max-device-width: 1024px) or (max-device-height: 800px) {
 		.tab-button {
-			padding: 0px;
+			padding: 2px;
+			flex-direction: column;
 		}
 		img {
-			height: 1px;
+			height: 65px;
 		}
 	}
