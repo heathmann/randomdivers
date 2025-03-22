@@ -281,7 +281,7 @@ function changeMessage() {
 	
 	const categorySelections = [];
 	for (let i = 0; i < 3; i++) {
-		const x = Math.floor(Math.random() * 5);
+		const x = Math.floor(Math.random() * 6);
 		categorySelections.push(x);
 	}
 	
