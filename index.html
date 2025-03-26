@@ -66,8 +66,8 @@ Initial creation date: 3.20.2025
 			<div class="game-row" style="display: none; justify-content: center;">
 				<div id="missionTracker" style="color: white; margin-bottom: 10px;"></div>
 			</div>
-			<div id="topLoad" style="justify-content: center; overflow: hidden;"></div>
-			<div id="bottomLoad" style="justify-content: center; overflow: hidden;"></div>
+			<div id="topLoad" style="justify-content: center;"></div>
+			<div id="bottomLoad" style="justify-content: center;"></div>
 			<div class="game-row" style="display: none; justify-content: center;">
 				<button onclick="resumeGame()">Defeated</button>
 				<button onclick="resumeGame()">Completed</button>
@@ -79,7 +79,7 @@ Initial creation date: 3.20.2025
 		<div id="randomizer" class="tab-content">
 			<div class="container">
 				<h1>Randomizer</h1>
-				<div id="table-results" style="overflow: hidden;"></div>
+				<div id="table-results"></div>
 				<button onclick="changeMessage()">Click me to roll!</button>
 			</div>
 		</div>
@@ -87,37 +87,37 @@ Initial creation date: 3.20.2025
 		<!-- List of primary weapons -->
 		<div id="primary" class="tab-content">
 			<h1>Primary Weapons</h1>
-			<div id="table-primary"></div>
+			<div id="table-primary" style="overflow-y: scroll;"></div>
 		</div>
 		
 		<!-- List of side arms -->
 		<div id="side" class="tab-content">
 			<h1>Side Arms</h1>
-			<div id="table-side"></div>
+			<div id="table-side" style="overflow-y: scroll;"></div>
 		</div>
 		
 		<!-- List of throwables -->
 		<div id="throw" class="tab-content">
 			<h1>Throwables</h1>
-			<div id="table-throw"></div>
+			<div id="table-throw" style="overflow-y: scroll;"></div>
 		</div>
 		
 		<!-- List of strategems -->
 		<div id="strat" class="tab-content">
 			<h1>Stratagems</h1>
-			<div id="table-strat"></div>
+			<div id="table-strat" style="overflow-y: scroll;"></div>
 		</div>
 		
 		<!-- List of boosters -->
 		<div id="boost" class="tab-content">
 			<h1>Boosters</h1>
-			<div id="table-boost"></div>
+			<div id="table-boost" style="overflow-y: scroll;"></div>
 		</div>
 		
 		<!-- List of armours -->
 		<div id="armour" class="tab-content">
 			<h1>Armours</h1>
-			<div id="table-armour"></div>
+			<div id="table-armour" style="overflow-y: scroll;"></div>
 		</div>
 
 		<script src="script.js"></script>
