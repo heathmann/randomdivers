@@ -66,8 +66,8 @@ Initial creation date: 3.20.2025
 			<div class="game-row" style="display: none; justify-content: center;">
 				<div id="missionTracker" style="color: white; margin-bottom: 10px;"></div>
 			</div>
-			<div id="topLoad" style="justify-content: center;"></div>
-			<div id="bottomLoad" style="justify-content: center;"></div>
+			<div id="topLoad" style="justify-content: center; overflow: hidden;"></div>
+			<div id="bottomLoad" style="justify-content: center; overflow: hidden;"></div>
 			<div class="game-row" style="display: none; justify-content: center;">
 				<button onclick="resumeGame()">Defeated</button>
 				<button onclick="resumeGame()">Completed</button>
@@ -79,7 +79,7 @@ Initial creation date: 3.20.2025
 		<div id="randomizer" class="tab-content">
 			<div class="container">
 				<h1>Randomizer</h1>
-				<div id="table-results"></div>
+				<div id="table-results" style="overflow: hidden;"></div>
 				<button onclick="changeMessage()">Click me to roll!</button>
 			</div>
 		</div>
