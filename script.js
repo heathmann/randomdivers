@@ -234,8 +234,19 @@ const MasterList = [
 	]
 ];
 
-	var mediaQuery = window.matchMedia('(max-width: 1024px)');
-	var mediaQuery2 = window.matchMedia('(max-width: 800px)');
+var currentMission = 1;
+var currentEnemy = "null";
+var currentLoadout = [
+	["AR-23 Liberator", "https://helldivers.wiki.gg/images/4/4b/AR-23_Liberator_Primary_Weaponry.png"],
+	["P-2 Peacemaker", "https://helldivers.wiki.gg/images/a/af/P-2_Peacemaker_Secondary_Weaponry.png"],
+	["G-12 High Explosive", "https://helldivers.wiki.gg/images/4/4c/G-12_High_Explosive_Throwable_Weaponry.png"],
+	["B-01 Tactical", "https://helldivers.wiki.gg/images/7/75/B-01_Tactical_Body_Armory.png"],
+	["Empty slot", skull],
+	["Empty slot", skull],
+	["Empty slot", skull],
+	["Empty slot", skull],
+	["No booster", skull]
+];
 
 function createTable(data, tableName) {
 	// Create the table element
@@ -244,7 +255,7 @@ function createTable(data, tableName) {
 	// Loop through the array and create table rows
 	data.forEach((row, rowIndex) => {
 		const tr = document.createElement('tr');
-    
+
 		row.forEach((cell, cellIndex) => {
 			const td = document.createElement('td'); // Use <th> for header row
 			if (cellIndex === 1) { // Check if it's the 'Image' column
@@ -266,25 +277,24 @@ function createTable(data, tableName) {
 }
 
 function getThreeUnique(max) {
-  const numbers = new Set();
+	const numbers = new Set();
 
-  while (numbers.size < 3) {
-    const randomNumber = Math.floor(Math.random() * max);
-    numbers.add(randomNumber);  // Add the random number to the set (duplicates are automatically ignored)
-  }
+	while (numbers.size < 3) {
+		const randomNumber = Math.floor(Math.random() * max);
+		numbers.add(randomNumber);  // Add the random number to the set (duplicates are automatically ignored)
+	}
 
-  const temp = Array.from(numbers);
-  return temp;  // Convert the set back to an array
+	const temp = Array.from(numbers);
+	return temp;  // Convert the set back to an array
 }
 
 function changeMessage() {
-	
 	const categorySelections = [];
 	for (let i = 0; i < 3; i++) {
 		const x = Math.floor(Math.random() * 6);
 		categorySelections.push(x);
 	}
-	
+
 	const threeUnique = [];
 	threeUnique.push(getThreeUnique(MasterList[0].length));
 	threeUnique.push(getThreeUnique(MasterList[1].length));
@@ -298,50 +308,39 @@ function changeMessage() {
 		[MasterList[categorySelections[1]][threeUnique[categorySelections[1]][1]][0], MasterList[categorySelections[1]][threeUnique[categorySelections[1]][1]][1]],
 		[MasterList[categorySelections[2]][threeUnique[categorySelections[2]][2]][0], MasterList[categorySelections[2]][threeUnique[categorySelections[2]][2]][1]]
 	];
-	
+
 	const table = document.createElement('table');
+	table.style.height = 'auto';
 
-	table.style.overflow = 'hidden';
-	if (mediaQuery.matches) {
-		table.style.height = '200px';
-	} else if (mediaQuery2.matches) {
-		table.style.height = '200px';
-	} else {
-		table.style.height = '315px';
-	}
-	
-  const headerRow = document.createElement('tr');
-  
-  // Array of header names
-  const headers = ['Option 1', 'Option 2', 'Option 3'];
+	const headerRow = document.createElement('tr');
 
-  // Loop through the headers and create <th> elements
-  headers.forEach(headerText => {
-    const th = document.createElement('th');
-    th.textContent = headerText;  // Set the text of the header
-    th.style.border = '1px solid black';  // Add border to the header
-    headerRow.appendChild(th);  // Append the header cell to the header row
-  });
+	// Array of header names
+	const headers = ['Option 1', 'Option 2', 'Option 3'];
 
-  // Append the header row to the table
-  table.appendChild(headerRow);
-  
-    for(var i = 1; i < 3; i++) {
-        var row = table.insertRow(i);
+	// Loop through the headers and create <th> elements
+	headers.forEach(headerText => {
+		const th = document.createElement('th');
+		th.textContent = headerText;  // Set the text of the header
+		th.style.border = '1px solid black';  // Add border to the header
+		headerRow.appendChild(th);  // Append the header cell to the header row
+	});
+
+	// Append the header row to the table
+	table.appendChild(headerRow);
+
+	for(var i = 1; i < 3; i++) {
+		var row = table.insertRow(i);
 		if (i == 1) {
-			row.insertCell(0).innerHTML = finalResults[0][0];
 			row.style.fontWeight = 'bold';
+			row.insertCell(0).innerHTML = finalResults[0][0];
 			row.insertCell(1).innerHTML = finalResults[1][0];
 			row.insertCell(2).innerHTML = finalResults[2][0];
 		} else {
 			const img1 = document.createElement('img');
-			img1.height = 150;
 			img1.src = finalResults[0][1];
 			const img2 = document.createElement('img');
-			img2.height = 150;
 			img2.src = finalResults[1][1];
 			const img3 = document.createElement('img');
-			img3.height = 150;
 			img3.src = finalResults[2][1];
 			row.insertCell(0).innerHTML = '';
 			row.insertCell(1).innerHTML = '';
@@ -353,13 +352,173 @@ function changeMessage() {
 			cell = row.cells[2];
 			cell.appendChild(img3);
 		}
-			
-    }
-	
+	}
+
 	const container = document.getElementById('table-results');
 	container.innerHTML = '';
 	container.appendChild(table);
+}
 
+// Pick a random faction and return the faction as a string (for chaos mode)
+function pickEnemy() {
+	const x = Math.floor(Math.random() * 3);
+	var enemy = "null";
+	
+	if (x == 0) {
+		enemy = "Terminids";
+	} else if (x == 1) {
+		enemy = "Automatons";
+	} else {
+		enemy = "Illuminate";
+	}
+	
+	return enemy;
+}
+
+function generateLoadoutTable() {
+	const topTable = document.createElement('table');
+	const bottomTable = document.createElement('table');
+	topTable.style.height = 'auto';
+	bottomTable.style.height = 'auto';
+	bottomTable.style.align = 'center';
+
+	const topHeaderRow = document.createElement('tr');
+	const bottomHeaderRow = document.createElement('tr');
+
+	// Array of header names
+	const topHeaders = ['Primary Weapon', 'Side Arm', 'Throwable', 'Armour'];
+	const bottomHeaders = ['Stratagem 1', 'Stratagem 2', 'Stratagem 3', 'Stratagem 4', 'Booster'];
+
+	// Loop through the headers and create <th> elements
+	topHeaders.forEach(headerText => {
+		const th = document.createElement('th');
+		th.textContent = headerText;  // Set the text of the header
+		th.style.border = '1px solid black';  // Add border to the header
+		topHeaderRow.appendChild(th);  // Append the header cell to the header row
+	});
+	
+	bottomHeaders.forEach(headerText => {
+		const th = document.createElement('th');
+		th.textContent = headerText;  // Set the text of the header
+		th.style.border = '1px solid black';  // Add border to the header
+		bottomHeaderRow.appendChild(th);  // Append the header cell to the header row
+	});
+
+	// Append the header row to the table
+	topTable.appendChild(topHeaderRow);
+	bottomTable.appendChild(bottomHeaderRow);
+
+	for(var i = 1; i < 3; i++) {
+		var row = topTable.insertRow(i);
+		var row2 = bottomTable.insertRow(i);
+		if (i == 1) {
+			row.style.fontWeight = 'bold';
+			row2.style.fontWeight = 'bold';
+			row.insertCell(0).innerHTML = currentLoadout[0][0];
+			row.insertCell(1).innerHTML = currentLoadout[1][0];
+			row.insertCell(2).innerHTML = currentLoadout[2][0];
+			row.insertCell(3).innerHTML = currentLoadout[3][0];
+			row2.insertCell(0).innerHTML = currentLoadout[4][0];
+			row2.insertCell(1).innerHTML = currentLoadout[5][0];
+			row2.insertCell(2).innerHTML = currentLoadout[6][0];
+			row2.insertCell(3).innerHTML = currentLoadout[7][0];
+			row2.insertCell(4).innerHTML = currentLoadout[8][0];
+		} else {
+			row.insertCell(0).innerHTML = '';
+			row.insertCell(1).innerHTML = '';
+			row.insertCell(2).innerHTML = '';
+			row.insertCell(3).innerHTML = '';
+			row2.insertCell(0).innerHTML = '';
+			row2.insertCell(1).innerHTML = '';
+			row2.insertCell(2).innerHTML = '';
+			row2.insertCell(3).innerHTML = '';
+			row2.insertCell(4).innerHTML = '';
+			var cell = row.cells[0];
+			// var img = document.createElement('img');
+			for (var x = 0; x < 5; x++) {
+				if (x < 4) {
+					const img = document.createElement('img');
+					img.src = currentLoadout[x][1];
+					cell = row.cells[x];
+					cell.appendChild(img);
+					const img2 = document.createElement('img');
+					img2.src = currentLoadout[x+4][1];
+					cell = row2.cells[x];
+					cell.appendChild(img2);
+				} else {
+					const img = document.createElement('img');
+					img.src = currentLoadout[x+4][1];
+					cell = row2.cells[x];
+					cell.appendChild(img);
+				}
+			}
+		}
+	}
+
+	const container = document.getElementById('topLoad');
+	const container2 = document.getElementById('bottomLoad');
+	container.innerHTML = '';
+	container2.innerHTML = '';
+	container.appendChild(topTable);
+	container2.appendChild(bottomTable);
+}
+
+function newGame() {
+	// Hide new game and continue buttons
+	var contents = document.querySelectorAll('.game-button');
+	contents.forEach(content => content.style.display = 'none');
+	
+	// Display enemy selection buttons
+	contents = document.querySelectorAll('.enemy-row');
+	contents.forEach(function(button){button.style.display = 'flex';});
+}
+
+function selectBug() {
+	var contents = document.querySelectorAll('.enemy-row');
+	contents.forEach(content => content.style.display = 'none');
+	currentEnemy = "Terminids";
+	document.getElementById('missionTracker').innerText = "Level " + currentMission + " " + currentEnemy;
+	generateLoadoutTable();
+	
+	contents = document.querySelectorAll('.game-row');
+	contents.forEach(function(button){button.style.display = 'flex';});
+}
+
+function selectBot() {
+	var contents = document.querySelectorAll('.enemy-row');
+	contents.forEach(content => content.style.display = 'none');
+	currentEnemy = "Automatons";
+	document.getElementById('missionTracker').innerText = "Level " + currentMission + " " + currentEnemy;
+	generateLoadoutTable();
+	
+	contents = document.querySelectorAll('.game-row');
+	contents.forEach(function(button){button.style.display = 'flex';});
+}
+
+function selectSquid() {
+	var contents = document.querySelectorAll('.enemy-row');
+	contents.forEach(content => content.style.display = 'none');
+	currentEnemy = "Illuminate";
+	document.getElementById('missionTracker').innerText = "Level " + currentMission + " " + currentEnemy;
+	generateLoadoutTable();
+	
+	contents = document.querySelectorAll('.game-row');
+	contents.forEach(function(button){button.style.display = 'flex';});
+}
+
+function selectChaos() {
+	var contents = document.querySelectorAll('.enemy-row');
+	contents.forEach(content => content.style.display = 'none');
+	currentEnemy = pickEnemy();
+	document.getElementById('missionTracker').innerText = "Level " + currentMission + " " + currentEnemy;
+	generateLoadoutTable();
+	
+	contents = document.querySelectorAll('.game-row');
+	contents.forEach(function(button){button.style.display = 'flex';});
+}
+
+function resumeGame() {
+	
 }
 
 function openTab(tabName) {

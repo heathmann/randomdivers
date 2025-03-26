@@ -1,58 +1,125 @@
+<!-- 
+Author: Heathmann
+Initial creation date: 3.20.2025 
+-->
+
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Randomdivers</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="button-container">
-	<div class="row">
-		<button class="tab-button" onclick="openTab('randomizer')">Randomizer</button>
-		<button class="tab-button" onclick="openTab('primary')">Primary Weapons</button>
-		<button class="tab-button" onclick="openTab('side')">Side Arms</button>
-		<button class="tab-button" onclick="openTab('throw')">Throwables</button>
-	</div>
-	<div class="row">
-		<button class="tab-button" onclick="openTab('strat')">Stratagems</button>
-		<button class="tab-button" onclick="openTab('boost')">Boosters</button>
-		<button class="tab-button" onclick="openTab('armour')">Armours</button>
-	</div>
-  </div>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Randomdivers</title>
+		<link rel="icon" href="https://styles.redditmedia.com/t5_2ya0t/styles/communityIcon_ql5iyxjfuvic1.jpg?format=pjpg&s=c2ffada26a84a71ed5b3ec07bba0a1f825ce9833"> <!--tab icon-->
+		<link rel="stylesheet" href="style.css">
+	</head>
+	
+	<body>
+		<!-- Top row of buttons / master navigation -->
+		<div class="button-container">
+			<div class="row">
+				<button class="tab-button" onclick="openTab('game')">Play Randomdivers</button>
+				<button class="tab-button" onclick="openTab('randomizer')">Randomizer</button>
+				<button class="tab-button" onclick="openTab('primary')">Primary Weapons</button>
+				<button class="tab-button" onclick="openTab('side')">Side Arms</button>
+			</div>
+			<div class="row">
+				<button class="tab-button" onclick="openTab('throw')">Throwables</button>
+				<button class="tab-button" onclick="openTab('strat')">Stratagems</button>
+				<button class="tab-button" onclick="openTab('boost')">Boosters</button>
+				<button class="tab-button" onclick="openTab('armour')">Armours</button>
+			</div>
+		</div>
 
-  <div id="randomizer" class="tab-content">
-  <div class="container">
-    <h1>Randomizer</h1>
-	<div id="table-results"></div>
-    <button onclick="changeMessage()">Click me to roll!</button>
-  </div>
-  </div>
-  <div id="primary" class="tab-content">
-    <h1>Primary Weapons</h1>
-    <div id="table-primary"></div>
-  </div>
-  <div id="side" class="tab-content">
-    <h1>Side Arms</h1>
-    <div id="table-side"></div>
-  </div>
-  <div id="throw" class="tab-content">
-    <h1>Throwables</h1>
-    <div id="table-throw"></div>
-  </div>
-  <div id="strat" class="tab-content">
-    <h1>Stratagems</h1>
-    <div id="table-strat"></div>
-  </div>
-  <div id="boost" class="tab-content">
-    <h1>Boosters</h1>
-    <div id="table-boost"></div>
-  </div>
-  <div id="armour" class="tab-content">
-    <h1>Armours</h1>
-    <div id="table-armour"></div>
-  </div>
+		<!-- The individual button subsections (Note: all lists are simply for display)-->
+		<!-- Main game section -->
+		<div id="game" class="tab-content">
+		<!-- New game or continue -->
+			<div class="container">
+				<h1>Randomdivers: Hell-like</h1>
+				<button class="game-button" onclick="newGame()">Start a new game?</button>
+				<button class="game-button" onclick="resumeGame()">Continue?</button>
+			</div>
+			
+		<!-- Enemy selection -->
+			<div class="enemy-row" style="display: none;">
+				<p>Select the enemy for this run:</p>
+			</div>
+			<div class="enemy-row" style="display: none; gap: 20px;">
+				<button class="bug-button" onclick="selectBug()" style="width: 140px;">Terminids</button>
+				<button class="bot-button" onclick="selectBot()" style="width: 140px;">Automatons</button>
+				<button class="squid-button" onclick="selectSquid()" style="width: 140px;">Illuminate</button>
+				<button class="chaos-button" onclick="selectChaos()" style="width: 140px;">Pandemonium</button>
+			</div>
+			<!-- Enemy icons -->
+			<div class="enemy-row" style="display: none; gap: 60px; margin-top: 10px;">
+				<img src="./images/Terminid_icon.png" style="width: 100px; height: 90px;">
+				<img src="./images/Automaton_icon.png" style="width: 100px; height: 90px;">
+				<img src="./images/Illuminate_icon.png" style="width: 100px; height: 90px;">
+				<img src="./images/Mix_icon.png" style="width: 100px; height: 90px;">
+			</div>
+			
+		<!-- Start of game tracker -->
+			<div class="game-row" style="display: none; justify-content: center;">
+				<p style="font-weight: bold; font-size: 24px;">Current Mission:</p>
+			</div>
+			<div class="game-row" style="display: none; justify-content: center;">
+				<div id="missionTracker" style="color: white; margin-bottom: 10px;"></div>
+			</div>
+			<div id="topLoad" style="justify-content: center;"></div>
+			<div id="bottomLoad" style="justify-content: center;"></div>
+			<div class="game-row" style="display: none; justify-content: center;">
+				<button onclick="resumeGame()">Defeated</button>
+				<button onclick="resumeGame()">Completed</button>
+				<button onclick="resumeGame()">Full Stars</button>
+			</div>
+		</div>
+		
+		<!-- The roguelike randomizer on its own section -->
+		<div id="randomizer" class="tab-content">
+			<div class="container">
+				<h1>Randomizer</h1>
+				<div id="table-results"></div>
+				<button onclick="changeMessage()">Click me to roll!</button>
+			</div>
+		</div>
+		
+		<!-- List of primary weapons -->
+		<div id="primary" class="tab-content">
+			<h1>Primary Weapons</h1>
+			<div id="table-primary"></div>
+		</div>
+		
+		<!-- List of side arms -->
+		<div id="side" class="tab-content">
+			<h1>Side Arms</h1>
+			<div id="table-side"></div>
+		</div>
+		
+		<!-- List of throwables -->
+		<div id="throw" class="tab-content">
+			<h1>Throwables</h1>
+			<div id="table-throw"></div>
+		</div>
+		
+		<!-- List of strategems -->
+		<div id="strat" class="tab-content">
+			<h1>Stratagems</h1>
+			<div id="table-strat"></div>
+		</div>
+		
+		<!-- List of boosters -->
+		<div id="boost" class="tab-content">
+			<h1>Boosters</h1>
+			<div id="table-boost"></div>
+		</div>
+		
+		<!-- List of armours -->
+		<div id="armour" class="tab-content">
+			<h1>Armours</h1>
+			<div id="table-armour"></div>
+		</div>
 
-  <script src="script.js"></script>
-</body>
+		<script src="script.js"></script>
+	</body>
 </html>
