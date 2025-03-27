@@ -38,7 +38,7 @@ const MasterList = [
 		["PLAS-39 Accelerator Rifle", "https://helldivers.wiki.gg/images/a/a3/PLAS-39_Accelerator_Rifle_Primary_Weaponry.png"],
 		["StA-11 SMG", "https://helldivers.wiki.gg/images/f/f7/StA-11_SMG_Primary_Weaponry.png"],
 		["LAS-17 Double-Edge Sickle", "https://helldivers.wiki.gg/images/e/e6/LAS-17_Double-Edge_Sickle_Primary_Weaponry.png"],
-		["R-6 Deadeye", skull]
+		["R-6 Deadeye", "https://helldivers.wiki.gg/images/f/fd/R-6_Deadeye_Primary_Weaponry.png?1f2754=&format=original"]
 	],[
 	// 1 = Side Arms
 		["P-2 Peacemaker", "https://helldivers.wiki.gg/images/a/af/P-2_Peacemaker_Secondary_Weaponry.png"],
@@ -55,7 +55,7 @@ const MasterList = [
 		["CQC-30 Stun Baton", "https://helldivers.wiki.gg/images/9/96/CQC-30_Stun_Baton_Secondary_Weaponry.png"],
 		["GP-31 Ultimatum", "https://helldivers.wiki.gg/images/c/ce/GP-31_Ultimatum_Secondary_Weaponry.png"],
 		["CQC-5 Combat Hatchet", "https://helldivers.wiki.gg/images/c/c8/CQC-5_Combat_Hatchet_Secondary_Weaponry.png"],
-		["LAS-58 Talon", skull]
+		["LAS-58 Talon", "https://helldivers.wiki.gg/images/e/e7/Las-58_Talon_Secondary_Weaponry.png?517aa4=&format=original"]
 	],[
 	// 2 = Throwables
 		["G-12 High Explosive", "https://helldivers.wiki.gg/images/4/4c/G-12_High_Explosive_Throwable_Weaponry.png"],
@@ -69,7 +69,7 @@ const MasterList = [
 		["K-2 Throwing Knife", "https://helldivers.wiki.gg/images/4/49/K-2_Throwing_Knife_Throwable_Weaponry.png"],
 		["G-4 Gas", "https://helldivers.wiki.gg/images/8/88/G-4_Gas_Throwable_Weaponry.png"],
 		["G-50 Seeker", "https://helldivers.wiki.gg/images/0/07/G-50_Seeker_Throwable_Weaponry.png"],
-		["TED-63 Dynamite", skull]
+		["TED-63 Dynamite", "https://helldivers.wiki.gg/images/0/07/TED-83_Dynamite_Throwable_Icon.png?79b204=&format=original"]
 	],[
 	// 3 = Strategems
 		["MG-43 Machine Gun", "https://helldivers.wiki.gg/images/e/e0/Machine_Gun_Stratagem_Icon.png"],
@@ -136,7 +136,8 @@ const MasterList = [
 		["StA-X3 W.A.S.P. Launcher", "https://helldivers.wiki.gg/images/a/af/StA-X3_W.A.S.P._Launcher_Stratagem_Icon.png"],
 		["M-102 Fast Reconnaissance Vehicle", "https://helldivers.wiki.gg/images/0/00/M-102_Fast_Recon_Vehicle_Stratagem_Icon.png"],
 		["B-100 Portable Hellbomb", "https://helldivers.wiki.gg/images/a/aa/Portable_Hellbomb_Stratagem_Icon.png"],
-		["B-100 LIFT-860 Hover Pack", skull]
+		["B-100 LIFT-860 Hover Pack", "https://helldivers.wiki.gg/images/5/5d/Hover_Pack_Stratagem_Icon.png?a00cb1&format=original"],
+		["Empty slot", skull]
 	],[
 	// 4 = Boosters
 		["Hellpod Space Optimization", "https://helldivers.wiki.gg/images/2/2a/Hellpod_Space_Optimization_Booster_Icon.svg"],
@@ -153,7 +154,8 @@ const MasterList = [
 		["Firebomb Hellpods", "https://helldivers.wiki.gg/images/9/9c/Firebomb_Hellpods_Booster_Icon.svg"],
 		["Dead Sprint", "https://helldivers.wiki.gg/images/4/4a/Dead_Sprint_Booster_Icon.svg"],
 		["Armed Resupply Pods", "https://helldivers.wiki.gg/images/3/3a/Armed_Resupply_Pods_Booster_Icon.svg"],
-		["Sample Extricator", skull]
+		["Sample Extricator", "https://helldivers.wiki.gg/images/0/0a/Sample_Extricator_Booster_Icon.png?47f6e3=&format=original"],
+		["No booster", skull]
 	],[
 	// 5 = Armours
 		["B-08 Light Gunner", "https://helldivers.wiki.gg/images/e/e6/B-08_Light_Gunner_Body_Armory.png"],
@@ -170,10 +172,10 @@ const MasterList = [
 		["SC-30 Trailblazer Scout", "https://helldivers.wiki.gg/images/5/50/SC-30_Trailblazer_Scout_Body_Armory.png"],
 		["SC-34 Infiltrator", "https://helldivers.wiki.gg/images/7/76/SC-34_Infiltrator_Body_Armory.png"],
 		["SC-37 Legionnaire", "https://helldivers.wiki.gg/images/8/8c/SC-37_Legionnaire_Body_Armory.png"],
-		["B-01 Tactical (1)", "https://helldivers.wiki.gg/images/7/75/B-01_Tactical_Body_Armory.png"],
-		["B-01 Tactical (2)", "https://helldivers.wiki.gg/images/8/84/B-01_Tactical_Body_Armory_2.png"],
-		["B-01 Tactical (3)", "https://helldivers.wiki.gg/images/3/31/B-01_Tactical_Body_Armory_3.png"],
-		["B-01 Tactical (4)", "https://helldivers.wiki.gg/images/f/f4/B-01_Tactical_Body_Armory_4.png"],
+		["B-01 Tactical", "https://helldivers.wiki.gg/images/7/75/B-01_Tactical_Body_Armory.png"],
+		// ["B-01 Tactical (2)", "https://helldivers.wiki.gg/images/8/84/B-01_Tactical_Body_Armory_2.png"],
+		// ["B-01 Tactical (3)", "https://helldivers.wiki.gg/images/3/31/B-01_Tactical_Body_Armory_3.png"],
+		// ["B-01 Tactical (4)", "https://helldivers.wiki.gg/images/f/f4/B-01_Tactical_Body_Armory_4.png"],
 		["B-24 Enforcer", "https://helldivers.wiki.gg/images/8/82/B-24_Enforcer_Body_Armory.png"],
 		["CE-27 Ground Breaker", "https://helldivers.wiki.gg/images/5/51/CE-27_Ground_Breaker_Body_Armory.png"],
 		["CE-35 Trench Engineer", "https://helldivers.wiki.gg/images/5/5d/CE-35_Trench_Engineer_Body_Armory.png"],
@@ -228,24 +230,26 @@ const MasterList = [
 		["IE-3 Martyr", "https://helldivers.wiki.gg/images/f/f0/IE-3_Martyr_Body_Armory.png"],
 		["IE-12 Righteous", "https://helldivers.wiki.gg/images/b/bd/IE-12_Righteous_Body_Armory.png"],
 		["B-22 Model Citizen", "https://helldivers.wiki.gg/images/d/db/B-22_Model_Citizen_Body_Armory.png"],
-		["GS-17 Frontier Marshall", skull],
-		["GS-66 Lawmaker", skull],
-		["GS-11 Democracy's Deputy", skull]
+		["GS-17 Frontier Marshall", "https://helldivers.wiki.gg/images/3/35/GS-17_Frontier_Marshall_Body_Armory.png?f65807=&format=original"],
+		["GS-66 Lawmaker", "https://helldivers.wiki.gg/images/0/0d/GS-66_Lawmaker_Body_Armory.png?5a6c5b=&format=original"],
+		["GS-11 Democracy's Deputy", "https://helldivers.wiki.gg/images/b/bb/GS-11_Democracy%27s_Deputy_Body_Armory.png?88b637=&format=original"]
 	]
 ];
 
+var currentDifficulty = 0;
 var currentMission = 1;
 var currentEnemy = "null";
+var currentEndgameRound = 1;
 var currentLoadout = [
-	["AR-23 Liberator", "https://helldivers.wiki.gg/images/4/4b/AR-23_Liberator_Primary_Weaponry.png"],
-	["P-2 Peacemaker", "https://helldivers.wiki.gg/images/a/af/P-2_Peacemaker_Secondary_Weaponry.png"],
-	["G-12 High Explosive", "https://helldivers.wiki.gg/images/4/4c/G-12_High_Explosive_Throwable_Weaponry.png"],
-	["B-01 Tactical", "https://helldivers.wiki.gg/images/7/75/B-01_Tactical_Body_Armory.png"],
-	["Empty slot", skull],
-	["Empty slot", skull],
-	["Empty slot", skull],
-	["Empty slot", skull],
-	["No booster", skull]
+	0,
+	0,
+	0,
+	14,
+	MasterList[3].length - 1,
+	MasterList[3].length - 1,
+	MasterList[3].length - 1,
+	MasterList[3].length - 1,
+	MasterList[4].length - 1
 ];
 
 function createTable(data, tableName) {
@@ -254,22 +258,25 @@ function createTable(data, tableName) {
 
 	// Loop through the array and create table rows
 	data.forEach((row, rowIndex) => {
-		const tr = document.createElement('tr');
+		if (rowIndex !== data.length - 1) {
+			const tr = document.createElement('tr');
 
-		row.forEach((cell, cellIndex) => {
-			const td = document.createElement('td'); // Use <th> for header row
-			if (cellIndex === 1) { // Check if it's the 'Image' column
-				const img = document.createElement('img');
-				img.height = 150;
-				img.src = cell; // Set the image source
-				td.appendChild(img); // Append the image to the cell
-			} else {
-				td.textContent = cell; // Otherwise just add text
-			}
-			tr.appendChild(td);
-		});
+			row.forEach((cell, cellIndex) => {
+				const td = document.createElement('td'); // Use <th> for header row
+				if (cellIndex === 1) { // Check if it's the 'Image' column
+					const img = document.createElement('img');
+					img.height = 150;
+					img.src = cell; // Set the image source
+					td.appendChild(img); // Append the image to the cell
+				} else {
+					td.style.fontWeight = 'bold';
+					td.textContent = cell; // Otherwise just add text
+				}
+				tr.appendChild(td);
+			});
 
-		table.appendChild(tr);
+			table.appendChild(tr);
+		}
 	});
 	// Add the table to the container
 	const container = document.getElementById(tableName);
@@ -288,6 +295,28 @@ function getThreeUnique(max) {
 	return temp;  // Convert the set back to an array
 }
 
+function getThreeUniqueNoDup(max, category) {
+	const numbers = new Set();
+
+	while (numbers.size < 3) {
+		const randomNumber = Math.floor(Math.random() * max);
+		// Check for already equipped items
+		if ((category == 0 && randomNumber == currentLoadout[0]) || 
+			(category == 1 && randomNumber == currentLoadout[1]) || 
+			(category == 2 && randomNumber == currentLoadout[2]) || 
+			(category == 5 && randomNumber == currentLoadout[3]) ||
+			(category == 4 && randomNumber == currentLoadout[8]) ||
+			(category == 3 && (randomNumber == currentLoadout[4] || randomNumber == currentLoadout[5] || randomNumber == currentLoadout[6] || randomNumber == currentLoadout[7]))) {
+				continue;
+		} else {
+			numbers.add(randomNumber);  // Add the random number to the set (duplicates are automatically ignored)
+		}
+	}
+
+	const temp = Array.from(numbers);
+	return temp;  // Convert the set back to an array
+}
+
 function roll () {
 	const categorySelections = [];
 	for (let i = 0; i < 3; i++) {
@@ -299,8 +328,8 @@ function roll () {
 	threeUnique.push(getThreeUnique(MasterList[0].length));
 	threeUnique.push(getThreeUnique(MasterList[1].length));
 	threeUnique.push(getThreeUnique(MasterList[2].length));
-	threeUnique.push(getThreeUnique(MasterList[3].length));
-	threeUnique.push(getThreeUnique(MasterList[4].length));
+	threeUnique.push(getThreeUnique((MasterList[3].length - 1)));
+	threeUnique.push(getThreeUnique((MasterList[4].length - 1)));
 	threeUnique.push(getThreeUnique(MasterList[5].length));
 
 	const finalResults = [
@@ -396,15 +425,15 @@ function generateLoadoutTable() {
 		if (i == 1) {
 			row.style.fontWeight = 'bold';
 			row2.style.fontWeight = 'bold';
-			row.insertCell(0).innerHTML = currentLoadout[0][0];
-			row.insertCell(1).innerHTML = currentLoadout[1][0];
-			row.insertCell(2).innerHTML = currentLoadout[2][0];
-			row.insertCell(3).innerHTML = currentLoadout[3][0];
-			row2.insertCell(0).innerHTML = currentLoadout[4][0];
-			row2.insertCell(1).innerHTML = currentLoadout[5][0];
-			row2.insertCell(2).innerHTML = currentLoadout[6][0];
-			row2.insertCell(3).innerHTML = currentLoadout[7][0];
-			row2.insertCell(4).innerHTML = currentLoadout[8][0];
+			row.insertCell(0).innerHTML = MasterList[0][currentLoadout[0]][0];
+			row.insertCell(1).innerHTML = MasterList[1][currentLoadout[1]][0];
+			row.insertCell(2).innerHTML = MasterList[2][currentLoadout[2]][0];
+			row.insertCell(3).innerHTML = MasterList[5][currentLoadout[3]][0];
+			row2.insertCell(0).innerHTML = MasterList[3][currentLoadout[4]][0];
+			row2.insertCell(1).innerHTML = MasterList[3][currentLoadout[5]][0];
+			row2.insertCell(2).innerHTML = MasterList[3][currentLoadout[6]][0];
+			row2.insertCell(3).innerHTML = MasterList[3][currentLoadout[7]][0];
+			row2.insertCell(4).innerHTML = MasterList[4][currentLoadout[8]][0];
 		} else {
 			row.insertCell(0).innerHTML = '';
 			row.insertCell(1).innerHTML = '';
@@ -416,23 +445,34 @@ function generateLoadoutTable() {
 			row2.insertCell(3).innerHTML = '';
 			row2.insertCell(4).innerHTML = '';
 			var cell = row.cells[0];
-			// var img = document.createElement('img');
+			const img = [document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img')
+						]
+			img[0].src = MasterList[0][currentLoadout[0]][1];
+			img[1].src = MasterList[1][currentLoadout[1]][1];
+			img[2].src = MasterList[2][currentLoadout[2]][1];
+			img[3].src = MasterList[5][currentLoadout[3]][1];
+			img[4].src = MasterList[3][currentLoadout[4]][1];
+			img[5].src = MasterList[3][currentLoadout[5]][1];
+			img[6].src = MasterList[3][currentLoadout[6]][1];
+			img[7].src = MasterList[3][currentLoadout[7]][1];
+			img[8].src = MasterList[4][currentLoadout[8]][1];
+			
+			for (var x = 0; x < 4; x++) {
+				cell = row.cells[x];
+				cell.appendChild(img[x]);
+			}
+			
 			for (var x = 0; x < 5; x++) {
-				if (x < 4) {
-					const img = document.createElement('img');
-					img.src = currentLoadout[x][1];
-					cell = row.cells[x];
-					cell.appendChild(img);
-					const img2 = document.createElement('img');
-					img2.src = currentLoadout[x+4][1];
-					cell = row2.cells[x];
-					cell.appendChild(img2);
-				} else {
-					const img = document.createElement('img');
-					img.src = currentLoadout[x+4][1];
-					cell = row2.cells[x];
-					cell.appendChild(img);
-				}
+				cell = row2.cells[x];
+				cell.appendChild(img[x+4]);
 			}
 		}
 	}
@@ -482,10 +522,10 @@ function swap(selection, count) {
 		var row = topTable.insertRow(i);
 		if (i == 1) {
 			row.style.fontWeight = 'bold';
-			row.insertCell(0).innerHTML = selection[0];
+			row.insertCell(0).innerHTML = MasterList[3][selection][0];
 		} else {
 			const img = document.createElement('img');
-			img.src = selection[1];
+			img.src = MasterList[3][selection][1];
 			row.insertCell(0).innerHTML = '';
 			var cell = row.cells[0];
 			cell.appendChild(img);
@@ -496,10 +536,10 @@ function swap(selection, count) {
 		var row = bottomTable.insertRow(i);
 		if (i == 1) {
 			row.style.fontWeight = 'bold';
-			row.insertCell(0).innerHTML = currentLoadout[4][0];
-			row.insertCell(1).innerHTML = currentLoadout[5][0];
-			row.insertCell(2).innerHTML = currentLoadout[6][0];
-			row.insertCell(3).innerHTML = currentLoadout[7][0];
+			row.insertCell(0).innerHTML = MasterList[3][currentLoadout[4]][0];
+			row.insertCell(1).innerHTML = MasterList[3][currentLoadout[5]][0];
+			row.insertCell(2).innerHTML = MasterList[3][currentLoadout[6]][0];
+			row.insertCell(3).innerHTML = MasterList[3][currentLoadout[7]][0];
 		} else if (i == 2) {
 			row.insertCell(0).innerHTML = '';
 			row.insertCell(1).innerHTML = '';
@@ -508,7 +548,7 @@ function swap(selection, count) {
 			var cell = row.cells[0];
 			for (var x = 0; x < 4; x++) {
 				const img = document.createElement('img');
-				img.src = currentLoadout[x+4][1];
+				img.src = MasterList[3][currentLoadout[x+4]][1];
 				cell = row.cells[x];
 				cell.appendChild(img);
 			}
@@ -630,13 +670,13 @@ function choose(category, selection, count) {
 	} else if (category == 2) { // throw
 		currentLoadout[2] = selection;
 	} else if (category == 3) { //strat
-		if (currentLoadout[4][0] == "Empty slot") {
+		if (currentLoadout[4] == MasterList[3].length - 1) {
 			currentLoadout[4] = selection;
-		} else if (currentLoadout[5][0] == "Empty slot") {
+		} else if (currentLoadout[5] == MasterList[3].length - 1) {
 			currentLoadout[5] = selection;
-		} else if (currentLoadout[6][0] == "Empty slot") {
+		} else if (currentLoadout[6] == MasterList[3].length - 1) {
 			currentLoadout[6] = selection;
-		} else if (currentLoadout[7][0] == "Empty slot") {
+		} else if (currentLoadout[7] == MasterList[3].length - 1) {
 			currentLoadout[7] = selection;
 		} else {
 			swapping = true;
@@ -645,7 +685,7 @@ function choose(category, selection, count) {
 		}
 	} else if (category == 4) { // boost
 		currentLoadout[8] = selection;
-	} else { //armour
+	} else if (category == 5) { //armour
 		currentLoadout[3] = selection;
 	}
 	
@@ -672,12 +712,12 @@ function rollSelect (count) {
 	}
 
 	const threeUnique = [];
-	threeUnique.push(getThreeUnique(MasterList[0].length));
-	threeUnique.push(getThreeUnique(MasterList[1].length));
-	threeUnique.push(getThreeUnique(MasterList[2].length));
-	threeUnique.push(getThreeUnique(MasterList[3].length));
-	threeUnique.push(getThreeUnique(MasterList[4].length));
-	threeUnique.push(getThreeUnique(MasterList[5].length));
+	threeUnique.push(getThreeUniqueNoDup(MasterList[0].length, 0));
+	threeUnique.push(getThreeUniqueNoDup(MasterList[1].length, 1));
+	threeUnique.push(getThreeUniqueNoDup(MasterList[2].length, 2));
+	threeUnique.push(getThreeUniqueNoDup((MasterList[3].length - 1), 3));
+	threeUnique.push(getThreeUniqueNoDup((MasterList[4].length - 1), 4));
+	threeUnique.push(getThreeUniqueNoDup(MasterList[5].length, 5));
 
 	const finalResults = [
 		[MasterList[categorySelections[0]][threeUnique[categorySelections[0]][0]][0], MasterList[categorySelections[0]][threeUnique[categorySelections[0]][0]][1]],
@@ -704,7 +744,7 @@ function rollSelect (count) {
 	// Append the header row to the table
 	table.appendChild(headerRow);
 
-	for(var i = 1; i < 4; i++) {
+	for(var i = 1; i < 5; i++) {
 		var row = table.insertRow(i);
 		if (i == 1) {
 			row.style.fontWeight = 'bold';
@@ -727,16 +767,16 @@ function rollSelect (count) {
 			cell.appendChild(img2);
 			cell = row.cells[2];
 			cell.appendChild(img3);
-		} else {
+		} else if (i == 3){
 			const button1 = document.createElement('button');
 			button1.innerText = 'Select';
-			button1.onclick = function() {choose(categorySelections[0], finalResults[0], count)};
+			button1.onclick = function() {choose(categorySelections[0], threeUnique[categorySelections[0]][0], count)};
 			const button2 = document.createElement('button');
 			button2.innerText = 'Select';
-			button2.onclick = function() {choose(categorySelections[1], finalResults[1], count)};
+			button2.onclick = function() {choose(categorySelections[1], threeUnique[categorySelections[1]][1], count)};
 			const button3 = document.createElement('button');
 			button3.innerText = 'Select';
-			button3.onclick = function() {choose(categorySelections[2], finalResults[2], count)};
+			button3.onclick = function() {choose(categorySelections[2], threeUnique[categorySelections[2]][2], count)};
 			row.insertCell(0).innerHTML = '';
 			row.insertCell(1).innerHTML = '';
 			row.insertCell(2).innerHTML = '';
@@ -746,6 +786,16 @@ function rollSelect (count) {
 			cell.appendChild(button2);
 			cell = row.cells[2];
 			cell.appendChild(button3);
+		} else {
+			const button = document.createElement('button');
+			button.innerText = 'Pass';
+			button.onclick = function() {choose(6, 0, count)};
+			row.insertCell(0).innerHTML = '';
+			row.insertCell(1).innerHTML = '';
+			var cell = row.cells[0];
+			// cell.style.display = "none";
+			cell = row.cells[1];
+			cell.appendChild(button);
 		}
 	}
 	
@@ -784,11 +834,58 @@ function newGame() {
 	contents.forEach(function(button){button.style.display = 'flex';});
 }
 
+function updateMission() {
+	if (currentDifficulty == 0 || currentDifficulty == 1 || currentDifficulty == 2) {
+		currentDifficulty++;
+		if (currentDifficulty == 1 || currentDifficulty == 2) {
+			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy;
+		} else {
+			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy + " Mission " + currentMission + " of 2";
+		}
+	} else if (currentDifficulty == 3 || currentDifficulty == 4) {
+		if (currentMission == 1) {
+			currentMission++;
+			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy + " Mission " + currentMission + " of 2";
+		} else if (currentDifficulty == 3) {
+			currentDifficulty++;
+			currentMission = 1;
+			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy + " Mission " + currentMission + " of 2";
+		} else {
+			currentDifficulty++;
+			currentMission = 1;
+			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy + " Mission " + currentMission + " of 3";
+		}
+	} else if (currentDifficulty < 11 && currentEndgameRound < 2) {
+		if (currentMission < 3) {
+			currentMission++;
+			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy + " Mission " + currentMission + " of 3";
+		} else if (currentDifficulty == 10 && currentMission == 3) {
+			currentMission = 1;
+			currentEndgameRound++;
+			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " (Round " + currentEndgameRound + ") " + currentEnemy + " Mission " + currentMission + " of 3";
+		} else {
+			currentDifficulty++;
+			currentMission = 1;
+			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy + " Mission " + currentMission + " of 3";
+		}
+	} else {
+		if (currentMission < 3) {
+			currentMission++;
+			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " (Round " + currentEndgameRound + ") " + currentEnemy + " Mission " + currentMission + " of 3";
+		} else {
+			currentMission = 1;
+			currentEndgameRound++;
+			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " (Round " + currentEndgameRound + ") " + currentEnemy + " Mission " + currentMission + " of 3";
+		}
+	}
+}
+
 function selectBug() {
 	var contents = document.querySelectorAll('.enemy-row');
 	contents.forEach(content => content.style.display = 'none');
 	currentEnemy = "Terminids";
-	document.getElementById('missionTracker').innerText = "Level " + currentMission + " " + currentEnemy;
+	updateMission();
+	//document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy;
 	generateLoadoutTable();
 	
 	contents = document.querySelectorAll('.game-row');
@@ -801,7 +898,8 @@ function selectBot() {
 	var contents = document.querySelectorAll('.enemy-row');
 	contents.forEach(content => content.style.display = 'none');
 	currentEnemy = "Automatons";
-	document.getElementById('missionTracker').innerText = "Level " + currentMission + " " + currentEnemy;
+	updateMission();
+	//document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy;
 	generateLoadoutTable();
 	
 	contents = document.querySelectorAll('.game-row');
@@ -814,7 +912,8 @@ function selectSquid() {
 	var contents = document.querySelectorAll('.enemy-row');
 	contents.forEach(content => content.style.display = 'none');
 	currentEnemy = "Illuminate";
-	document.getElementById('missionTracker').innerText = "Level " + currentMission + " " + currentEnemy;
+	updateMission();
+	//document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy;
 	generateLoadoutTable();
 	
 	contents = document.querySelectorAll('.game-row');
@@ -827,7 +926,8 @@ function selectChaos() {
 	var contents = document.querySelectorAll('.enemy-row');
 	contents.forEach(content => content.style.display = 'none');
 	currentEnemy = pickEnemy();
-	document.getElementById('missionTracker').innerText = "Level " + currentMission + " " + currentEnemy;
+	updateMission();
+	//document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy;
 	generateLoadoutTable();
 	
 	contents = document.querySelectorAll('.game-row');
@@ -841,6 +941,7 @@ function notFullStar() {
 	contents.forEach(function(button){button.style.display = 'none';});
 	document.getElementById('topLoad').style.display = 'none';
 	document.getElementById('bottomLoad').style.display = 'none';
+	updateMission();
 	
 	const container = document.getElementById('roll-results');
 	container.innerHTML = '';
@@ -853,6 +954,7 @@ function fullStar() {
 	contents.forEach(function(button){button.style.display = 'none';});
 	document.getElementById('topLoad').style.display = 'none';
 	document.getElementById('bottomLoad').style.display = 'none';
+	updateMission();
 	
 	const container = document.getElementById('roll-results');
 	container.innerHTML = '';

@@ -37,9 +37,11 @@ Initial creation date: 3.20.2025
 		<!-- New game or continue -->
 			<div class="container">
 				<h1>Randomdivers: Hell-like</h1>
-				<button class="game-button" onclick="newGame()">Start a new game?</button>
-				<button class="game-button" onclick="resumeGame()">Continue?</button>
+				<button onclick="newGame()">Start a new game?</button>
+				<button onclick="resumeGame()">Continue?</button>
 			</div>
+			
+			<!-- class="game-button"  -->
 			
 		<!-- Enemy selection -->
 			<div class="enemy-row" style="display: none;">
@@ -73,9 +75,9 @@ Initial creation date: 3.20.2025
 			<div id="bottomLoad" style="justify-content: center;"></div>
 			<div id="roll-results"></div>
 			<div class="game-row" style="display: none; justify-content: center;">
-				<button onclick="resumeGame()">Defeated</button>
-				<button onclick="notFullStar()">Completed</button>
-				<button onclick="fullStar()">Full Stars</button>
+				<button class="defeat-button" onclick="resumeGame()" style="font-weight: bold;">Disgraceful Conduct<br>&#9733;</button>
+				<button onclick="notFullStar()" style="font-weight: bold;">Honorable Duty<br>&#9733;&#9733;&#9733;</button>
+				<button onclick="fullStar()" style="font-weight: bold;">Outstanding Patriotism<br>&#9733;&#9733;&#9733;&#9733;&#9733;</button>
 			</div>
 		</div>
 		

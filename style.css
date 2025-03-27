@@ -29,7 +29,7 @@ button {
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-	margin-top: 20px;
+	/* margin-top: 20px; */
 }
 
 button:hover {
@@ -85,7 +85,7 @@ img {
 }
 
 .game-button {
-	
+	background-color: #FFC100
 }
 
 .bug-button {
@@ -107,6 +107,10 @@ img {
 	border: 1px solid #ffffff;
 }
 
+.defeat-button {
+	background-color: #F0080C
+}
+
 .bug-button:hover {
 	background-color: #BF9100
 }
@@ -121,6 +125,10 @@ img {
 
 .chaos-button:hover {
 	background-color: #2E2E2E
+}
+
+.defeat-button:hover {
+	background-color: #C2070A
 }
 
 .row {
