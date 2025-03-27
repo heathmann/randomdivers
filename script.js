@@ -288,7 +288,7 @@ function getThreeUnique(max) {
 	return temp;  // Convert the set back to an array
 }
 
-function changeMessage() {
+function roll () {
 	const categorySelections = [];
 	for (let i = 0; i < 3; i++) {
 		const x = Math.floor(Math.random() * 6);
@@ -353,26 +353,8 @@ function changeMessage() {
 			cell.appendChild(img3);
 		}
 	}
-
-	const container = document.getElementById('table-results');
-	container.innerHTML = '';
-	container.appendChild(table);
-}
-
-// Pick a random faction and return the faction as a string (for chaos mode)
-function pickEnemy() {
-	const x = Math.floor(Math.random() * 3);
-	var enemy = "null";
 	
-	if (x == 0) {
-		enemy = "Terminids";
-	} else if (x == 1) {
-		enemy = "Automatons";
-	} else {
-		enemy = "Illuminate";
-	}
-	
-	return enemy;
+	return table;
 }
 
 function generateLoadoutTable() {
@@ -463,6 +445,335 @@ function generateLoadoutTable() {
 	container2.appendChild(bottomTable);
 }
 
+function swap(selection, count) {
+	document.getElementById('messageText').innerText = "You have no available Stratagem slots. Select one to replace.";
+	const message = document.querySelectorAll('.message');
+	message.forEach(function(button){button.style.display = 'flex';});
+	const topTable = document.createElement('table');
+	const bottomTable = document.createElement('table');
+	topTable.style.height = 'auto';
+	bottomTable.style.height = 'auto';
+	bottomTable.style.align = 'center';
+
+	const topHeaderRow = document.createElement('tr');
+	const bottomHeaderRow = document.createElement('tr');
+
+	// Array of header names
+	const bottomHeaders = ['Stratagem 1', 'Stratagem 2', 'Stratagem 3', 'Stratagem 4'];
+
+	const thx = document.createElement('th');
+	thx.textContent = 'Selection'; 
+	thx.style.border = '1px solid black'; 
+	topHeaderRow.appendChild(thx);
+
+	// Loop through the headers and create <th> elements
+	bottomHeaders.forEach(headerText => {
+		const th = document.createElement('th');
+		th.textContent = headerText;  // Set the text of the header
+		th.style.border = '1px solid black';  // Add border to the header
+		bottomHeaderRow.appendChild(th);  // Append the header cell to the header row
+	});
+
+	// Append the header row to the table
+	topTable.appendChild(topHeaderRow);
+	bottomTable.appendChild(bottomHeaderRow);
+
+	for(var i = 1; i < 3; i++) {
+		var row = topTable.insertRow(i);
+		if (i == 1) {
+			row.style.fontWeight = 'bold';
+			row.insertCell(0).innerHTML = selection[0];
+		} else {
+			const img = document.createElement('img');
+			img.src = selection[1];
+			row.insertCell(0).innerHTML = '';
+			var cell = row.cells[0];
+			cell.appendChild(img);
+		}
+	}
+
+	for(var i = 1; i < 4; i++) {
+		var row = bottomTable.insertRow(i);
+		if (i == 1) {
+			row.style.fontWeight = 'bold';
+			row.insertCell(0).innerHTML = currentLoadout[4][0];
+			row.insertCell(1).innerHTML = currentLoadout[5][0];
+			row.insertCell(2).innerHTML = currentLoadout[6][0];
+			row.insertCell(3).innerHTML = currentLoadout[7][0];
+		} else if (i == 2) {
+			row.insertCell(0).innerHTML = '';
+			row.insertCell(1).innerHTML = '';
+			row.insertCell(2).innerHTML = '';
+			row.insertCell(3).innerHTML = '';
+			var cell = row.cells[0];
+			for (var x = 0; x < 4; x++) {
+				const img = document.createElement('img');
+				img.src = currentLoadout[x+4][1];
+				cell = row.cells[x];
+				cell.appendChild(img);
+			}
+		} else {
+			const button1 = document.createElement('button');
+			button1.innerText = 'Replace';
+			button1.onclick = function() {
+				currentLoadout[4] = selection;
+				if (count == 1) {
+					generateLoadoutTable();
+					var contents = document.querySelectorAll('.game-row');
+					contents.forEach(function(button){button.style.display = 'flex';});
+					document.getElementById('topLoad').style.display = 'flex';
+					document.getElementById('bottomLoad').style.display = 'flex';
+					document.getElementById('roll-results').style.display = 'none';
+					message.forEach(function(button){button.style.display = 'none';});
+				} else {
+					document.getElementById('topLoad').style.display = 'none';
+					message.forEach(function(button){button.style.display = 'none';});
+					document.getElementById('bottomLoad').style.display = 'none';
+					const container = document.getElementById('roll-results');
+					container.innerHTML = '';
+					container.appendChild(rollSelect(1));
+					container.style.display = 'flex';
+				}};
+			const button2 = document.createElement('button');
+			button2.innerText = 'Replace';
+			button2.onclick = function() {
+				currentLoadout[5] = selection;
+				if (count == 1) {
+					generateLoadoutTable();
+					var contents = document.querySelectorAll('.game-row');
+					contents.forEach(function(button){button.style.display = 'flex';});
+					document.getElementById('topLoad').style.display = 'flex';
+					document.getElementById('bottomLoad').style.display = 'flex';
+					document.getElementById('roll-results').style.display = 'none';
+					message.forEach(function(button){button.style.display = 'none';});
+				} else {
+					document.getElementById('topLoad').style.display = 'none';
+					message.forEach(function(button){button.style.display = 'none';});
+					document.getElementById('bottomLoad').style.display = 'none';
+					const container = document.getElementById('roll-results');
+					container.innerHTML = '';
+					container.appendChild(rollSelect(1));
+					container.style.display = 'flex';
+				}};
+			const button3 = document.createElement('button');
+			button3.innerText = 'Replace';
+			button3.onclick = function() {
+				currentLoadout[6] = selection;
+				if (count == 1) {
+					generateLoadoutTable();
+					var contents = document.querySelectorAll('.game-row');
+					contents.forEach(function(button){button.style.display = 'flex';});
+					document.getElementById('topLoad').style.display = 'flex';
+					document.getElementById('bottomLoad').style.display = 'flex';
+					document.getElementById('roll-results').style.display = 'none';
+					message.forEach(function(button){button.style.display = 'none';});
+				} else {
+					document.getElementById('topLoad').style.display = 'none';
+					document.getElementById('bottomLoad').style.display = 'none';
+					message.forEach(function(button){button.style.display = 'none';});
+					const container = document.getElementById('roll-results');
+					container.innerHTML = '';
+					container.appendChild(rollSelect(1));
+					container.style.display = 'flex';
+				}};
+			const button4 = document.createElement('button');
+			button4.innerText = 'Replace';
+			button4.onclick = function() {
+				currentLoadout[7] = selection;
+				if (count == 1) {
+					generateLoadoutTable();
+					var contents = document.querySelectorAll('.game-row');
+					contents.forEach(function(button){button.style.display = 'flex';});
+					document.getElementById('topLoad').style.display = 'flex';
+					document.getElementById('bottomLoad').style.display = 'flex';
+					document.getElementById('roll-results').style.display = 'none';
+					message.forEach(function(button){button.style.display = 'none';});
+				} else {
+					document.getElementById('topLoad').style.display = 'none';
+					document.getElementById('bottomLoad').style.display = 'none';
+					message.forEach(function(button){button.style.display = 'none';});
+					const container = document.getElementById('roll-results');
+					container.innerHTML = '';
+					container.appendChild(rollSelect(1));
+					container.style.display = 'flex';
+				}};
+			row.insertCell(0).innerHTML = '';
+			row.insertCell(1).innerHTML = '';
+			row.insertCell(2).innerHTML = '';
+			row.insertCell(3).innerHTML = '';
+			var cell = row.cells[0];
+			cell.appendChild(button1);
+			cell = row.cells[1];
+			cell.appendChild(button2);
+			cell = row.cells[2];
+			cell.appendChild(button3);
+			cell = row.cells[3];
+			cell.appendChild(button4);
+		}
+	}
+	const container = document.getElementById('topLoad');
+	const container2 = document.getElementById('bottomLoad');
+	container.innerHTML = '';
+	container2.innerHTML = '';
+	container.appendChild(topTable);
+	container2.appendChild(bottomTable);
+	document.getElementById('topLoad').style.display = 'flex';
+	document.getElementById('bottomLoad').style.display = 'flex';
+}
+
+function choose(category, selection, count) {
+	var swapping = false;
+	if (category == 0) { // primary
+		currentLoadout[0] = selection;
+	} else if (category == 1) { // side
+		currentLoadout[1] = selection;
+	} else if (category == 2) { // throw
+		currentLoadout[2] = selection;
+	} else if (category == 3) { //strat
+		if (currentLoadout[4][0] == "Empty slot") {
+			currentLoadout[4] = selection;
+		} else if (currentLoadout[5][0] == "Empty slot") {
+			currentLoadout[5] = selection;
+		} else if (currentLoadout[6][0] == "Empty slot") {
+			currentLoadout[6] = selection;
+		} else if (currentLoadout[7][0] == "Empty slot") {
+			currentLoadout[7] = selection;
+		} else {
+			swapping = true;
+			document.getElementById('roll-results').style.display = 'none';
+			swap(selection, count);
+		}
+	} else if (category == 4) { // boost
+		currentLoadout[8] = selection;
+	} else { //armour
+		currentLoadout[3] = selection;
+	}
+	
+	if (count == 1 && !swapping) {
+		generateLoadoutTable();
+		var contents = document.querySelectorAll('.game-row');
+		contents.forEach(function(button){button.style.display = 'flex';});
+		document.getElementById('topLoad').style.display = 'flex';
+		document.getElementById('bottomLoad').style.display = 'flex';
+		document.getElementById('roll-results').style.display = 'none';
+	} else if (!swapping) {
+		const container = document.getElementById('roll-results');
+		container.innerHTML = '';
+		container.appendChild(rollSelect(1));
+		container.style.display = 'flex';
+	}	
+}
+
+function rollSelect (count) {
+	const categorySelections = [];
+	for (let i = 0; i < 3; i++) {
+		const x = Math.floor(Math.random() * 6);
+		categorySelections.push(x);
+	}
+
+	const threeUnique = [];
+	threeUnique.push(getThreeUnique(MasterList[0].length));
+	threeUnique.push(getThreeUnique(MasterList[1].length));
+	threeUnique.push(getThreeUnique(MasterList[2].length));
+	threeUnique.push(getThreeUnique(MasterList[3].length));
+	threeUnique.push(getThreeUnique(MasterList[4].length));
+	threeUnique.push(getThreeUnique(MasterList[5].length));
+
+	const finalResults = [
+		[MasterList[categorySelections[0]][threeUnique[categorySelections[0]][0]][0], MasterList[categorySelections[0]][threeUnique[categorySelections[0]][0]][1]],
+		[MasterList[categorySelections[1]][threeUnique[categorySelections[1]][1]][0], MasterList[categorySelections[1]][threeUnique[categorySelections[1]][1]][1]],
+		[MasterList[categorySelections[2]][threeUnique[categorySelections[2]][2]][0], MasterList[categorySelections[2]][threeUnique[categorySelections[2]][2]][1]]
+	];
+
+	const table = document.createElement('table');
+	table.style.height = 'auto';
+
+	const headerRow = document.createElement('tr');
+
+	// Array of header names
+	const headers = ['Option 1', 'Option 2', 'Option 3'];
+
+	// Loop through the headers and create <th> elements
+	headers.forEach(headerText => {
+		const th = document.createElement('th');
+		th.textContent = headerText;  // Set the text of the header
+		th.style.border = '1px solid black';  // Add border to the header
+		headerRow.appendChild(th);  // Append the header cell to the header row
+	});
+
+	// Append the header row to the table
+	table.appendChild(headerRow);
+
+	for(var i = 1; i < 4; i++) {
+		var row = table.insertRow(i);
+		if (i == 1) {
+			row.style.fontWeight = 'bold';
+			row.insertCell(0).innerHTML = finalResults[0][0];
+			row.insertCell(1).innerHTML = finalResults[1][0];
+			row.insertCell(2).innerHTML = finalResults[2][0];
+		} else if (i == 2) {
+			const img1 = document.createElement('img');
+			img1.src = finalResults[0][1];
+			const img2 = document.createElement('img');
+			img2.src = finalResults[1][1];
+			const img3 = document.createElement('img');
+			img3.src = finalResults[2][1];
+			row.insertCell(0).innerHTML = '';
+			row.insertCell(1).innerHTML = '';
+			row.insertCell(2).innerHTML = '';
+			var cell = row.cells[0];
+			cell.appendChild(img1);
+			cell = row.cells[1];
+			cell.appendChild(img2);
+			cell = row.cells[2];
+			cell.appendChild(img3);
+		} else {
+			const button1 = document.createElement('button');
+			button1.innerText = 'Select';
+			button1.onclick = function() {choose(categorySelections[0], finalResults[0], count)};
+			const button2 = document.createElement('button');
+			button2.innerText = 'Select';
+			button2.onclick = function() {choose(categorySelections[1], finalResults[1], count)};
+			const button3 = document.createElement('button');
+			button3.innerText = 'Select';
+			button3.onclick = function() {choose(categorySelections[2], finalResults[2], count)};
+			row.insertCell(0).innerHTML = '';
+			row.insertCell(1).innerHTML = '';
+			row.insertCell(2).innerHTML = '';
+			var cell = row.cells[0];
+			cell.appendChild(button1);
+			cell = row.cells[1];
+			cell.appendChild(button2);
+			cell = row.cells[2];
+			cell.appendChild(button3);
+		}
+	}
+	
+	return table;
+}
+
+function changeMessage() {
+	const container = document.getElementById('table-results');
+	container.innerHTML = '';
+	container.appendChild(roll());
+}
+
+// Pick a random faction and return the faction as a string (for chaos mode)
+function pickEnemy() {
+	const x = Math.floor(Math.random() * 3);
+	var enemy = "null";
+	
+	if (x == 0) {
+		enemy = "Terminids";
+	} else if (x == 1) {
+		enemy = "Automatons";
+	} else {
+		enemy = "Illuminate";
+	}
+	
+	return enemy;
+}
+
 function newGame() {
 	// Hide new game and continue buttons
 	var contents = document.querySelectorAll('.game-button');
@@ -482,6 +793,8 @@ function selectBug() {
 	
 	contents = document.querySelectorAll('.game-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
+	contents = document.querySelectorAll('.mission-row');
+	contents.forEach(function(button){button.style.display = 'flex';});
 }
 
 function selectBot() {
@@ -492,6 +805,8 @@ function selectBot() {
 	generateLoadoutTable();
 	
 	contents = document.querySelectorAll('.game-row');
+	contents.forEach(function(button){button.style.display = 'flex';});
+	contents = document.querySelectorAll('.mission-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
 }
 
@@ -504,6 +819,8 @@ function selectSquid() {
 	
 	contents = document.querySelectorAll('.game-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
+	contents = document.querySelectorAll('.mission-row');
+	contents.forEach(function(button){button.style.display = 'flex';});
 }
 
 function selectChaos() {
@@ -515,6 +832,32 @@ function selectChaos() {
 	
 	contents = document.querySelectorAll('.game-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
+	contents = document.querySelectorAll('.mission-row');
+	contents.forEach(function(button){button.style.display = 'flex';});
+}
+
+function notFullStar() {
+	var contents = document.querySelectorAll('.game-row');
+	contents.forEach(function(button){button.style.display = 'none';});
+	document.getElementById('topLoad').style.display = 'none';
+	document.getElementById('bottomLoad').style.display = 'none';
+	
+	const container = document.getElementById('roll-results');
+	container.innerHTML = '';
+	container.appendChild(rollSelect(1));
+	container.style.display = 'flex';
+}
+
+function fullStar() {
+	var contents = document.querySelectorAll('.game-row');
+	contents.forEach(function(button){button.style.display = 'none';});
+	document.getElementById('topLoad').style.display = 'none';
+	document.getElementById('bottomLoad').style.display = 'none';
+	
+	const container = document.getElementById('roll-results');
+	container.innerHTML = '';
+	container.appendChild(rollSelect(2));
+	container.style.display = 'flex';
 }
 
 function resumeGame() {
