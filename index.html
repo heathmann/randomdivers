@@ -39,6 +39,14 @@ Initial creation date: 3.20.2025
 				<h1>Randomdivers: Hell-like</h1>
 			</div>
 			
+			<div class="continue-row" style="display: none; justify-content: center;">
+				<p id="saves">Select a run to resume or delete:</p>
+				<p id="noSaves" style="display: none;">You have no saved runs currently.<br>Time to start a new run, Helldiver!</p>
+			</div>
+			<div class="continue-row" style="display: none; justify-content: center;">
+				<div id="runsPrint"></div>
+			</div>
+			
 		<!-- Enemy selection -->
 			<div class="enemy-row" style="display: none;">
 				<p>Select the enemy for this run:</p>
@@ -86,9 +94,10 @@ Initial creation date: 3.20.2025
 				<div id="goAgain" style="color: white; margin-bottom: 10px; margin-top: 10px;"></div>
 			</div>
 			
-			<div class="row" style="justify-content: center;">
+			<div class="row" style="justify-content: center; margin-top: 20px;">
 				<button class="game-button" onclick="newGame()">Start a new game?</button>
-				<button class="game-button" onclick="resumeGame()">Continue?</button>
+				<button class="continue-button" onclick="resumeGame()">Continue?</button>
+				<button class="save-button" onclick="saveGame()" style="display: none;">Save Game</button>
 			</div>
 		</div>
 		

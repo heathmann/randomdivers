@@ -236,6 +236,14 @@ const MasterList = [
 	]
 ];
 
+// [date], [difficulty], [mission], [enemy], [endgame], [score], [chaos], [loadoutArray]
+var savedRuns = [];
+let pulledRuns = JSON.parse(localStorage.getItem('savedRunsLocal'));
+
+if (pulledRuns) {
+	savedRuns = pulledRuns;
+}
+
 var currentDifficulty = 0;
 var currentMission = 1;
 var currentEnemy = "null";
@@ -302,6 +310,122 @@ function createResultTable(data, tableName) {
 				tr.appendChild(td);
 			});
 
+			table.appendChild(tr);
+		}
+	});
+	// Add the table to the container
+	const container = document.getElementById(tableName);
+	container.appendChild(table);
+}
+
+function pickUpRun(savedData, oldSaveIndex) {
+	currentDifficulty = savedData[1];
+	currentMission = savedData[2];
+	currentEnemy = savedData[3];
+	currentEndgameRound = savedData[4];
+	currentScore = savedData[5];
+	currentChaos = savedData[6];
+	currentLoadout = savedData[7];
+	
+	if ((currentMission - 1) == 0) {
+		if ((currentDifficulty - 1) >= 0) {
+			currentDifficulty--;
+			currentScore = currentScore - currentDifficulty;
+		} 
+	} else {
+		currentMission--;
+		currentScore = currentScore - currentDifficulty;
+	}
+	
+	updateMission();
+	generateLoadoutTable();
+	savedRuns.splice(oldSaveIndex, 1);
+	localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns));
+	
+	var contents = document.querySelectorAll('.game-button');
+	contents.forEach(content => content.style.display = 'none');
+	contents = document.querySelectorAll('.continue-button');
+	contents.forEach(content => content.style.display = 'none');
+	contents = document.querySelectorAll('.continue-row');
+	contents.forEach(content => content.style.display = 'none');
+	contents = document.querySelectorAll('.results-row');
+	contents.forEach(content => content.style.display = 'none');
+	contents = document.querySelectorAll('.game-row');
+	contents.forEach(function(button){button.style.display = 'flex';});
+	contents = document.querySelectorAll('.mission-row');
+	contents.forEach(function(button){button.style.display = 'flex';});
+	document.getElementById('topLoad').style.display = 'flex';
+	document.getElementById('bottomLoad').style.display = 'flex';
+	contents = document.querySelectorAll('.save-button');
+	contents.forEach(content => content.style.display = 'flex');
+}
+
+function createRunsTable(data, tableName) {
+	// Create the table element
+	const table = document.createElement('table');
+	
+	const headerRow = document.createElement('tr');
+
+	// Array of header names [id], [date], [difficulty], [mission], [enemy], [endgame], [score], [chaos], [loadoutArray]
+	const headers = ['Run', 'Difficulty', 'Enemy', 'Mission', 'Date', 'Resume run?', 'Delete run?'];
+
+	// Loop through the headers and create <th> elements
+	headers.forEach(headerText => {
+		const th = document.createElement('th');
+		th.textContent = headerText;  // Set the text of the header
+		th.style.border = '1px solid black';  // Add border to the header
+		headerRow.appendChild(th);  // Append the header cell to the header row
+	});
+
+	// Append the header row to the table
+	table.appendChild(headerRow);
+	
+	var idCount = 0;
+
+	// Loop through the array and create table rows
+	data.forEach((row, rowIndex) => {
+		idCount++;
+		if (rowIndex !== data.length) {
+			const tr = document.createElement('tr');
+			const id = document.createElement('td');
+			const date = document.createElement('td');
+			const diff = document.createElement('td');
+			const miss = document.createElement('td');
+			const enemy = document.createElement('td');
+			const butt = document.createElement('button');
+			const del = document.createElement('button');
+			butt.innerText = 'Resume';
+			del.innerText = 'Delete';
+			id.textContent = idCount;
+
+			row.forEach((cell, cellIndex) => {
+				const saveIndex = idCount - 1;
+				if (cellIndex == 0) {
+					date.textContent = cell;
+				} else if (cellIndex == 1) {
+					diff.textContent = cell;
+				} else if (cellIndex == 2) {
+					miss.textContent = cell;
+				} else if (cellIndex == 3) {
+					enemy.textContent = cell;
+				} else if (cellIndex == 4) {
+					butt.onclick = function() {pickUpRun(data[saveIndex], saveIndex);};
+				} else if (cellIndex == 5) {
+					del.onclick = function() {savedRuns.splice(saveIndex, 1); localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns)); resumeGame();};
+				}
+			});
+			tr.appendChild(id);
+			tr.appendChild(diff);
+			tr.appendChild(enemy);
+			tr.appendChild(miss);
+			tr.appendChild(date);
+			tr.insertCell(5).innerHTML = '';
+			tr.insertCell(5).appendChild(butt);
+			tr.insertCell(6).innerHTML = '';
+			tr.insertCell(6).appendChild(del);
+			tr.deleteCell(7);
+			tr.deleteCell(7);
+			
 			table.appendChild(tr);
 		}
 	});
@@ -590,6 +714,8 @@ function swap(selection, count) {
 					contents.forEach(function(button){button.style.display = 'flex';});
 					document.getElementById('topLoad').style.display = 'flex';
 					document.getElementById('bottomLoad').style.display = 'flex';
+					contents = document.querySelectorAll('.save-button');
+					contents.forEach(content => content.style.display = 'flex');
 					document.getElementById('roll-results').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
 				} else {
@@ -611,6 +737,8 @@ function swap(selection, count) {
 					contents.forEach(function(button){button.style.display = 'flex';});
 					document.getElementById('topLoad').style.display = 'flex';
 					document.getElementById('bottomLoad').style.display = 'flex';
+					contents = document.querySelectorAll('.save-button');
+					contents.forEach(content => content.style.display = 'flex');
 					document.getElementById('roll-results').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
 				} else {
@@ -632,6 +760,8 @@ function swap(selection, count) {
 					contents.forEach(function(button){button.style.display = 'flex';});
 					document.getElementById('topLoad').style.display = 'flex';
 					document.getElementById('bottomLoad').style.display = 'flex';
+					contents = document.querySelectorAll('.save-button');
+					contents.forEach(content => content.style.display = 'flex');
 					document.getElementById('roll-results').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
 				} else {
@@ -653,6 +783,8 @@ function swap(selection, count) {
 					contents.forEach(function(button){button.style.display = 'flex';});
 					document.getElementById('topLoad').style.display = 'flex';
 					document.getElementById('bottomLoad').style.display = 'flex';
+					contents = document.querySelectorAll('.save-button');
+					contents.forEach(content => content.style.display = 'flex');
 					document.getElementById('roll-results').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
 				} else {
@@ -722,6 +854,8 @@ function choose(category, selection, count) {
 		contents.forEach(function(button){button.style.display = 'flex';});
 		document.getElementById('topLoad').style.display = 'flex';
 		document.getElementById('bottomLoad').style.display = 'flex';
+		contents = document.querySelectorAll('.save-button');
+		contents.forEach(content => content.style.display = 'flex');
 		document.getElementById('roll-results').style.display = 'none';
 	} else if (!swapping) {
 		const container = document.getElementById('roll-results');
@@ -854,6 +988,10 @@ function newGame() {
 	// Hide new game and continue buttons
 	var contents = document.querySelectorAll('.game-button');
 	contents.forEach(content => content.style.display = 'none');
+	contents = document.querySelectorAll('.continue-button');
+	contents.forEach(content => content.style.display = 'none');
+	contents = document.querySelectorAll('.continue-row');
+	contents.forEach(content => content.style.display = 'none');
 	contents = document.querySelectorAll('.results-row');
 	contents.forEach(content => content.style.display = 'none');
 	
@@ -968,6 +1106,8 @@ function selectBug() {
 	contents.forEach(function(button){button.style.display = 'flex';});
 	document.getElementById('topLoad').style.display = 'flex';
 	document.getElementById('bottomLoad').style.display = 'flex';
+	contents = document.querySelectorAll('.save-button');
+	contents.forEach(content => content.style.display = 'flex');
 }
 
 function selectBot() {
@@ -983,6 +1123,8 @@ function selectBot() {
 	contents.forEach(function(button){button.style.display = 'flex';});
 	document.getElementById('topLoad').style.display = 'flex';
 	document.getElementById('bottomLoad').style.display = 'flex';
+	contents = document.querySelectorAll('.save-button');
+	contents.forEach(content => content.style.display = 'flex');
 }
 
 function selectSquid() {
@@ -998,6 +1140,8 @@ function selectSquid() {
 	contents.forEach(function(button){button.style.display = 'flex';});
 	document.getElementById('topLoad').style.display = 'flex';
 	document.getElementById('bottomLoad').style.display = 'flex';
+	contents = document.querySelectorAll('.save-button');
+	contents.forEach(content => content.style.display = 'flex');
 }
 
 function selectChaos() {
@@ -1014,6 +1158,8 @@ function selectChaos() {
 	contents.forEach(function(button){button.style.display = 'flex';});
 	document.getElementById('topLoad').style.display = 'flex';
 	document.getElementById('bottomLoad').style.display = 'flex';
+	contents = document.querySelectorAll('.save-button');
+	contents.forEach(content => content.style.display = 'flex');
 }
 
 function notFullStar() {
@@ -1021,6 +1167,8 @@ function notFullStar() {
 	contents.forEach(function(button){button.style.display = 'none';});
 	document.getElementById('topLoad').style.display = 'none';
 	document.getElementById('bottomLoad').style.display = 'none';
+	contents = document.querySelectorAll('.save-button');
+	contents.forEach(content => content.style.display = 'none');
 	updateMission();
 	
 	const container = document.getElementById('roll-results');
@@ -1034,6 +1182,8 @@ function fullStar() {
 	contents.forEach(function(button){button.style.display = 'none';});
 	document.getElementById('topLoad').style.display = 'none';
 	document.getElementById('bottomLoad').style.display = 'none';
+	contents = document.querySelectorAll('.save-button');
+	contents.forEach(content => content.style.display = 'none');
 	updateMission();
 	
 	const container = document.getElementById('roll-results');
@@ -1049,6 +1199,8 @@ function finalResults() {
 	document.getElementById('bottomLoad').style.display = 'none';
 	contents = document.querySelectorAll('.mission-row');
 	contents.forEach(function(button){button.style.display = 'none';});
+	contents = document.querySelectorAll('.save-button');
+	contents.forEach(content => content.style.display = 'none');
 	contents = document.querySelectorAll('.results-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
 	contents = document.getElementById('resultsPrint');
@@ -1085,10 +1237,53 @@ function finalResults() {
 	document.getElementById('goAgain').innerText = "GG, Helldiver! Ready for new orders?";
 	contents = document.querySelectorAll('.game-button');
 	contents.forEach(content => content.style.display = 'flex');
+	contents = document.querySelectorAll('.continue-button');
+	contents.forEach(content => content.style.display = 'flex');
 }
 
 function resumeGame() {
+	var contents = document.querySelectorAll('.continue-button');
+	contents.forEach(content => content.style.display = 'none');
+	contents = document.querySelectorAll('.results-row');
+	contents.forEach(content => content.style.display = 'none');
+	contents = document.querySelectorAll('.continue-row');
+	contents.forEach(function(button){button.style.display = 'flex';});
+	contents = document.getElementById('runsPrint');
+	contents.innerHTML = '';
 	
+	if (savedRuns.length > 0) {
+		document.getElementById('saves').style.display = 'flex';
+		document.getElementById('noSaves').style.display = 'none';
+		createRunsTable(savedRuns, 'runsPrint');
+	} else {
+		document.getElementById('saves').style.display = 'none';
+		document.getElementById('noSaves').style.display = 'flex';
+	}
+}
+
+function saveGame() {
+	var contents = document.querySelectorAll('.game-row');
+	contents.forEach(function(button){button.style.display = 'none';});
+	document.getElementById('topLoad').style.display = 'none';
+	document.getElementById('bottomLoad').style.display = 'none';
+	contents = document.querySelectorAll('.mission-row');
+	contents.forEach(function(button){button.style.display = 'none';});
+	contents = document.querySelectorAll('.save-button');
+	contents.forEach(content => content.style.display = 'none');
+	
+	let currentDate = new Date();
+	let day = currentDate.getDate(); 
+	let month = currentDate.getMonth() + 1; 
+	let year = currentDate.getFullYear(); 
+	let formattedDate = `${month}/${day}/${year}`;
+	
+	savedRuns.push([formattedDate, currentDifficulty, currentMission, currentEnemy, currentEndgameRound, currentScore, currentChaos, currentLoadout]);
+	localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns));
+	
+	contents = document.querySelectorAll('.game-button');
+	contents.forEach(content => content.style.display = 'flex');
+	contents = document.querySelectorAll('.continue-button');
+	contents.forEach(content => content.style.display = 'flex');
 }
 
 function openTab(tabName) {
@@ -1107,3 +1302,23 @@ createTable(MasterList[2], 'table-throw');
 createTable(MasterList[3], 'table-strat');
 createTable(MasterList[4], 'table-boost');
 createTable(MasterList[5], 'table-armour');
+
+
+// [date], [difficulty], [mission], [enemy], [endgame], [score], [chaos], [loadoutArray]
+var currentDifficulty = 0;
+var currentMission = 1;
+var currentEnemy = "null";
+var currentEndgameRound = 1;
+var currentScore = 0;
+var currentChaos = false;
+var currentLoadout = [
+	0,
+	0,
+	0,
+	14,
+	MasterList[3].length - 1,
+	MasterList[3].length - 1,
+	MasterList[3].length - 1,
+	MasterList[3].length - 1,
+	MasterList[4].length - 1
+];
