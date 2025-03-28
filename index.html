@@ -37,11 +37,7 @@ Initial creation date: 3.20.2025
 		<!-- New game or continue -->
 			<div class="container">
 				<h1>Randomdivers: Hell-like</h1>
-				<button onclick="newGame()">Start a new game?</button>
-				<button onclick="resumeGame()">Continue?</button>
 			</div>
-			
-			<!-- class="game-button"  -->
 			
 		<!-- Enemy selection -->
 			<div class="enemy-row" style="display: none;">
@@ -75,9 +71,24 @@ Initial creation date: 3.20.2025
 			<div id="bottomLoad" style="justify-content: center;"></div>
 			<div id="roll-results"></div>
 			<div class="game-row" style="display: none; justify-content: center;">
-				<button class="defeat-button" onclick="resumeGame()" style="font-weight: bold;">Disgraceful Conduct<br>&#9733;</button>
+				<button class="defeat-button" onclick="finalResults()" style="font-weight: bold;">Disgraceful Conduct<br>&#9733;</button>
 				<button onclick="notFullStar()" style="font-weight: bold;">Honorable Duty<br>&#9733;&#9733;&#9733;</button>
 				<button onclick="fullStar()" style="font-weight: bold;">Outstanding Patriotism<br>&#9733;&#9733;&#9733;&#9733;&#9733;</button>
+			</div>
+			
+			<div class="results-row" style="display: none; justify-content: center;">
+				<p style="font-weight: bold; font-size: 30px;">&#9733; Run Completed &#9733;<br><br>Results:</p>
+			</div>
+			<div class="results-row" style="display: none; justify-content: center;">
+				<div id="resultsPrint"></div>
+			</div>
+			<div class="results-row" style="display: none; justify-content: center;">
+				<div id="goAgain" style="color: white; margin-bottom: 10px; margin-top: 10px;"></div>
+			</div>
+			
+			<div class="row" style="justify-content: center;">
+				<button class="game-button" onclick="newGame()">Start a new game?</button>
+				<button class="game-button" onclick="resumeGame()">Continue?</button>
 			</div>
 		</div>
 		
@@ -86,7 +97,7 @@ Initial creation date: 3.20.2025
 			<div class="container">
 				<h1>Randomizer</h1>
 				<div id="table-results"></div>
-				<button onclick="changeMessage()">Click me to roll!</button>
+				<button onclick="changeMessage()" style="margin-top: 20px;">Click me to roll!</button>
 			</div>
 		</div>
 		

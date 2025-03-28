@@ -240,6 +240,8 @@ var currentDifficulty = 0;
 var currentMission = 1;
 var currentEnemy = "null";
 var currentEndgameRound = 1;
+var currentScore = 0;
+var currentChaos = false;
 var currentLoadout = [
 	0,
 	0,
@@ -272,6 +274,31 @@ function createTable(data, tableName) {
 					td.style.fontWeight = 'bold';
 					td.textContent = cell; // Otherwise just add text
 				}
+				tr.appendChild(td);
+			});
+
+			table.appendChild(tr);
+		}
+	});
+	// Add the table to the container
+	const container = document.getElementById(tableName);
+	container.appendChild(table);
+}
+
+function createResultTable(data, tableName) {
+	// Create the table element
+	const table = document.createElement('table');
+
+	// Loop through the array and create table rows
+	data.forEach((row, rowIndex) => {
+		if (rowIndex !== data.length) {
+			const tr = document.createElement('tr');
+
+			row.forEach((cell, cellIndex) => {
+				const td = document.createElement('td'); // Use <th> for header row
+				td.style.fontWeight = 'bold';
+				td.style.fontSize = '20px';
+				td.textContent = cell; // Otherwise just add text
 				tr.appendChild(td);
 			});
 
@@ -793,7 +820,6 @@ function rollSelect (count) {
 			row.insertCell(0).innerHTML = '';
 			row.insertCell(1).innerHTML = '';
 			var cell = row.cells[0];
-			// cell.style.display = "none";
 			cell = row.cells[1];
 			cell.appendChild(button);
 		}
@@ -828,6 +854,26 @@ function newGame() {
 	// Hide new game and continue buttons
 	var contents = document.querySelectorAll('.game-button');
 	contents.forEach(content => content.style.display = 'none');
+	contents = document.querySelectorAll('.results-row');
+	contents.forEach(content => content.style.display = 'none');
+	
+	currentDifficulty = 0;
+	currentMission = 1;
+	currentEnemy = "null";
+	currentEndgameRound = 1;
+	currentScore = 0;
+	currentChaos = false;
+	currentLoadout = [
+		0,
+		0,
+		0,
+		14,
+		MasterList[3].length - 1,
+		MasterList[3].length - 1,
+		MasterList[3].length - 1,
+		MasterList[3].length - 1,
+		MasterList[4].length - 1
+	];
 	
 	// Display enemy selection buttons
 	contents = document.querySelectorAll('.enemy-row');
@@ -836,7 +882,11 @@ function newGame() {
 
 function updateMission() {
 	if (currentDifficulty == 0 || currentDifficulty == 1 || currentDifficulty == 2) {
+		currentScore += currentDifficulty;
 		currentDifficulty++;
+		if (currentChaos) {
+			currentEnemy = pickEnemy();
+		}
 		if (currentDifficulty == 1 || currentDifficulty == 2) {
 			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy;
 		} else {
@@ -844,37 +894,62 @@ function updateMission() {
 		}
 	} else if (currentDifficulty == 3 || currentDifficulty == 4) {
 		if (currentMission == 1) {
+			currentScore += currentDifficulty;
 			currentMission++;
 			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy + " Mission " + currentMission + " of 2";
 		} else if (currentDifficulty == 3) {
+			currentScore += currentDifficulty;
 			currentDifficulty++;
+			if (currentChaos) {
+				currentEnemy = pickEnemy();
+			}
 			currentMission = 1;
 			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy + " Mission " + currentMission + " of 2";
 		} else {
+			currentScore += currentDifficulty;
 			currentDifficulty++;
+			if (currentChaos) {
+				currentEnemy = pickEnemy();
+			}
 			currentMission = 1;
 			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy + " Mission " + currentMission + " of 3";
 		}
 	} else if (currentDifficulty < 11 && currentEndgameRound < 2) {
 		if (currentMission < 3) {
+			currentScore += currentDifficulty;
 			currentMission++;
 			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy + " Mission " + currentMission + " of 3";
 		} else if (currentDifficulty == 10 && currentMission == 3) {
 			currentMission = 1;
+			currentScore += currentDifficulty;
 			currentEndgameRound++;
+			if (currentChaos) {
+				currentEnemy = pickEnemy();
+			}
 			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " (Round " + currentEndgameRound + ") " + currentEnemy + " Mission " + currentMission + " of 3";
 		} else {
+			currentScore += currentDifficulty;
 			currentDifficulty++;
+			if (currentChaos) {
+				currentEnemy = pickEnemy();
+			}
 			currentMission = 1;
 			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy + " Mission " + currentMission + " of 3";
 		}
 	} else {
 		if (currentMission < 3) {
+			currentScore += currentDifficulty;
+			currentScore += (currentEndgameRound - 1);
 			currentMission++;
 			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " (Round " + currentEndgameRound + ") " + currentEnemy + " Mission " + currentMission + " of 3";
 		} else {
 			currentMission = 1;
+			currentScore += currentDifficulty;
+			currentScore += (currentEndgameRound - 1);
 			currentEndgameRound++;
+			if (currentChaos) {
+				currentEnemy = pickEnemy();
+			}
 			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " (Round " + currentEndgameRound + ") " + currentEnemy + " Mission " + currentMission + " of 3";
 		}
 	}
@@ -885,13 +960,14 @@ function selectBug() {
 	contents.forEach(content => content.style.display = 'none');
 	currentEnemy = "Terminids";
 	updateMission();
-	//document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy;
 	generateLoadoutTable();
 	
 	contents = document.querySelectorAll('.game-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
 	contents = document.querySelectorAll('.mission-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
+	document.getElementById('topLoad').style.display = 'flex';
+	document.getElementById('bottomLoad').style.display = 'flex';
 }
 
 function selectBot() {
@@ -899,13 +975,14 @@ function selectBot() {
 	contents.forEach(content => content.style.display = 'none');
 	currentEnemy = "Automatons";
 	updateMission();
-	//document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy;
 	generateLoadoutTable();
 	
 	contents = document.querySelectorAll('.game-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
 	contents = document.querySelectorAll('.mission-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
+	document.getElementById('topLoad').style.display = 'flex';
+	document.getElementById('bottomLoad').style.display = 'flex';
 }
 
 function selectSquid() {
@@ -913,27 +990,30 @@ function selectSquid() {
 	contents.forEach(content => content.style.display = 'none');
 	currentEnemy = "Illuminate";
 	updateMission();
-	//document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy;
 	generateLoadoutTable();
 	
 	contents = document.querySelectorAll('.game-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
 	contents = document.querySelectorAll('.mission-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
+	document.getElementById('topLoad').style.display = 'flex';
+	document.getElementById('bottomLoad').style.display = 'flex';
 }
 
 function selectChaos() {
 	var contents = document.querySelectorAll('.enemy-row');
 	contents.forEach(content => content.style.display = 'none');
 	currentEnemy = pickEnemy();
+	currentChaos = true;
 	updateMission();
-	//document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " " + currentEnemy;
 	generateLoadoutTable();
 	
 	contents = document.querySelectorAll('.game-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
 	contents = document.querySelectorAll('.mission-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
+	document.getElementById('topLoad').style.display = 'flex';
+	document.getElementById('bottomLoad').style.display = 'flex';
 }
 
 function notFullStar() {
@@ -960,6 +1040,51 @@ function fullStar() {
 	container.innerHTML = '';
 	container.appendChild(rollSelect(2));
 	container.style.display = 'flex';
+}
+
+function finalResults() {
+	var contents = document.querySelectorAll('.game-row');
+	contents.forEach(function(button){button.style.display = 'none';});
+	document.getElementById('topLoad').style.display = 'none';
+	document.getElementById('bottomLoad').style.display = 'none';
+	contents = document.querySelectorAll('.mission-row');
+	contents.forEach(function(button){button.style.display = 'none';});
+	contents = document.querySelectorAll('.results-row');
+	contents.forEach(function(button){button.style.display = 'flex';});
+	contents = document.getElementById('resultsPrint');
+	contents.innerHTML = '';
+	
+	if (currentChaos) {
+		currentEnemy = "Pandemonium";
+	}
+	var peak = "";
+	if (currentDifficulty == 1) {
+		peak = "Maybe you'd enjoy an easier game...";
+	} else if (currentDifficulty == 2) {
+		peak = "Level " + (currentDifficulty - 1);
+	} else if (currentMission > 1) {
+		peak = "Level " + currentDifficulty + ", Mission " + (currentMission - 1);
+	} else if (currentMission == 1 && currentDifficulty == 10 && currentEndgameRound > 1) {
+		peak = "Level " + currentDifficulty + ", Round " + (currentEndgameRound - 1) + ", Mission 3";
+	} else if (currentDifficulty == 10 && currentEndgameRound > 1) {
+		peak = "Level " + currentDifficulty + ", Round " + currentEndgameRound + ", Mission " + (currentMission - 1);
+	} else if (currentMission == 1 && currentDifficulty > 5) {
+		peak = "Level " + (currentDifficulty - 1) + ", Mission 3";
+	} else if (currentMission == 1 && currentDifficulty <= 5) {
+		peak = "Level " + (currentDifficulty - 1) + ", Mission 2";
+	}
+	
+	resultsData = [
+		["Enemy", currentEnemy],
+		["Highest level complete", peak],
+		["Final score", currentScore],
+		["Friendly fire", "So much"]
+	];
+	
+	createResultTable(resultsData, 'resultsPrint');
+	document.getElementById('goAgain').innerText = "GG, Helldiver! Ready for new orders?";
+	contents = document.querySelectorAll('.game-button');
+	contents.forEach(content => content.style.display = 'flex');
 }
 
 function resumeGame() {
