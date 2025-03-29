@@ -261,6 +261,43 @@ var currentLoadout = [
 	MasterList[3].length - 1,
 	MasterList[4].length - 1
 ];
+var currentSaveIndex = savedRuns.length;
+
+function saveGame() {
+	var contents = document.querySelectorAll('.game-row');
+	contents.forEach(function(button){button.style.display = 'none';});
+	document.getElementById('topLoad').style.display = 'none';
+	document.getElementById('bottomLoad').style.display = 'none';
+	contents = document.querySelectorAll('.mission-row');
+	contents.forEach(function(button){button.style.display = 'none';});
+	contents = document.querySelectorAll('.save-button');
+	contents.forEach(content => content.style.display = 'none');
+	
+	let currentDate = new Date();
+	let day = currentDate.getDate(); 
+	let month = currentDate.getMonth() + 1; 
+	let year = currentDate.getFullYear(); 
+	let formattedDate = `${month}/${day}/${year}`;
+	
+	savedRuns[currentSaveIndex] = [formattedDate, currentDifficulty, currentMission, currentEnemy, currentEndgameRound, currentScore, currentChaos, currentLoadout];
+	localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns));
+	
+	contents = document.querySelectorAll('.game-button');
+	contents.forEach(content => content.style.display = 'flex');
+	contents = document.querySelectorAll('.continue-button');
+	contents.forEach(content => content.style.display = 'flex');
+}
+
+function autoSaveGame() {
+	let currentDate = new Date();
+	let day = currentDate.getDate(); 
+	let month = currentDate.getMonth() + 1; 
+	let year = currentDate.getFullYear(); 
+	let formattedDate = `${month}/${day}/${year}`;
+	
+	savedRuns[currentSaveIndex] = [formattedDate, currentDifficulty, currentMission, currentEnemy, currentEndgameRound, currentScore, currentChaos, currentLoadout];
+	localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns));
+}
 
 function createTable(data, tableName) {
 	// Create the table element
@@ -328,10 +365,18 @@ function pickUpRun(savedData, oldSaveIndex) {
 	currentLoadout = savedData[7];
 	
 	if ((currentMission - 1) == 0) {
-		if ((currentDifficulty - 1) >= 0) {
+		if ((currentDifficulty - 1) >= 0 && (currentDifficulty - 1) < 3) {
 			currentDifficulty--;
 			currentScore = currentScore - currentDifficulty;
-		} 
+		} else if ((currentDifficulty - 1) >= 3 && (currentDifficulty - 1) < 5) {
+			currentDifficulty--;
+			currentMission = 2;
+			currentScore = currentScore - currentDifficulty;
+		} else {
+			currentDifficulty--;
+			currentMission = 3;
+			currentScore = currentScore - currentDifficulty;
+		}
 	} else {
 		currentMission--;
 		currentScore = currentScore - currentDifficulty;
@@ -339,8 +384,7 @@ function pickUpRun(savedData, oldSaveIndex) {
 	
 	updateMission();
 	generateLoadoutTable();
-	savedRuns.splice(oldSaveIndex, 1);
-	localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns));
+	currentSaveIndex = oldSaveIndex;
 	
 	var contents = document.querySelectorAll('.game-button');
 	contents.forEach(content => content.style.display = 'none');
@@ -367,7 +411,7 @@ function createRunsTable(data, tableName) {
 	const headerRow = document.createElement('tr');
 
 	// Array of header names [id], [date], [difficulty], [mission], [enemy], [endgame], [score], [chaos], [loadoutArray]
-	const headers = ['Run', 'Difficulty', 'Enemy', 'Mission', 'Date', 'Resume run?', 'Delete run?'];
+	const headers = ['Run', 'Difficulty', 'Enemy', 'Mission', 'Pandemonium', 'Date', 'Resume run?', 'Delete run?'];
 
 	// Loop through the headers and create <th> elements
 	headers.forEach(headerText => {
@@ -392,6 +436,7 @@ function createRunsTable(data, tableName) {
 			const diff = document.createElement('td');
 			const miss = document.createElement('td');
 			const enemy = document.createElement('td');
+			const pan = document.createElement('td');
 			const butt = document.createElement('button');
 			const del = document.createElement('button');
 			butt.innerText = 'Resume';
@@ -408,23 +453,30 @@ function createRunsTable(data, tableName) {
 					miss.textContent = cell;
 				} else if (cellIndex == 3) {
 					enemy.textContent = cell;
-				} else if (cellIndex == 4) {
-					butt.onclick = function() {pickUpRun(data[saveIndex], saveIndex);};
+				} else if (cellIndex == 6) {
+					if (cell) {
+						pan.textContent = "Yes";
+					} else {
+						pan.textContent = "No";
+					}
 				} else if (cellIndex == 5) {
-					del.onclick = function() {savedRuns.splice(saveIndex, 1); localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns)); resumeGame();};
+					butt.onclick = function() {pickUpRun(data[saveIndex], saveIndex);};
+				} else if (cellIndex == 4) {
+					del.onclick = function() {savedRuns.splice(saveIndex, 1); localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns)); currentSaveIndex = savedRuns.length; resumeGame();};
 				}
 			});
 			tr.appendChild(id);
 			tr.appendChild(diff);
 			tr.appendChild(enemy);
 			tr.appendChild(miss);
+			tr.appendChild(pan);
 			tr.appendChild(date);
-			tr.insertCell(5).innerHTML = '';
-			tr.insertCell(5).appendChild(butt);
 			tr.insertCell(6).innerHTML = '';
-			tr.insertCell(6).appendChild(del);
-			tr.deleteCell(7);
-			tr.deleteCell(7);
+			tr.insertCell(6).appendChild(butt);
+			tr.insertCell(7).innerHTML = '';
+			tr.insertCell(7).appendChild(del);
+			tr.deleteCell(8);
+			tr.deleteCell(8);
 			
 			table.appendChild(tr);
 		}
@@ -716,6 +768,7 @@ function swap(selection, count) {
 					document.getElementById('bottomLoad').style.display = 'flex';
 					contents = document.querySelectorAll('.save-button');
 					contents.forEach(content => content.style.display = 'flex');
+					autoSaveGame();
 					document.getElementById('roll-results').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
 				} else {
@@ -739,6 +792,7 @@ function swap(selection, count) {
 					document.getElementById('bottomLoad').style.display = 'flex';
 					contents = document.querySelectorAll('.save-button');
 					contents.forEach(content => content.style.display = 'flex');
+					autoSaveGame();
 					document.getElementById('roll-results').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
 				} else {
@@ -762,6 +816,7 @@ function swap(selection, count) {
 					document.getElementById('bottomLoad').style.display = 'flex';
 					contents = document.querySelectorAll('.save-button');
 					contents.forEach(content => content.style.display = 'flex');
+					autoSaveGame();
 					document.getElementById('roll-results').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
 				} else {
@@ -785,6 +840,7 @@ function swap(selection, count) {
 					document.getElementById('bottomLoad').style.display = 'flex';
 					contents = document.querySelectorAll('.save-button');
 					contents.forEach(content => content.style.display = 'flex');
+					autoSaveGame();
 					document.getElementById('roll-results').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
 				} else {
@@ -856,6 +912,7 @@ function choose(category, selection, count) {
 		document.getElementById('bottomLoad').style.display = 'flex';
 		contents = document.querySelectorAll('.save-button');
 		contents.forEach(content => content.style.display = 'flex');
+		autoSaveGame();
 		document.getElementById('roll-results').style.display = 'none';
 	} else if (!swapping) {
 		const container = document.getElementById('roll-results');
@@ -1012,6 +1069,7 @@ function newGame() {
 		MasterList[3].length - 1,
 		MasterList[4].length - 1
 	];
+	currentSaveIndex = savedRuns.length;
 	
 	// Display enemy selection buttons
 	contents = document.querySelectorAll('.enemy-row');
@@ -1233,6 +1291,10 @@ function finalResults() {
 		["Friendly fire", "So much"]
 	];
 	
+	savedRuns.splice(currentSaveIndex, 1); 
+	localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns)); 
+	currentSaveIndex = savedRuns.length;
+	
 	createResultTable(resultsData, 'resultsPrint');
 	document.getElementById('goAgain').innerText = "GG, Helldiver! Ready for new orders?";
 	contents = document.querySelectorAll('.game-button');
@@ -1261,31 +1323,6 @@ function resumeGame() {
 	}
 }
 
-function saveGame() {
-	var contents = document.querySelectorAll('.game-row');
-	contents.forEach(function(button){button.style.display = 'none';});
-	document.getElementById('topLoad').style.display = 'none';
-	document.getElementById('bottomLoad').style.display = 'none';
-	contents = document.querySelectorAll('.mission-row');
-	contents.forEach(function(button){button.style.display = 'none';});
-	contents = document.querySelectorAll('.save-button');
-	contents.forEach(content => content.style.display = 'none');
-	
-	let currentDate = new Date();
-	let day = currentDate.getDate(); 
-	let month = currentDate.getMonth() + 1; 
-	let year = currentDate.getFullYear(); 
-	let formattedDate = `${month}/${day}/${year}`;
-	
-	savedRuns.push([formattedDate, currentDifficulty, currentMission, currentEnemy, currentEndgameRound, currentScore, currentChaos, currentLoadout]);
-	localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns));
-	
-	contents = document.querySelectorAll('.game-button');
-	contents.forEach(content => content.style.display = 'flex');
-	contents = document.querySelectorAll('.continue-button');
-	contents.forEach(content => content.style.display = 'flex');
-}
-
 function openTab(tabName) {
 	// Hide all tab content
 	const contents = document.querySelectorAll('.tab-content');
@@ -1302,23 +1339,3 @@ createTable(MasterList[2], 'table-throw');
 createTable(MasterList[3], 'table-strat');
 createTable(MasterList[4], 'table-boost');
 createTable(MasterList[5], 'table-armour');
-
-
-// [date], [difficulty], [mission], [enemy], [endgame], [score], [chaos], [loadoutArray]
-var currentDifficulty = 0;
-var currentMission = 1;
-var currentEnemy = "null";
-var currentEndgameRound = 1;
-var currentScore = 0;
-var currentChaos = false;
-var currentLoadout = [
-	0,
-	0,
-	0,
-	14,
-	MasterList[3].length - 1,
-	MasterList[3].length - 1,
-	MasterList[3].length - 1,
-	MasterList[3].length - 1,
-	MasterList[4].length - 1
-];
