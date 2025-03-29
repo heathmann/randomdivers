@@ -137,6 +137,7 @@ const MasterList = [
 		["M-102 Fast Reconnaissance Vehicle", "https://helldivers.wiki.gg/images/0/00/M-102_Fast_Recon_Vehicle_Stratagem_Icon.png"],
 		["B-100 Portable Hellbomb", "https://helldivers.wiki.gg/images/a/aa/Portable_Hellbomb_Stratagem_Icon.png"],
 		["B-100 LIFT-860 Hover Pack", "https://helldivers.wiki.gg/images/5/5d/Hover_Pack_Stratagem_Icon.png?a00cb1&format=original"],
+		["E/GL-21 Grenadier Battlement", skull],
 		["Empty slot", skull]
 	],[
 	// 4 = Boosters
