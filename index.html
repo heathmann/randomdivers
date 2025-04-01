@@ -18,16 +18,16 @@ Initial creation date: 3.20.2025
 		<!-- Top row of buttons / master navigation -->
 		<div class="button-container">
 			<div class="row">
-				<button class="tab-button" onclick="openTab('game')">Play Randomdivers</button>
-				<button class="tab-button" onclick="openTab('randomizer')">Randomizer</button>
-				<button class="tab-button" onclick="openTab('primary')">Primary Weapons</button>
-				<button class="tab-button" onclick="openTab('side')">Side Arms</button>
+				<button class="tab-button" onclick="openTab('game')" style="z-index: 100;">Play Randomdivers</button>
+				<button class="tab-button" onclick="openTab('randomizer')" style="z-index: 100;">Randomizer</button>
+				<button class="tab-button" onclick="openTab('primary')" style="z-index: 100;">Primary Weapons</button>
+				<button class="tab-button" onclick="openTab('side')" style="z-index: 100;">Side Arms</button>
 			</div>
 			<div class="row">
-				<button class="tab-button" onclick="openTab('throw')">Throwables</button>
-				<button class="tab-button" onclick="openTab('strat')">Stratagems</button>
-				<button class="tab-button" onclick="openTab('boost')">Boosters</button>
-				<button class="tab-button" onclick="openTab('armour')">Armours</button>
+				<button class="tab-button" onclick="openTab('throw')" style="z-index: 100;">Throwables</button>
+				<button class="tab-button" onclick="openTab('strat')" style="z-index: 100;">Stratagems</button>
+				<button class="tab-button" onclick="openTab('boost')" style="z-index: 100;">Boosters</button>
+				<button class="tab-button" onclick="openTab('armour')" style="z-index: 100;">Armours</button>
 			</div>
 		</div>
 
@@ -117,7 +117,7 @@ Initial creation date: 3.20.2025
 				<button class="select-button" onclick="selectAll(0)">Select All</button>
 				<!-- <button class="clear-button" onclick="clearAll(0)">Deselect All</button> -->
 			</div>
-			<div id="table-primary" style="overflow-y: scroll;"></div>
+			<div id="table-primary" style="overflow-y: scroll; z-index: 1;"></div>
 		</div>
 		
 		<!-- List of side arms -->

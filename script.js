@@ -397,6 +397,7 @@ function createTable(data, tableName, include) {
 					const coordX = d;
 					checkbox.type = "checkbox";
 					checkbox.style.accentColor = '#FFE80A';
+					checkbox.style.zIndex = '1';
 					checkbox.id = `checkbox-${placeholder}`;
 					checkbox.classList.add("custom-checkbox");
 					checkbox.checked = data[placeholder][2];
@@ -482,6 +483,7 @@ function createTable(data, tableName, include) {
 					const coordX = d;
 					checkbox.type = "checkbox";
 					checkbox.style.accentColor = '#FFE80A';
+					checkbox.style.zIndex = '1';
 					checkbox.id = `checkbox-${placeholder}`;
 					checkbox.classList.add("custom-checkbox");
 					checkbox.checked = data[placeholder][2];

@@ -160,6 +160,7 @@ img {
 	margin-top: 100px;
 	overflow: hidden;
 	flex-direction: row;
+	z-index: 1;
 	/* padding: 80px; */
 	/* border: 1px solid #ccc; */
 }
@@ -170,6 +171,7 @@ img {
 	gap: 10px;
 	margin-top: 15px; /* Optional, to add some space from the very top */
 	position: fixed;
+	z-index: 10;
 }
 
 /* Mobile formatting controls */
