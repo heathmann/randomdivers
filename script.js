@@ -346,6 +346,7 @@ function createTable(data, tableName, include) {
 	
 	// Create the table element
 	const table = document.createElement('table');
+	const columnCount = 5;
 	
 	var cat = 0;
 	
@@ -363,92 +364,177 @@ function createTable(data, tableName, include) {
 		cat = 5;
 	}
 
-	// Loop through the array and create table rows
+	// Loop through the array and create table rows     for (var r = 0; r < ((Math.ceil(data.length / columnCount))*3); r++) { for (var r = 0; r < ((Math.floor(data.length / columnCount)) + ((data.length % columnCount) * 3)); r++) {
 	if (include){
-		data.forEach((row, rowIndex) => {
-			if (rowIndex !== data.length) {
-				const tr = document.createElement('tr');
-
-				row.forEach((cell, cellIndex) => {
-					const td = document.createElement('td'); // Use <th> for header row
-					if (cellIndex === 1) { // Check if it's the 'Image' column
-						const img = document.createElement('img');
-						img.height = 150;
-						img.src = cell; // Set the image source
-						td.appendChild(img); // Append the image to the cell
-					} else if (cellIndex == 0) {
-						td.style.fontWeight = 'bold';
-						td.textContent = cell; // Otherwise just add text
-					} else {
-						const checkbox = document.createElement("input");
-						checkbox.type = "checkbox";
-						checkbox.id = `checkbox-${rowIndex}`;
-						checkbox.classList.add("custom-checkbox");
-						checkbox.checked = data[rowIndex][2];
-						checkbox.addEventListener("change", (event) => {
-							if (event.target.checked) {  
-								data[rowIndex][2] = true; 
-							} else {
-								if (countTrues(cat)) {
-									checkbox.checked = true;
-									data[rowIndex][2] = true;
-								} else {
-									data[rowIndex][2] = false;
-								}
-							}
-							localStorage.setItem('userMasterLocal', JSON.stringify(userMaster));
-						});
-						td.appendChild(checkbox);
-					}
-					tr.appendChild(td);
-				});
-
-				table.appendChild(tr);
+		for (var r = 0; r < (data.length * columnCount); r++) {
+			const tr = document.createElement('tr');
+			if (Math.floor(r / 3) % 2 == 1) {
+				tr.style.backgroundColor = '#828282';
 			}
-		});
+			for (var d = 0; d < columnCount; d++){
+				const td = document.createElement('td');
+				td.style.width = 100 / columnCount + '%';
+				if (!data[d + (columnCount*Math.floor(r / 3))]) {
+					break;
+				}
+				if (r % 3 == 0) {
+					td.style.fontWeight = 'bold';
+					td.textContent = data[d + (columnCount*Math.floor(r / 3))][0];
+					tr.appendChild(td);
+					table.appendChild(tr);
+				} else if (r % 3 == 1) {
+					const img = document.createElement('img');
+					img.height = 150;
+					img.src = data[d + (columnCount*Math.floor(r / 3))][1]; // Set the image source
+					td.appendChild(img);
+					tr.appendChild(td);
+					table.appendChild(tr);
+				} else if (r % 3 == 2) {
+					const checkbox = document.createElement("input");
+					const placeholder = d + (columnCount*Math.floor(r / 3));
+					var odd = false;
+					const coordY = r;
+					const coordX = d;
+					checkbox.type = "checkbox";
+					checkbox.style.accentColor = '#FFE80A';
+					checkbox.id = `checkbox-${placeholder}`;
+					checkbox.classList.add("custom-checkbox");
+					checkbox.checked = data[placeholder][2];
+					checkbox.addEventListener("change", (event) => {
+						var odd = false;
+						if (Math.floor(coordY / 3) % 2 == 1) {
+							odd = true;
+						}
+						if (event.target.checked) {  
+							data[placeholder][2] = true;
+							if (!odd) {
+								table.rows[coordY-2].cells[coordX].style.backgroundColor = '#999999';
+								table.rows[coordY-1].cells[coordX].style.backgroundColor = '#999999';
+								table.rows[coordY].cells[coordX].style.backgroundColor = '#999999';
+							} else {
+								table.rows[coordY-2].cells[coordX].style.backgroundColor = '#828282';
+								table.rows[coordY-1].cells[coordX].style.backgroundColor = '#828282';
+								table.rows[coordY].cells[coordX].style.backgroundColor = '#828282';
+							}
+						} else {
+							if (countTrues(cat)) {
+								checkbox.checked = true;
+								data[placeholder][2] = true;
+								if (!odd) {
+									table.rows[coordY-2].cells[coordX].style.backgroundColor = '#999999';
+									table.rows[coordY-1].cells[coordX].style.backgroundColor = '#999999';
+									table.rows[coordY].cells[coordX].style.backgroundColor = '#999999';
+								} else {
+									table.rows[coordY-2].cells[coordX].style.backgroundColor = '#828282';
+									table.rows[coordY-1].cells[coordX].style.backgroundColor = '#828282';
+									table.rows[coordY].cells[coordX].style.backgroundColor = '#828282';
+								}
+							} else {
+								data[placeholder][2] = false;
+								table.rows[coordY-2].cells[coordX].style.backgroundColor = '#B81111';
+								table.rows[coordY-1].cells[coordX].style.backgroundColor = '#B81111';
+								table.rows[coordY].cells[coordX].style.backgroundColor = '#B81111';
+							}
+						}
+						localStorage.setItem('userMasterLocal', JSON.stringify(userMaster));
+					});
+					td.appendChild(checkbox);
+					tr.appendChild(td);
+					table.appendChild(tr);
+					if (!data[d + (columnCount*Math.floor(r / 3))][2]) {
+						table.rows[coordY-2].cells[coordX].style.backgroundColor = '#B81111';
+						table.rows[coordY-1].cells[coordX].style.backgroundColor = '#B81111';
+						table.rows[coordY].cells[coordX].style.backgroundColor = '#B81111';
+					}
+				}
+//
+			}
+		}
 	} else {
-		data.forEach((row, rowIndex) => {
-			if (rowIndex !== data.length - 1) {
-				const tr = document.createElement('tr');
-
-				row.forEach((cell, cellIndex) => {
-					const td = document.createElement('td'); // Use <th> for header row
-					if (cellIndex === 1) { // Check if it's the 'Image' column
-						const img = document.createElement('img');
-						img.height = 150;
-						img.src = cell; // Set the image source
-						td.appendChild(img); // Append the image to the cell
-					} else if (cellIndex == 0) {
-						td.style.fontWeight = 'bold';
-						td.textContent = cell; // Otherwise just add text
-					} else {
-						const checkbox = document.createElement("input");
-						checkbox.type = "checkbox";
-						checkbox.id = `checkbox-${rowIndex}`;
-						checkbox.classList.add("custom-checkbox");
-						checkbox.checked = data[rowIndex][2];
-						checkbox.addEventListener("change", (event) => {
-							if (event.target.checked) {  
-								data[rowIndex][2] = true; 
-							} else {
-								if (countTrues(cat)) {
-									checkbox.checked = true;
-									data[rowIndex][2] = true;
-								} else {
-									data[rowIndex][2] = false;
-								}
-							}
-							localStorage.setItem('userMasterLocal', JSON.stringify(userMaster));
-						});
-						td.appendChild(checkbox);
-					}
-					tr.appendChild(td);
-				});
-
-				table.appendChild(tr);
+		for (var r = 0; r < (data.length * columnCount); r++) {
+			const tr = document.createElement('tr');
+			if (Math.floor(r / 3) % 2 == 1) {
+				tr.style.backgroundColor = '#828282';
 			}
-		});
-
+			for (var d = 0; d < columnCount; d++){
+				const td = document.createElement('td');
+				td.style.width = 100 / columnCount + '%';
+				if (!data[d + (columnCount*Math.floor(r / 3))] || data[d + (columnCount*Math.floor(r / 3))][0] == "Empty slot" || data[d + (columnCount*Math.floor(r / 3))][0] == "No booster") {
+					break;
+				}
+				if (r % 3 == 0) {
+					td.style.fontWeight = 'bold';
+					td.textContent = data[d + (columnCount*Math.floor(r / 3))][0];
+					tr.appendChild(td);
+					table.appendChild(tr);
+				} else if (r % 3 == 1) {
+					const img = document.createElement('img');
+					img.height = 150;
+					img.src = data[d + (columnCount*Math.floor(r / 3))][1]; // Set the image source    img.src = data[(((r-1)*columnCount) + d)][1];
+					td.appendChild(img);
+					tr.appendChild(td);
+					table.appendChild(tr);
+				} else if (r % 3 == 2) {
+					const checkbox = document.createElement("input");
+					const placeholder = d + (columnCount*Math.floor(r / 3));
+					var odd = false;
+					const coordY = r;
+					const coordX = d;
+					checkbox.type = "checkbox";
+					checkbox.style.accentColor = '#FFE80A';
+					checkbox.id = `checkbox-${placeholder}`;
+					checkbox.classList.add("custom-checkbox");
+					checkbox.checked = data[placeholder][2];
+					checkbox.addEventListener("change", (event) => {
+						var odd = false;
+						if (Math.floor(coordY / 3) % 2 == 1) {
+							odd = true;
+						}
+						if (event.target.checked) {  
+							data[placeholder][2] = true;
+							if (!odd) {
+								table.rows[coordY-2].cells[coordX].style.backgroundColor = '#999999';
+								table.rows[coordY-1].cells[coordX].style.backgroundColor = '#999999';
+								table.rows[coordY].cells[coordX].style.backgroundColor = '#999999';
+							} else {
+								table.rows[coordY-2].cells[coordX].style.backgroundColor = '#828282';
+								table.rows[coordY-1].cells[coordX].style.backgroundColor = '#828282';
+								table.rows[coordY].cells[coordX].style.backgroundColor = '#828282';
+							}
+						} else {
+							if (countTrues(cat)) {
+								checkbox.checked = true;
+								data[placeholder][2] = true;
+								if (!odd) {
+									table.rows[coordY-2].cells[coordX].style.backgroundColor = '#999999';
+									table.rows[coordY-1].cells[coordX].style.backgroundColor = '#999999';
+									table.rows[coordY].cells[coordX].style.backgroundColor = '#999999';
+								} else {
+									table.rows[coordY-2].cells[coordX].style.backgroundColor = '#828282';
+									table.rows[coordY-1].cells[coordX].style.backgroundColor = '#828282';
+									table.rows[coordY].cells[coordX].style.backgroundColor = '#828282';
+								}
+							} else {
+								data[placeholder][2] = false;
+								table.rows[coordY-2].cells[coordX].style.backgroundColor = '#B81111';
+								table.rows[coordY-1].cells[coordX].style.backgroundColor = '#B81111';
+								table.rows[coordY].cells[coordX].style.backgroundColor = '#B81111';
+							}
+						}
+						localStorage.setItem('userMasterLocal', JSON.stringify(userMaster));
+					});
+					td.appendChild(checkbox);
+					tr.appendChild(td);
+					table.appendChild(tr);
+					if (!data[d + (columnCount*Math.floor(r / 3))][2]) {
+						table.rows[coordY-2].cells[coordX].style.backgroundColor = '#B81111';
+						table.rows[coordY-1].cells[coordX].style.backgroundColor = '#B81111';
+						table.rows[coordY].cells[coordX].style.backgroundColor = '#B81111';
+					}
+				}
+//
+			}
+		}
 	}
 	// Add the table to the container
 	const container = document.getElementById(tableName);
