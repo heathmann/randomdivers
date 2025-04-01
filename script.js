@@ -312,10 +312,56 @@ function autoSaveGame() {
 	localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns));
 }
 
+function countTrues (category) {
+	var count = 0;
+	
+	if (category != 3) {
+		for (var x = 0; x < userMaster[category].length; x++) {
+			if (userMaster[category][x][2]) {
+				count++;
+			}
+		}
+		
+		if (count < 5) {
+			return true;
+		} else {
+			return false;
+		}
+	} else {
+		for (var x = 0; x < userMaster[category].length; x++) {
+			if (userMaster[category][x][2]) {
+				count++;
+			}
+		}
+		
+		if (count < 9) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+
 function createTable(data, tableName, include) {
 	
 	// Create the table element
 	const table = document.createElement('table');
+	
+	var cat = 0;
+	
+	if (tableName == 'table-primary') {
+		cat = 0;
+	} else if (tableName == 'table-side') {
+		cat = 1;
+	} else if (tableName == 'table-throw') {
+		cat = 2;
+	} else if (tableName == 'table-strat') {
+		cat = 3;
+	} else if (tableName == 'table-boost') {
+		cat = 4;
+	} else if (tableName == 'table-armour') {
+		cat = 5;
+	}
 
 	// Loop through the array and create table rows
 	if (include){
@@ -343,10 +389,7 @@ function createTable(data, tableName, include) {
 							if (event.target.checked) {  
 								data[rowIndex][2] = true; 
 							} else {
-								if ((tableName == 'table-primary' && rowIndex == 0) || (tableName == 'table-primary' && rowIndex == 11) || (tableName == 'table-primary' && rowIndex == 27) ||
-									(tableName == 'table-side' && rowIndex == 0) || (tableName == 'table-side' && rowIndex == 1) || (tableName == 'table-side' && rowIndex == 4) ||
-									(tableName == 'table-throw' && rowIndex == 0) || (tableName == 'table-throw' && rowIndex == 1) || (tableName == 'table-throw' && rowIndex == 2) ||
-									(tableName == 'table-armour' && rowIndex == 14) || (tableName == 'table-armour' && rowIndex == 12) || (tableName == 'table-armour' && rowIndex == 43)) {
+								if (countTrues(cat)) {
 									checkbox.checked = true;
 									data[rowIndex][2] = true;
 								} else {
@@ -388,8 +431,7 @@ function createTable(data, tableName, include) {
 							if (event.target.checked) {  
 								data[rowIndex][2] = true; 
 							} else {
-								if ((tableName == 'table-strat' && rowIndex == 27) || (tableName == 'table-strat' && rowIndex == 0) || (tableName == 'table-strat' && rowIndex == 2) ||
-									(tableName == 'table-boost' && rowIndex == 0) || (tableName == 'table-boost' && rowIndex == 1) || (tableName == 'table-boost' && rowIndex == 2)) {
+								if (countTrues(cat)) {
 									checkbox.checked = true;
 									data[rowIndex][2] = true;
 								} else {
@@ -587,7 +629,7 @@ function getThreeUnique(max, category) {
 
 function getThreeUniqueNoDup(max, category) {
 	const numbers = new Set();
-
+	
 	while (numbers.size < 3) {
 		const randomNumber = Math.floor(Math.random() * max);
 		// Check for already equipped items
@@ -597,7 +639,7 @@ function getThreeUniqueNoDup(max, category) {
 			(category == 5 && randomNumber == currentLoadout[3]) ||
 			(category == 4 && randomNumber == currentLoadout[8]) ||
 			(category == 3 && (randomNumber == currentLoadout[4] || randomNumber == currentLoadout[5] || randomNumber == currentLoadout[6] || randomNumber == currentLoadout[7])) ||
-			(!userMaster[category][2])) {
+			(!userMaster[category][randomNumber][2])) {
 				continue;
 		} else {
 			numbers.add(randomNumber);  // Add the random number to the set (duplicates are automatically ignored)
@@ -605,6 +647,8 @@ function getThreeUniqueNoDup(max, category) {
 	}
 
 	const temp = Array.from(numbers);
+	temp.push(temp[0]);
+	temp.push(temp[0]);
 	return temp;  // Convert the set back to an array
 }
 
@@ -1457,17 +1501,11 @@ function selectAll(category) {
 
 function clearAll(category) {
 	for (var x = 0; x < userMaster[category].length; x++) {
-		if ((category == 3 && x == 27) || (category == 3 && x == 0) || (category == 3 && x == 2) ||
-			(category == 4 && x == 0) || (category == 4 && x == 1) || (category == 4 && x == 2) ||
-			(category == 0 && x == 0) || (category == 0 && x == 11) || (category == 0 && x == 27) ||
-			(category == 1 && x == 0) || (category == 1 && x == 1) || (category == 1 && x == 4) ||
-			(category == 2 && x == 0) || (category == 2 && x == 1) || (category == 2 && x == 2) ||
-			(category == 5 && x == 14) || (category == 5 && x == 12) || (category == 5 && x == 43)) {
+		if (countTrues(category)) {
 				userMaster[category][x][2] = true;
 		} else {
 			userMaster[category][x][2] = false;
 		}
-
 	}
 
 	localStorage.setItem('userMasterLocal', JSON.stringify(userMaster));
