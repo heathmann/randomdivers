@@ -1641,6 +1641,18 @@ function clearAll(category) {
 
 window.addEventListener('resize', function() {
 	if (screen.availHeight > screen.availWidth) {
+		var container = document.getElementById('table-primary');
+		container.innerHTML = '';
+		container = document.getElementById('table-side');
+		container.innerHTML = '';
+		container = document.getElementById('table-throw');
+		container.innerHTML = '';
+		container = document.getElementById('table-strat');
+		container.innerHTML = '';
+		container = document.getElementById('table-boost');
+		container.innerHTML = '';
+		container = document.getElementById('table-armour');
+		container.innerHTML = '';
 		columnCount = 5;
 		createTable(userMaster[0], 'table-primary', true);
 		createTable(userMaster[1], 'table-side', true);
@@ -1649,6 +1661,18 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[4], 'table-boost', false);
 		createTable(userMaster[5], 'table-armour', true);
 	} else {
+		var container = document.getElementById('table-primary');
+		container.innerHTML = '';
+		container = document.getElementById('table-side');
+		container.innerHTML = '';
+		container = document.getElementById('table-throw');
+		container.innerHTML = '';
+		container = document.getElementById('table-strat');
+		container.innerHTML = '';
+		container = document.getElementById('table-boost');
+		container.innerHTML = '';
+		container = document.getElementById('table-armour');
+		container.innerHTML = '';
 		columnCount = 3;
 		createTable(userMaster[0], 'table-primary', true);
 		createTable(userMaster[1], 'table-side', true);
