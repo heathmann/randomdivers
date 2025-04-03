@@ -1553,6 +1553,25 @@ function openTab(tabName) {
 	activeTab.style.display = 'block';
 }
 
+function openTabGame(tabName) {
+	// Hide all tab content
+	var contents = document.querySelectorAll('.tab-content');
+	contents.forEach(content => content.style.display = 'none');
+	contents = document.getElementById('myArmoury');
+	contents.style.display = 'none';
+
+	// Show the clicked tab content
+	const activeTab = document.getElementById(tabName);
+	activeTab.style.display = 'block';
+}
+
+function armouryButtons() {
+	var contents = document.querySelectorAll('.tab-content');
+	contents.forEach(content => content.style.display = 'none');
+	contents = document.getElementById('myArmoury');
+	contents.style.display = 'flex';
+}
+
 function selectAll(category) {
 	if (category != 3 || category != 4) {
 		for (var x = 0; x < userMaster[category].length; x++) {

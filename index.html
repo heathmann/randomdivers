@@ -18,12 +18,13 @@ Initial creation date: 3.20.2025
 		<!-- Top row of buttons / master navigation -->
 		<div class="button-container">
 			<div class="row">
-				<button class="tab-button" onclick="openTab('game')" style="z-index: 100;">Play Randomdivers</button>
-				<button class="tab-button" onclick="openTab('randomizer')" style="z-index: 100;">Randomizer</button>
+				<button class="tab-button" onclick="openTabGame('game')" style="z-index: 100;">Play Randomdivers</button>
+				<button class="tab-button" onclick="openTabGame('randomizer')" style="z-index: 100;">Randomizer</button>
+				<button class="tab-button" onclick="armouryButtons()" style="z-index: 100;">My Armoury</button>
+			</div>
+			<div id="myArmoury" class="row" style="display: none;">
 				<button class="tab-button" onclick="openTab('primary')" style="z-index: 100;">Primary Weapons</button>
 				<button class="tab-button" onclick="openTab('side')" style="z-index: 100;">Side Arms</button>
-			</div>
-			<div class="row">
 				<button class="tab-button" onclick="openTab('throw')" style="z-index: 100;">Throwables</button>
 				<button class="tab-button" onclick="openTab('strat')" style="z-index: 100;">Stratagems</button>
 				<button class="tab-button" onclick="openTab('boost')" style="z-index: 100;">Boosters</button>
