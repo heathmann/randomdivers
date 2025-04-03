@@ -180,23 +180,23 @@ img {
 			padding: 2px;
 	}
 	img {
-			height: 90px;
+			height: 65px;
 	}
 	.tab-content {
 			margin-top: 50px;
-	}
-	button {
-		font-size: 10px;
 	}
 }
 
 /* Notes... */
 
-/* @media (orientation: portrait) { */
-	/* .tab-content { */
-		/* margin-top: 160px; */
-	/* } */
-/* } */
+@media (orientation: portrait) {
+	.tab-content {
+		margin-top: 100px;
+	}
+	.row {
+		flex-direction: column;
+	}
+}
 
 /* #home { */
 	/* display: block; Initially show the Home tab content */
