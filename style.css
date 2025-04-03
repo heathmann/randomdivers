@@ -141,6 +141,20 @@ img {
 	gap: 10px;  /* Space between buttons in a row */
 }
 
+.landscapeRow {
+	justify-content: center;
+	display: flex;
+	margin-top: 5px;
+	gap: 10px;  /* Space between buttons in a row */
+}
+
+.portraitRow {
+	justify-content: center;
+	display: flex;
+	margin-top: 5px;
+	gap: 10px;  /* Space between buttons in a row */
+}
+
 .enemy-row {
 	justify-content: center;
 	display: flex;
@@ -193,9 +207,20 @@ img {
 	.tab-content {
 		margin-top: 120px;
 	}
-	.row {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+	.portraitRow {
+		display: flex;
+	}
+	.landscapeRow {
+		display: none;
+	}
+}
+
+@media (orientation: landscape) {
+	.portraitRow {
+		display: none;
+	}
+	.landscapeRow {
+		display: flex;
 	}
 }
 

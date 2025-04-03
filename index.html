@@ -10,7 +10,7 @@ Initial creation date: 3.20.2025
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Randomdivers</title>
-		<link rel="icon" href="https://styles.redditmedia.com/t5_2ya0t/styles/communityIcon_ql5iyxjfuvic1.jpg?format=pjpg&s=c2ffada26a84a71ed5b3ec07bba0a1f825ce9833"> <!--tab icon-->
+		<link rel="icon" href="./images/misc/skull.jpg"> <!--tab icon-->
 		<link rel="stylesheet" href="style.css">
 	</head>
 	
@@ -23,12 +23,24 @@ Initial creation date: 3.20.2025
 				<button class="tab-button" onclick="armouryButtons()" style="z-index: 100;">My Armoury</button>
 			</div>
 			<div id="myArmoury" class="row" style="display: none;">
-				<button class="tab-button" onclick="openTab('primary')" style="z-index: 100;">Primary Weapons</button>
-				<button class="tab-button" onclick="openTab('side')" style="z-index: 100;">Side Arms</button>
-				<button class="tab-button" onclick="openTab('throw')" style="z-index: 100;">Throwables</button>
-				<button class="tab-button" onclick="openTab('strat')" style="z-index: 100;">Stratagems</button>
-				<button class="tab-button" onclick="openTab('boost')" style="z-index: 100;">Boosters</button>
-				<button class="tab-button" onclick="openTab('armour')" style="z-index: 100;">Armours</button>
+				<div class="landscapeRow">
+					<button class="tab-button" onclick="openTab('primary')" style="z-index: 100;">Primary Weapons</button>
+					<button class="tab-button" onclick="openTab('side')" style="z-index: 100;">Side Arms</button>
+					<button class="tab-button" onclick="openTab('throw')" style="z-index: 100;">Throwables</button>
+					<button class="tab-button" onclick="openTab('strat')" style="z-index: 100;">Stratagems</button>
+					<button class="tab-button" onclick="openTab('boost')" style="z-index: 100;">Boosters</button>
+					<button class="tab-button" onclick="openTab('armour')" style="z-index: 100;">Armours</button>
+				</div>
+				<div class="portraitRow" style="display: none;">
+					<button class="tab-button" onclick="openTab('primary')" style="z-index: 100;">Primary Weapons</button>
+					<button class="tab-button" onclick="openTab('side')" style="z-index: 100;">Side Arms</button>
+					<button class="tab-button" onclick="openTab('throw')" style="z-index: 100;">Throwables</button>
+				</div>
+				<div class="portraitRow" style="display: none;">
+					<button class="tab-button" onclick="openTab('strat')" style="z-index: 100;">Stratagems</button>
+					<button class="tab-button" onclick="openTab('boost')" style="z-index: 100;">Boosters</button>
+					<button class="tab-button" onclick="openTab('armour')" style="z-index: 100;">Armours</button>
+				</div>
 			</div>
 		</div>
 
