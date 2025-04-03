@@ -180,10 +180,13 @@ img {
 			padding: 2px;
 	}
 	img {
-			height: 65px;
+			height: 90px;
 	}
 	.tab-content {
 			margin-top: 50px;
+	}
+	button {
+		font-size: 10px;
 	}
 }
 
