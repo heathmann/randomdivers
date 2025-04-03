@@ -194,9 +194,6 @@ img {
 }
 
 @media (orientation: portrait) {
-	.tab-content {
-		margin-top: 80px;
-	}
 	.specialRow {
 		grid-template-columns: repeat(3, 1fr);
 		justify-content: center;
