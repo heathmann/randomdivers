@@ -208,19 +208,19 @@ img {
 		margin-top: 120px;
 	}
 	.portraitRow {
-		display: flex;
+		display: none;
 	}
 	.landscapeRow {
-		display: none;
+		display: flex;
 	}
 }
 
 @media (orientation: landscape) {
 	.portraitRow {
-		display: none;
+		display: flex;
 	}
 	.landscapeRow {
-		display: flex;
+		display: none;
 	}
 }
 
