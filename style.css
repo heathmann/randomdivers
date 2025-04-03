@@ -143,6 +143,8 @@ img {
 
 .specialRow {
 	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	justify-self: stretch;
 }
 
 .enemy-row {
@@ -200,16 +202,14 @@ img {
 		justify-content: center;
 		margin-top: 5px;
 		grid-gap: 12px;
-		width: 400px;
 	}
 }
 
 @media (orientation: landscape) {
 	.specialRow {
-		grid-template-columns: repeat(6, 1fr);
 		justify-content: center;
 		margin-top: 5px;
-		gap: 10px;
+		grid-gap: 10px;
 	}
 }
 
