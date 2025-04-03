@@ -141,17 +141,8 @@ img {
 	gap: 10px;  /* Space between buttons in a row */
 }
 
-.landscapeRow {
-	justify-content: center;
-	margin-top: 5px;
-	gap: 10px;  /* Space between buttons in a row */
-}
-
-.portraitRow {
-	justify-content: center;
-	margin-top: 5px;
-	grid-gap: 12px;
-	/* gap: 10px;  /* Space between buttons in a row */ */
+.specialRow {
+	display: grid;
 }
 
 .enemy-row {
@@ -202,26 +193,26 @@ img {
 
 /* Notes... */
 
-/* @media (orientation: portrait) { */
-	/* .tab-content { */
-		/* margin-top: 130px; */
-	/* } */
-	/* .portraitRow { */
-		/* display: grid; */
-	/* } */
-	/* .landscapeRow { */
-		/* display: none; */
-	/* } */
-/* } */
+@media (orientation: portrait) {
+	.tab-content {
+		margin-top: 130px;
+	}
+	.specialRow {
+		grid-template-columns: repeat(3, 1fr);
+		justify-content: center;
+		margin-top: 5px;
+		grid-gap: 12px;
+	}
+}
 
-/* @media (orientation: landscape) { */
-	/* .portraitRow { */
-		/* display: none; */
-	/* } */
-	/* .landscapeRow { */
-		/* display: grid; */
-	/* } */
-/* } */
+@media (orientation: landscape) {
+	.specialRow {
+		grid-template-columns: repeat(6, 1fr);
+		justify-content: center;
+		margin-top: 5px;
+		gap: 10px;
+	}
+}
 
 /* #home { */
 	/* display: block; Initially show the Home tab content */
