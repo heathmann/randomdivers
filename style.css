@@ -143,16 +143,15 @@ img {
 
 .landscapeRow {
 	justify-content: center;
-	display: flex;
 	margin-top: 5px;
 	gap: 10px;  /* Space between buttons in a row */
 }
 
 .portraitRow {
 	justify-content: center;
-	display: flex;
 	margin-top: 5px;
-	gap: 10px;  /* Space between buttons in a row */
+	grid-gap: 12px;
+	/* gap: 10px;  /* Space between buttons in a row */ */
 }
 
 .enemy-row {
@@ -211,16 +210,16 @@ img {
 		display: none;
 	}
 	.landscapeRow {
-		display: flex;
+		display: grid;
 	}
 }
 
 @media (orientation: landscape) {
 	.portraitRow {
-		display: flex;
+		display: none;
 	}
 	.landscapeRow {
-		display: none;
+		display: grid;
 	}
 }
 
