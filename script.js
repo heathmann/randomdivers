@@ -240,6 +240,8 @@ const MasterList = [
 	]
 ];
 
+const portraitColumns = 3;
+const landscapeColumns = 5;
 var columnCount = 5;
 
 // [date], [difficulty], [mission], [enemy], [endgame], [score], [chaos], [loadoutArray]
@@ -1652,6 +1654,27 @@ if (window.matchMedia("(orientation: landscape)").matches) {
 	container.innerHTML = '';
 	container = document.getElementById('table-armour');
 	container.innerHTML = '';
+	columnCount = landscapeColumns;
+	createTable(userMaster[0], 'table-primary', true);
+	createTable(userMaster[1], 'table-side', true);
+	createTable(userMaster[2], 'table-throw', true);
+	createTable(userMaster[3], 'table-strat', false);
+	createTable(userMaster[4], 'table-boost', false);
+	createTable(userMaster[5], 'table-armour', true);
+} else {
+	var container = document.getElementById('table-primary');
+	container.innerHTML = '';
+	container = document.getElementById('table-side');
+	container.innerHTML = '';
+	container = document.getElementById('table-throw');
+	container.innerHTML = '';
+	container = document.getElementById('table-strat');
+	container.innerHTML = '';
+	container = document.getElementById('table-boost');
+	container.innerHTML = '';
+	container = document.getElementById('table-armour');
+	container.innerHTML = '';
+	columnCount = portraitColumns;
 	createTable(userMaster[0], 'table-primary', true);
 	createTable(userMaster[1], 'table-side', true);
 	createTable(userMaster[2], 'table-throw', true);
@@ -1674,7 +1697,7 @@ window.addEventListener('resize', function() {
 	container = document.getElementById('table-armour');
 	container.innerHTML = '';
 	if (window.matchMedia("(orientation: landscape)").matches) {
-		columnCount = 5;
+		columnCount = landscapeColumns;
 		createTable(userMaster[0], 'table-primary', true);
 		createTable(userMaster[1], 'table-side', true);
 		createTable(userMaster[2], 'table-throw', true);
@@ -1682,7 +1705,7 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[4], 'table-boost', false);
 		createTable(userMaster[5], 'table-armour', true);
 	} else {
-		columnCount = 3;
+		columnCount = portraitColumns;
 		createTable(userMaster[0], 'table-primary', true);
 		createTable(userMaster[1], 'table-side', true);
 		createTable(userMaster[2], 'table-throw', true);
