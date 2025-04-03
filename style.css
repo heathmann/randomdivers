@@ -191,8 +191,6 @@ img {
 	}
 }
 
-/* Notes... */
-
 @media (orientation: portrait) {
 	.tab-content {
 		margin-top: 130px;
@@ -202,6 +200,7 @@ img {
 		justify-content: center;
 		margin-top: 5px;
 		grid-gap: 12px;
+		width: 800px;
 	}
 }
 
