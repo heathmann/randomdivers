@@ -1640,7 +1640,7 @@ function clearAll(category) {
 }
 
 window.addEventListener('resize', function() {
-	if (window.innerWidth > window.innerHeight) {
+	if (screen.availHeight > screen.availWidth) {
 		columnCount = 5;
 		createTable(userMaster[0], 'table-primary', true);
 		createTable(userMaster[1], 'table-side', true);
