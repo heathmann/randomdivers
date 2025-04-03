@@ -204,13 +204,13 @@ img {
 
 @media (orientation: portrait) {
 	.tab-content {
-		margin-top: 120px;
+		margin-top: 130px;
 	}
 	.portraitRow {
-		display: none;
+		display: grid;
 	}
 	.landscapeRow {
-		display: grid;
+		display: none;
 	}
 }
 
