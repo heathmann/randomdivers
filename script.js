@@ -1573,6 +1573,17 @@ function armouryButtons() {
 	contents.forEach(content => content.style.display = 'none');
 	contents = document.getElementById('myArmoury');
 	contents.style.display = 'flex';
+	if (window.matchMedia("(orientation: landscape)").matches) {
+		contents = document.getElementById('land');
+		contents.style.display = 'grid';
+		contents = document.getElementById('por');
+		contents.style.display = 'none';
+	} else {
+		contents = document.getElementById('land');
+		contents.style.display = 'none';
+		contents = document.getElementById('por');
+		contents.style.display = 'grid';
+	}
 }
 
 function selectAll(category) {

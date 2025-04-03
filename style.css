@@ -202,26 +202,26 @@ img {
 
 /* Notes... */
 
-@media (orientation: portrait) {
-	.tab-content {
-		margin-top: 130px;
-	}
-	.portraitRow {
-		display: grid;
-	}
-	.landscapeRow {
-		display: none;
-	}
-}
+/* @media (orientation: portrait) { */
+	/* .tab-content { */
+		/* margin-top: 130px; */
+	/* } */
+	/* .portraitRow { */
+		/* display: grid; */
+	/* } */
+	/* .landscapeRow { */
+		/* display: none; */
+	/* } */
+/* } */
 
-@media (orientation: landscape) {
-	.portraitRow {
-		display: none;
-	}
-	.landscapeRow {
-		display: grid;
-	}
-}
+/* @media (orientation: landscape) { */
+	/* .portraitRow { */
+		/* display: none; */
+	/* } */
+	/* .landscapeRow { */
+		/* display: grid; */
+	/* } */
+/* } */
 
 /* #home { */
 	/* display: block; Initially show the Home tab content */
