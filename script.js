@@ -240,6 +240,8 @@ const MasterList = [
 	]
 ];
 
+var columnCount = 5;
+
 // [date], [difficulty], [mission], [enemy], [endgame], [score], [chaos], [loadoutArray]
 var savedRuns = [];
 let pulledRuns = JSON.parse(localStorage.getItem('savedRunsLocal'));
@@ -346,15 +348,6 @@ function createTable(data, tableName, include) {
 	
 	// Create the table element
 	const table = document.createElement('table');
-	
-	var columnCount = 5;
-	window.addEventListener('resize', function() {
-		if (window.innerWidth > window.innerHeight) {
-			columnCount = 5;
-		} else {
-			columnCount = 3;
-		}
-	});
 	
 	var cat = 0;
 	
@@ -1645,6 +1638,26 @@ function clearAll(category) {
 	createTable(userMaster[4], 'table-boost', false);
 	createTable(userMaster[5], 'table-armour', true);
 }
+
+window.addEventListener('resize', function() {
+	if (window.innerWidth > window.innerHeight) {
+		columnCount = 5;
+		createTable(userMaster[0], 'table-primary', true);
+		createTable(userMaster[1], 'table-side', true);
+		createTable(userMaster[2], 'table-throw', true);
+		createTable(userMaster[3], 'table-strat', false);
+		createTable(userMaster[4], 'table-boost', false);
+		createTable(userMaster[5], 'table-armour', true);
+	} else {
+		columnCount = 3;
+		createTable(userMaster[0], 'table-primary', true);
+		createTable(userMaster[1], 'table-side', true);
+		createTable(userMaster[2], 'table-throw', true);
+		createTable(userMaster[3], 'table-strat', false);
+		createTable(userMaster[4], 'table-boost', false);
+		createTable(userMaster[5], 'table-armour', true);
+	}
+});
 
 createTable(userMaster[0], 'table-primary', true);
 createTable(userMaster[1], 'table-side', true);
