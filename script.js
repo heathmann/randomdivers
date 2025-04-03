@@ -346,7 +346,15 @@ function createTable(data, tableName, include) {
 	
 	// Create the table element
 	const table = document.createElement('table');
-	const columnCount = 5;
+	
+	var columnCount = 5;
+	window.addEventListener('resize', function() {
+		if (window.innerWidth > window.innerHeight) {
+			columnCount = 5;
+		} else {
+			columnCount = 3;
+		}
+	});
 	
 	var cat = 0;
 	
