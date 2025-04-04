@@ -261,7 +261,7 @@ if (pulledMaster) {
 	var tempMaster = [[],[],[],[],[],[]];
 	for (var x = 0; x < MasterList.length; x++) {
 		for (var y = 0; y < MasterList[x].length; y++) {
-			const indexHolder = pulledMaster[x].indexOf(MasterList[x][y][0]);
+			const indexHolder = pulledMaster[x].findIndex(innerArray => innerArray.includes(MasterList[x][y][0]));
 			if (indexHolder == -1) {
 				tempMaster[x].push(MasterList[x][y]);
 			} else {
