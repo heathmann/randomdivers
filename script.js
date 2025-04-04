@@ -232,13 +232,11 @@ const MasterList = [
 		["CE-101 Guerilla Gorilla", "https://helldivers.wiki.gg/images/7/75/CE-101_Guerilla_Gorilla_Body_Armory.png", true],
 		["I-44 Salamander", "https://helldivers.wiki.gg/images/4/45/I-44_Salamander_Body_Armory.png", true],
 		["SR-18 Roadblock", "https://helldivers.wiki.gg/images/9/94/SR-18_Roadblock_Body_Armory.png", true],
-		["test armour 2", skull, true],
 		["GS-66 Lawmaker", "https://helldivers.wiki.gg/images/0/0d/GS-66_Lawmaker_Body_Armory.png?3f3c27=&format=original", true],
 		["PH-202 Twigsnapper", "https://helldivers.wiki.gg/images/7/75/PH-202_Twigsnapper_Body_Armory.png", true],
 		["FS-23 Battle Master", "https://helldivers.wiki.gg/images/0/0e/FS-23_Battle_Master_Body_Armory.png", true],
 		["CW-36 Winter Warrior", "https://helldivers.wiki.gg/images/2/2c/CW-36_Winter_Warrior_Body_Armory.png", true],
-		["TR-62 Knight", "https://helldivers.wiki.gg/images/9/97/TR-62_Knight_Body_Armory.png?format=original", true],
-		["test armour", skull, true]
+		["TR-62 Knight", "https://helldivers.wiki.gg/images/9/97/TR-62_Knight_Body_Armory.png?format=original", true]
 	]
 ];
 
