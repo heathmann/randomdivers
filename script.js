@@ -232,6 +232,7 @@ const MasterList = [
 		["CE-101 Guerilla Gorilla", "https://helldivers.wiki.gg/images/7/75/CE-101_Guerilla_Gorilla_Body_Armory.png", true],
 		["I-44 Salamander", "https://helldivers.wiki.gg/images/4/45/I-44_Salamander_Body_Armory.png", true],
 		["SR-18 Roadblock", "https://helldivers.wiki.gg/images/9/94/SR-18_Roadblock_Body_Armory.png", true],
+		["test armour 2", skull, true],
 		["GS-66 Lawmaker", "https://helldivers.wiki.gg/images/0/0d/GS-66_Lawmaker_Body_Armory.png?3f3c27=&format=original", true],
 		["PH-202 Twigsnapper", "https://helldivers.wiki.gg/images/7/75/PH-202_Twigsnapper_Body_Armory.png", true],
 		["FS-23 Battle Master", "https://helldivers.wiki.gg/images/0/0e/FS-23_Battle_Master_Body_Armory.png", true],
@@ -257,7 +258,18 @@ var userMaster = [];
 let pulledMaster = JSON.parse(localStorage.getItem('userMasterLocal'));
 
 if (pulledMaster) {
-	userMaster = pulledMaster;
+	var tempMaster = [];
+	for (var x = 0; x < pulledMaster.length; x++) {
+		for (var y = 0; y < pulledMaster[x].length; y++) {
+			const indexHolder = pulledMaster[x].indexOf(MasterList[x][y][0]);
+			if (indexHolder == -1) {
+				tempMaster[x].push(MasterList[x][y]);
+			} else {
+				tempMaster[x].push(pulledMaster[x][indexHolder]);
+			}
+		}
+	}
+	userMaster = tempMaster;
 } else {
 	userMaster = MasterList;
 }
