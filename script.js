@@ -236,7 +236,8 @@ const MasterList = [
 		["PH-202 Twigsnapper", "https://helldivers.wiki.gg/images/7/75/PH-202_Twigsnapper_Body_Armory.png", true],
 		["FS-23 Battle Master", "https://helldivers.wiki.gg/images/0/0e/FS-23_Battle_Master_Body_Armory.png", true],
 		["CW-36 Winter Warrior", "https://helldivers.wiki.gg/images/2/2c/CW-36_Winter_Warrior_Body_Armory.png", true],
-		["TR-62 Knight", "https://helldivers.wiki.gg/images/9/97/TR-62_Knight_Body_Armory.png?format=original", true]
+		["TR-62 Knight", "https://helldivers.wiki.gg/images/9/97/TR-62_Knight_Body_Armory.png?format=original", true],
+		["test armour", skull, true]
 	]
 ];
 
