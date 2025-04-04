@@ -191,6 +191,9 @@ img {
 	.tab-content {
 			margin-top: 50px;
 	}
+	th, td {
+		padding: 1px;
+	}
 }
 
 @media (orientation: portrait) {
