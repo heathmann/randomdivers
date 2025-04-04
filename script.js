@@ -259,8 +259,8 @@ let pulledMaster = JSON.parse(localStorage.getItem('userMasterLocal'));
 
 if (pulledMaster) {
 	var tempMaster = [[],[],[],[],[],[]];
-	for (var x = 0; x < pulledMaster.length; x++) {
-		for (var y = 0; y < pulledMaster[x].length; y++) {
+	for (var x = 0; x < MasterList.length; x++) {
+		for (var y = 0; y < MasterList[x].length; y++) {
 			const indexHolder = pulledMaster[x].indexOf(MasterList[x][y][0]);
 			if (indexHolder == -1) {
 				tempMaster[x].push(MasterList[x][y]);
