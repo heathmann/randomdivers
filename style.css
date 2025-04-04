@@ -191,8 +191,8 @@ img {
 	.tab-content {
 			margin-top: 50px;
 	}
-	th, td {
-		padding: 1px;
+	table {
+		font-size: 12px;
 	}
 }
 
