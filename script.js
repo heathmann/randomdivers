@@ -1295,8 +1295,8 @@ function newGame() {
 	currentLoadout = [
 		0,
 		0,
-		0,
-		14,
+		2,
+		41,
 		userMaster[3].length - 1,
 		userMaster[3].length - 1,
 		userMaster[3].length - 1,
