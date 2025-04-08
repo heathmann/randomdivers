@@ -770,9 +770,9 @@ function roll () {
 	threeUnique.push(getThreeUnique(userMaster[5].length, 5));
 
 	const finalResults = [
-		[userMaster[categorySelections[0]][threeUnique[categorySelections[0]][0]][0], userMaster[categorySelections[0]][threeUnique[categorySelections[0]][0]][1]],
-		[userMaster[categorySelections[1]][threeUnique[categorySelections[1]][1]][0], userMaster[categorySelections[1]][threeUnique[categorySelections[1]][1]][1]],
-		[userMaster[categorySelections[2]][threeUnique[categorySelections[2]][2]][0], userMaster[categorySelections[2]][threeUnique[categorySelections[2]][2]][1]]
+		[userMaster[categorySelections[0]][threeUnique[categorySelections[0]][0]][0], MasterList[categorySelections[0]][threeUnique[categorySelections[0]][0]][1]],
+		[userMaster[categorySelections[1]][threeUnique[categorySelections[1]][1]][0], MasterList[categorySelections[1]][threeUnique[categorySelections[1]][1]][1]],
+		[userMaster[categorySelections[2]][threeUnique[categorySelections[2]][2]][0], MasterList[categorySelections[2]][threeUnique[categorySelections[2]][2]][1]]
 	];
 
 	const table = document.createElement('table');
@@ -892,15 +892,15 @@ function generateLoadoutTable() {
 							document.createElement('img'), 
 							document.createElement('img')
 						]
-			img[0].src = userMaster[0][currentLoadout[0]][1];
-			img[1].src = userMaster[1][currentLoadout[1]][1];
-			img[2].src = userMaster[2][currentLoadout[2]][1];
-			img[3].src = userMaster[5][currentLoadout[3]][1];
-			img[4].src = userMaster[3][currentLoadout[4]][1];
-			img[5].src = userMaster[3][currentLoadout[5]][1];
-			img[6].src = userMaster[3][currentLoadout[6]][1];
-			img[7].src = userMaster[3][currentLoadout[7]][1];
-			img[8].src = userMaster[4][currentLoadout[8]][1];
+			img[0].src = MasterList[0][currentLoadout[0]][1];
+			img[1].src = MasterList[1][currentLoadout[1]][1];
+			img[2].src = MasterList[2][currentLoadout[2]][1];
+			img[3].src = MasterList[5][currentLoadout[3]][1];
+			img[4].src = MasterList[3][currentLoadout[4]][1];
+			img[5].src = MasterList[3][currentLoadout[5]][1];
+			img[6].src = MasterList[3][currentLoadout[6]][1];
+			img[7].src = MasterList[3][currentLoadout[7]][1];
+			img[8].src = MasterList[4][currentLoadout[8]][1];
 			
 			for (var x = 0; x < 4; x++) {
 				cell = row.cells[x];
@@ -962,7 +962,7 @@ function swap(selection, count) {
 			row.insertCell(0).innerHTML = userMaster[3][selection][0];
 		} else {
 			const img = document.createElement('img');
-			img.src = userMaster[3][selection][1];
+			img.src = MasterList[3][selection][1];
 			row.insertCell(0).innerHTML = '';
 			var cell = row.cells[0];
 			cell.appendChild(img);
@@ -985,7 +985,7 @@ function swap(selection, count) {
 			var cell = row.cells[0];
 			for (var x = 0; x < 4; x++) {
 				const img = document.createElement('img');
-				img.src = userMaster[3][currentLoadout[x+4]][1];
+				img.src = MasterList[3][currentLoadout[x+4]][1];
 				cell = row.cells[x];
 				cell.appendChild(img);
 			}
@@ -1172,9 +1172,9 @@ function rollSelect (count) {
 	threeUnique.push(getThreeUniqueNoDup(userMaster[5].length, 5));
 
 	const finalResults = [
-		[userMaster[categorySelections[0]][threeUnique[categorySelections[0]][0]][0], userMaster[categorySelections[0]][threeUnique[categorySelections[0]][0]][1]],
-		[userMaster[categorySelections[1]][threeUnique[categorySelections[1]][1]][0], userMaster[categorySelections[1]][threeUnique[categorySelections[1]][1]][1]],
-		[userMaster[categorySelections[2]][threeUnique[categorySelections[2]][2]][0], userMaster[categorySelections[2]][threeUnique[categorySelections[2]][2]][1]]
+		[userMaster[categorySelections[0]][threeUnique[categorySelections[0]][0]][0], MasterList[categorySelections[0]][threeUnique[categorySelections[0]][0]][1]],
+		[userMaster[categorySelections[1]][threeUnique[categorySelections[1]][1]][0], MasterList[categorySelections[1]][threeUnique[categorySelections[1]][1]][1]],
+		[userMaster[categorySelections[2]][threeUnique[categorySelections[2]][2]][0], MasterList[categorySelections[2]][threeUnique[categorySelections[2]][2]][1]]
 	];
 
 	const table = document.createElement('table');
@@ -1612,12 +1612,12 @@ function selectAll(category) {
 	container = document.getElementById('table-armour');
 	container.innerHTML = '';
 
-	createTable(userMaster[0], 'table-primary', true);
-	createTable(userMaster[1], 'table-side', true);
-	createTable(userMaster[2], 'table-throw', true);
-	createTable(userMaster[3], 'table-strat', false);
-	createTable(userMaster[4], 'table-boost', false);
-	createTable(userMaster[5], 'table-armour', true);
+	createTable(MasterList[0], 'table-primary', true);
+	createTable(MasterList[1], 'table-side', true);
+	createTable(MasterList[2], 'table-throw', true);
+	createTable(MasterList[3], 'table-strat', false);
+	createTable(MasterList[4], 'table-boost', false);
+	createTable(MasterList[5], 'table-armour', true);
 }
 
 function clearAll(category) {
@@ -1644,12 +1644,12 @@ function clearAll(category) {
 	container = document.getElementById('table-armour');
 	container.innerHTML = '';
 
-	createTable(userMaster[0], 'table-primary', true);
-	createTable(userMaster[1], 'table-side', true);
-	createTable(userMaster[2], 'table-throw', true);
-	createTable(userMaster[3], 'table-strat', false);
-	createTable(userMaster[4], 'table-boost', false);
-	createTable(userMaster[5], 'table-armour', true);
+	createTable(MasterList[0], 'table-primary', true);
+	createTable(MasterList[1], 'table-side', true);
+	createTable(MasterList[2], 'table-throw', true);
+	createTable(MasterList[3], 'table-strat', false);
+	createTable(MasterList[4], 'table-boost', false);
+	createTable(MasterList[5], 'table-armour', true);
 }
 
 if (window.matchMedia("(orientation: landscape)").matches) {
@@ -1666,12 +1666,12 @@ if (window.matchMedia("(orientation: landscape)").matches) {
 	container = document.getElementById('table-armour');
 	container.innerHTML = '';
 	columnCount = landscapeColumns;
-	createTable(userMaster[0], 'table-primary', true);
-	createTable(userMaster[1], 'table-side', true);
-	createTable(userMaster[2], 'table-throw', true);
-	createTable(userMaster[3], 'table-strat', false);
-	createTable(userMaster[4], 'table-boost', false);
-	createTable(userMaster[5], 'table-armour', true);
+	createTable(MasterList[0], 'table-primary', true);
+	createTable(MasterList[1], 'table-side', true);
+	createTable(MasterList[2], 'table-throw', true);
+	createTable(MasterList[3], 'table-strat', false);
+	createTable(MasterList[4], 'table-boost', false);
+	createTable(MasterList[5], 'table-armour', true);
 } else {
 	var container = document.getElementById('table-primary');
 	container.innerHTML = '';
@@ -1686,12 +1686,12 @@ if (window.matchMedia("(orientation: landscape)").matches) {
 	container = document.getElementById('table-armour');
 	container.innerHTML = '';
 	columnCount = portraitColumns;
-	createTable(userMaster[0], 'table-primary', true);
-	createTable(userMaster[1], 'table-side', true);
-	createTable(userMaster[2], 'table-throw', true);
-	createTable(userMaster[3], 'table-strat', false);
-	createTable(userMaster[4], 'table-boost', false);
-	createTable(userMaster[5], 'table-armour', true);
+	createTable(MasterList[0], 'table-primary', true);
+	createTable(MasterList[1], 'table-side', true);
+	createTable(MasterList[2], 'table-throw', true);
+	createTable(MasterList[3], 'table-strat', false);
+	createTable(MasterList[4], 'table-boost', false);
+	createTable(MasterList[5], 'table-armour', true);
 }
 
 window.addEventListener('resize', function() {
@@ -1709,19 +1709,19 @@ window.addEventListener('resize', function() {
 	container.innerHTML = '';
 	if (window.matchMedia("(orientation: landscape)").matches) {
 		columnCount = landscapeColumns;
-		createTable(userMaster[0], 'table-primary', true);
-		createTable(userMaster[1], 'table-side', true);
-		createTable(userMaster[2], 'table-throw', true);
-		createTable(userMaster[3], 'table-strat', false);
-		createTable(userMaster[4], 'table-boost', false);
-		createTable(userMaster[5], 'table-armour', true);
+		createTable(MasterList[0], 'table-primary', true);
+		createTable(MasterList[1], 'table-side', true);
+		createTable(MasterList[2], 'table-throw', true);
+		createTable(MasterList[3], 'table-strat', false);
+		createTable(MasterList[4], 'table-boost', false);
+		createTable(MasterList[5], 'table-armour', true);
 	} else {
 		columnCount = portraitColumns;
-		createTable(userMaster[0], 'table-primary', true);
-		createTable(userMaster[1], 'table-side', true);
-		createTable(userMaster[2], 'table-throw', true);
-		createTable(userMaster[3], 'table-strat', false);
-		createTable(userMaster[4], 'table-boost', false);
-		createTable(userMaster[5], 'table-armour', true);
+		createTable(MasterList[0], 'table-primary', true);
+		createTable(MasterList[1], 'table-side', true);
+		createTable(MasterList[2], 'table-throw', true);
+		createTable(MasterList[3], 'table-strat', false);
+		createTable(MasterList[4], 'table-boost', false);
+		createTable(MasterList[5], 'table-armour', true);
 	}
 });
