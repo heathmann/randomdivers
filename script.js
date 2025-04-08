@@ -770,9 +770,9 @@ function roll () {
 	threeUnique.push(getThreeUnique(userMaster[5].length, 5));
 
 	const finalResults = [
-		[userMaster[categorySelections[0]][threeUnique[categorySelections[0]][0]][0], MasterList[categorySelections[0]][threeUnique[categorySelections[0]][0]][1]],
-		[userMaster[categorySelections[1]][threeUnique[categorySelections[1]][1]][0], MasterList[categorySelections[1]][threeUnique[categorySelections[1]][1]][1]],
-		[userMaster[categorySelections[2]][threeUnique[categorySelections[2]][2]][0], MasterList[categorySelections[2]][threeUnique[categorySelections[2]][2]][1]]
+		[userMaster[categorySelections[0]][threeUnique[categorySelections[0]][0]][0], userMaster[categorySelections[0]][threeUnique[categorySelections[0]][0]][1]],
+		[userMaster[categorySelections[1]][threeUnique[categorySelections[1]][1]][0], userMaster[categorySelections[1]][threeUnique[categorySelections[1]][1]][1]],
+		[userMaster[categorySelections[2]][threeUnique[categorySelections[2]][2]][0], userMaster[categorySelections[2]][threeUnique[categorySelections[2]][2]][1]]
 	];
 
 	const table = document.createElement('table');
@@ -821,6 +821,119 @@ function roll () {
 	}
 	
 	return table;
+}
+
+function generateRandomLoadoutTable() {
+	const numbers = new Set();
+	
+	while (numbers.size < 4) {
+		const randomNumber = Math.floor(Math.random() * (MasterList[3].length - 1));
+		numbers.add(randomNumber);  // Add the random number to the set (duplicates are automatically ignored)
+	}
+
+	const strats = Array.from(numbers);
+	const primary = Math.floor(Math.random() * (MasterList[0].length));
+	const second = Math.floor(Math.random() * (MasterList[1].length));
+	const thrown = Math.floor(Math.random() * (MasterList[2].length));
+	const booster = Math.floor(Math.random() * (MasterList[4].length - 1));
+	const armour = Math.floor(Math.random() * (MasterList[5].length));
+
+	const topTable = document.createElement('table');
+	const bottomTable = document.createElement('table');
+	topTable.style.height = 'auto';
+	bottomTable.style.height = 'auto';
+	bottomTable.style.align = 'center';
+
+	const topHeaderRow = document.createElement('tr');
+	const bottomHeaderRow = document.createElement('tr');
+
+	// Array of header names
+	const topHeaders = ['Primary Weapon', 'Side Arm', 'Throwable', 'Armour'];
+	const bottomHeaders = ['Stratagem 1', 'Stratagem 2', 'Stratagem 3', 'Stratagem 4', 'Booster'];
+
+	// Loop through the headers and create <th> elements
+	topHeaders.forEach(headerText => {
+		const th = document.createElement('th');
+		th.textContent = headerText;  // Set the text of the header
+		th.style.border = '1px solid black';  // Add border to the header
+		topHeaderRow.appendChild(th);  // Append the header cell to the header row
+	});
+	
+	bottomHeaders.forEach(headerText => {
+		const th = document.createElement('th');
+		th.textContent = headerText;  // Set the text of the header
+		th.style.border = '1px solid black';  // Add border to the header
+		bottomHeaderRow.appendChild(th);  // Append the header cell to the header row
+	});
+
+	// Append the header row to the table
+	topTable.appendChild(topHeaderRow);
+	bottomTable.appendChild(bottomHeaderRow);
+
+	for(var i = 1; i < 3; i++) {
+		var row = topTable.insertRow(i);
+		var row2 = bottomTable.insertRow(i);
+		if (i == 1) {
+			row.style.fontWeight = 'bold';
+			row2.style.fontWeight = 'bold';
+			row.insertCell(0).innerHTML = userMaster[0][primary][0];
+			row.insertCell(1).innerHTML = userMaster[1][second][0];
+			row.insertCell(2).innerHTML = userMaster[2][thrown][0];
+			row.insertCell(3).innerHTML = userMaster[5][armour][0];
+			row2.insertCell(0).innerHTML = userMaster[3][strats[0]][0];
+			row2.insertCell(1).innerHTML = userMaster[3][strats[1]][0];
+			row2.insertCell(2).innerHTML = userMaster[3][strats[2]][0];
+			row2.insertCell(3).innerHTML = userMaster[3][strats[3]][0];
+			row2.insertCell(4).innerHTML = userMaster[4][booster][0];
+		} else {
+			row.insertCell(0).innerHTML = '';
+			row.insertCell(1).innerHTML = '';
+			row.insertCell(2).innerHTML = '';
+			row.insertCell(3).innerHTML = '';
+			row2.insertCell(0).innerHTML = '';
+			row2.insertCell(1).innerHTML = '';
+			row2.insertCell(2).innerHTML = '';
+			row2.insertCell(3).innerHTML = '';
+			row2.insertCell(4).innerHTML = '';
+			var cell = row.cells[0];
+			const img = [document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img'), 
+							document.createElement('img')
+						]
+			img[0].src = MasterList[0][primary][1];
+			img[1].src = MasterList[1][second][1];
+			img[2].src = MasterList[2][thrown][1];
+			img[3].src = MasterList[5][armour][1];
+			img[4].src = MasterList[3][strats[0]][1];
+			img[5].src = MasterList[3][strats[1]][1];
+			img[6].src = MasterList[3][strats[2]][1];
+			img[7].src = MasterList[3][strats[3]][1];
+			img[8].src = MasterList[4][booster][1];
+			
+			for (var x = 0; x < 4; x++) {
+				cell = row.cells[x];
+				cell.appendChild(img[x]);
+			}
+			
+			for (var x = 0; x < 5; x++) {
+				cell = row2.cells[x];
+				cell.appendChild(img[x+4]);
+			}
+		}
+	}
+
+	const container = document.getElementById('topRandomLoad');
+	const container2 = document.getElementById('bottomRandomLoad');
+	container.innerHTML = '';
+	container2.innerHTML = '';
+	container.appendChild(topTable);
+	container2.appendChild(bottomTable);
 }
 
 function generateLoadoutTable() {
@@ -1253,10 +1366,25 @@ function rollSelect (count) {
 	return table;
 }
 
-function changeMessage() {
-	const container = document.getElementById('table-results');
+function singleRoll() {
+	var container = document.getElementById('table-results');
+	container.innerHTML = '';
+	container = document.getElementById('topRandomLoad');
+	container.innerHTML = '';
+	container = document.getElementById('bottomRandomLoad');
 	container.innerHTML = '';
 	container.appendChild(roll());
+}
+
+function randomLoadout() {
+	var container = document.getElementById('table-results');
+	container.innerHTML = '';
+	container = document.getElementById('topRandomLoad');
+	container.innerHTML = '';
+	container = document.getElementById('bottomRandomLoad');
+	container.innerHTML = '';
+	
+	generateRandomLoadoutTable();
 }
 
 // Pick a random faction and return the faction as a string (for chaos mode)

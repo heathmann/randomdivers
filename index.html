@@ -9,9 +9,7 @@ Initial creation date: 3.20.2025
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!--<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE"> not needed??? -->
 		<title>Randomdivers</title>
-		<!--<link href="style.css?v=2" media="screen,print" rel="stylesheet" type="text/css">-->
 		<link rel="icon" href="./images/misc/skull.jpg"> <!--tab icon-->
 		<link rel="stylesheet" href="style.css">
 	</head>
@@ -108,11 +106,20 @@ Initial creation date: 3.20.2025
 		
 		<!-- The roguelike randomizer on its own section -->
 		<div id="randomizer" class="tab-content">
-			<div class="container">
+			<!-- <div class="container"> -->
 				<h1>Randomizer</h1>
 				<div id="table-results"></div>
-				<button onclick="changeMessage()" style="margin-top: 20px;">Click me to roll!</button>
-			</div>
+				<div class="row" style="justify-content: center; margin-bottom: 0px;">
+					<div id="topRandomLoad" style="justify-content: center;"></div>
+				</div>
+				<div class="row" style="justify-content: center; margin-top: 0px;">
+					<div id="bottomRandomLoad" style="justify-content: center; "></div>
+				</div>
+				<div class="row" style="justify-content: center;">
+					<button onclick="singleRoll()" style="margin-top: 20px;">One Roll</button>
+					<button onclick="randomLoadout()" style="margin-top: 20px;">Random Loadout</button>
+				</div>
+			<!-- </div> -->
 		</div>
 		
 		<!-- List of primary weapons -->
@@ -175,7 +182,6 @@ Initial creation date: 3.20.2025
 			<div id="table-armour"></div>
 		</div>
 
-		<script src="script.js?v=2"></script>
-		<!-- <script src="script.js"></script> -->
+		<script src="script.js?v=3"></script>
 	</body>
 </html>
