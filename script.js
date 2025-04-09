@@ -485,7 +485,7 @@ function createTable(data, tableName, include) {
 				} else if (r % 3 == 1) {
 					const img = document.createElement('img');
 					img.height = 150;
-					img.src = data[d + (columnCount*Math.floor(r / 3))][1]; // Set the image source    img.src = data[(((r-1)*columnCount) + d)][1];
+					img.src = MasterList[cat][d + (columnCount*Math.floor(r / 3))][1]; // Set the image source    img.src = data[(((r-1)*columnCount) + d)][1];
 					td.appendChild(img);
 					tr.appendChild(td);
 					table.appendChild(tr);
