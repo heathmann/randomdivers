@@ -399,7 +399,7 @@ function createTable(data, tableName, include) {
 				} else if (r % 3 == 1) {
 					const img = document.createElement('img');
 					img.height = 150;
-					img.src = data[d + (columnCount*Math.floor(r / 3))][1]; // Set the image source
+					img.src = MasterList[cat][d + (columnCount*Math.floor(r / 3))][1]; // Set the image source
 					td.appendChild(img);
 					tr.appendChild(td);
 					table.appendChild(tr);
@@ -1740,12 +1740,12 @@ function selectAll(category) {
 	container = document.getElementById('table-armour');
 	container.innerHTML = '';
 
-	createTable(MasterList[0], 'table-primary', true);
-	createTable(MasterList[1], 'table-side', true);
-	createTable(MasterList[2], 'table-throw', true);
-	createTable(MasterList[3], 'table-strat', false);
-	createTable(MasterList[4], 'table-boost', false);
-	createTable(MasterList[5], 'table-armour', true);
+	createTable(userMaster[0], 'table-primary', true);
+	createTable(userMaster[1], 'table-side', true);
+	createTable(userMaster[2], 'table-throw', true);
+	createTable(userMaster[3], 'table-strat', false);
+	createTable(userMaster[4], 'table-boost', false);
+	createTable(userMaster[5], 'table-armour', true);
 }
 
 function clearAll(category) {
@@ -1772,12 +1772,12 @@ function clearAll(category) {
 	container = document.getElementById('table-armour');
 	container.innerHTML = '';
 
-	createTable(MasterList[0], 'table-primary', true);
-	createTable(MasterList[1], 'table-side', true);
-	createTable(MasterList[2], 'table-throw', true);
-	createTable(MasterList[3], 'table-strat', false);
-	createTable(MasterList[4], 'table-boost', false);
-	createTable(MasterList[5], 'table-armour', true);
+	createTable(userMaster[0], 'table-primary', true);
+	createTable(userMaster[1], 'table-side', true);
+	createTable(userMaster[2], 'table-throw', true);
+	createTable(userMaster[3], 'table-strat', false);
+	createTable(userMaster[4], 'table-boost', false);
+	createTable(userMaster[5], 'table-armour', true);
 }
 
 if (window.matchMedia("(orientation: landscape)").matches) {
@@ -1794,12 +1794,12 @@ if (window.matchMedia("(orientation: landscape)").matches) {
 	container = document.getElementById('table-armour');
 	container.innerHTML = '';
 	columnCount = landscapeColumns;
-	createTable(MasterList[0], 'table-primary', true);
-	createTable(MasterList[1], 'table-side', true);
-	createTable(MasterList[2], 'table-throw', true);
-	createTable(MasterList[3], 'table-strat', false);
-	createTable(MasterList[4], 'table-boost', false);
-	createTable(MasterList[5], 'table-armour', true);
+	createTable(userMaster[0], 'table-primary', true);
+	createTable(userMaster[1], 'table-side', true);
+	createTable(userMaster[2], 'table-throw', true);
+	createTable(userMaster[3], 'table-strat', false);
+	createTable(userMaster[4], 'table-boost', false);
+	createTable(userMaster[5], 'table-armour', true);
 } else {
 	var container = document.getElementById('table-primary');
 	container.innerHTML = '';
@@ -1814,12 +1814,12 @@ if (window.matchMedia("(orientation: landscape)").matches) {
 	container = document.getElementById('table-armour');
 	container.innerHTML = '';
 	columnCount = portraitColumns;
-	createTable(MasterList[0], 'table-primary', true);
-	createTable(MasterList[1], 'table-side', true);
-	createTable(MasterList[2], 'table-throw', true);
-	createTable(MasterList[3], 'table-strat', false);
-	createTable(MasterList[4], 'table-boost', false);
-	createTable(MasterList[5], 'table-armour', true);
+	createTable(userMaster[0], 'table-primary', true);
+	createTable(userMaster[1], 'table-side', true);
+	createTable(userMaster[2], 'table-throw', true);
+	createTable(userMaster[3], 'table-strat', false);
+	createTable(userMaster[4], 'table-boost', false);
+	createTable(userMaster[5], 'table-armour', true);
 }
 
 window.addEventListener('resize', function() {
@@ -1837,19 +1837,19 @@ window.addEventListener('resize', function() {
 	container.innerHTML = '';
 	if (window.matchMedia("(orientation: landscape)").matches) {
 		columnCount = landscapeColumns;
-		createTable(MasterList[0], 'table-primary', true);
-		createTable(MasterList[1], 'table-side', true);
-		createTable(MasterList[2], 'table-throw', true);
-		createTable(MasterList[3], 'table-strat', false);
-		createTable(MasterList[4], 'table-boost', false);
-		createTable(MasterList[5], 'table-armour', true);
+		createTable(userMaster[0], 'table-primary', true);
+		createTable(userMaster[1], 'table-side', true);
+		createTable(userMaster[2], 'table-throw', true);
+		createTable(userMaster[3], 'table-strat', false);
+		createTable(userMaster[4], 'table-boost', false);
+		createTable(userMaster[5], 'table-armour', true);
 	} else {
 		columnCount = portraitColumns;
-		createTable(MasterList[0], 'table-primary', true);
-		createTable(MasterList[1], 'table-side', true);
-		createTable(MasterList[2], 'table-throw', true);
-		createTable(MasterList[3], 'table-strat', false);
-		createTable(MasterList[4], 'table-boost', false);
-		createTable(MasterList[5], 'table-armour', true);
+		createTable(userMaster[0], 'table-primary', true);
+		createTable(userMaster[1], 'table-side', true);
+		createTable(userMaster[2], 'table-throw', true);
+		createTable(userMaster[3], 'table-strat', false);
+		createTable(userMaster[4], 'table-boost', false);
+		createTable(userMaster[5], 'table-armour', true);
 	}
 });
