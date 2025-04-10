@@ -244,13 +244,13 @@ const portraitColumns = 3;
 const landscapeColumns = 5;
 var columnCount = 5;
 
-// [date], [difficulty], [mission], [enemy], [endgame], [score], [chaos], [loadoutArray]
+// [date], [difficulty], [mission], [enemy (string)], [endgame], [score], [chaos], [loadoutArray], [lockedLoadoutArray (bool)] (for endgame)
 var savedRuns = [];
-let pulledRuns = JSON.parse(localStorage.getItem('savedRunsLocal'));
+// let pulledRuns = JSON.parse(localStorage.getItem('savedRunsLocal'));
 
-if (pulledRuns) {
-	savedRuns = pulledRuns;
-}
+// if (pulledRuns) {
+	// savedRuns = pulledRuns;
+// }
 
 var userMaster = [];
 let pulledMaster = JSON.parse(localStorage.getItem('userMasterLocal'));
@@ -289,6 +289,17 @@ var currentLoadout = [
 	userMaster[3].length - 1,
 	userMaster[4].length - 1
 ];
+var forceDefaultLoadout = [
+	false,
+	false,
+	false,
+	false,
+	false,
+	false,
+	false,
+	false,
+	false
+];
 var currentSaveIndex = savedRuns.length;
 
 function saveGame() {
@@ -307,7 +318,7 @@ function saveGame() {
 	let year = currentDate.getFullYear(); 
 	let formattedDate = `${month}/${day}/${year}`;
 	
-	savedRuns[currentSaveIndex] = [formattedDate, currentDifficulty, currentMission, currentEnemy, currentEndgameRound, currentScore, currentChaos, currentLoadout];
+	savedRuns[currentSaveIndex] = [formattedDate, currentDifficulty, currentMission, currentEnemy, currentEndgameRound, currentScore, currentChaos, currentLoadout, forceDefaultLoadout];
 	localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns));
 	
 	contents = document.querySelectorAll('.game-button');
@@ -323,7 +334,7 @@ function autoSaveGame() {
 	let year = currentDate.getFullYear(); 
 	let formattedDate = `${month}/${day}/${year}`;
 	
-	savedRuns[currentSaveIndex] = [formattedDate, currentDifficulty, currentMission, currentEnemy, currentEndgameRound, currentScore, currentChaos, currentLoadout];
+	savedRuns[currentSaveIndex] = [formattedDate, currentDifficulty, currentMission, currentEnemy, currentEndgameRound, currentScore, currentChaos, currentLoadout, forceDefaultLoadout];
 	localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns));
 }
 
@@ -590,6 +601,7 @@ function pickUpRun(savedData, oldSaveIndex) {
 	currentScore = savedData[5];
 	currentChaos = savedData[6];
 	currentLoadout = savedData[7];
+	forceDefaultLoadout = savedData[8];
 	
 	if ((currentMission - 1) == 0) {
 		if ((currentDifficulty - 1) >= 0 && (currentDifficulty - 1) < 3) {
@@ -599,14 +611,22 @@ function pickUpRun(savedData, oldSaveIndex) {
 			currentDifficulty--;
 			currentMission = 2;
 			currentScore = currentScore - currentDifficulty;
-		} else {
+		} else if (currentEndgameRound < 2) {
 			currentDifficulty--;
+			currentMission = 3;
+			currentScore = currentScore - currentDifficulty;
+		} else {	
+			currentEndgameRound--;
+			currentScore -= (currentEndgameRound - 1);
 			currentMission = 3;
 			currentScore = currentScore - currentDifficulty;
 		}
 	} else {
 		currentMission--;
 		currentScore = currentScore - currentDifficulty;
+		if (currentEndgameRound > 1) {
+			currentScore -= (currentEndgameRound - 1);
+		}
 	}
 	
 	updateMission();
@@ -1107,7 +1127,7 @@ function swap(selection, count) {
 			button1.innerText = 'Replace';
 			button1.onclick = function() {
 				currentLoadout[4] = selection;
-				if (count == 1) {
+				if (count == 1 && currentEndgameRound < 2) {
 					generateLoadoutTable();
 					var contents = document.querySelectorAll('.game-row');
 					contents.forEach(function(button){button.style.display = 'flex';});
@@ -1118,6 +1138,9 @@ function swap(selection, count) {
 					autoSaveGame();
 					document.getElementById('roll-results').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
+				} else if (count == 1 && currentEndgameRound > 1) {
+					document.getElementById('roll-results').style.display = 'none';
+					loseItem();
 				} else {
 					document.getElementById('topLoad').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
@@ -1131,7 +1154,7 @@ function swap(selection, count) {
 			button2.innerText = 'Replace';
 			button2.onclick = function() {
 				currentLoadout[5] = selection;
-				if (count == 1) {
+				if (count == 1 && currentEndgameRound < 2) {
 					generateLoadoutTable();
 					var contents = document.querySelectorAll('.game-row');
 					contents.forEach(function(button){button.style.display = 'flex';});
@@ -1142,6 +1165,9 @@ function swap(selection, count) {
 					autoSaveGame();
 					document.getElementById('roll-results').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
+				} else if (count == 1 && currentEndgameRound > 1) {
+					document.getElementById('roll-results').style.display = 'none';
+					loseItem();
 				} else {
 					document.getElementById('topLoad').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
@@ -1155,7 +1181,7 @@ function swap(selection, count) {
 			button3.innerText = 'Replace';
 			button3.onclick = function() {
 				currentLoadout[6] = selection;
-				if (count == 1) {
+				if (count == 1 && currentEndgameRound < 2) {
 					generateLoadoutTable();
 					var contents = document.querySelectorAll('.game-row');
 					contents.forEach(function(button){button.style.display = 'flex';});
@@ -1166,6 +1192,9 @@ function swap(selection, count) {
 					autoSaveGame();
 					document.getElementById('roll-results').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
+				} else if (count == 1 && currentEndgameRound > 1) {
+					document.getElementById('roll-results').style.display = 'none';
+					loseItem();
 				} else {
 					document.getElementById('topLoad').style.display = 'none';
 					document.getElementById('bottomLoad').style.display = 'none';
@@ -1179,7 +1208,7 @@ function swap(selection, count) {
 			button4.innerText = 'Replace';
 			button4.onclick = function() {
 				currentLoadout[7] = selection;
-				if (count == 1) {
+				if (count == 1 && currentEndgameRound < 2) {
 					generateLoadoutTable();
 					var contents = document.querySelectorAll('.game-row');
 					contents.forEach(function(button){button.style.display = 'flex';});
@@ -1190,6 +1219,9 @@ function swap(selection, count) {
 					autoSaveGame();
 					document.getElementById('roll-results').style.display = 'none';
 					message.forEach(function(button){button.style.display = 'none';});
+				} else if (count == 1 && currentEndgameRound > 1) {
+					document.getElementById('roll-results').style.display = 'none';
+					loseItem();
 				} else {
 					document.getElementById('topLoad').style.display = 'none';
 					document.getElementById('bottomLoad').style.display = 'none';
@@ -1251,7 +1283,7 @@ function choose(category, selection, count) {
 		currentLoadout[3] = selection;
 	}
 	
-	if (count == 1 && !swapping) {
+	if (count == 1 && !swapping && currentEndgameRound == 1) {
 		generateLoadoutTable();
 		var contents = document.querySelectorAll('.game-row');
 		contents.forEach(function(button){button.style.display = 'flex';});
@@ -1261,12 +1293,15 @@ function choose(category, selection, count) {
 		contents.forEach(content => content.style.display = 'flex');
 		autoSaveGame();
 		document.getElementById('roll-results').style.display = 'none';
-	} else if (!swapping) {
+	} else if (!swapping && currentEndgameRound == 1) {
 		const container = document.getElementById('roll-results');
 		container.innerHTML = '';
 		container.appendChild(rollSelect(1));
 		container.style.display = 'flex';
-	}	
+	} else if (currentEndgameRound > 1 && !swapping) {
+		document.getElementById('roll-results').style.display = 'none';
+		loseItem();
+	}
 }
 
 function rollSelect (count) {
@@ -1431,11 +1466,322 @@ function newGame() {
 		userMaster[3].length - 1,
 		userMaster[4].length - 1
 	];
+	forceDefaultLoadout = [
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false,
+		false
+	];
 	currentSaveIndex = savedRuns.length;
 	
 	// Display enemy selection buttons
 	contents = document.querySelectorAll('.enemy-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
+}
+
+function loseItem() {
+	if (currentEndgameRound < 11) {
+		document.getElementById('messageText').innerText = "Congratulations on making it to round " + currentEndgameRound + "!\nTime to make things more challenging.\nSelect an item to get rid of returning it the state it was at the start of the run.";
+		const message = document.querySelectorAll('.message');
+		message.forEach(function(button){button.style.display = 'flex';});
+		const topTable = document.createElement('table');
+		const bottomTable = document.createElement('table');
+		topTable.style.height = 'auto';
+		bottomTable.style.height = 'auto';
+		bottomTable.style.align = 'center';
+
+		const topHeaderRow = document.createElement('tr');
+		const bottomHeaderRow = document.createElement('tr');
+
+		// Array of header names
+		const topHeaders = ['Primary Weapon', 'Side Arm', 'Throwable', 'Armour'];
+		const bottomHeaders = ['Stratagem 1', 'Stratagem 2', 'Stratagem 3', 'Stratagem 4', 'Booster'];
+
+		topHeaders.forEach(headerText => {
+			const th = document.createElement('th');
+			th.textContent = headerText;  // Set the text of the header
+			th.style.border = '1px solid black';  // Add border to the header
+			topHeaderRow.appendChild(th);  // Append the header cell to the header row
+		});
+
+		// Loop through the headers and create <th> elements
+		bottomHeaders.forEach(headerText => {
+			const th = document.createElement('th');
+			th.textContent = headerText;  // Set the text of the header
+			th.style.border = '1px solid black';  // Add border to the header
+			bottomHeaderRow.appendChild(th);  // Append the header cell to the header row
+		});
+
+		// Append the header row to the table
+		topTable.appendChild(topHeaderRow);
+		bottomTable.appendChild(bottomHeaderRow);
+
+		for(var i = 1; i < 4; i++) {
+			var row = topTable.insertRow(i);
+			var row2 = bottomTable.insertRow(i);
+			if (i == 1) {
+				row.style.fontWeight = 'bold';
+				row2.style.fontWeight = 'bold';
+				row.insertCell(0).innerHTML = userMaster[0][currentLoadout[0]][0];
+				row.insertCell(1).innerHTML = userMaster[1][currentLoadout[1]][0];
+				row.insertCell(2).innerHTML = userMaster[2][currentLoadout[2]][0];
+				row.insertCell(3).innerHTML = userMaster[5][currentLoadout[3]][0];
+				row2.insertCell(0).innerHTML = userMaster[3][currentLoadout[4]][0];
+				row2.insertCell(1).innerHTML = userMaster[3][currentLoadout[5]][0];
+				row2.insertCell(2).innerHTML = userMaster[3][currentLoadout[6]][0];
+				row2.insertCell(3).innerHTML = userMaster[3][currentLoadout[7]][0];
+				row2.insertCell(4).innerHTML = userMaster[4][currentLoadout[8]][0];
+			} else if (i == 2) {
+				row.insertCell(0).innerHTML = '';
+				row.insertCell(1).innerHTML = '';
+				row.insertCell(2).innerHTML = '';
+				row.insertCell(3).innerHTML = '';
+				row2.insertCell(0).innerHTML = '';
+				row2.insertCell(1).innerHTML = '';
+				row2.insertCell(2).innerHTML = '';
+				row2.insertCell(3).innerHTML = '';
+				row2.insertCell(4).innerHTML = '';
+				var cell = row.cells[0];
+				const img = [document.createElement('img'), 
+								document.createElement('img'), 
+								document.createElement('img'), 
+								document.createElement('img'), 
+								document.createElement('img'), 
+								document.createElement('img'), 
+								document.createElement('img'), 
+								document.createElement('img'), 
+								document.createElement('img')
+							]
+				img[0].src = MasterList[0][currentLoadout[0]][1];
+				img[1].src = MasterList[1][currentLoadout[1]][1];
+				img[2].src = MasterList[2][currentLoadout[2]][1];
+				img[3].src = MasterList[5][currentLoadout[3]][1];
+				img[4].src = MasterList[3][currentLoadout[4]][1];
+				img[5].src = MasterList[3][currentLoadout[5]][1];
+				img[6].src = MasterList[3][currentLoadout[6]][1];
+				img[7].src = MasterList[3][currentLoadout[7]][1];
+				img[8].src = MasterList[4][currentLoadout[8]][1];
+				
+				for (var x = 0; x < 4; x++) {
+					cell = row.cells[x];
+					cell.appendChild(img[x]);
+				}
+				
+				for (var x = 0; x < 5; x++) {
+					cell = row2.cells[x];
+					cell.appendChild(img[x+4]);
+				}
+			} else {
+				const buttons = [];
+				
+				for (var x = 0; x < 9; x++) {
+					const tempButt = document.createElement('button');
+					tempButt.innerText = 'Remove';
+					if (forceDefaultLoadout[x]) {
+						tempButt.style.display = 'none';
+					}
+					
+					if (x == 0) {
+						tempButt.onclick = function () {
+							currentLoadout[0] = 0;
+							forceDefaultLoadout[0] = true;
+							document.getElementById('topLoad').innerHTML = '';
+							document.getElementById('bottomLoad').innerHTML = '';
+							generateLoadoutTable();
+							var contents = document.querySelectorAll('.game-row');
+							contents.forEach(function(button){button.style.display = 'flex';});
+							document.getElementById('topLoad').style.display = 'flex';
+							document.getElementById('bottomLoad').style.display = 'flex';
+							contents = document.querySelectorAll('.save-button');
+							contents.forEach(content => content.style.display = 'flex');
+							autoSaveGame();
+							document.getElementById('roll-results').style.display = 'none';
+							message.forEach(function(button){button.style.display = 'none';});
+						};
+					} else if (x == 1) {
+						tempButt.onclick = function () {
+							currentLoadout[1] = 0;
+							forceDefaultLoadout[1] = true;
+							document.getElementById('topLoad').innerHTML = '';
+							document.getElementById('bottomLoad').innerHTML = '';
+							generateLoadoutTable();
+							var contents = document.querySelectorAll('.game-row');
+							contents.forEach(function(button){button.style.display = 'flex';});
+							document.getElementById('topLoad').style.display = 'flex';
+							document.getElementById('bottomLoad').style.display = 'flex';
+							contents = document.querySelectorAll('.save-button');
+							contents.forEach(content => content.style.display = 'flex');
+							autoSaveGame();
+							document.getElementById('roll-results').style.display = 'none';
+							message.forEach(function(button){button.style.display = 'none';});
+						};
+					} else if (x == 2) {
+						tempButt.onclick = function () {
+							currentLoadout[2] = 2;
+							forceDefaultLoadout[2] = true;
+							document.getElementById('topLoad').innerHTML = '';
+							document.getElementById('bottomLoad').innerHTML = '';
+							generateLoadoutTable();
+							var contents = document.querySelectorAll('.game-row');
+							contents.forEach(function(button){button.style.display = 'flex';});
+							document.getElementById('topLoad').style.display = 'flex';
+							document.getElementById('bottomLoad').style.display = 'flex';
+							contents = document.querySelectorAll('.save-button');
+							contents.forEach(content => content.style.display = 'flex');
+							autoSaveGame();
+							document.getElementById('roll-results').style.display = 'none';
+							message.forEach(function(button){button.style.display = 'none';});
+						};
+					} else if (x == 3) {
+						tempButt.onclick = function () {
+							currentLoadout[3] = 41;
+							forceDefaultLoadout[3] = true;
+							document.getElementById('topLoad').innerHTML = '';
+							document.getElementById('bottomLoad').innerHTML = '';
+							generateLoadoutTable();
+							var contents = document.querySelectorAll('.game-row');
+							contents.forEach(function(button){button.style.display = 'flex';});
+							document.getElementById('topLoad').style.display = 'flex';
+							document.getElementById('bottomLoad').style.display = 'flex';
+							contents = document.querySelectorAll('.save-button');
+							contents.forEach(content => content.style.display = 'flex');
+							autoSaveGame();
+							document.getElementById('roll-results').style.display = 'none';
+							message.forEach(function(button){button.style.display = 'none';});
+						};
+					} else if (x == 8) {
+						tempButt.onclick = function () {
+							currentLoadout[8] = (userMaster[4].length - 1);
+							forceDefaultLoadout[8] = true;
+							document.getElementById('topLoad').innerHTML = '';
+							document.getElementById('bottomLoad').innerHTML = '';
+							generateLoadoutTable();
+							var contents = document.querySelectorAll('.game-row');
+							contents.forEach(function(button){button.style.display = 'flex';});
+							document.getElementById('topLoad').style.display = 'flex';
+							document.getElementById('bottomLoad').style.display = 'flex';
+							contents = document.querySelectorAll('.save-button');
+							contents.forEach(content => content.style.display = 'flex');
+							autoSaveGame();
+							document.getElementById('roll-results').style.display = 'none';
+							message.forEach(function(button){button.style.display = 'none';});
+						};
+					} else if (x == 4) {
+						tempButt.onclick = function () {
+							currentLoadout[4] = (userMaster[3].length - 1);
+							forceDefaultLoadout[4] = true;
+							document.getElementById('topLoad').innerHTML = '';
+							document.getElementById('bottomLoad').innerHTML = '';
+							generateLoadoutTable();
+							var contents = document.querySelectorAll('.game-row');
+							contents.forEach(function(button){button.style.display = 'flex';});
+							document.getElementById('topLoad').style.display = 'flex';
+							document.getElementById('bottomLoad').style.display = 'flex';
+							contents = document.querySelectorAll('.save-button');
+							contents.forEach(content => content.style.display = 'flex');
+							autoSaveGame();
+							document.getElementById('roll-results').style.display = 'none';
+							message.forEach(function(button){button.style.display = 'none';});
+						};
+					} else if (x == 5) {
+						tempButt.onclick = function () {
+							currentLoadout[5] = (userMaster[3].length - 1);
+							forceDefaultLoadout[5] = true;
+							document.getElementById('topLoad').innerHTML = '';
+							document.getElementById('bottomLoad').innerHTML = '';
+							generateLoadoutTable();
+							var contents = document.querySelectorAll('.game-row');
+							contents.forEach(function(button){button.style.display = 'flex';});
+							document.getElementById('topLoad').style.display = 'flex';
+							document.getElementById('bottomLoad').style.display = 'flex';
+							contents = document.querySelectorAll('.save-button');
+							contents.forEach(content => content.style.display = 'flex');
+							autoSaveGame();
+							document.getElementById('roll-results').style.display = 'none';
+							message.forEach(function(button){button.style.display = 'none';});
+						};
+					} else if (x == 6) {
+						tempButt.onclick = function () {
+							currentLoadout[6] = (userMaster[3].length - 1);
+							forceDefaultLoadout[6] = true;
+							document.getElementById('topLoad').innerHTML = '';
+							document.getElementById('bottomLoad').innerHTML = '';
+							generateLoadoutTable();
+							var contents = document.querySelectorAll('.game-row');
+							contents.forEach(function(button){button.style.display = 'flex';});
+							document.getElementById('topLoad').style.display = 'flex';
+							document.getElementById('bottomLoad').style.display = 'flex';
+							contents = document.querySelectorAll('.save-button');
+							contents.forEach(content => content.style.display = 'flex');
+							autoSaveGame();
+							document.getElementById('roll-results').style.display = 'none';
+							message.forEach(function(button){button.style.display = 'none';});
+						};
+					} else if (x == 7) {
+						tempButt.onclick = function () {
+							currentLoadout[7] = (userMaster[3].length - 1);
+							forceDefaultLoadout[7] = true;
+							document.getElementById('topLoad').innerHTML = '';
+							document.getElementById('bottomLoad').innerHTML = '';
+							generateLoadoutTable();
+							var contents = document.querySelectorAll('.game-row');
+							contents.forEach(function(button){button.style.display = 'flex';});
+							document.getElementById('topLoad').style.display = 'flex';
+							document.getElementById('bottomLoad').style.display = 'flex';
+							contents = document.querySelectorAll('.save-button');
+							contents.forEach(content => content.style.display = 'flex');
+							autoSaveGame();
+							document.getElementById('roll-results').style.display = 'none';
+							message.forEach(function(button){button.style.display = 'none';});
+						};
+					}
+					buttons.push(tempButt);
+				}
+				
+				for (var x = 0; x < 4; x++) {
+					row.insertCell(x).innerHTML = '';
+				}
+				for (var x = 0; x < 4; x++) {
+					var cell = row.cells[x];
+					cell.appendChild(buttons[x]);
+				}
+				for (var x = 4; x < 9; x++) {
+					row2.insertCell(x-4).innerHTML = '';
+				}
+				for (var x = 4; x < 9; x++) {
+					var cell = row2.cells[x-4];
+					cell.appendChild(buttons[x]);
+				}
+			}
+		}
+		
+		const container = document.getElementById('topLoad');
+		const container2 = document.getElementById('bottomLoad');
+		container.innerHTML = '';
+		container2.innerHTML = '';
+		container.appendChild(topTable);
+		container2.appendChild(bottomTable);
+		document.getElementById('topLoad').style.display = 'flex';
+		document.getElementById('bottomLoad').style.display = 'flex';
+	} else {
+		const container = document.getElementById('topLoad');
+		const container2 = document.getElementById('bottomLoad');
+		container.innerHTML = '';
+		container2.innerHTML = '';
+		generateLoadoutTable();
+		var contents = document.querySelectorAll('.game-row');
+		contents.forEach(function(button){button.style.display = 'flex';});
+		document.getElementById('topLoad').style.display = 'flex';
+		document.getElementById('bottomLoad').style.display = 'flex';
+		contents = document.querySelectorAll('.save-button');
+		contents.forEach(content => content.style.display = 'flex');
+		autoSaveGame();
+	}
 }
 
 function updateMission() {
@@ -1591,10 +1937,21 @@ function notFullStar() {
 	contents.forEach(content => content.style.display = 'none');
 	updateMission();
 	
-	const container = document.getElementById('roll-results');
-	container.innerHTML = '';
-	container.appendChild(rollSelect(1));
-	container.style.display = 'flex';
+	if (currentEndgameRound < 2 || (currentEndgameRound == 2 && currentMission == 1)) {
+		const container = document.getElementById('roll-results');
+		container.innerHTML = '';
+		container.appendChild(rollSelect(1));
+		container.style.display = 'flex';
+	} else if (currentEndgameRound > 2 && currentMission == 1) {
+		loseItem();
+	} else {
+		contents = document.querySelectorAll('.game-row');
+		contents.forEach(function(button){button.style.display = 'flex';});
+		document.getElementById('topLoad').style.display = 'flex';
+		document.getElementById('bottomLoad').style.display = 'flex';
+		contents = document.querySelectorAll('.save-button');
+		contents.forEach(content => content.style.display = 'flex');
+	}
 }
 
 function fullStar() {
@@ -1606,10 +1963,21 @@ function fullStar() {
 	contents.forEach(content => content.style.display = 'none');
 	updateMission();
 	
-	const container = document.getElementById('roll-results');
-	container.innerHTML = '';
-	container.appendChild(rollSelect(2));
-	container.style.display = 'flex';
+	if (currentEndgameRound < 2 || (currentEndgameRound == 2 && currentMission == 1)) {
+		const container = document.getElementById('roll-results');
+		container.innerHTML = '';
+		container.appendChild(rollSelect(2));
+		container.style.display = 'flex';
+	} else if (currentEndgameRound > 2 && currentMission == 1) {
+		loseItem();
+	} else {
+		contents = document.querySelectorAll('.game-row');
+		contents.forEach(function(button){button.style.display = 'flex';});
+		document.getElementById('topLoad').style.display = 'flex';
+		document.getElementById('bottomLoad').style.display = 'flex';
+		contents = document.querySelectorAll('.save-button');
+		contents.forEach(content => content.style.display = 'flex');
+	}
 }
 
 function finalResults() {
@@ -1634,7 +2002,7 @@ function finalResults() {
 		peak = "Maybe you'd enjoy an easier game...";
 	} else if (currentDifficulty == 2) {
 		peak = "Level " + (currentDifficulty - 1);
-	} else if (currentMission > 1) {
+	} else if (currentMission > 1 && currentEndgameRound < 2) {
 		peak = "Level " + currentDifficulty + ", Mission " + (currentMission - 1);
 	} else if (currentMission == 1 && currentDifficulty == 10 && currentEndgameRound > 1) {
 		peak = "Level " + currentDifficulty + ", Round " + (currentEndgameRound - 1) + ", Mission 3";
