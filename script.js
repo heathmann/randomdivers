@@ -246,11 +246,11 @@ var columnCount = 5;
 
 // [date], [difficulty], [mission], [enemy (string)], [endgame], [score], [chaos], [loadoutArray], [lockedLoadoutArray (bool)] (for endgame)
 var savedRuns = [];
-// let pulledRuns = JSON.parse(localStorage.getItem('savedRunsLocal'));
+let pulledRuns = JSON.parse(localStorage.getItem('savedRunsLocal'));
 
-// if (pulledRuns) {
-	// savedRuns = pulledRuns;
-// }
+if (pulledRuns) {
+	savedRuns = pulledRuns;
+}
 
 var userMaster = [];
 let pulledMaster = JSON.parse(localStorage.getItem('userMasterLocal'));
