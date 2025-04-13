@@ -848,15 +848,66 @@ function generateRandomLoadoutTable() {
 	
 	while (numbers.size < 4) {
 		const randomNumber = Math.floor(Math.random() * (MasterList[3].length - 1));
-		numbers.add(randomNumber);  // Add the random number to the set (duplicates are automatically ignored)
+		if (!userMaster[3][randomNumber][2]) {
+			continue;
+		} else {
+			numbers.add(randomNumber);  // Add the random number to the set (duplicates are automatically ignored)
+		}
 	}
 
 	const strats = Array.from(numbers);
-	const primary = Math.floor(Math.random() * (MasterList[0].length));
-	const second = Math.floor(Math.random() * (MasterList[1].length));
-	const thrown = Math.floor(Math.random() * (MasterList[2].length));
-	const booster = Math.floor(Math.random() * (MasterList[4].length - 1));
-	const armour = Math.floor(Math.random() * (MasterList[5].length));
+
+	var primary = -1;
+	var second = -1;
+	var thrown = -1;
+	var booster = -1;
+	var armour = -1;
+
+	while (primary < 0) {
+		const randomNumber = Math.floor(Math.random() * (MasterList[0].length));
+		if (!userMaster[0][randomNumber][2]) {
+			continue;
+		} else {
+			primary = randomNumber;
+		}
+	}
+
+	while (second < 0) {
+		const randomNumber = Math.floor(Math.random() * (MasterList[1].length));
+		if (!userMaster[1][randomNumber][2]) {
+			continue;
+		} else {
+			second = randomNumber;
+		}
+	}
+
+	while (thrown < 0) {
+		const randomNumber = Math.floor(Math.random() * (MasterList[2].length));
+		if (!userMaster[2][randomNumber][2]) {
+			continue;
+		} else {
+			thrown = randomNumber;
+		}
+	}
+
+	while (booster < 0) {
+		const randomNumber = Math.floor(Math.random() * (MasterList[4].length - 1));
+		if (!userMaster[4][randomNumber][2]) {
+			continue;
+		} else {
+			booster = randomNumber;
+		}
+	}
+
+
+	while (armour < 0) {
+		const randomNumber = Math.floor(Math.random() * (MasterList[5].length));
+		if (!userMaster[5][randomNumber][2]) {
+			continue;
+		} else {
+			armour = randomNumber;
+		}
+	}
 
 	const topTable = document.createElement('table');
 	const bottomTable = document.createElement('table');
