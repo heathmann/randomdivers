@@ -19,188 +19,192 @@ Initial creation date: 3.20.2025
 	</head>
 	
 	<body>
-		<!-- Top row of buttons / master navigation -->
-		<div class="button-container">
-			<div class="row">
-				<button class="tab-button" onclick="openTabGame('game')" style="z-index: 100;">Play Randomdivers</button>
-				<button class="tab-button" onclick="openTabGame('randomizer')" style="z-index: 100;">Randomizer</button>
-				<button class="tab-button" onclick="armouryButtons()" style="z-index: 100;">My Armoury</button>
-			</div>
-			<div id="myArmoury" class="row" style="display: none;">
-				<div id="special" class="specialRow">
-					<button class="tab-button" onclick="openTab('primary')" style="z-index: 100;">Primary Weapons</button>
-					<button class="tab-button" onclick="openTab('side')" style="z-index: 100;">Side Arms</button>
-					<button class="tab-button" onclick="openTab('throw')" style="z-index: 100;">Throwables</button>
-					<button class="tab-button" onclick="openTab('strat')" style="z-index: 100;">Stratagems</button>
-					<button class="tab-button" onclick="openTab('boost')" style="z-index: 100;">Boosters</button>
-					<button class="tab-button" onclick="openTab('armour')" style="z-index: 100;">Armours</button>
+		<div style="flex-direction: column;">
+			<!-- Top row of buttons / master navigation -->
+			<div class="button-container" style="justify-content: center; align-content: center;">
+				<div class="row">
+					<button class="tab-button" onclick="openTabGame('game')" style="z-index: 100;">Play Randomdivers</button>
+					<button class="tab-button" onclick="openTabGame('randomizer')" style="z-index: 100;">Randomizer</button>
+					<button class="tab-button" onclick="armouryButtons()" style="z-index: 100;">My Armoury</button>
+				</div>
+				<div id="myArmoury" class="row" style="display: none; margin-bottom: -90px;">
+					<div id="special" class="specialRow">
+						<button class="tab-button" onclick="openTab('primary')" style="z-index: 100;">Primary Weapons</button>
+						<button class="tab-button" onclick="openTab('side')" style="z-index: 100;">Side Arms</button>
+						<button class="tab-button" onclick="openTab('throw')" style="z-index: 100;">Throwables</button>
+						<button class="tab-button" onclick="openTab('strat')" style="z-index: 100;">Stratagems</button>
+						<button class="tab-button" onclick="openTab('boost')" style="z-index: 100;">Boosters</button>
+						<button class="tab-button" onclick="openTab('armour')" style="z-index: 100;">Armours</button>
+					</div>
 				</div>
 			</div>
+		
+
+			<!-- The individual button subsections (Note: all lists are simply for display)-->
+			<!-- Main game section -->
+			<div id="game" class="tab-content">
+			<!-- New game or continue -->
+				<div class="container">
+					<h1>Randomdivers: Hell-like</h1>
+				</div>
+				
+				<div class="continue-row" style="display: none; justify-content: center;">
+					<p id="saves">Select a run to resume or delete:</p>
+					<p id="noSaves" style="display: none;">You have no saved runs currently.<br>Time to start a new run, Helldiver!</p>
+				</div>
+				<div class="continue-row" style="display: none; justify-content: center;">
+					<div id="runsPrint"></div>
+				</div>
+				
+			<!-- Enemy selection -->
+				<div class="enemy-row" style="display: none;">
+					<p>Select the enemy for this run:</p>
+				</div>
+				<div class="enemy-row" style="display: none; gap: 20px; justify-content: center; align-content: center;">
+					<div class="specialRow2" style="gap: 20px; justify-content: center; align-content: center;">
+						<button class="bug-button" onclick="selectBug()">Terminids</button>
+						<button class="bot-button" onclick="selectBot()">Automatons</button>
+						<button class="squid-button" onclick="selectSquid()">Illuminate</button>
+						<button class="chaos-button" onclick="selectChaos()">Pandemonium</button>
+						<!-- Enemy icons -->
+						<img src="./images/misc/Terminid_icon.png" style="width: 100px; height: 90px; margin-left: 25px;">
+						<img src="./images/misc/Automaton_icon.png" style="width: 100px; height: 90px; margin-left: 25px;">
+						<img src="./images/misc/Illuminate_icon.png" style="width: 100px; height: 90px; margin-left: 25px;">
+						<img src="./images/misc/Mix_icon.png" style="width: 100px; height: 90px; margin-left: 25px;">
+					</div>
+				</div>
+				
+			<!-- Start of game tracker -->
+				<div class="mission-row" style="display: none; justify-content: center;">
+					<p style="font-weight: bold; font-size: 24px;">Current Mission:</p>
+				</div>
+				<div class="mission-row" style="display: none; justify-content: center;">
+					<div id="missionTracker" style="color: white; font-size: 20px; margin-top: -15px; margin-bottom: 10px;"></div>
+				</div>
+				<div class="message" style="display: none; justify-content: center;">
+					<div id="messageText" style="color: white; margin-bottom: 10px; text-align: center;"></div>
+				</div>
+				<div id="topLoad" style="justify-content: center;"></div>
+				<div id="bottomLoad" style="justify-content: center;"></div>
+				<div id="roll-results"></div>
+				<div class="game-row" style="display: none; justify-content: center;">
+				<div class="specialRow3">
+					<div class="tooltip-container">
+						<button class="defeat-button" onclick="finalResults()" style="font-weight: bold; padding: 5px; width: 200px; margin-right: 10px;">Disgraceful Conduct<br>&#9733;</button>
+						<div class="tooltip-text">You failed to complete the Primary Objective of your mission. <b>Your run is over.</b> Click here to end the run and view your run statistics.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Managed Democracy has suffered a grave defeat this day. Fear not Helldiver, for the battle may be lost, the war is far from over. Get back in the fight, Helldiver!</i></span></div>
+					</div>
+					<div class="tooltip-container">
+						<button onclick="notFullStar()" style="font-weight: bold; padding: 5px; width: 200px; margin-right: 10px;">Honorable Duty<br>&#9733;&#9733;&#9733;</button>
+						<div class="tooltip-text">You completed the Primary Objective of your mission but failed to achieve all mission stars. <b>You have earned one roll.</b> Click here to select your reward and advance to the next mission.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Another victory in the fight for Managed Democracy. However, your work is incomplete, Helldiver. Remember, we are here to crush the enemies of Super Earth utterly. On to the next battle. </i></span></div>
+					</div>
+					<div class="tooltip-container">
+						<button onclick="fullStar()" style="font-weight: bold; padding: 5px; width: 200px; margin-right: 10px;">Outstanding Patriotism<br>&#9733;&#9733;&#9733;&#9733;&#9733;</button>
+						<div class="tooltip-text">You completed the Primary Objective of your mission and earned all available mission stars. <b>You have earned two rolls.</b> Click here to select your rewards and advance to the next mission.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Truly none can withstand the might of the Helldivers. A resounding victory for Super Earth and a crushing defeat for our foes. Well done, Helldiver.</i></span></div>
+					</div>
+				</div>
+				</div>
+				
+				<div class="results-row" style="display: none; justify-content: center;">
+					<p style="font-weight: bold; font-size: 30px;">&#9733; Run Completed &#9733;<br><br>Results:</p>
+				</div>
+				<div class="results-row" style="display: none; justify-content: center;">
+					<div id="resultsPrint"></div>
+				</div>
+				<div class="results-row" style="display: none; justify-content: center;">
+					<div id="goAgain" style="color: white; margin-bottom: 10px; margin-top: 10px;"></div>
+				</div>
+				
+				<div class="row" style="justify-content: center; margin-top: 48px;">
+					<button class="game-button" onclick="newGame()">Start a new game?</button>
+					<button class="continue-button" onclick="resumeGame()">Continue?</button>
+					<button class="save-button" onclick="saveGame()" style="display: none; margin-top: -40px;">Save and Quit</button>
+				</div>
+			</div>
+			
+			<!-- The roguelike randomizer on its own section -->
+			<div id="randomizer" class="tab-content" style="margin-top: 50px;">
+				<!-- <div class="container"> -->
+					<h1>Randomizer</h1>
+					<div id="table-results" style="margin-top: -40px; margin-bottom: 50px;"></div>
+					<div class="row" style="justify-content: center; margin-bottom: 0px;">
+						<div id="topRandomLoad" style="justify-content: center;"></div>
+					</div>
+					<div class="row" style="justify-content: center; margin-top: 0px; margin-bottom: 20px;">
+						<div id="bottomRandomLoad" style="justify-content: center; "></div>
+					</div>
+					<div class="row" style="justify-content: center;">
+						<button onclick="singleRoll()">One Roll</button>
+						<button onclick="randomLoadout()">Random Loadout</button>
+					</div>
+				<!-- </div> -->
+			</div>
+			
+			<!-- List of primary weapons -->
+			<div id="primary" class="tab-content">
+				<h1>Primary Weapons</h1>
+				<div class="row" style="justify-content: center; margin-bottom: 10px;">
+					<button class="select-button" onclick="selectAll(0)">Select All</button>
+					<!-- <button class="clear-button" onclick="clearAll(0)">Deselect All</button> -->
+				</div>
+				<div id="table-primary"></div>
+			</div>
+			
+			<!-- List of side arms -->
+			<div id="side" class="tab-content">
+				<h1>Side Arms</h1>
+				<div class="row" style="justify-content: center; margin-bottom: 10px;">
+					<button class="select-button" onclick="selectAll(1)">Select All</button>
+					<!-- <button class="clear-button" onclick="clearAll(1)">Deselect All</button> -->
+				</div>
+				<div id="table-side"></div>
+			</div>
+			
+			<!-- List of throwables -->
+			<div id="throw" class="tab-content">
+				<h1>Throwables</h1>
+				<div class="row" style="justify-content: center; margin-bottom: 10px;">
+					<button class="select-button" onclick="selectAll(2)">Select All</button>
+					<!-- <button class="clear-button" onclick="clearAll(2)">Deselect All</button> -->
+				</div>
+				<div id="table-throw"></div>
+			</div>
+			
+			<!-- List of strategems -->
+			<div id="strat" class="tab-content">
+				<h1>Stratagems</h1>
+				<div class="row" style="justify-content: center; margin-bottom: 10px;">
+					<button class="select-button" onclick="selectAll(3)">Select All</button>
+					<!-- <button class="clear-button" onclick="clearAll(3)">Deselect All</button> -->
+				</div>
+				<div id="table-strat"></div>
+			</div>
+			
+			<!-- List of boosters -->
+			<div id="boost" class="tab-content">
+				<h1>Boosters</h1>
+				<div class="row" style="justify-content: center; margin-bottom: 10px;">
+					<button class="select-button" onclick="selectAll(4)">Select All</button>
+					<!-- <button class="clear-button" onclick="clearAll(4)">Deselect All</button> -->
+				</div>
+				<div id="table-boost"></div>
+			</div>
+			
+			<!-- List of armours -->
+			<div id="armour" class="tab-content">
+				<h1>Armours</h1>
+				<div class="row" style="justify-content: center; margin-bottom: 10px;">
+					<button class="select-button" onclick="selectAll(5)">Select All</button>
+					<!-- <button class="clear-button" onclick="clearAll(5)">Deselect All</button> -->
+				</div>
+				<div id="table-armour"></div>
+			</div>
+			
+			<div id="logoSplash" class="row" style="margin-top: 30px;">
+				<img src="./images/misc/RandomDivers-yellow.webp" style="justify-content: center; align-content: center; width: 500px; height: auto;">
+			</div>		
+
 		</div>
 
-		<!-- The individual button subsections (Note: all lists are simply for display)-->
-		<!-- Main game section -->
-		<div id="game" class="tab-content">
-		<!-- New game or continue -->
-			<div class="container">
-				<h1>Randomdivers: Hell-like</h1>
-			</div>
-			
-			<div class="continue-row" style="display: none; justify-content: center;">
-				<p id="saves">Select a run to resume or delete:</p>
-				<p id="noSaves" style="display: none;">You have no saved runs currently.<br>Time to start a new run, Helldiver!</p>
-			</div>
-			<div class="continue-row" style="display: none; justify-content: center;">
-				<div id="runsPrint"></div>
-			</div>
-			
-		<!-- Enemy selection -->
-			<div class="enemy-row" style="display: none;">
-				<p>Select the enemy for this run:</p>
-			</div>
-			<div class="enemy-row" style="display: none; gap: 20px;">
-				<div class="specialRow2" style="gap: 20px;">
-					<button class="bug-button" onclick="selectBug()">Terminids</button>
-					<button class="bot-button" onclick="selectBot()">Automatons</button>
-					<button class="squid-button" onclick="selectSquid()">Illuminate</button>
-					<button class="chaos-button" onclick="selectChaos()">Pandemonium</button>
-				</div>
-			</div>
-			<!-- Enemy icons -->
-			<div class="enemy-row" style="display: none; gap: 60px; margin-top: 10px;">
-				<div class="specialRow2" style="gap: 45px;">
-				<img src="./images/misc/Terminid_icon.png" style="width: 100px; height: 90px; margin-right: 15px; margin-left: 15px;">
-				<img src="./images/misc/Automaton_icon.png" style="width: 100px; height: 90px; margin-right: 15px; margin-left: 15px;">
-				<img src="./images/misc/Illuminate_icon.png" style="width: 100px; height: 90px; margin-right: 15px; margin-left: 15px;">
-				<img src="./images/misc/Mix_icon.png" style="width: 100px; height: 90px; margin-right: 15px; margin-left: 15px;">
-				</div>
-			</div>
-			
-		<!-- Start of game tracker -->
-			<div class="mission-row" style="display: none; justify-content: center;">
-				<p style="font-weight: bold; font-size: 24px;">Current Mission:</p>
-			</div>
-			<div class="mission-row" style="display: none; justify-content: center;">
-				<div id="missionTracker" style="color: white; font-size: 20px; margin-top: -15px; margin-bottom: 10px;"></div>
-			</div>
-			<div class="message" style="display: none; justify-content: center;">
-				<div id="messageText" style="color: white; margin-bottom: 10px; text-align: center;"></div>
-			</div>
-			<div id="topLoad" style="justify-content: center;"></div>
-			<div id="bottomLoad" style="justify-content: center;"></div>
-			<div id="roll-results"></div>
-			<div class="game-row" style="display: none; justify-content: center;">
-			<div class="specialRow3">
-				<div class="tooltip-container">
-					<button class="defeat-button" onclick="finalResults()" style="font-weight: bold; padding: 5px; width: 200px; margin-right: 10px;">Disgraceful Conduct<br>&#9733;</button>
-					<div class="tooltip-text">You failed to complete the Primary Objective of your mission. <b>Your run is over.</b> Click here to end the run and view your run statistics.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Managed Democracy has suffered a grave defeat this day. Fear not Helldiver, for the battle may be lost, the war is far from over. Get back in the fight, Helldiver!</i></span></div>
-				</div>
-				<div class="tooltip-container">
-					<button onclick="notFullStar()" style="font-weight: bold; padding: 5px; width: 200px; margin-right: 10px;">Honorable Duty<br>&#9733;&#9733;&#9733;</button>
-					<div class="tooltip-text">You completed the Primary Objective of your mission but failed to achieve all mission stars. <b>You have earned one roll.</b> Click here to select your reward and advance to the next mission.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Another victory in the fight for Managed Democracy. However, your work is incomplete, Helldiver. Remember, we are here to crush the enemies of Super Earth utterly. On to the next battle. </i></span></div>
-				</div>
-				<div class="tooltip-container">
-					<button onclick="fullStar()" style="font-weight: bold; padding: 5px; width: 200px; margin-right: 10px;">Outstanding Patriotism<br>&#9733;&#9733;&#9733;&#9733;&#9733;</button>
-					<div class="tooltip-text">You completed the Primary Objective of your mission and earned all available mission stars. <b>You have earned two rolls.</b> Click here to select your rewards and advance to the next mission.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Truly none can withstand the might of the Helldivers. A resounding victory for Super Earth and a crushing defeat for our foes. Well done, Helldiver.</i></span></div>
-				</div>
-			</div>
-			</div>
-			
-			<div class="results-row" style="display: none; justify-content: center;">
-				<p style="font-weight: bold; font-size: 30px;">&#9733; Run Completed &#9733;<br><br>Results:</p>
-			</div>
-			<div class="results-row" style="display: none; justify-content: center;">
-				<div id="resultsPrint"></div>
-			</div>
-			<div class="results-row" style="display: none; justify-content: center;">
-				<div id="goAgain" style="color: white; margin-bottom: 10px; margin-top: 10px;"></div>
-			</div>
-			
-			<div class="row" style="justify-content: center; margin-top: 48px;">
-				<button class="game-button" onclick="newGame()">Start a new game?</button>
-				<button class="continue-button" onclick="resumeGame()">Continue?</button>
-				<button class="save-button" onclick="saveGame()" style="display: none; margin-top: -40px;">Save and Quit</button>
-			</div>
-		</div>
-		
-		<!-- The roguelike randomizer on its own section -->
-		<div id="randomizer" class="tab-content" style="margin-top: 70px;">
-			<!-- <div class="container"> -->
-				<h1>Randomizer</h1>
-				<div id="table-results" style="margin-top: -40px; margin-bottom: 50px;"></div>
-				<div class="row" style="justify-content: center; margin-bottom: 0px;">
-					<div id="topRandomLoad" style="justify-content: center;"></div>
-				</div>
-				<div class="row" style="justify-content: center; margin-top: 0px; margin-bottom: 20px;">
-					<div id="bottomRandomLoad" style="justify-content: center; "></div>
-				</div>
-				<div class="row" style="justify-content: center;">
-					<button onclick="singleRoll()">One Roll</button>
-					<button onclick="randomLoadout()">Random Loadout</button>
-				</div>
-			<!-- </div> -->
-		</div>
-		
-		<!-- List of primary weapons -->
-		<div id="primary" class="tab-content">
-			<h1>Primary Weapons</h1>
-			<div class="row" style="justify-content: center; margin-bottom: 10px;">
-				<button class="select-button" onclick="selectAll(0)">Select All</button>
-				<!-- <button class="clear-button" onclick="clearAll(0)">Deselect All</button> -->
-			</div>
-			<div id="table-primary"></div>
-		</div>
-		
-		<!-- List of side arms -->
-		<div id="side" class="tab-content">
-			<h1>Side Arms</h1>
-			<div class="row" style="justify-content: center; margin-bottom: 10px;">
-				<button class="select-button" onclick="selectAll(1)">Select All</button>
-				<!-- <button class="clear-button" onclick="clearAll(1)">Deselect All</button> -->
-			</div>
-			<div id="table-side"></div>
-		</div>
-		
-		<!-- List of throwables -->
-		<div id="throw" class="tab-content">
-			<h1>Throwables</h1>
-			<div class="row" style="justify-content: center; margin-bottom: 10px;">
-				<button class="select-button" onclick="selectAll(2)">Select All</button>
-				<!-- <button class="clear-button" onclick="clearAll(2)">Deselect All</button> -->
-			</div>
-			<div id="table-throw"></div>
-		</div>
-		
-		<!-- List of strategems -->
-		<div id="strat" class="tab-content">
-			<h1>Stratagems</h1>
-			<div class="row" style="justify-content: center; margin-bottom: 10px;">
-				<button class="select-button" onclick="selectAll(3)">Select All</button>
-				<!-- <button class="clear-button" onclick="clearAll(3)">Deselect All</button> -->
-			</div>
-			<div id="table-strat"></div>
-		</div>
-		
-		<!-- List of boosters -->
-		<div id="boost" class="tab-content">
-			<h1>Boosters</h1>
-			<div class="row" style="justify-content: center; margin-bottom: 10px;">
-				<button class="select-button" onclick="selectAll(4)">Select All</button>
-				<!-- <button class="clear-button" onclick="clearAll(4)">Deselect All</button> -->
-			</div>
-			<div id="table-boost"></div>
-		</div>
-		
-		<!-- List of armours -->
-		<div id="armour" class="tab-content">
-			<h1>Armours</h1>
-			<div class="row" style="justify-content: center; margin-bottom: 10px;">
-				<button class="select-button" onclick="selectAll(5)">Select All</button>
-				<!-- <button class="clear-button" onclick="clearAll(5)">Deselect All</button> -->
-			</div>
-			<div id="table-armour"></div>
-		</div>
-
-		<script src="script.js?v=5"></script>
+		<script src="script.js?v=3"></script>
 	</body>
 </html>

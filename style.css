@@ -13,7 +13,7 @@ body {
 
 h1 {
 	text-align: center;
-	color: #FFE80A;
+	color: #F9EB0F;
 }
 
 p {
@@ -27,7 +27,7 @@ button {
 	font-family: "Monda", sans-serif;
 	padding: 10px 20px;
 	font-size: 16px;
-	background-color: #FFE80A;
+	background-color: #F9EB0F;
 	color: black;
 	border: none;
 	border-radius: 5px;
@@ -81,7 +81,7 @@ img {
 }
 
 .tab-button {
-	background-color: #f2df0c;
+	background-color: #F9EB0F;
 	border: 1px solid #000000;
 	padding: 10px;
 	cursor: pointer;
@@ -90,7 +90,7 @@ img {
 }
 
 .tab-button {
-	background-color: #f2df0c;
+	background-color: #F9EB0F;
 	border: 1px solid #000000;
 	padding: 10px;
 	cursor: pointer;
@@ -191,7 +191,7 @@ img {
 
 .specialRow2 {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(4, 2fr);
 	justify-self: stretch;
 }
 
@@ -217,7 +217,7 @@ img {
 
 .tab-content {
 	display: none;
-	margin-top: 100px;
+	margin-top: 80px;
 	overflow: hidden;
 	flex-direction: row;
 	z-index: 1;
@@ -230,7 +230,7 @@ img {
 	flex-direction: column;
 	gap: 10px;
 	margin-top: 15px; /* Optional, to add some space from the very top */
-	position: fixed;
+	/* position: fixed; */
 	z-index: 10;
 }
 
