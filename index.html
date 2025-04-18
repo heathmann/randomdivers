@@ -141,16 +141,27 @@ Initial creation date: 3.20.2025
 			</div>
 			
 			<div id="info" class="tab-content" style="margin-top: 50px;">
-				<div id="text-container" style="color: #ffffff;">Loading...</div>
+				<div id="section1" style="color: #ffffff;">Loading...</div>
+				<div id="section2" style="color: #ffffff;">Loading...</div>
 
 				<script>
 					fetch('content.txt')
 					.then(response => response.text())
 					.then(data => {
-						document.getElementById('text-container').innerText = data;
-					})
-					.catch(error => {
-						console.error('Error loading text file:', error);
+						// Split the file by section markers
+						const sections = {};
+						const parts = data.split(/===([a-zA-Z0-9_]+)===/g);
+						for (let i = 1; i < parts.length; i += 2) {
+							const key = parts[i].trim();
+							const value = parts[i + 1].trim();
+							sections[key] = value;
+						}
+
+						// Display each section
+						for (const [id, content] of Object.entries(sections)) {
+							const container = document.getElementById(id);
+							if (container) container.innerText = content;
+						}
 					});
 				</script>
 			</div>
