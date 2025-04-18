@@ -1,4 +1,4 @@
-"content": "This is a large block of text inside a text file."
+"This is a large block of text inside a text file."
 Here is a new line!
 
 There is an extra new line.
