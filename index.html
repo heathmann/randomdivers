@@ -26,6 +26,7 @@ Initial creation date: 3.20.2025
 					<button class="tab-button" onclick="openTabGame('game')" style="z-index: 100;">Play Randomdivers</button>
 					<button class="tab-button" onclick="openTabGame('randomizer')" style="z-index: 100;">Randomizer</button>
 					<button class="tab-button" onclick="armouryButtons()" style="z-index: 100;">My Armoury</button>
+					<button class="tab-button" onclick="openTabGame('info')" style="z-index: 100;">How to Play</button>
 				</div>
 				<div id="myArmoury" class="row" style="display: none; margin-bottom: -90px;">
 					<div id="special" class="specialRow">
@@ -137,6 +138,18 @@ Initial creation date: 3.20.2025
 						<button onclick="randomLoadout()">Random Loadout</button>
 					</div>
 				<!-- </div> -->
+			</div>
+			
+			<div id="info" class="tab-content" style="margin-top: 50px;">
+				<div id="text-container" style="color: #ffffff;">Loading...</div>
+
+				<script>
+					fetch('content.txt')
+					.then(response => response.json())
+					.then(data => {
+						document.getElementById('text-container').innerText = data.content;
+					});
+				</script>
 			</div>
 			
 			<!-- List of primary weapons -->
