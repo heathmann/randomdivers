@@ -144,10 +144,13 @@ Initial creation date: 3.20.2025
 				<div id="text-container" style="color: #ffffff;">Loading...</div>
 
 				<script>
-					fetch('content.json')
-					.then(response => response.json())
+					fetch('content.txt')
+					.then(response => response.text())
 					.then(data => {
-						document.getElementById('text-container').innerText = data.content;
+						document.getElementById('text-container').innerText = data;
+					})
+					.catch(error => {
+						console.error('Error loading text file:', error);
 					});
 				</script>
 			</div>
