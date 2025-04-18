@@ -144,10 +144,10 @@ Initial creation date: 3.20.2025
 				<div id="text-container" style="color: #ffffff;">Loading...</div>
 
 				<script>
-					fetch('content.txt')
+					fetch('content.json')
 					.then(response => response.json())
 					.then(data => {
-						document.getElementById('text-container').innerText = data;
+						document.getElementById('text-container').innerText = data.content;
 					});
 				</script>
 			</div>
