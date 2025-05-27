@@ -290,7 +290,7 @@ var currentLoadout = [
 	0,
 	0,
 	2,
-	41,
+	42,
 	userMaster[3].length - 1,
 	userMaster[3].length - 1,
 	userMaster[3].length - 1,
@@ -1518,7 +1518,7 @@ function newGame() {
 		0,
 		0,
 		2,
-		41,
+		42,
 		userMaster[3].length - 1,
 		userMaster[3].length - 1,
 		userMaster[3].length - 1,
@@ -1698,7 +1698,7 @@ function loseItem() {
 						};
 					} else if (x == 3) {
 						tempButt.onclick = function () {
-							currentLoadout[3] = 41;
+							currentLoadout[3] = 42;
 							forceDefaultLoadout[3] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
