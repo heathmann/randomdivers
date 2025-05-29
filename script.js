@@ -251,6 +251,7 @@ const MasterList = [
 const portraitColumns = 3;
 const landscapeColumns = 5;
 var columnCount = 5;
+const tacticalArmourIndex = 42;
 
 // [date], [difficulty], [mission], [enemy (string)], [endgame], [score], [chaos], [loadoutArray], [lockedLoadoutArray (bool)] (for endgame)
 var savedRuns = [];
@@ -287,16 +288,27 @@ var currentEndgameRound = 1;
 var currentScore = 0;
 var currentChaos = false;
 var currentLoadout = [
-	0,
-	0,
-	2,
-	42,
-	userMaster[3].length - 1,
-	userMaster[3].length - 1,
-	userMaster[3].length - 1,
-	userMaster[3].length - 1,
-	userMaster[4].length - 1
+	...[MasterList[0][0]],
+	...[MasterList[1][0]],
+	...[MasterList[2][2]],
+	...[MasterList[5][tacticalArmourIndex]],
+	...[MasterList[3][MasterList[3].length - 1]],
+	...[MasterList[3][MasterList[3].length - 1]],
+	...[MasterList[3][MasterList[3].length - 1]],
+	...[MasterList[3][MasterList[3].length - 1]],
+	...[MasterList[4][MasterList[4].length - 1]]
 ];
+// var currentLoadout = [
+	// 0,
+	// 0,
+	// 2,
+	// 42,
+	// userMaster[3].length - 1,
+	// userMaster[3].length - 1,
+	// userMaster[3].length - 1,
+	// userMaster[3].length - 1,
+	// userMaster[4].length - 1
+// ];
 var forceDefaultLoadout = [
 	false,
 	false,
@@ -763,12 +775,12 @@ function getThreeUniqueNoDup(max, category) {
 	while (numbers.size < 3) {
 		const randomNumber = Math.floor(Math.random() * max);
 		// Check for already equipped items
-		if ((category == 0 && randomNumber == currentLoadout[0]) || 
-			(category == 1 && randomNumber == currentLoadout[1]) || 
-			(category == 2 && randomNumber == currentLoadout[2]) || 
-			(category == 5 && randomNumber == currentLoadout[3]) ||
-			(category == 4 && randomNumber == currentLoadout[8]) ||
-			(category == 3 && (randomNumber == currentLoadout[4] || randomNumber == currentLoadout[5] || randomNumber == currentLoadout[6] || randomNumber == currentLoadout[7])) ||
+		if ((category == 0 && MasterList[0][randomNumber][0] == currentLoadout[0][0]) || 
+			(category == 1 && MasterList[1][randomNumber][0] == currentLoadout[1][0]) || 
+			(category == 2 && MasterList[2][randomNumber][0] == currentLoadout[2][0]) || 
+			(category == 5 && MasterList[5][randomNumber][0] == currentLoadout[3][0]) ||
+			(category == 4 && MasterList[4][randomNumber][0] == currentLoadout[8][0]) ||
+			(category == 3 && (MasterList[3][randomNumber][0] == currentLoadout[4][0] || MasterList[3][randomNumber][0] == currentLoadout[5][0] || MasterList[3][randomNumber][0] == currentLoadout[6][0] || MasterList[3][randomNumber][0] == currentLoadout[7][0])) ||
 			(!userMaster[category][randomNumber][2])) {
 				continue;
 		} else {
@@ -1054,15 +1066,15 @@ function generateLoadoutTable() {
 		if (i == 1) {
 			row.style.fontWeight = 'bold';
 			row2.style.fontWeight = 'bold';
-			row.insertCell(0).innerHTML = userMaster[0][currentLoadout[0]][0];
-			row.insertCell(1).innerHTML = userMaster[1][currentLoadout[1]][0];
-			row.insertCell(2).innerHTML = userMaster[2][currentLoadout[2]][0];
-			row.insertCell(3).innerHTML = userMaster[5][currentLoadout[3]][0];
-			row2.insertCell(0).innerHTML = userMaster[3][currentLoadout[4]][0];
-			row2.insertCell(1).innerHTML = userMaster[3][currentLoadout[5]][0];
-			row2.insertCell(2).innerHTML = userMaster[3][currentLoadout[6]][0];
-			row2.insertCell(3).innerHTML = userMaster[3][currentLoadout[7]][0];
-			row2.insertCell(4).innerHTML = userMaster[4][currentLoadout[8]][0];
+			row.insertCell(0).innerHTML = currentLoadout[0][0];
+			row.insertCell(1).innerHTML = currentLoadout[1][0];
+			row.insertCell(2).innerHTML = currentLoadout[2][0];
+			row.insertCell(3).innerHTML = currentLoadout[3][0];
+			row2.insertCell(0).innerHTML = currentLoadout[4][0];
+			row2.insertCell(1).innerHTML = currentLoadout[5][0];
+			row2.insertCell(2).innerHTML = currentLoadout[6][0];
+			row2.insertCell(3).innerHTML = currentLoadout[7][0];
+			row2.insertCell(4).innerHTML = currentLoadout[8][0];
 		} else {
 			row.insertCell(0).innerHTML = '';
 			row.insertCell(1).innerHTML = '';
@@ -1084,15 +1096,15 @@ function generateLoadoutTable() {
 							document.createElement('img'), 
 							document.createElement('img')
 						]
-			img[0].src = MasterList[0][currentLoadout[0]][1];
-			img[1].src = MasterList[1][currentLoadout[1]][1];
-			img[2].src = MasterList[2][currentLoadout[2]][1];
-			img[3].src = MasterList[5][currentLoadout[3]][1];
-			img[4].src = MasterList[3][currentLoadout[4]][1];
-			img[5].src = MasterList[3][currentLoadout[5]][1];
-			img[6].src = MasterList[3][currentLoadout[6]][1];
-			img[7].src = MasterList[3][currentLoadout[7]][1];
-			img[8].src = MasterList[4][currentLoadout[8]][1];
+			img[0].src = currentLoadout[0][1];
+			img[1].src = currentLoadout[1][1];
+			img[2].src = currentLoadout[2][1];
+			img[3].src = currentLoadout[3][1];
+			img[4].src = currentLoadout[4][1];
+			img[5].src = currentLoadout[5][1];
+			img[6].src = currentLoadout[6][1];
+			img[7].src = currentLoadout[7][1];
+			img[8].src = currentLoadout[8][1];
 			
 			for (var x = 0; x < 4; x++) {
 				cell = row.cells[x];
@@ -1165,10 +1177,10 @@ function swap(selection, count) {
 		var row = bottomTable.insertRow(i);
 		if (i == 1) {
 			row.style.fontWeight = 'bold';
-			row.insertCell(0).innerHTML = userMaster[3][currentLoadout[4]][0];
-			row.insertCell(1).innerHTML = userMaster[3][currentLoadout[5]][0];
-			row.insertCell(2).innerHTML = userMaster[3][currentLoadout[6]][0];
-			row.insertCell(3).innerHTML = userMaster[3][currentLoadout[7]][0];
+			row.insertCell(0).innerHTML = currentLoadout[4][0];
+			row.insertCell(1).innerHTML = currentLoadout[5][0];
+			row.insertCell(2).innerHTML = currentLoadout[6][0];
+			row.insertCell(3).innerHTML = currentLoadout[7][0];
 		} else if (i == 2) {
 			row.insertCell(0).innerHTML = '';
 			row.insertCell(1).innerHTML = '';
@@ -1177,7 +1189,7 @@ function swap(selection, count) {
 			var cell = row.cells[0];
 			for (var x = 0; x < 4; x++) {
 				const img = document.createElement('img');
-				img.src = MasterList[3][currentLoadout[x+4]][1];
+				img.src = currentLoadout[x+4][1];
 				cell = row.cells[x];
 				cell.appendChild(img);
 			}
@@ -1185,7 +1197,7 @@ function swap(selection, count) {
 			const button1 = document.createElement('button');
 			button1.innerText = 'Replace';
 			button1.onclick = function() {
-				currentLoadout[4] = selection;
+				currentLoadout[4] = MasterList[3][selection];
 				if (count == 1 && currentEndgameRound < 2) {
 					generateLoadoutTable();
 					var contents = document.querySelectorAll('.game-row');
@@ -1212,7 +1224,7 @@ function swap(selection, count) {
 			const button2 = document.createElement('button');
 			button2.innerText = 'Replace';
 			button2.onclick = function() {
-				currentLoadout[5] = selection;
+				currentLoadout[5] = MasterList[3][selection];
 				if (count == 1 && currentEndgameRound < 2) {
 					generateLoadoutTable();
 					var contents = document.querySelectorAll('.game-row');
@@ -1239,7 +1251,7 @@ function swap(selection, count) {
 			const button3 = document.createElement('button');
 			button3.innerText = 'Replace';
 			button3.onclick = function() {
-				currentLoadout[6] = selection;
+				currentLoadout[6] = MasterList[3][selection];
 				if (count == 1 && currentEndgameRound < 2) {
 					generateLoadoutTable();
 					var contents = document.querySelectorAll('.game-row');
@@ -1266,7 +1278,7 @@ function swap(selection, count) {
 			const button4 = document.createElement('button');
 			button4.innerText = 'Replace';
 			button4.onclick = function() {
-				currentLoadout[7] = selection;
+				currentLoadout[7] = MasterList[3][selection];
 				if (count == 1 && currentEndgameRound < 2) {
 					generateLoadoutTable();
 					var contents = document.querySelectorAll('.game-row');
@@ -1317,29 +1329,29 @@ function swap(selection, count) {
 function choose(category, selection, count) {
 	var swapping = false;
 	if (category == 0) { // primary
-		currentLoadout[0] = selection;
+		currentLoadout[0] = MasterList[0][selection];
 	} else if (category == 1) { // side
-		currentLoadout[1] = selection;
+		currentLoadout[1] = MasterList[1][selection];
 	} else if (category == 2) { // throw
-		currentLoadout[2] = selection;
+		currentLoadout[2] = MasterList[2][selection];
 	} else if (category == 3) { //strat
-		if (currentLoadout[4] == userMaster[3].length - 1) {
-			currentLoadout[4] = selection;
-		} else if (currentLoadout[5] == userMaster[3].length - 1) {
-			currentLoadout[5] = selection;
-		} else if (currentLoadout[6] == userMaster[3].length - 1) {
-			currentLoadout[6] = selection;
-		} else if (currentLoadout[7] == userMaster[3].length - 1) {
-			currentLoadout[7] = selection;
+		if (currentLoadout[4][0] == MasterList[3][userMaster[3].length - 1][0]) {
+			currentLoadout[4] = MasterList[3][selection];
+		} else if (currentLoadout[5][0] == MasterList[3][userMaster[3].length - 1][0]) {
+			currentLoadout[5] = MasterList[3][selection];
+		} else if (currentLoadout[6][0] == MasterList[3][userMaster[3].length - 1][0]) {
+			currentLoadout[6] = MasterList[3][selection];
+		} else if (currentLoadout[7][0] == MasterList[3][userMaster[3].length - 1][0]) {
+			currentLoadout[7] = MasterList[3][selection];
 		} else {
 			swapping = true;
 			document.getElementById('roll-results').style.display = 'none';
 			swap(selection, count);
 		}
 	} else if (category == 4) { // boost
-		currentLoadout[8] = selection;
+		currentLoadout[8] = MasterList[4][selection];
 	} else if (category == 5) { //armour
-		currentLoadout[3] = selection;
+		currentLoadout[3] = MasterList[5][selection];
 	}
 	
 	if (count == 1 && !swapping && currentEndgameRound == 1) {
@@ -1515,15 +1527,15 @@ function newGame() {
 	currentScore = 0;
 	currentChaos = false;
 	currentLoadout = [
-		0,
-		0,
-		2,
-		42,
-		userMaster[3].length - 1,
-		userMaster[3].length - 1,
-		userMaster[3].length - 1,
-		userMaster[3].length - 1,
-		userMaster[4].length - 1
+		...[MasterList[0][0]],
+		...[MasterList[1][0]],
+		...[MasterList[2][2]],
+		...[MasterList[5][tacticalArmourIndex]],
+		...[MasterList[3][MasterList[3].length - 1]],
+		...[MasterList[3][MasterList[3].length - 1]],
+		...[MasterList[3][MasterList[3].length - 1]],
+		...[MasterList[3][MasterList[3].length - 1]],
+		...[MasterList[4][MasterList[4].length - 1]]
 	];
 	forceDefaultLoadout = [
 		false,
@@ -1586,15 +1598,15 @@ function loseItem() {
 			if (i == 1) {
 				row.style.fontWeight = 'bold';
 				row2.style.fontWeight = 'bold';
-				row.insertCell(0).innerHTML = userMaster[0][currentLoadout[0]][0];
-				row.insertCell(1).innerHTML = userMaster[1][currentLoadout[1]][0];
-				row.insertCell(2).innerHTML = userMaster[2][currentLoadout[2]][0];
-				row.insertCell(3).innerHTML = userMaster[5][currentLoadout[3]][0];
-				row2.insertCell(0).innerHTML = userMaster[3][currentLoadout[4]][0];
-				row2.insertCell(1).innerHTML = userMaster[3][currentLoadout[5]][0];
-				row2.insertCell(2).innerHTML = userMaster[3][currentLoadout[6]][0];
-				row2.insertCell(3).innerHTML = userMaster[3][currentLoadout[7]][0];
-				row2.insertCell(4).innerHTML = userMaster[4][currentLoadout[8]][0];
+				row.insertCell(0).innerHTML = currentLoadout[0][0];
+				row.insertCell(1).innerHTML = currentLoadout[1][0];
+				row.insertCell(2).innerHTML = currentLoadout[2][0];
+				row.insertCell(3).innerHTML = currentLoadout[3][0];
+				row2.insertCell(0).innerHTML = currentLoadout[4][0];
+				row2.insertCell(1).innerHTML = currentLoadout[5][0];
+				row2.insertCell(2).innerHTML = currentLoadout[6][0];
+				row2.insertCell(3).innerHTML = currentLoadout[7][0];
+				row2.insertCell(4).innerHTML = currentLoadout[8][0];
 			} else if (i == 2) {
 				row.insertCell(0).innerHTML = '';
 				row.insertCell(1).innerHTML = '';
@@ -1616,15 +1628,15 @@ function loseItem() {
 								document.createElement('img'), 
 								document.createElement('img')
 							]
-				img[0].src = MasterList[0][currentLoadout[0]][1];
-				img[1].src = MasterList[1][currentLoadout[1]][1];
-				img[2].src = MasterList[2][currentLoadout[2]][1];
-				img[3].src = MasterList[5][currentLoadout[3]][1];
-				img[4].src = MasterList[3][currentLoadout[4]][1];
-				img[5].src = MasterList[3][currentLoadout[5]][1];
-				img[6].src = MasterList[3][currentLoadout[6]][1];
-				img[7].src = MasterList[3][currentLoadout[7]][1];
-				img[8].src = MasterList[4][currentLoadout[8]][1];
+				img[0].src = currentLoadout[0][1];
+				img[1].src = currentLoadout[1][1];
+				img[2].src = currentLoadout[2][1];
+				img[3].src = currentLoadout[3][1];
+				img[4].src = currentLoadout[4][1];
+				img[5].src = currentLoadout[5][1];
+				img[6].src = currentLoadout[6][1];
+				img[7].src = currentLoadout[7][1];
+				img[8].src = currentLoadout[8][1];
 				
 				for (var x = 0; x < 4; x++) {
 					cell = row.cells[x];
@@ -1647,7 +1659,7 @@ function loseItem() {
 					
 					if (x == 0) {
 						tempButt.onclick = function () {
-							currentLoadout[0] = 0;
+							currentLoadout[0] = MasterList[0][0];
 							forceDefaultLoadout[0] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
@@ -1664,7 +1676,7 @@ function loseItem() {
 						};
 					} else if (x == 1) {
 						tempButt.onclick = function () {
-							currentLoadout[1] = 0;
+							currentLoadout[1] = MasterList[1][0];
 							forceDefaultLoadout[1] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
@@ -1681,7 +1693,7 @@ function loseItem() {
 						};
 					} else if (x == 2) {
 						tempButt.onclick = function () {
-							currentLoadout[2] = 2;
+							currentLoadout[2] = MasterList[2][2];
 							forceDefaultLoadout[2] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
@@ -1698,7 +1710,7 @@ function loseItem() {
 						};
 					} else if (x == 3) {
 						tempButt.onclick = function () {
-							currentLoadout[3] = 42;
+							currentLoadout[3] = MasterList[5][tacticalArmourIndex];
 							forceDefaultLoadout[3] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
@@ -1715,7 +1727,7 @@ function loseItem() {
 						};
 					} else if (x == 8) {
 						tempButt.onclick = function () {
-							currentLoadout[8] = (userMaster[4].length - 1);
+							currentLoadout[8] = MasterList[4][MasterList[3].length - 1];
 							forceDefaultLoadout[8] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
@@ -1732,7 +1744,7 @@ function loseItem() {
 						};
 					} else if (x == 4) {
 						tempButt.onclick = function () {
-							currentLoadout[4] = (userMaster[3].length - 1);
+							currentLoadout[4] = MasterList[3][MasterList[3].length - 1];
 							forceDefaultLoadout[4] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
@@ -1749,7 +1761,7 @@ function loseItem() {
 						};
 					} else if (x == 5) {
 						tempButt.onclick = function () {
-							currentLoadout[5] = (userMaster[3].length - 1);
+							currentLoadout[5] = MasterList[3][MasterList[3].length - 1];
 							forceDefaultLoadout[5] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
@@ -1766,7 +1778,7 @@ function loseItem() {
 						};
 					} else if (x == 6) {
 						tempButt.onclick = function () {
-							currentLoadout[6] = (userMaster[3].length - 1);
+							currentLoadout[6] = MasterList[3][MasterList[3].length - 1];
 							forceDefaultLoadout[6] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
@@ -1783,7 +1795,7 @@ function loseItem() {
 						};
 					} else if (x == 7) {
 						tempButt.onclick = function () {
-							currentLoadout[7] = (userMaster[3].length - 1);
+							currentLoadout[7] = MasterList[3][MasterList[3].length - 1];
 							forceDefaultLoadout[7] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
