@@ -1,14 +1,14 @@
 ===section1===
-Do you believe in <u>freedom</u>? Can you stand in the face of oppression – and defend the defenceless? Wage war for peace.
-Die for democracy.
+IMPORTANT! Before you play for the first time, I strongly encourage you to take a moment to go to the My Armoury section
+above and uncheck all items you do not currently have unlocked. By doing this, your randomizer will be tailored to what
+you have meaning that you will only ever see items that you actually have and can use while playing. Failing to do this
+step will result in items that you do not have unlocked appearing in your randomizer which can be very frustrating and
+not so fun. And don’t forget to revisit your armoury to add new items as you unlock them.
 
 ===section2===
-Join forces with up to three friends and wreak havoc on an alien scourge threatening the safety of your home planet,
-Super Earth, in this multiplayer co-op shooter for PS5 and PC from Arrowhead Game Studios. Step into the boots of the
-Helldivers, an elite class of soldiers whose mission is to spread peace, liberty and Managed Democracy using the biggest,
-baddest and most explosive tools in the galaxy. Helldivers don't go planet side without proper backup, but it’s up to you
-to decide how and when to call it in. Not only do you have a host of superpowered primary weapons and customizable
-loadouts, you also have the ability to call on stratagems during play. 
+Please note that since Randomdivers was designed with veteran players in mind and to preserve the element of randomness,
+you will only be able to uncheck items to a certain minimum in each category. If you are a new player, you may lack enough
+unlocked items to provide meaningful variety to make Randomdivers an interesting experience.
 
 ===section3===
 Helldivers 2 features Arrowhead's best cooperative gameplay yet. Collaboration will be vital: Teams will synergize on

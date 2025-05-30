@@ -1375,6 +1375,24 @@ function choose(category, selection, count) {
 	}
 }
 
+function catToCurrent (category) {
+	if (category == 0) {
+		return 0;
+	} else if (category == 1) {
+		return 1;
+	} else if (category == 2) {
+		return 2;
+	} else if (category == 4) {
+		return 8;
+	} else if (category == 5) {
+		return 3;
+	} else if (category == 3) {
+		return 7;
+	} else {
+		return -1;
+	}
+}
+
 function rollSelect (count) {
 	const categorySelections = [];
 	for (let i = 0; i < 3; i++) {
@@ -1440,14 +1458,175 @@ function rollSelect (count) {
 			cell.appendChild(img3);
 		} else if (i == 3){
 			const button1 = document.createElement('button');
+			const text1 = document.createElement('div');
+			const image1 = document.createElement('img');
 			button1.innerText = 'Select';
 			button1.onclick = function() {choose(categorySelections[0], threeUnique[categorySelections[0]][0], count)};
+			if (categorySelections[0] != 3 && !(categorySelections[0] == 4 && currentLoadout[8][0] === "No booster")) {
+				button1.className = "tooltip-container";
+				text1.className = "tooltip-text";
+				text1.innerHTML = "<strong><u>Replacing</u></strong><br>" + currentLoadout[catToCurrent(categorySelections[0])][0];
+				text1.style.top = '125%';
+				text1.style.bottom = 'auto';
+				image1.src = currentLoadout[catToCurrent(categorySelections[0])][1];
+				image1.style.height = '100px';
+				text1.appendChild(image1);
+				button1.appendChild(text1);
+			} else if (categorySelections[0] == 3) {
+				button1.className = "tooltip-container";
+				text1.className = "tooltip-text";
+				text1.style.top = '125%';
+				text1.style.bottom = 'auto';
+				text1.style.display = 'flex';
+				if (currentLoadout[4][0] !== "Empty slot") {
+					text1.innerHTML = "<strong><u>Current Stratagems</u></strong><br>";
+					image1.src = currentLoadout[4][1];
+					image1.style.height = '100px';
+					text1.appendChild(image1);
+					if (currentLoadout[5][0] !== "Empty slot") {
+						const temp2 = document.createElement('img');
+						temp2.src = currentLoadout[5][1];
+						temp2.style.height = '100px';
+						text1.appendChild(temp2);
+						if (currentLoadout[6][0] !== "Empty slot") {
+							const temp3 = document.createElement('img');
+							temp3.src = currentLoadout[6][1];
+							temp3.style.height = '100px';
+							text1.appendChild(temp3);
+							if (currentLoadout[7][0] !== "Empty slot") {
+								const temp4 = document.createElement('img');
+								temp4.src = currentLoadout[7][1];
+								temp4.style.height = '100px';
+								text1.appendChild(temp4);
+							}
+						}
+					}
+				} else {
+					text1.innerHTML = "No stratagems currently equipped";
+				}
+				button1.appendChild(text1);
+			} else if (categorySelections[0] == 4 && currentLoadout[8][0] === "No booster") {
+				button1.className = "tooltip-container";
+				text1.className = "tooltip-text";
+				text1.innerHTML = "No booster currently active";
+				text1.style.top = '125%';
+				text1.style.bottom = 'auto';
+				button1.appendChild(text1);
+			}
 			const button2 = document.createElement('button');
+			const text2 = document.createElement('div');
+			const image2 = document.createElement('img');
 			button2.innerText = 'Select';
 			button2.onclick = function() {choose(categorySelections[1], threeUnique[categorySelections[1]][1], count)};
+			if (categorySelections[1] != 3 && !(categorySelections[1] == 4 && currentLoadout[8][0] === "No booster")) {
+				button2.className = "tooltip-container";
+				text2.className = "tooltip-text";
+				text2.innerHTML = "<strong><u>Replacing</u></strong><br>" + currentLoadout[catToCurrent(categorySelections[1])][0];
+				text2.style.top = '125%';
+				text2.style.bottom = 'auto';
+				image2.src = currentLoadout[catToCurrent(categorySelections[1])][1];
+				image2.style.height = '100px';
+				text2.appendChild(image2);
+				button2.appendChild(text2);
+			} else if (categorySelections[1] == 3) {
+				button2.className = "tooltip-container";
+				text2.className = "tooltip-text";
+				text2.className = "tooltip-text";
+				text2.style.top = '125%';
+				text2.style.bottom = 'auto';
+				text2.style.display = 'flex';
+				if (currentLoadout[4][0] !== "Empty slot") {
+					text2.innerHTML = "<strong><u>Current Stratagems</u></strong><br>";
+					image2.src = currentLoadout[4][1];
+					image2.style.height = '100px';
+					text2.appendChild(image2);
+					if (currentLoadout[5][0] !== "Empty slot") {
+						const temp2 = document.createElement('img');
+						temp2.src = currentLoadout[5][1];
+						temp2.style.height = '100px';
+						text2.appendChild(temp2);
+						if (currentLoadout[6][0] !== "Empty slot") {
+							const temp3 = document.createElement('img');
+							temp3.src = currentLoadout[6][1];
+							temp3.style.height = '100px';
+							text2.appendChild(temp3);
+							if (currentLoadout[7][0] !== "Empty slot") {
+								const temp4 = document.createElement('img');
+								temp4.src = currentLoadout[7][1];
+								temp4.style.height = '100px';
+								text2.appendChild(temp4);
+							}
+						}
+					}
+				} else {
+					text2.innerHTML = "No stratagems currently equipped";
+				}
+				button2.appendChild(text2);
+			} else if (categorySelections[1] == 4 && currentLoadout[8][0] === "No booster") {
+				button2.className = "tooltip-container";
+				text2.className = "tooltip-text";
+				text2.innerHTML = "No booster currently active";
+				text2.style.top = '125%';
+				text2.style.bottom = 'auto';
+				button2.appendChild(text2);
+			}
 			const button3 = document.createElement('button');
+			const text3 = document.createElement('div');
+			const image3 = document.createElement('img');
 			button3.innerText = 'Select';
 			button3.onclick = function() {choose(categorySelections[2], threeUnique[categorySelections[2]][2], count)};
+			if (categorySelections[2] != 3 && !(categorySelections[2] == 4 && currentLoadout[8][0] === "No booster")) {
+				button3.className = "tooltip-container";
+				text3.className = "tooltip-text";
+				text3.innerHTML = "<strong><u>Replacing</u></strong><br>" + currentLoadout[catToCurrent(categorySelections[2])][0];
+				text3.style.top = '125%';
+				text3.style.bottom = 'auto';
+				image3.src = currentLoadout[catToCurrent(categorySelections[2])][1];
+				image3.style.height = '100px';
+				text3.appendChild(image3);
+				button3.appendChild(text3);
+			} else if (categorySelections[2] == 3) {
+				button3.className = "tooltip-container";
+				text3.className = "tooltip-text";
+				text3.className = "tooltip-text";
+				text3.style.top = '125%';
+				text3.style.bottom = 'auto';
+				text3.style.display = 'flex';
+				if (currentLoadout[4][0] !== "Empty slot") {
+					text3.innerHTML = "<strong><u>Current Stratagems</u></strong><br>";
+					image3.src = currentLoadout[4][1];
+					image3.style.height = '100px';
+					text3.appendChild(image3);
+					if (currentLoadout[5][0] !== "Empty slot") {
+						const temp2 = document.createElement('img');
+						temp2.src = currentLoadout[5][1];
+						temp2.style.height = '100px';
+						text3.appendChild(temp2);
+						if (currentLoadout[6][0] !== "Empty slot") {
+							const temp3 = document.createElement('img');
+							temp3.src = currentLoadout[6][1];
+							temp3.style.height = '100px';
+							text3.appendChild(temp3);
+							if (currentLoadout[7][0] !== "Empty slot") {
+								const temp4 = document.createElement('img');
+								temp4.src = currentLoadout[7][1];
+								temp4.style.height = '100px';
+								text3.appendChild(temp4);
+							}
+						}
+					}
+				} else {
+					text3.innerHTML = "No stratagems currently equipped";
+				}
+				button3.appendChild(text3);
+			} else if (categorySelections[2] == 4 && currentLoadout[8][0] === "No booster") {
+				button3.className = "tooltip-container";
+				text3.className = "tooltip-text";
+				text3.innerHTML = "No booster currently active";
+				text3.style.top = '125%';
+				text3.style.bottom = 'auto';
+				button3.appendChild(text3);
+			}
 			row.insertCell(0).innerHTML = '';
 			row.insertCell(1).innerHTML = '';
 			row.insertCell(2).innerHTML = '';
