@@ -1,5 +1,5 @@
 ===section1===
-Do you believe in freedom? Can you stand in the face of oppression – and defend the defenceless? Wage war for peace.
+Do you believe in <u>freedom</u>? Can you stand in the face of oppression – and defend the defenceless? Wage war for peace.
 Die for democracy.
 
 ===section2===
