@@ -52,13 +52,16 @@ table {
 	/* table-layout: auto; */
 	/* overflow-y: hidden; */
 	background-color: #999999;
+	border-radius: 3px;
 }
 
 table, th, td {
-	border: 1px solid black;
+	/* border: 1px solid black; */
+	border: 2px solid #F9EB0F;
 }
 
 th, td {
+	border: 1px solid black;
 	padding: 8px;
 	text-align: center;
 }
