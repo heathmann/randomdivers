@@ -66,7 +66,10 @@ Initial creation date: 3.20.2025
 						<button class="bug-button" onclick="selectBug()">Terminids</button>
 						<button class="bot-button" onclick="selectBot()">Automatons</button>
 						<button class="squid-button" onclick="selectSquid()">Illuminate</button>
-						<button class="chaos-button" onclick="selectChaos()">Pandemonium</button>
+						<div class="tooltip-container">
+							<button class="chaos-button" onclick="selectChaos()">Pandemonium</button>
+							<div class="tooltip-text" style="width: 400px;">Pandemonium mode selects a random enemy of the three to fight for each campaign. This adds an extra layer of challenge to the run overall. If any faction has been wiped out completely from the galaxy, do not select this mode.</div>
+						</div>
 						<!-- Enemy icons -->
 						<img src="./images/misc/Terminid_icon.png" style="width: 100px; height: 90px; margin-left: 25px;">
 						<img src="./images/misc/Automaton_icon.png" style="width: 100px; height: 90px; margin-left: 25px;">
@@ -92,15 +95,15 @@ Initial creation date: 3.20.2025
 				<div class="specialRow3">
 					<div class="tooltip-container">
 						<button class="defeat-button" onclick="finalResults()" style="font-weight: bold; padding: 5px; width: 200px; margin-right: 10px;">Disgraceful Conduct<br>&#9733;</button>
-						<div class="tooltip-text">You failed to complete the Primary Objective of your mission. <b>Your run is over.</b> Click here to end the run and view your run statistics.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Managed Democracy has suffered a grave defeat this day. Fear not Helldiver, for the battle may be lost, the war is far from over. Get back in the fight, Helldiver!</i></span></div>
+						<div class="tooltip-text">You failed to complete the Primary Objective of your mission. <b><span style="color: #F0080C;">Your run is over.</span></b> Click here to end the run and view your run statistics.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Managed Democracy has suffered a grave defeat this day. Fear not Helldiver, for the battle may be lost, the war is far from over. Get back in the fight, Helldiver!</i></span></div>
 					</div>
 					<div class="tooltip-container">
 						<button onclick="notFullStar()" style="font-weight: bold; padding: 5px; width: 200px; margin-right: 10px;">Honorable Duty<br>&#9733;&#9733;&#9733;</button>
-						<div class="tooltip-text">You completed the Primary Objective of your mission but failed to achieve all mission stars. <b>You have earned one roll.</b> Click here to select your reward and advance to the next mission.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Another victory in the fight for Managed Democracy. However, your work is incomplete, Helldiver. Remember, we are here to crush the enemies of Super Earth utterly. On to the next battle. </i></span></div>
+						<div id="notFullStarText" class="tooltip-text">You completed the Primary Objective of your mission but failed to achieve all mission stars. <b><span style="color: green;">You have earned one roll.</span></b> Click here to select your reward and advance to the next mission.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Another victory in the fight for Managed Democracy. However, your work is incomplete, Helldiver. Remember, we are here to crush the enemies of Super Earth utterly. On to the next battle. </i></span></div>
 					</div>
 					<div class="tooltip-container">
 						<button onclick="fullStar()" style="font-weight: bold; padding: 5px; width: 200px; margin-right: 10px;">Outstanding Patriotism<br>&#9733;&#9733;&#9733;&#9733;&#9733;</button>
-						<div class="tooltip-text">You completed the Primary Objective of your mission and earned all available mission stars. <b>You have earned two rolls.</b> Click here to select your rewards and advance to the next mission.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Truly none can withstand the might of the Helldivers. A resounding victory for Super Earth and a crushing defeat for our foes. Well done, Helldiver.</i></span></div>
+						<div id="fullStarText" class="tooltip-text">You completed the Primary Objective of your mission and earned all available mission stars. <b><span style="color: green;">You have earned two rolls.</span></b> Click here to select your rewards and advance to the next mission.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Truly none can withstand the might of the Helldivers. A resounding victory for Super Earth and a crushing defeat for our foes. Well done, Helldiver.</i></span></div>
 					</div>
 				</div>
 				</div>
@@ -251,6 +254,6 @@ Initial creation date: 3.20.2025
 
 		</div>
 
-		<script src="script.js?v=1.10"></script>
+		<script src="script.js?v=1.11"></script>
 	</body>
 </html>

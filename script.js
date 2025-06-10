@@ -248,6 +248,10 @@ const MasterList = [
 	]
 ];
 
+const notFullText = 'You completed the Primary Objective of your mission but failed to achieve all mission stars. <b><span style="color: #19DE18;">You have earned one roll.</span></b> Click here to select your reward and advance to the next mission.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Another victory in the fight for Managed Democracy. However, your work is incomplete, Helldiver. Remember, we are here to crush the enemies of Super Earth utterly. On to the next battle. </i></span>';
+const fullText = 'You completed the Primary Objective of your mission and earned all available mission stars. <b><span style="color: #19DE18;">You have earned two rolls.</span></b> Click here to select your rewards and advance to the next mission.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Truly none can withstand the might of the Helldivers. A resounding victory for Super Earth and a crushing defeat for our foes. Well done, Helldiver.</i></span>';
+const endNotFullText = 'You completed the Primary Objective of your mission but failed to achieve all mission stars. <b><span style="color: #F0080C;">Since you are currently in the endgame, you will earn no rolls.</span></b> This button is for tracking your results and advancing to the next mission only.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Another victory in the fight for Managed Democracy. However, your work is incomplete, Helldiver. Remember, we are here to crush the enemies of Super Earth utterly. On to the next battle. </i></span>';
+const endFullText = 'You completed the Primary Objective of your mission and earned all available mission stars. <b><span style="color: #F0080C;">Since you are currently in the endgame, you will earn no rolls.</span></b> This button is for tracking your results and advancing to the next mission only.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Truly none can withstand the might of the Helldivers. A resounding victory for Super Earth and a crushing defeat for our foes. Well done, Helldiver.</i></span>';
 const portraitColumns = 3;
 const landscapeColumns = 5;
 var columnCount = 5;
@@ -1729,6 +1733,14 @@ function newGame() {
 	];
 	currentSaveIndex = savedRuns.length;
 	
+	if (currentEndgameRound >= 2) {
+		document.getElementById('notFullStarText').innerHTML = endNotFullText;
+		document.getElementById('fullStarText').innerHTML = endFullText;
+	} else {
+		document.getElementById('notFullStarText').innerHTML = notFullText;
+		document.getElementById('fullStarText').innerHTML = fullText;
+	}
+	
 	// Display enemy selection buttons
 	contents = document.querySelectorAll('.enemy-row');
 	contents.forEach(function(button){button.style.display = 'flex';});
@@ -2187,6 +2199,14 @@ function notFullStar() {
 	contents.forEach(content => content.style.display = 'none');
 	updateMission();
 	
+	if (currentEndgameRound >= 2) {
+		document.getElementById('notFullStarText').innerHTML = endNotFullText;
+		document.getElementById('fullStarText').innerHTML = endFullText;
+	} else {
+		document.getElementById('notFullStarText').innerHTML = notFullText;
+		document.getElementById('fullStarText').innerHTML = fullText;
+	}
+	
 	if (currentEndgameRound < 2 || (currentEndgameRound == 2 && currentMission == 1)) {
 		const container = document.getElementById('roll-results');
 		container.innerHTML = '';
@@ -2212,6 +2232,14 @@ function fullStar() {
 	contents = document.querySelectorAll('.save-button');
 	contents.forEach(content => content.style.display = 'none');
 	updateMission();
+	
+	if (currentEndgameRound >= 2) {
+		document.getElementById('notFullStarText').innerHTML = endNotFullText;
+		document.getElementById('fullStarText').innerHTML = endFullText;
+	} else {
+		document.getElementById('notFullStarText').innerHTML = notFullText;
+		document.getElementById('fullStarText').innerHTML = fullText;
+	}
 	
 	if (currentEndgameRound < 2 || (currentEndgameRound == 2 && currentMission == 1)) {
 		const container = document.getElementById('roll-results');
@@ -2292,6 +2320,14 @@ function resumeGame() {
 	contents.forEach(function(button){button.style.display = 'flex';});
 	contents = document.getElementById('runsPrint');
 	contents.innerHTML = '';
+	
+	if (currentEndgameRound >= 2) {
+		document.getElementById('notFullStarText').innerHTML = endNotFullText;
+		document.getElementById('fullStarText').innerHTML = endFullText;
+	} else {
+		document.getElementById('notFullStarText').innerHTML = notFullText;
+		document.getElementById('fullStarText').innerHTML = fullText;
+	}
 	
 	if (savedRuns.length > 0) {
 		document.getElementById('saves').style.display = 'flex';
