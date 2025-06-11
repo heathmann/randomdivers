@@ -325,6 +325,10 @@ var forceDefaultLoadout = [
 	false
 ];
 var currentSaveIndex = savedRuns.length;
+var totalRolls = 0;
+var fullStarWins = 0;
+var nonFullStarWins = 0;
+var totalPasses = 0;
 
 function saveGame() {
 	var contents = document.querySelectorAll('.game-row');
@@ -342,7 +346,7 @@ function saveGame() {
 	let year = currentDate.getFullYear(); 
 	let formattedDate = `${month}/${day}/${year}`;
 	
-	savedRuns[currentSaveIndex] = [formattedDate, currentDifficulty, currentMission, currentEnemy, currentEndgameRound, currentScore, currentChaos, currentLoadout, forceDefaultLoadout];
+	savedRuns[currentSaveIndex] = [formattedDate, currentDifficulty, currentMission, currentEnemy, currentEndgameRound, currentScore, currentChaos, currentLoadout, forceDefaultLoadout, totalRolls, fullStarWins, nonFullStarWins, totalPasses];
 	localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns));
 	
 	contents = document.querySelectorAll('.game-button');
@@ -358,7 +362,7 @@ function autoSaveGame() {
 	let year = currentDate.getFullYear(); 
 	let formattedDate = `${month}/${day}/${year}`;
 	
-	savedRuns[currentSaveIndex] = [formattedDate, currentDifficulty, currentMission, currentEnemy, currentEndgameRound, currentScore, currentChaos, currentLoadout, forceDefaultLoadout];
+	savedRuns[currentSaveIndex] = [formattedDate, currentDifficulty, currentMission, currentEnemy, currentEndgameRound, currentScore, currentChaos, currentLoadout, forceDefaultLoadout, totalRolls, fullStarWins, nonFullStarWins, totalPasses];
 	localStorage.setItem('savedRunsLocal', JSON.stringify(savedRuns));
 }
 
@@ -626,6 +630,10 @@ function pickUpRun(savedData, oldSaveIndex) {
 	currentChaos = savedData[6];
 	currentLoadout = savedData[7];
 	forceDefaultLoadout = savedData[8];
+	totalRolls = savedData[9];
+	fullStarWins = savedData[10];
+	nonFullStarWins = savedData[11];
+	totalPasses = savedData[12];
 	
 	if ((currentMission - 1) == 0) {
 		if ((currentDifficulty - 1) >= 0 && (currentDifficulty - 1) < 3) {
@@ -1356,6 +1364,8 @@ function choose(category, selection, count) {
 		currentLoadout[8] = MasterList[4][selection];
 	} else if (category == 5) { //armour
 		currentLoadout[3] = MasterList[5][selection];
+	} else if (category == 6) {
+		totalPasses++;
 	}
 	
 	if (count == 1 && !swapping && currentEndgameRound == 1) {
@@ -1403,6 +1413,8 @@ function rollSelect (count) {
 		const x = Math.floor(Math.random() * 6);
 		categorySelections.push(x);
 	}
+	
+	totalRolls++;
 
 	const threeUnique = [];
 	threeUnique.push(getThreeUniqueNoDup(userMaster[0].length, 0));
@@ -1732,6 +1744,10 @@ function newGame() {
 		false
 	];
 	currentSaveIndex = savedRuns.length;
+	var totalRolls = 0;
+	var fullStarWins = 0;
+	var nonFullStarWins = 0;
+	var totalPasses = 0;
 	
 	if (currentEndgameRound >= 2) {
 		document.getElementById('notFullStarText').innerHTML = endNotFullText;
@@ -2197,6 +2213,7 @@ function notFullStar() {
 	document.getElementById('bottomLoad').style.display = 'none';
 	contents = document.querySelectorAll('.save-button');
 	contents.forEach(content => content.style.display = 'none');
+	nonFullStarWins++;
 	updateMission();
 	
 	if (currentEndgameRound >= 2) {
@@ -2231,6 +2248,7 @@ function fullStar() {
 	document.getElementById('bottomLoad').style.display = 'none';
 	contents = document.querySelectorAll('.save-button');
 	contents.forEach(content => content.style.display = 'none');
+	fullStarWins++;
 	updateMission();
 	
 	if (currentEndgameRound >= 2) {
@@ -2296,7 +2314,10 @@ function finalResults() {
 		["Enemy", currentEnemy],
 		["Highest level complete", peak],
 		["Final score", currentScore],
-		["Friendly fire", "So much"]
+		["Total rolls earned", totalRolls],
+		["Total passes (no selection)", totalPasses],
+		["Amount of Full Star wins", fullStarWins],
+		["Amount of non-Full Star wins", nonFullStarWins]
 	];
 	
 	savedRuns.splice(currentSaveIndex, 1); 
