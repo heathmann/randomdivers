@@ -8,6 +8,7 @@ const MasterList = [
 		["AR-23P Liberator Penetrator", "./images/Primary/AR-23P_Liberator_Penetrator_Primary_Weaponry.png", true],
 		["AR-23C Liberator Concussive", "./images/Primary/AR-23C_Liberator_Concussive_Primary_Weaponry.png", true],
 		["StA-52 Assault Rifle", "./images/Primary/StA-52_Assault_Rifle_Primary_Weaponry.png", true],
+		["AR-32 Pacifier", skull, true],
 		["AR-23A Liberator Carbine", "./images/Primary/AR-23A_Liberator_Carbine_Primary_Weaponry.png", true],
 		["AR-61 Tenderizer", "./images/Primary/AR-61_Tenderizer_Primary_Weaponry.png", true],
 		["BR-14 Adjudicator", "./images/Primary/BR-14_Adjudicator_Primary_Weaponry.png", true],
@@ -42,6 +43,7 @@ const MasterList = [
 		["JAR-5 Dominator", "./images/Primary/JAR-5_Dominator_Primary_Weaponry.png", true]
 	],[
 	// 1 = Side Arms
+		["P-92 Warrant", skull, true],
 		["P-2 Peacemaker", "./images/Side/P-2_Peacemaker_Secondary_Weaponry.png", true],
 		["P-19 Redeemer", "./images/Side/P-19_Redeemer_Secondary_Weaponry.png", true],
 		["P-113 Verdict", "./images/Side/P-113_Verdict_Secondary_Weaponry.png", true],
@@ -71,6 +73,7 @@ const MasterList = [
 		["G-50 Seeker", "./images/Throw/G-50_Seeker_Throwable_Weaponry.png", true],
 		["G-3 Smoke", "./images/Throw/G-3_Smoke_Throwable_Weaponry.png", true],
 		["G-123 Thermite", "./images/Throw/G-123_Thermite_Throwable_Weaponry.png", true],
+		["G-109 Urchin", skull, true],
 		["K-2 Throwing Knife", "./images/Throw/K-2_Throwing_Knife_Throwable_Weaponry.png", true],
 		["G-142 Pyrotech", "./images/Throw/G-142_Pyrotech_Throwable_Weaponry.png", true]
 	],[
@@ -101,25 +104,27 @@ const MasterList = [
 		["RS-422 Railgun", "./images/Strat/Railgun_Stratagem_Icon.png", true],
 		["APW-1 Anti-Materiel Rifle", "./images/Strat/Anti-Materiel_Rifle_Stratagem_Icon.png", true],
 		["GL-21 Grenade Launcher", "./images/Strat/Grenade_Launcher_Stratagem_Icon.png", true],
+		["GL-52 De-Escalator", skull, true],
 		["TX-41 Sterilizer", "./images/Strat/Sterilizer_Stratagem_Icon.png", true],
 		["FLAM-40 Flamethrower", "./images/Strat/Flamethrower_Stratagem_Icon.png", true],
 		["LAS-98 Laser Cannon", "./images/Strat/Laser_Cannon_Stratagem_Icon.png", true],
 		["LAS-99 Quasar Cannon", "./images/Strat/Quasar_Cannon_Stratagem_Icon.png", true],
 		["ARC-3 Arc Thrower", "./images/Strat/Arc_Thrower_Stratagem_Icon.png", true],
 		["MLS-4X Commando", "./images/Strat/Commando_Stratagem_Icon.png", true],
-		["EAT-17 Expendable Anti-Tank", "./images/Strat/Expendable_Anti-Tank_Stratagem_Icon.png", true], // left off
+		["EAT-17 Expendable Anti-Tank", "./images/Strat/Expendable_Anti-Tank_Stratagem_Icon.png", true],
 		["AC-8 Autocannon", "./images/Strat/Autocannon_Stratagem_Icon.png", true],
 		["RL-77 Airburst Rocket Launcher", "./images/Strat/RL-77_Airburst_Rocket_Launcher_Stratagem_Icon.png", true],
 		["FAF-14 Spear", "./images/Strat/Spear_Stratagem_Icon.png", true],
 		["StA-X3 W.A.S.P. Launcher", "./images/Strat/StA-X3_W.A.S.P._Launcher_Stratagem_Icon.png", true],
 		["GR-8 Recoilless Rifle", "./images/Strat/Recoilless_Rifle_Stratagem_Icon.png", true],
+		["B-1 Supply Pack", "./images/Strat/Supply_Pack_Stratagem_Icon.png", true],
+		["B-100 Portable Hellbomb", "./images/Strat/Portable_Hellbomb_Stratagem_Icon.png", true],
+		["LIFT-860 Hover Pack", "./images/Strat/Hover_Pack_Stratagem_Icon.png", true],
+		["LIFT-850 Jump Pack", "./images/Strat/Jump_Pack_Stratagem_Icon.png", true],
 		["SH-32 Shield Generator Pack", "./images/Strat/Shield_Generator_Pack_Stratagem_Icon.png", true],
 		["SH-51 Directional Shield", "./images/Strat/SH-51_Directional_Shield_Stratagem_Icon.png", true],
 		["SH-20 Ballistic Shield Backpack", "./images/Strat/Ballistic_Shield_Backpack_Stratagem_Icon.png", true],
-		["LIFT-860 Hover Pack", "./images/Strat/Hover_Pack_Stratagem_Icon.png", true],
-		["B-1 Supply Pack", "./images/Strat/Supply_Pack_Stratagem_Icon.png", true],
-		["B-100 Portable Hellbomb", "./images/Strat/Portable_Hellbomb_Stratagem_Icon.png", true],
-		["LIFT-850 Jump Pack", "./images/Strat/Jump_Pack_Stratagem_Icon.png", true],
+		["AX/ARC-3 \"Guard Dog\" K-9", skull, true],
 		["AX/AR-23 \"Guard Dog\"", "./images/Strat/Guard_Dog_Stratagem_Icon.png", true],
 		["AX/LAS-5 \"Guard Dog\" Rover", "./images/Strat/Guard_Dog_Rover_Stratagem_Icon.png", true],
 		["AX/TX-13 \"Guard Dog\" Dog Breath", "./images/Strat/Guard_Dog_Dog_Breath_Stratagem_Icon.png", true],
@@ -161,6 +166,7 @@ const MasterList = [
 		["Dead Sprint", "./images/Boost/Dead_Sprint_Booster_Icon.svg", true],
 		["Armed Resupply Pods", "./images/Boost/Armed_Resupply_Pods_Booster_Icon.svg", true],
 		["Sample Extricator", "./images/Boost/Sample_Extricator_Booster_Icon.png", true],
+		["Stun Pods", "./images/Boost/Stun_Pods_Booster_Icon.png", true],
 		["No booster", skull, false]
 	],[
 	// 5 = Armours
@@ -182,6 +188,7 @@ const MasterList = [
 		["UF-16 Inspector", "./images/Armour/UF-16_Inspector_Body_Armory.png", true],
 		["SR-24 Street Scout", "./images/Armour/SR-24_Street_Scout_Body_Armory.png", true],
 		["RE-1861 Parade Commander", "./images/Armour/RE-1861_Parade_Commander_Body_Armory.png", true],
+		["BP-32 Jackboot", "./images/Armour/BP-32_Jackboot_Body_Armory.png", true],
 		["PH-9 Predator", "./images/Armour/PH-9_Predator_Body_Armory.png", true],
 		["I-09 Heatseeker", "./images/Armour/I-09_Heatseeker_Body_Armory.png", true],
 		["AC-2 Obedient", "./images/Armour/AC-2_Obedient_Body_Armory.png", true],
@@ -223,6 +230,7 @@ const MasterList = [
 		["IE-12 Righteous", "./images/Armour/IE-12_Righteous_Body_Armory.png", true],
 		["GS-17 Frontier Marshall", "./images/Armour/GS-17_Frontier_Marshal_Body_Armory.png", true],
 		["RE-2310 Honorary Guard", "./images/Armour/RE-2310_Honorary_Guard_Body_Armory.png", true],
+		["BP-20 Corrections Officer", "./images/Armour/BP-20_Corrections_Officer_Body_Armory.png", true],
 		["I-102 Draconaught", "./images/Armour/I-102_Draconaught_Body_Armory.png", true],
 		["AC-1 Dutiful", "./images/Armour/AC-1_Dutiful_Body_Armory.png", true],
 		["FS-55 Devastator", "./images/Armour/FS-55_Devastator_Body_Armory.png", true],
@@ -236,6 +244,7 @@ const MasterList = [
 		["AF-52 Lockdown", "./images/Armour/AF-52_Lockdown_Body_Armory.png", true],
 		["SR-64 Cinderblock", "./images/Armour/SR-64_Cinderblock_Body_Armory.png", true],
 		["RE-824 Bearer of the Standard", "./images/Armour/RE-824_Bearer_of_the_Standard_Body_Armory.png", true],
+		["BP-77 Grand Juror", skull, true],
 		["CE-64 Grenadier", "./images/Armour/CE-64_Grenadier_Body_Armory.png", true],
 		["CE-101 Guerilla Gorilla", "./images/Armour/CE-101_Guerilla_Gorilla_Body_Armory.png", true],
 		["I-44 Salamander", "./images/Armour/I-44_Salamander_Body_Armory.png", true],
