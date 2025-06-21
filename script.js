@@ -264,7 +264,7 @@ const endFullText = 'You completed the Primary Objective of your mission and ear
 const portraitColumns = 3;
 const landscapeColumns = 5;
 var columnCount = 5;
-const tacticalArmourIndex = 42;
+const tacticalArmourIndex = 43;
 
 // [date], [difficulty], [mission], [enemy (string)], [endgame], [score], [chaos], [loadoutArray], [lockedLoadoutArray (bool)] (for endgame)
 var savedRuns = [];
@@ -302,7 +302,7 @@ var currentScore = 0;
 var currentChaos = false;
 var currentLoadout = [
 	...[MasterList[0][0]],
-	...[MasterList[1][0]],
+	...[MasterList[1][1]],
 	...[MasterList[2][2]],
 	...[MasterList[5][tacticalArmourIndex]],
 	...[MasterList[3][MasterList[3].length - 1]],
@@ -1732,7 +1732,7 @@ function newGame() {
 	currentChaos = false;
 	currentLoadout = [
 		...[MasterList[0][0]],
-		...[MasterList[1][0]],
+		...[MasterList[1][1]],
 		...[MasterList[2][2]],
 		...[MasterList[5][tacticalArmourIndex]],
 		...[MasterList[3][MasterList[3].length - 1]],
