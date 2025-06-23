@@ -43,7 +43,7 @@ const MasterList = [
 		["JAR-5 Dominator", "./images/Primary/JAR-5_Dominator_Primary_Weaponry.png", true]
 	],[
 	// 1 = Side Arms
-		["P-92 Warrant", skull, true],
+		["P-92 Warrant", "./images/Side/P-92_Warrant_Secondary_Icon.png", true],
 		["P-2 Peacemaker", "./images/Side/P-2_Peacemaker_Secondary_Weaponry.png", true],
 		["P-19 Redeemer", "./images/Side/P-19_Redeemer_Secondary_Weaponry.png", true],
 		["P-113 Verdict", "./images/Side/P-113_Verdict_Secondary_Weaponry.png", true],
