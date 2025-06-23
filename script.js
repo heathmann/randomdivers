@@ -8,7 +8,7 @@ const MasterList = [
 		["AR-23P Liberator Penetrator", "./images/Primary/AR-23P_Liberator_Penetrator_Primary_Weaponry.png", true],
 		["AR-23C Liberator Concussive", "./images/Primary/AR-23C_Liberator_Concussive_Primary_Weaponry.png", true],
 		["StA-52 Assault Rifle", "./images/Primary/StA-52_Assault_Rifle_Primary_Weaponry.png", true],
-		["AR-32 Pacifier", skull, true],
+		["AR-32 Pacifier", "./images/Primary/AR-32_Pacifier_Primary_Weaponry.png", true],
 		["AR-23A Liberator Carbine", "./images/Primary/AR-23A_Liberator_Carbine_Primary_Weaponry.png", true],
 		["AR-61 Tenderizer", "./images/Primary/AR-61_Tenderizer_Primary_Weaponry.png", true],
 		["BR-14 Adjudicator", "./images/Primary/BR-14_Adjudicator_Primary_Weaponry.png", true],
@@ -73,7 +73,7 @@ const MasterList = [
 		["G-50 Seeker", "./images/Throw/G-50_Seeker_Throwable_Weaponry.png", true],
 		["G-3 Smoke", "./images/Throw/G-3_Smoke_Throwable_Weaponry.png", true],
 		["G-123 Thermite", "./images/Throw/G-123_Thermite_Throwable_Weaponry.png", true],
-		["G-109 Urchin", skull, true],
+		["G-109 Urchin", "./images/Throw/G-109_Urchin_Throwable_Icon.png", true],
 		["K-2 Throwing Knife", "./images/Throw/K-2_Throwing_Knife_Throwable_Weaponry.png", true],
 		["G-142 Pyrotech", "./images/Throw/G-142_Pyrotech_Throwable_Weaponry.png", true]
 	],[
@@ -244,7 +244,7 @@ const MasterList = [
 		["AF-52 Lockdown", "./images/Armour/AF-52_Lockdown_Body_Armory.png", true],
 		["SR-64 Cinderblock", "./images/Armour/SR-64_Cinderblock_Body_Armory.png", true],
 		["RE-824 Bearer of the Standard", "./images/Armour/RE-824_Bearer_of_the_Standard_Body_Armory.png", true],
-		["BP-77 Grand Juror", skull, true],
+		["BP-77 Grand Juror", "./images/Armour/BP-77_Grand_Juror_Body_Armory.png", true],
 		["CE-64 Grenadier", "./images/Armour/CE-64_Grenadier_Body_Armory.png", true],
 		["CE-101 Guerilla Gorilla", "./images/Armour/CE-101_Guerilla_Gorilla_Body_Armory.png", true],
 		["I-44 Salamander", "./images/Armour/I-44_Salamander_Body_Armory.png", true],
