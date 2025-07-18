@@ -39,6 +39,7 @@ const MasterList = [
 		["LAS-17 Double-Edge Sickle", "./images/Primary/LAS-17_Double-Edge_Sickle_Primary_Weaponry.png", true],
 		["PLAS-1 Scorcher", "./images/Primary/PLAS-1_Scorcher_Primary_Weaponry.png", true],
 		["PLAS-101 Purifier", "./images/Primary/PLAS-101_Purifier_Primary_Weaponry.png", true],
+		["VG-70 Variable", "./images/Primary/VG-70_Variable_Primary_Weaponry.png", true],
 		["FLAM-66 Torcher", "./images/Primary/FLAM-66_Torcher_Primary_Weaponry.png", true],
 		["JAR-5 Dominator", "./images/Primary/JAR-5_Dominator_Primary_Weaponry.png", true]
 	],[
@@ -66,6 +67,7 @@ const MasterList = [
 		["G-6 Frag", "./images/Throw/G-6_Frag_Throwable_Weaponry.png", true],
 		["G-12 High Explosive", "./images/Throw/G-12_High_Explosive_Throwable_Weaponry.png", true],
 		["G-10 Incendiary", "./images/Throw/G-10_Incendiary_Throwable_Weaponry.png", true],
+		["G-31 Arc", "./images/Throw/G-31_Arc_Throwable_Icon.png", true],
 		["G-16 Impact", "./images/Throw/G-16_Impact_Throwable_Weaponry.png", true],
 		["G-13 Incendiary Impact", "./images/Throw/G-13_Incendiary_Impact_Throwable_Weaponry.png", true],
 		["G-23 Stun", "./images/Throw/G-23_Stun_Throwable_Weaponry.png", true],
@@ -103,6 +105,7 @@ const MasterList = [
 		["MG-206 Heavy Machine Gun", "./images/Strat/Heavy_Machine_Gun_Stratagem_Icon.png", true],
 		["RS-422 Railgun", "./images/Strat/Railgun_Stratagem_Icon.png", true],
 		["APW-1 Anti-Materiel Rifle", "./images/Strat/Anti-Materiel_Rifle_Stratagem_Icon.png", true],
+		["PLAS-45 Epoch", "./images/Strat/PLAS-45_Epoch_Stratagem_Icon.png", true],
 		["GL-21 Grenade Launcher", "./images/Strat/Grenade_Launcher_Stratagem_Icon.png", true],
 		["GL-52 De-Escalator", "./images/Strat/GL-52_De-Escalator_Stratagem_Icon.png", true],
 		["TX-41 Sterilizer", "./images/Strat/Sterilizer_Stratagem_Icon.png", true],
@@ -119,6 +122,7 @@ const MasterList = [
 		["GR-8 Recoilless Rifle", "./images/Strat/Recoilless_Rifle_Stratagem_Icon.png", true],
 		["B-1 Supply Pack", "./images/Strat/Supply_Pack_Stratagem_Icon.png", true],
 		["B-100 Portable Hellbomb", "./images/Strat/Portable_Hellbomb_Stratagem_Icon.png", true],
+		["LIFT-182 Warp Pack", "./images/Strat/LIFT-182_Warp_Pack_Stratagem_Icon.png", true],
 		["LIFT-860 Hover Pack", "./images/Strat/Hover_Pack_Stratagem_Icon.png", true],
 		["LIFT-850 Jump Pack", "./images/Strat/Jump_Pack_Stratagem_Icon.png", true],
 		["SH-32 Shield Generator Pack", "./images/Strat/Shield_Generator_Pack_Stratagem_Icon.png", true],
@@ -134,6 +138,7 @@ const MasterList = [
 		["A/G-16 Gatling Sentry", "./images/Strat/Gatling_Sentry_Stratagem_Icon.png", true],
 		["A/MG-43 Machine Gun Sentry", "./images/Strat/Machine_Gun_Sentry_Stratagem_Icon.png", true],
 		["A/FLAM-40 Flame Sentry", "./images/Strat/A_FLAM-40_Flame_Sentry_Stratagem_Icon.png", true],
+		["A/LAS-98 Laser Sentry", "./images/Strat/A_LAS-98_Laser_Sentry_Stratagem_Icon.png", true],
 		["A/MLS-4X Rocket Sentry", "./images/Strat/Rocket_Sentry_Stratagem_Icon.png", true],
 		["A/AC-8 Autocannon Sentry", "./images/Strat/Autocannon_Sentry_Stratagem_Icon.png", true],
 		["A/M-23 EMS Mortar Sentry", "./images/Strat/AM-23_EMS_Mortar_Sentry_Stratagem_Icon.png", true],
@@ -184,6 +189,7 @@ const MasterList = [
 		["SC-34 Infiltrator", "./images/Armour/SC-34_Infiltrator_Body_Armory.png", true],
 		["IE-57 Hell-Bent", "./images/Armour/IE-57_Hell-Bent_Body_Armory.png", true],
 		["GS-11 Democracy's Deputy", "./images/Armour/300px-GS-11_Democracy's_Deputy_Body_Armory.png", true],
+		["AD-11 Livewire", "./images/Armour/AD-11_Livewire_Body_Icon.png", true],
 		["AF-50 Noxious Ranger", "./images/Armour/AF-50_Noxious_Ranger_Body_Armory.png", true],
 		["UF-16 Inspector", "./images/Armour/UF-16_Inspector_Body_Armory.png", true],
 		["SR-24 Street Scout", "./images/Armour/SR-24_Street_Scout_Body_Armory.png", true],
@@ -230,6 +236,7 @@ const MasterList = [
 		["IE-12 Righteous", "./images/Armour/IE-12_Righteous_Body_Armory.png", true],
 		["GS-17 Frontier Marshall", "./images/Armour/GS-17_Frontier_Marshal_Body_Armory.png", true],
 		["RE-2310 Honorary Guard", "./images/Armour/RE-2310_Honorary_Guard_Body_Armory.png", true],
+		["AD-26 Bleeding Edge", "./images/Armour/AD-26_Bleeding_Edge_Body_Icon.png", true],
 		["BP-20 Corrections Officer", "./images/Armour/BP-20_Corrections_Officer_Body_Armory.png", true],
 		["I-102 Draconaught", "./images/Armour/I-102_Draconaught_Body_Armory.png", true],
 		["AC-1 Dutiful", "./images/Armour/AC-1_Dutiful_Body_Armory.png", true],
@@ -250,6 +257,7 @@ const MasterList = [
 		["I-44 Salamander", "./images/Armour/I-44_Salamander_Body_Armory.png", true],
 		["SR-18 Roadblock", "./images/Armour/SR-18_Roadblock_Body_Armory.png", true],
 		["GS-66 Lawmaker", "./images/Armour/GS-66_Lawmaker_Body_Armory.png", true],
+		["AD-49 Apollonian", "./images/Armour/AD-49_Apollonian_Body_Icon.png", true],
 		["PH-202 Twigsnapper", "./images/Armour/PH-202_Twigsnapper_Body_Armory.png", true],
 		["FS-23 Battle Master", "./images/Armour/FS-23_Battle_Master_Body_Armory.png", true],
 		["CW-36 Winter Warrior", "./images/Armour/CW-36_Winter_Warrior_Body_Armory.png", true],
@@ -264,7 +272,7 @@ const endFullText = 'You completed the Primary Objective of your mission and ear
 const portraitColumns = 3;
 const landscapeColumns = 5;
 var columnCount = 5;
-const tacticalArmourIndex = 43;
+const tacticalArmourIndex = 44;
 
 // [date], [difficulty], [mission], [enemy (string)], [endgame], [score], [chaos], [loadoutArray], [lockedLoadoutArray (bool)] (for endgame)
 var savedRuns = [];
