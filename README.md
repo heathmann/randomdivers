@@ -9,9 +9,10 @@ you don’t get a single stratagem. Such is the way of the Randomdiver!
 # Technical Notes
 
 Please note that your armoury and any saved runs you have are cached with your browser locally. This means that you will not be able
-access saved runs across different devices, and you will have to reconfigure your armoury on each device you wish to use this application
-on. Additionally, if you clear your browser cache, your armoury and all saved runs will be lost. If you have your browser set to clear
-the cache on program exit, please set this page's URL as an exception in order to save your settings and runs properly.
+access saved runs across different devices and browsers, and you will have to reconfigure your armoury on each device and browser you
+wish to use this application on. Additionally, if you clear your browser cache, your armoury and all saved runs will be lost. If you
+have your browser set to clear the cache on program exit, please set this page's URL as an exception in order to save your settings and
+runs properly.
 
 I intend to do my best to maintain this and add new items as soon as I can. But understand that I am doing this for fun and do not get
 paid for this so please be patient. If you have any suggestions for improvements, fixes, new features, or just have bugs/issues to report
