@@ -72,7 +72,7 @@ defeated. Good luck and happy Randomdiving, Helldiver!
 
 ===section12===
 Are you and your team just that skilled? Did you get great rolls in your run? Then perhaps you made it all the way through to
-difficulty 10. What happens next? Now you are in the endgame of the run!
+difficulty 10. What happens next? Now you are in the end game of the run!
 
 ===section13===
 After completing the third and final mission of your difficulty 10 campaign, you will make your final one or two item selections
@@ -88,7 +88,7 @@ and then you will begin another difficulty 10 campaign. This process will repeat
 loadout.
 
 ===section15===
-How far can you make it in the endgame, Helldiver?
+How far can you make it in the end game, Helldiver?
 
 ===section16===
 Randomdivers is an alternative way of playing Helldivers 2 that is inspired by roguelikes and aims to make the game a little more
@@ -96,6 +96,21 @@ challenging and interesting for veterans and new players alike. The core idea is
 meta or that they otherwise rarely (if ever) use. I’m looking at you, Orbital Smoke Strike. With the challenge being trying to build
 a functional loadout as the difficulty slowly ramps up. Sometimes you will have the best luck and get great rolls and other times
 you don’t get a single stratagem. Such is the way of the Randomdiver!
+
+===section17===
+This application was haphazardly made by Heathmann. Special thanks to Tyler for the logo edit. Extra thanks to the guineapigs, er-
+testers, that helped develop and refine this idea. Bryan, Jacob, Corey, Nigel, and Marek. I could not have done this without them!
+
+===section18===
+Please note that your armoury and any saved runs you have are cached with your browser locally. This means that you will not be able
+access saved runs across different devices, and you will have to reconfigure your armoury on each device you wish to use this application
+on. Additionally, if you clear your browser cache, your armoury and all saved runs will be lost. If you have your browser set to clear
+the cache on program exit, please set this page's URL as an exception in order to save your settings and runs properly.
+
+===section19===
+I intend to do my best to maintain this and add new items as soon as I can. But understand that I am doing this for fun and do not get
+paid for this so please be patient. If you have any suggestions for improvements, fixes, new features, or just have bugs/issues to report
+feel free to message me on Reddit at u/Decent_Cupcake. And with that, I hope you enjoy! Happy diving, Helldivers!
 
 ===section69===
 Freedom. Peace. Democracy.
