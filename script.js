@@ -9,7 +9,7 @@ const MasterList = [
 		["AR-23C Liberator Concussive", "./images/Primary/AR-23C_Liberator_Concussive_Primary_Weaponry.png", true],
 		["StA-52 Assault Rifle", "./images/Primary/StA-52_Assault_Rifle_Primary_Weaponry.png", true],
 		["AR-32 Pacifier", "./images/Primary/AR-32_Pacifier_Primary_Weaponry.png", true],
-		["MA5C Assault Rifle", skull, true],
+		["MA5C Assault Rifle", "./images/Primary/MA5C_Assault_Rifle.png", true],
 		["AR-23A Liberator Carbine", "./images/Primary/AR-23A_Liberator_Carbine_Primary_Weaponry.png", true],
 		["AR-61 Tenderizer", "./images/Primary/AR-61_Tenderizer_Primary_Weaponry.png", true],
 		["BR-14 Adjudicator", "./images/Primary/BR-14_Adjudicator_Primary_Weaponry.png", true],
@@ -21,7 +21,7 @@ const MasterList = [
 		["PLAS-39 Accelerator Rifle", "./images/Primary/PLAS-39_Accelerator_Rifle_Primary_Weaponry.png", true],
 		["MP-98 Knight", "./images/Primary/MP-98_Knight_Primary_Weaponry.png", true],
 		["StA-11 SMG", "./images/Primary/StA-11_SMG_Primary_Weaponry.png", true],
-		["M7S SMG", skull, true],
+		["M7S SMG", "./images/Primary/M7S_SMG.png", true],
 		["SMG-32 Reprimand", "./images/Primary/SMG-32_Reprimand_Primary_Weaponry.png", true],
 		["SMG-37 Defender", "./images/Primary/SMG-37_Defender_Primary_Weaponry.png", true],
 		["SMG-72 Pummeler", "./images/Primary/SMG-72_Pummeler_Primary_Weaponry.png", true],
@@ -29,7 +29,7 @@ const MasterList = [
 		["SG-8S Slugger", "./images/Primary/SG-8S_Slugger_Primary_Weaponry.png", true],
 		["SG-20 Halt", "./images/Primary/SG-20_Halt_Primary_Weaponry.png", true],
 		["SG-451 Cookout", "./images/Primary/SG-451_Cookout_Primary_Weaponry.png", true],
-		["M90A Shotgun", skull, true],
+		["M90A Shotgun", "./images/Primary/M90A_Shotgun.png", true],
 		["SG-225 Breaker", "./images/Primary/SG-225_Breaker_Primary_Weaponry.png", true],
 		["SG-225SP Breaker Spray & Pray", "./images/Primary/SG-225SP_Breaker_Spray&Pray_Primary_Weaponry.png", true],
 		["SG-225IE Breaker Incendiary", "./images/Primary/SG-225IE_Breaker_Incendiary_Primary_Weaponry.png", true],
@@ -51,7 +51,7 @@ const MasterList = [
 		["P-2 Peacemaker", "./images/Side/P-2_Peacemaker_Secondary_Weaponry.png", true],
 		["P-19 Redeemer", "./images/Side/P-19_Redeemer_Secondary_Weaponry.png", true],
 		["P-113 Verdict", "./images/Side/P-113_Verdict_Secondary_Weaponry.png", true],
-		["M6C/SOCOM Pistol", skull, true],
+		["M6C/SOCOM Pistol", "./images/Side/M6C_SOCOM_Pistol.png", true],
 		["P-4 Senator", "./images/Side/P-4_Senator_Secondary_Weaponry.png", true],
 		["CQC-19 Stun Lance", "./images/Side/CQC-19_Stun_Lance_Secondary_Weaponry.png", true],
 		["CQC-2 Saber", "./images/Side/CQC-2_Saber_Secondary_Weaponry.png", true],
@@ -219,9 +219,9 @@ const MasterList = [
 		["DP-11 Champion of the People", "./images/Armour/DP-11_Champion_of_the_People_Body_Armory.png", true],
 		["CM-14 Physician", "./images/Armour/CM-14_Physician_Body_Armory.png", true],
 		["TR-117 Alpha Commander", "./images/Armour/TR-117_Alpha_Commander_Body_Armory.png", true],
-		["A-9 Helljumper", skull, true],
-		["A-35 Recon", skull, true],
 		["CE-81 Juggernaut", "./images/Armour/CE-81_Juggernaut_Body_Armory.png", true],
+		["A-9 Helljumper", "./images/Armour/A-9_Helljumper.png", true],
+		["A-35 Recon", "./images/Armour/A-35_Recon.png", true],
 		["DP-53 Savior of the Free", "./images/Armour/DP-53_Savior_of_the_Free_Body_Armory.png", true],
 		["B-24 Enforcer", "./images/Armour/B-24_Enforcer_Body_Armory.png", true],
 		["TR-7 Ambassador of the Brand", "./images/Armour/TR-7_Ambassador_of_the_Brand_Body_Armory.png", true],
@@ -2575,3 +2575,4 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[5], 'table-armour', true);
 	}
 });
+
