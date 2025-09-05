@@ -102,13 +102,13 @@ img {
 	margin-top: -10px;
 }
 
-.tab-button {
+.tab-button2 {
 	background-color: #F9EB0F;
 	border: 1px solid #000000;
 	padding: 10px;
 	cursor: pointer;
-	margin-right: -5px;
-	margin-top: -10px;
+	margin-right: 5px;
+	margin-top: -5px;
 }
 
 .tooltip-container {
@@ -247,6 +247,16 @@ img {
 	margin-top: 15px; /* Optional, to add some space from the very top */
 	/* position: fixed; */
 	z-index: 10;
+}
+
+.checkbox-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	transform: scale(2);
+	margin-bottom: 20px;
+	color: #F9EB0F;
 }
 
 /* Mobile formatting controls */

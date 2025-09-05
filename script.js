@@ -352,6 +352,37 @@ var totalRolls = 0;
 var fullStarWins = 0;
 var nonFullStarWins = 0;
 var totalPasses = 0;
+var activePlanets = [];
+var planetOptions = []; 
+var bugPlanets = [];
+var botPlanets = [];
+var squidPlanets = [];
+
+function getFactionCode(status) {
+  switch (status) {
+    case 'Terminids': return 0;
+    case 'Automatons': return 1;
+    case 'Illuminates': return 2;
+	default: return 3;
+  }
+}
+
+function updatePlanets() {
+	activePlanets = []; 
+	
+	fetch('https://helldiverstrainingmanual.com/api/v1/war/campaign')
+		.then(response => response.json())
+		.then(data => {
+			data.forEach(planet => {
+				activePlanets.push([planet.planetIndex, planet.name, getFactionCode(planet.faction), planet.biome?.slug  || "Unknown"]);
+			});
+		
+			// Output: [ 137, "Ain-5", 2, "swamp" ] [index, Name, faction, biome]
+		})
+		.catch(error => {
+			console.error('Error fetching data:', error);
+		});
+}
 
 function saveGame() {
 	var contents = document.querySelectorAll('.game-row');
@@ -1705,10 +1736,15 @@ function rollSelect (count) {
 function singleRoll() {
 	var container = document.getElementById('table-results');
 	container.innerHTML = '';
+	container = document.getElementById('checks');
+	container.innerHTML = '';
+	container = document.getElementById('checkButt');
+	container.style.display = 'none';
 	container = document.getElementById('topRandomLoad');
 	container.innerHTML = '';
 	container = document.getElementById('bottomRandomLoad');
 	container.innerHTML = '';
+
 	container.appendChild(roll());
 }
 
@@ -1719,8 +1755,95 @@ function randomLoadout() {
 	container.innerHTML = '';
 	container = document.getElementById('bottomRandomLoad');
 	container.innerHTML = '';
+	container = document.getElementById('checks');
+	container.innerHTML = '';
+	container = document.getElementById('checkButt');
+	container.style.display = 'none';
 	
 	generateRandomLoadoutTable();
+}
+
+function planetPage() {
+	const enemyNames = ['Terminids', 'Automatons', 'Illuminate'];
+	var container = document.getElementById('topRandomLoad');
+	container.innerHTML = '';
+	container = document.getElementById('bottomRandomLoad');
+	container.innerHTML = '';
+	container = document.getElementById('table-results');
+	container.innerHTML = '';
+	container = document.getElementById('checkButt');
+	container.style.display = 'flex';
+	container = document.getElementById('checks');
+	container.innerHTML = '';
+
+	enemyNames.forEach(eName => {
+		const label = document.createElement('label');
+		const checkbox = document.createElement('input');
+
+		checkbox.type = 'checkbox';
+		checkbox.name = 'enemy';
+		checkbox.value = eName.toLowerCase();
+		checkbox.style.accentColor = '#FFE80A';
+        checkbox.id = `checkbox-${eName}`;
+
+        const savedState = localStorage.getItem(checkbox.id);
+        checkbox.checked = savedState === 'true';
+
+        checkbox.addEventListener('change', () => {
+          localStorage.setItem(checkbox.id, checkbox.checked);
+        });
+
+		label.appendChild(checkbox);
+		label.appendChild(document.createTextNode(' ' + eName));
+		label.style.margin = '5px';
+
+		container.appendChild(label);
+		container.appendChild(document.createElement('br'));
+	});
+}
+
+function randomPlanet() {
+	var container = document.getElementById('planetResults');
+	container.innerHTML = '';
+	
+	updatePlanets();
+	
+	var checkboxT = document.getElementById('checkbox-Terminids');
+	var checkboxB = document.getElementById('checkbox-Automatons');
+	var checkboxI = document.getElementById('checkbox-Illuminate');
+	
+	var x = Math.floor(Math.random() * activePlanets.length);
+	while (true) {
+		if (activePlanets[x][2] == 0 && checkboxT.checked) {
+			container.innerText = activePlanets[x][1];
+			break;
+		} else if (activePlanets[x][2] == 1 && checkboxB.checked) {
+			container.innerText = activePlanets[x][1];
+			break;
+		} else if (activePlanets[x][2] == 2 && checkboxI.checked) {
+			container.innerText = activePlanets[x][1];
+			break;
+		}
+		x = Math.floor(Math.random() * planetOptions.length);
+	}
+	// if (checkboxT.checked) {
+		// for (x = 0; x < bugPlanets.length; x++) {
+			// planetOptions.push(bugPlanets[x][1]);
+		// }
+		// totalPlanets += bugPlanets.length;
+	// }
+	// if (checkboxB.checked) {
+		// for (x = 0; x < botPlanets.length; x++) {
+			// planetOptions.push(botPlanets[x][1]);
+		// }
+		// totalPlanets += botPlanets.length;
+	// }
+	// if (checkboxI.checked) {
+		// for (x = 0; x < squidPlanets.length; x++) {
+			// planetOptions.push(squidPlanets[x][1]);
+		// }
+		// totalPlanets += squidPlanets.length;
+	// }
 }
 
 // Pick a random faction and return the faction as a string (for chaos mode)
@@ -2415,11 +2538,21 @@ function openTabGame(tabName) {
 	// Show the clicked tab content
 	const activeTab = document.getElementById(tabName);
 	activeTab.style.display = 'block';
+	
+	if (tabName === "randomizer") {
+		contents = document.getElementById('randomButts');
+		contents.style.display = 'flex';
+	} else {
+		contents = document.getElementById('randomButts');
+		contents.style.display = 'none';
+	}
 }
 
 function armouryButtons() {
 	var contents = document.querySelectorAll('.tab-content');
 	contents.forEach(content => content.style.display = 'none');
+	contents = document.getElementById('randomButts');
+	contents.style.display = 'none';
 	contents = document.getElementById('myArmoury');
 	contents.style.display = 'flex';
 }

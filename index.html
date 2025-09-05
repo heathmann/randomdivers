@@ -38,6 +38,13 @@ Initial creation date: 3.20.2025
 						<button class="tab-button" onclick="openTab('armour')" style="z-index: 100;">Armours</button>
 					</div>
 				</div>
+				<div id="randomButts" class="row" style="display: none; margin-bottom: -30px;">
+					<div id="special2" class="specialRow3">
+						<button class="tab-button2" onclick="singleRoll()" style="z-index: 100;">One Roll</button>
+						<button class="tab-button2" onclick="randomLoadout()" style="z-index: 100;">Random Loadout</button>
+						<button class="tab-button2" onclick="planetPage()" style="z-index: 100;">Planet Picker</button>
+					</div>
+				</div>
 			</div>
 		
 
@@ -129,16 +136,21 @@ Initial creation date: 3.20.2025
 			<div id="randomizer" class="tab-content" style="margin-top: 50px;">
 				<!-- <div class="container"> -->
 					<h1>Randomizer</h1>
-					<div id="table-results" style="margin-top: -40px; margin-bottom: 50px;"></div>
+					<div id="table-results" style="margin-top: 40px; margin-bottom: 50px;"></div>
 					<div class="row" style="justify-content: center; margin-bottom: 0px;">
 						<div id="topRandomLoad" style="justify-content: center;"></div>
 					</div>
-					<div class="row" style="justify-content: center; margin-top: 0px; margin-bottom: 20px;">
+					<div class="row" style="justify-content: center; margin-top: 0px; margin-bottom: -20px;">
 						<div id="bottomRandomLoad" style="justify-content: center; "></div>
 					</div>
-					<div class="row" style="justify-content: center;">
-						<button onclick="singleRoll()">One Roll</button>
-						<button onclick="randomLoadout()">Random Loadout</button>
+					<div class="row" style="justify-content: center; margin-bottom: 0px;">
+						<div id="checks" class="checkbox-container"></div>
+					</div>
+					<div class="row" style="justify-content: center; margin-bottom: 0px;">
+						<button id="checkButt" onclick="randomPlanet()" style="display: none;">Random Planet</button>
+					</div>
+					<div class="row" style="justify-content: center; margin-bottom: 0px;">
+						<div id="planetResults" style="color: #ffffff; margin-top: 30px;"></div>
 					</div>
 				<!-- </div> -->
 			</div>
@@ -258,13 +270,13 @@ Initial creation date: 3.20.2025
 				<div id="table-armour"></div>
 			</div>
 			
-			<div id="logoSplash" class="row" style="margin-top: 30px;">
+			<div id="logoSplash" class="row" style="margin-top: 20px;">
 				<img src="./images/misc/RandomDivers-yellow.webp" style="justify-content: center; align-content: center; width: 500px; height: auto;">
 			</div>		
 
 		</div>
 
-		<script src="script.js?v=1.21"></script>
+		<script src="script.js?v=1.22"></script>
 	</body>
 </html>
 
