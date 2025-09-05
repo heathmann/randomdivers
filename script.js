@@ -369,12 +369,24 @@ function getFactionCode(status) {
 
 function updatePlanets() {
 	activePlanets = []; 
+	bugPlanets = [];
+	botPlanets = [];
+	squidPlanets = [];
 	
 	fetch('https://helldiverstrainingmanual.com/api/v1/war/campaign')
 		.then(response => response.json())
 		.then(data => {
 			data.forEach(planet => {
 				activePlanets.push([planet.planetIndex, planet.name, getFactionCode(planet.faction), planet.biome?.slug  || "Unknown"]);
+				if (getFactionCode(planet.faction) == 0) {
+					bugPlanets.push(planet.name);
+				}
+				if (getFactionCode(planet.faction) == 1) {
+					botPlanets.push(planet.name);
+				}
+				if (getFactionCode(planet.faction) == 2) {
+					squidPlanets.push(planet.name);
+				}
 			});
 		
 			// Output: [ 137, "Ain-5", 2, "swamp" ] [index, Name, faction, biome]
@@ -1812,20 +1824,33 @@ function randomPlanet() {
 	var checkboxT = document.getElementById('checkbox-Terminids');
 	var checkboxB = document.getElementById('checkbox-Automatons');
 	var checkboxI = document.getElementById('checkbox-Illuminate');
+	var temp = [];
 	
-	var x = Math.floor(Math.random() * activePlanets.length);
 	while (true) {
-		if (activePlanets[x][2] == 0 && checkboxT.checked) {
-			container.innerText = activePlanets[x][1];
-			break;
-		} else if (activePlanets[x][2] == 1 && checkboxB.checked) {
-			container.innerText = activePlanets[x][1];
-			break;
-		} else if (activePlanets[x][2] == 2 && checkboxI.checked) {
-			container.innerText = activePlanets[x][1];
+		if (!checkboxT.checked && !checkboxB.checked && !checkboxI.checked) {
+			container.innerText = "No options available!";
 			break;
 		}
-		x = Math.floor(Math.random() * planetOptions.length);
+		
+		if (checkboxT.checked) {
+			for(var i = 1; i < bugPlanets.length; i++) {
+				temp.push(bugPlanets[i]);
+			}
+		}
+		if (checkboxB.checked) {
+			for(var i = 1; i < botPlanets.length; i++) {
+				temp.push(botPlanets[i]);
+			}
+		}
+		if (checkboxI.checked) {
+			for(var i = 1; i < squidPlanets.length; i++) {
+				temp.push(squidPlanets[i]);
+			}
+		}
+		
+		var x = Math.floor(Math.random() * temp.length);
+		container.innerText = temp[x];
+		break;
 	}
 }
 
