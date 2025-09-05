@@ -384,6 +384,8 @@ function updatePlanets() {
 		});
 }
 
+updatePlanets();
+
 function saveGame() {
 	var contents = document.querySelectorAll('.game-row');
 	contents.forEach(function(button){button.style.display = 'none';});
@@ -1791,6 +1793,7 @@ function planetPage() {
 
         checkbox.addEventListener('change', () => {
           localStorage.setItem(checkbox.id, checkbox.checked);
+		  updatePlanets();
         });
 
 		label.appendChild(checkbox);
@@ -1805,8 +1808,6 @@ function planetPage() {
 function randomPlanet() {
 	var container = document.getElementById('planetResults');
 	container.innerHTML = '';
-	
-	updatePlanets();
 	
 	var checkboxT = document.getElementById('checkbox-Terminids');
 	var checkboxB = document.getElementById('checkbox-Automatons');
@@ -1826,24 +1827,6 @@ function randomPlanet() {
 		}
 		x = Math.floor(Math.random() * planetOptions.length);
 	}
-	// if (checkboxT.checked) {
-		// for (x = 0; x < bugPlanets.length; x++) {
-			// planetOptions.push(bugPlanets[x][1]);
-		// }
-		// totalPlanets += bugPlanets.length;
-	// }
-	// if (checkboxB.checked) {
-		// for (x = 0; x < botPlanets.length; x++) {
-			// planetOptions.push(botPlanets[x][1]);
-		// }
-		// totalPlanets += botPlanets.length;
-	// }
-	// if (checkboxI.checked) {
-		// for (x = 0; x < squidPlanets.length; x++) {
-			// planetOptions.push(squidPlanets[x][1]);
-		// }
-		// totalPlanets += squidPlanets.length;
-	// }
 }
 
 // Pick a random faction and return the faction as a string (for chaos mode)
