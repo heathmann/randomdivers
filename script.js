@@ -21,6 +21,7 @@ const MasterList = [
 		["PLAS-39 Accelerator Rifle", "./images/Primary/PLAS-39_Accelerator_Rifle_Primary_Weaponry.png", true],
 		["MP-98 Knight", "./images/Primary/MP-98_Knight_Primary_Weaponry.png", true],
 		["StA-11 SMG", "./images/Primary/StA-11_SMG_Primary_Weaponry.png", true],
+		["AR-2 Coyote", skull, true],
 		["M7S SMG", "./images/Primary/M7S_SMG.png", true],
 		["SMG-32 Reprimand", "./images/Primary/SMG-32_Reprimand_Primary_Weaponry.png", true],
 		["SMG-37 Defender", "./images/Primary/SMG-37_Defender_Primary_Weaponry.png", true],
@@ -57,6 +58,7 @@ const MasterList = [
 		["CQC-2 Saber", "./images/Side/CQC-2_Saber_Secondary_Weaponry.png", true],
 		["CQC-30 Stun Baton", "./images/Side/CQC-30_Stun_Baton_Secondary_Weaponry.png", true],
 		["CQC-5 Combat Hatchet", "./images/Side/CQC-5_Combat_Hatchet_Secondary_Weaponry.png", true],
+		["CQC-42 Machete", skull, true],
 		["P-11 Stim Pistol", "./images/Side/P-11_Stim_Pistol_Secondary_Weaponry.png", true],
 		["SG-22 Bushwhacker", "./images/Side/SG-22_Bushwhacker_Secondary_Weaponry.png", true],
 		["LAS-58 Talon", "./images/Side/LAS-58_Talon_Secondary_Weaponry.png", true],
@@ -67,6 +69,7 @@ const MasterList = [
 		["PLAS-15 Loyalist", "./images/Side/PLAS-15_Loyalist_Secondary_Weaponry.png", true]
 	],[
 	// 2 = Throwables
+		["G-7 Pineapple", skull, true],
 		["TED-63 Dynamite", "./images/Throw/TED-63_Dynamite_Throwable_Weaponry.png", true],
 		["G-6 Frag", "./images/Throw/G-6_Frag_Throwable_Weaponry.png", true],
 		["G-12 High Explosive", "./images/Throw/G-12_High_Explosive_Throwable_Weaponry.png", true],
@@ -108,6 +111,7 @@ const MasterList = [
 		["M-105 Stalwart", "./images/Strat/Stalwart_Stratagem_Icon.png", true],
 		["MG-206 Heavy Machine Gun", "./images/Strat/Heavy_Machine_Gun_Stratagem_Icon.png", true],
 		["RS-422 Railgun", "./images/Strat/Railgun_Stratagem_Icon.png", true],
+		["S-11 Speargun", skull, true],
 		["APW-1 Anti-Materiel Rifle", "./images/Strat/Anti-Materiel_Rifle_Stratagem_Icon.png", true],
 		["PLAS-45 Epoch", "./images/Strat/PLAS-45_Epoch_Stratagem_Icon.png", true],
 		["GL-21 Grenade Launcher", "./images/Strat/Grenade_Launcher_Stratagem_Icon.png", true],
@@ -118,6 +122,8 @@ const MasterList = [
 		["LAS-99 Quasar Cannon", "./images/Strat/Quasar_Cannon_Stratagem_Icon.png", true],
 		["ARC-3 Arc Thrower", "./images/Strat/Arc_Thrower_Stratagem_Icon.png", true],
 		["MLS-4X Commando", "./images/Strat/Commando_Stratagem_Icon.png", true],
+		["EAT-700 Expendable Napalm", skull, true],
+		["MS-11 Solo Silo", skull, true],
 		["EAT-17 Expendable Anti-Tank", "./images/Strat/Expendable_Anti-Tank_Stratagem_Icon.png", true],
 		["AC-8 Autocannon", "./images/Strat/Autocannon_Stratagem_Icon.png", true],
 		["RL-77 Airburst Rocket Launcher", "./images/Strat/RL-77_Airburst_Rocket_Launcher_Stratagem_Icon.png", true],
@@ -194,6 +200,7 @@ const MasterList = [
 		["IE-57 Hell-Bent", "./images/Armour/IE-57_Hell-Bent_Body_Armory.png", true],
 		["GS-11 Democracy's Deputy", "./images/Armour/300px-GS-11_Democracy's_Deputy_Body_Armory.png", true],
 		["AD-11 Livewire", "./images/Armour/AD-11_Livewire_Body_Icon.png", true],
+		["DS-10 Big Game Hunter", "./images/Armour/DS-10_Big_Game_Hunter.png", true],
 		["AF-50 Noxious Ranger", "./images/Armour/AF-50_Noxious_Ranger_Body_Armory.png", true],
 		["UF-16 Inspector", "./images/Armour/UF-16_Inspector_Body_Armory.png", true],
 		["SR-24 Street Scout", "./images/Armour/SR-24_Street_Scout_Body_Armory.png", true],
@@ -244,6 +251,7 @@ const MasterList = [
 		["RE-2310 Honorary Guard", "./images/Armour/RE-2310_Honorary_Guard_Body_Armory.png", true],
 		["AD-26 Bleeding Edge", "./images/Armour/AD-26_Bleeding_Edge_Body_Icon.png", true],
 		["BP-20 Corrections Officer", "./images/Armour/BP-20_Corrections_Officer_Body_Armory.png", true],
+		["DS-191 Scorpion", skull, true],
 		["I-102 Draconaught", "./images/Armour/I-102_Draconaught_Body_Armory.png", true],
 		["AC-1 Dutiful", "./images/Armour/AC-1_Dutiful_Body_Armory.png", true],
 		["FS-55 Devastator", "./images/Armour/FS-55_Devastator_Body_Armory.png", true],
@@ -264,12 +272,20 @@ const MasterList = [
 		["SR-18 Roadblock", "./images/Armour/SR-18_Roadblock_Body_Armory.png", true],
 		["GS-66 Lawmaker", "./images/Armour/GS-66_Lawmaker_Body_Armory.png", true],
 		["AD-49 Apollonian", "./images/Armour/AD-49_Apollonian_Body_Icon.png", true],
+		["DS-42 Federation's Blade", "./images/Armour/DS-42_Federations_Blade.png", true],
 		["PH-202 Twigsnapper", "./images/Armour/PH-202_Twigsnapper_Body_Armory.png", true],
 		["FS-23 Battle Master", "./images/Armour/FS-23_Battle_Master_Body_Armory.png", true],
 		["CW-36 Winter Warrior", "./images/Armour/CW-36_Winter_Warrior_Body_Armory.png", true],
 		["TR-62 Knight", "./images/Armour/TR-62_Knight_Body_Armory.png", true]
 	]
 ];
+
+const tIcon = document.createElement("img");
+const aIcon = document.createElement("img");
+const iIcon = document.createElement("img");
+tIcon.src = "./images/misc/Terminid_icon.png";
+aIcon.src = "./images/misc/Automaton_icon.png";
+iIcon.src = "./images/misc/Illuminate_icon.png";
 
 const notFullText = 'You completed the Primary Objective of your mission but failed to achieve all mission stars. <b><span style="color: #19DE18;">You have earned one roll.</span></b> Click here to select your reward and advance to the next mission.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Another victory in the fight for Managed Democracy. However, your work is incomplete, Helldiver. Remember, we are here to crush the enemies of Super Earth utterly. On to the next battle. </i></span>';
 const fullText = 'You completed the Primary Objective of your mission and earned all available mission stars. <b><span style="color: #19DE18;">You have earned two rolls.</span></b> Click here to select your rewards and advance to the next mission.<span style="font-size: 0.8em;"><pre>-    -    -    -    -    -    -    -    -    -    -    -    -</pre><i>Truly none can withstand the might of the Helldivers. A resounding victory for Super Earth and a crushing defeat for our foes. Well done, Helldiver.</i></span>';
@@ -278,7 +294,7 @@ const endFullText = 'You completed the Primary Objective of your mission and ear
 const portraitColumns = 3;
 const landscapeColumns = 5;
 var columnCount = 5;
-const tacticalArmourIndex = 46;
+const tacticalArmourIndex = 47;
 
 // [date], [difficulty], [mission], [enemy (string)], [endgame], [score], [chaos], [loadoutArray], [lockedLoadoutArray (bool)] (for endgame)
 var savedRuns = [];
@@ -1818,7 +1834,9 @@ function planetPage() {
 }
 
 function randomPlanet() {
-	var container = document.getElementById('planetResults');
+	var container = document.getElementById('planetResultsImage');
+	container.innerHTML = '';
+	container = document.getElementById('planetResults');
 	container.innerHTML = '';
 	
 	var checkboxT = document.getElementById('checkbox-Terminids');
@@ -1848,8 +1866,30 @@ function randomPlanet() {
 			}
 		}
 		
+		if (temp.length == 0) {
+			container.innerText = "No options available!";
+			break;
+		}
+		
 		var x = Math.floor(Math.random() * temp.length);
 		container.innerText = temp[x];
+		container = document.getElementById('planetResultsImage');
+		
+		for (let item of activePlanets) {
+			if (item[1] === temp[x]) {
+				if (item[2] == 0) {
+					container.appendChild(tIcon);
+					break;
+				} else if (item[2] == 1) {
+					container.appendChild(aIcon);
+					break;
+				} else {
+					container.appendChild(iIcon);
+					break;
+				}
+			}
+		}
+		
 		break;
 	}
 }
