@@ -69,7 +69,7 @@ const MasterList = [
 		["PLAS-15 Loyalist", "./images/Side/PLAS-15_Loyalist_Secondary_Weaponry.png", true]
 	],[
 	// 2 = Throwables
-		["G-7 Pineapple", skull, true],
+		["G-7 Pineapple", "./images/Throw/G-7_Pineapple_Throwable.png", true],
 		["TED-63 Dynamite", "./images/Throw/TED-63_Dynamite_Throwable_Weaponry.png", true],
 		["G-6 Frag", "./images/Throw/G-6_Frag_Throwable_Weaponry.png", true],
 		["G-12 High Explosive", "./images/Throw/G-12_High_Explosive_Throwable_Weaponry.png", true],
@@ -111,7 +111,7 @@ const MasterList = [
 		["M-105 Stalwart", "./images/Strat/Stalwart_Stratagem_Icon.png", true],
 		["MG-206 Heavy Machine Gun", "./images/Strat/Heavy_Machine_Gun_Stratagem_Icon.png", true],
 		["RS-422 Railgun", "./images/Strat/Railgun_Stratagem_Icon.png", true],
-		["S-11 Speargun", skull, true],
+		["S-11 Speargun", "./images/Strat/S-11_Speargun_Stratagem_Icon.png", true],
 		["APW-1 Anti-Materiel Rifle", "./images/Strat/Anti-Materiel_Rifle_Stratagem_Icon.png", true],
 		["PLAS-45 Epoch", "./images/Strat/PLAS-45_Epoch_Stratagem_Icon.png", true],
 		["GL-21 Grenade Launcher", "./images/Strat/Grenade_Launcher_Stratagem_Icon.png", true],
@@ -122,8 +122,8 @@ const MasterList = [
 		["LAS-99 Quasar Cannon", "./images/Strat/Quasar_Cannon_Stratagem_Icon.png", true],
 		["ARC-3 Arc Thrower", "./images/Strat/Arc_Thrower_Stratagem_Icon.png", true],
 		["MLS-4X Commando", "./images/Strat/Commando_Stratagem_Icon.png", true],
-		["EAT-700 Expendable Napalm", skull, true],
-		["MS-11 Solo Silo", skull, true],
+		["EAT-700 Expendable Napalm", "./images/Strat/EAT-700_Expendable_Napalm_Stratagem_Icon.png", true],
+		["MS-11 Solo Silo", "./images/Strat/MS-11_Stratagem_Icon.png", true],
 		["EAT-17 Expendable Anti-Tank", "./images/Strat/Expendable_Anti-Tank_Stratagem_Icon.png", true],
 		["AC-8 Autocannon", "./images/Strat/Autocannon_Stratagem_Icon.png", true],
 		["RL-77 Airburst Rocket Launcher", "./images/Strat/RL-77_Airburst_Rocket_Launcher_Stratagem_Icon.png", true],
