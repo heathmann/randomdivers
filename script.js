@@ -21,7 +21,7 @@ const MasterList = [
 		["PLAS-39 Accelerator Rifle", "./images/Primary/PLAS-39_Accelerator_Rifle_Primary_Weaponry.png", true],
 		["MP-98 Knight", "./images/Primary/MP-98_Knight_Primary_Weaponry.png", true],
 		["StA-11 SMG", "./images/Primary/StA-11_SMG_Primary_Weaponry.png", true],
-		["AR-2 Coyote", skull, true],
+		["AR-2 Coyote", "./images/Primary/AR-2_Coyote.png", true],
 		["M7S SMG", "./images/Primary/M7S_SMG.png", true],
 		["SMG-32 Reprimand", "./images/Primary/SMG-32_Reprimand_Primary_Weaponry.png", true],
 		["SMG-37 Defender", "./images/Primary/SMG-37_Defender_Primary_Weaponry.png", true],
@@ -58,7 +58,7 @@ const MasterList = [
 		["CQC-2 Saber", "./images/Side/CQC-2_Saber_Secondary_Weaponry.png", true],
 		["CQC-30 Stun Baton", "./images/Side/CQC-30_Stun_Baton_Secondary_Weaponry.png", true],
 		["CQC-5 Combat Hatchet", "./images/Side/CQC-5_Combat_Hatchet_Secondary_Weaponry.png", true],
-		["CQC-42 Machete", skull, true],
+		["CQC-42 Machete", "./images/Side/CQC-42_Machete.png", true],
 		["P-11 Stim Pistol", "./images/Side/P-11_Stim_Pistol_Secondary_Weaponry.png", true],
 		["SG-22 Bushwhacker", "./images/Side/SG-22_Bushwhacker_Secondary_Weaponry.png", true],
 		["LAS-58 Talon", "./images/Side/LAS-58_Talon_Secondary_Weaponry.png", true],
@@ -251,7 +251,7 @@ const MasterList = [
 		["RE-2310 Honorary Guard", "./images/Armour/RE-2310_Honorary_Guard_Body_Armory.png", true],
 		["AD-26 Bleeding Edge", "./images/Armour/AD-26_Bleeding_Edge_Body_Icon.png", true],
 		["BP-20 Corrections Officer", "./images/Armour/BP-20_Corrections_Officer_Body_Armory.png", true],
-		["DS-191 Scorpion", skull, true],
+		["DS-191 Scorpion", "./images/Armour/DS-191_Scorpion.png", true],
 		["I-102 Draconaught", "./images/Armour/I-102_Draconaught_Body_Armory.png", true],
 		["AC-1 Dutiful", "./images/Armour/AC-1_Dutiful_Body_Armory.png", true],
 		["FS-55 Devastator", "./images/Armour/FS-55_Devastator_Body_Armory.png", true],
@@ -2756,5 +2756,6 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[5], 'table-armour', true);
 	}
 });
+
 
 
