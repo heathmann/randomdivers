@@ -333,7 +333,7 @@ var currentChaos = false;
 var currentLoadout = [
 	...[MasterList[0][0]],
 	...[MasterList[1][1]],
-	...[MasterList[2][2]],
+	...[MasterList[2][3]],
 	...[MasterList[5][tacticalArmourIndex]],
 	...[MasterList[3][MasterList[3].length - 1]],
 	...[MasterList[3][MasterList[3].length - 1]],
@@ -1930,7 +1930,7 @@ function newGame() {
 	currentLoadout = [
 		...[MasterList[0][0]],
 		...[MasterList[1][1]],
-		...[MasterList[2][2]],
+		...[MasterList[2][3]],
 		...[MasterList[5][tacticalArmourIndex]],
 		...[MasterList[3][MasterList[3].length - 1]],
 		...[MasterList[3][MasterList[3].length - 1]],
@@ -2756,4 +2756,5 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[5], 'table-armour', true);
 	}
 });
+
 
