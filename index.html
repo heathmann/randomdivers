@@ -19,7 +19,7 @@ Initial creation date: 3.20.2025
 	
     <script>
 		function checkOrientation() {
-			if (navigator.userAgent.match(/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i && window.innerHeight > window.innerWidth) {
+			if (navigator.userAgent.match(/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i) && window.innerHeight > window.innerWidth) {
 				// Portrait Mode
 				document.querySelector('.landscape-message').style.display = 'flex';
 				document.querySelector('.content').style.display = 'none';
@@ -386,9 +386,10 @@ Initial creation date: 3.20.2025
 
 		</div>
 
-		<script src="script.js?v=1.38"></script>
+		<script src="script.js?v=1.39"></script>
 	</body>
 </html>
+
 
 
 
