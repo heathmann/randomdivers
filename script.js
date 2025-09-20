@@ -1985,7 +1985,7 @@ function newGame() {
 
 function loseItem() {
 	if (currentEndgameRound < 11) {
-		document.getElementById('messageText').innerText = "Congratulations on making it to round " + currentEndgameRound + "!\nTime to make things more challenging.\nSelect an item to get rid of returning it the state it was at the start of the run.";
+		document.getElementById('messageText').innerText = "Congratulations on making it to round " + currentEndgameRound + "!\nTime to make things more challenging.\nSelect an item to remove, returning it to the state it was in at the start of the run.";
 		const message = document.querySelectorAll('.message');
 		message.forEach(function(button){button.style.display = 'flex';});
 		const topTable = document.createElement('table');
@@ -2771,6 +2771,7 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[5], 'table-armour', true);
 	}
 });
+
 
 
 
