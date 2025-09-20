@@ -23,7 +23,7 @@ feel free to message me on Reddit at u/Decent_Cupcake. And with that, I hope you
 
 **Creator:** Heathmann
 
-**Logo Edit:** Tyler
+**Logo Edit:** tmitch
 
 **Testers:** Bryan, Jacob, Corey, Nigel, and facelessfools
 
