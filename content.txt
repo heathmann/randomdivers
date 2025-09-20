@@ -111,8 +111,8 @@ Please note that your armoury and any saved runs you have are cached with your b
 access saved runs across different devices and browsers, and you will have to reconfigure your armoury on each device and browser you
 wish to use this application on. Additionally, if you clear your browser cache, your armoury and all saved runs will be lost. If you
 have your browser set to clear the cache on program exit, please set this page's URL as an exception in order to save your settings and
-runs properly. Also note, this app is not optimized for mobile platforms. Use in mobile browsers will likely result in a poor and frustrating
-experience.
+runs properly. Also note, this app is not optimized for mobile platforms. Use in mobile browsers will likely result in a less than
+optimal experience.
 
 ===section21===
 I intend to do my best to maintain this and add new items as soon as I can. But understand that I am doing this for fun and do not get
@@ -126,4 +126,5 @@ Of our very existence.
 But the war rages on. And everything is once again under threat.
 
 Join the greatest military force the galaxy has ever seen and make this a safe and free place to live. 
+
 
