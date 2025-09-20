@@ -11,14 +11,6 @@ body {
 	align-items: flex-start; /* Align items to the top */
 }
 
-.landscape-message {
-	display: none;
-}
-
-.content {
-	display: flex;
-}
-
 h1 {
 	text-align: center;
 	color: #F9EB0F;
@@ -290,8 +282,17 @@ img {
 		margin-top: 5px;
 		grid-gap: 12px;
 	}
+	
 	.tab-content {
 			margin-top: 80px;
+	}
+
+	.landscape-message {
+		display: flex;
+	}
+	
+	.content {
+		display: none;
 	}
 }
 
@@ -301,9 +302,18 @@ img {
 		margin-top: 5px;
 		grid-gap: 10px;
 	}
+	
+	.landscape-message {
+		display: none;
+	}
+	
+	.content {
+		display: flex;
+	}
 }
 
 /* #home { */
 	/* display: block; Initially show the Home tab content */
 /* } */
+
 
