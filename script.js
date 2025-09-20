@@ -294,6 +294,9 @@ const endFullText = 'You completed the Primary Objective of your mission and ear
 const portraitColumns = 3;
 const landscapeColumns = 5;
 var columnCount = 5;
+const startPrimaryIndex = 0;
+const startThrowIndex = 3;
+const startSideIndex = 1;
 const tacticalArmourIndex = 47;
 
 // [date], [difficulty], [mission], [enemy (string)], [endgame], [score], [chaos], [loadoutArray], [lockedLoadoutArray (bool)] (for endgame)
@@ -331,9 +334,9 @@ var currentEndgameRound = 1;
 var currentScore = 0;
 var currentChaos = false;
 var currentLoadout = [
-	...[MasterList[0][0]],
-	...[MasterList[1][1]],
-	...[MasterList[2][3]],
+	...[MasterList[0][startPrimaryIndex]],
+	...[MasterList[1][startSideIndex]],
+	...[MasterList[2][startThrowIndex]],
 	...[MasterList[5][tacticalArmourIndex]],
 	...[MasterList[3][MasterList[3].length - 1]],
 	...[MasterList[3][MasterList[3].length - 1]],
@@ -1928,9 +1931,9 @@ function newGame() {
 	currentScore = 0;
 	currentChaos = false;
 	currentLoadout = [
-		...[MasterList[0][0]],
-		...[MasterList[1][1]],
-		...[MasterList[2][3]],
+		...[MasterList[0][startPrimaryIndex]],
+		...[MasterList[1][startSideIndex]],
+		...[MasterList[2][startThrowIndex]],
 		...[MasterList[5][tacticalArmourIndex]],
 		...[MasterList[3][MasterList[3].length - 1]],
 		...[MasterList[3][MasterList[3].length - 1]],
@@ -2072,7 +2075,7 @@ function loseItem() {
 					
 					if (x == 0) {
 						tempButt.onclick = function () {
-							currentLoadout[0] = MasterList[0][0];
+							currentLoadout[0] = MasterList[0][startPrimaryIndex];
 							forceDefaultLoadout[0] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
@@ -2089,7 +2092,7 @@ function loseItem() {
 						};
 					} else if (x == 1) {
 						tempButt.onclick = function () {
-							currentLoadout[1] = MasterList[1][0];
+							currentLoadout[1] = MasterList[1][startSideIndex];
 							forceDefaultLoadout[1] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
@@ -2106,7 +2109,7 @@ function loseItem() {
 						};
 					} else if (x == 2) {
 						tempButt.onclick = function () {
-							currentLoadout[2] = MasterList[2][2];
+							currentLoadout[2] = MasterList[2][startThrowIndex];
 							forceDefaultLoadout[2] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
@@ -2140,7 +2143,7 @@ function loseItem() {
 						};
 					} else if (x == 8) {
 						tempButt.onclick = function () {
-							currentLoadout[8] = MasterList[4][MasterList[3].length - 1];
+							currentLoadout[8] = MasterList[4][MasterList[4].length - 1];
 							forceDefaultLoadout[8] = true;
 							document.getElementById('topLoad').innerHTML = '';
 							document.getElementById('bottomLoad').innerHTML = '';
