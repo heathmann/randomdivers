@@ -12,7 +12,8 @@ Please note that your armoury and any saved runs you have are cached with your b
 access saved runs across different devices and browsers, and you will have to reconfigure your armoury on each device and browser you
 wish to use this application on. Additionally, if you clear your browser cache, your armoury and all saved runs will be lost. If you
 have your browser set to clear the cache on program exit, please set this page's URL as an exception in order to save your settings and
-runs properly.
+runs properly. Also note, this app is not optimized for mobile platforms. Use in mobile browsers will likely result in a poor and frustrating
+experience.
 
 I intend to do my best to maintain this and add new items as soon as I can. But understand that I am doing this for fun and do not get
 paid for this so please be patient. If you have any suggestions for improvements, fixes, new features, or just have bugs/issues to report
@@ -40,7 +41,9 @@ not so fun. And don’t forget to revisit your armoury to add new items as you u
 
 Please note that since Randomdivers was designed with veteran players in mind and to preserve the element of randomness,
 you will only be able to uncheck items to a certain minimum in each category. If you are a new player, you may lack enough
-unlocked items to provide meaningful variety to make Randomdivers an interesting experience.
+unlocked items to provide meaningful variety to make Randomdivers an interesting experience. I encourage new players to 
+continue progressing through the game normally until you have built out your armoury more or begin to find yourself always
+selecting the same loadout each mission and then return to try this game mode.
 
 ## Start a new run
 
@@ -64,8 +67,9 @@ support weapons that you simply do not pick up. Otherwise, just select stratagem
 
 Finally, drop your pod and fight! Only use stratagems that you and your squad have as valid selections. Any equipment you find
 planetside is still fair game. And any stratagems granted for free to all Helldivers are also valid to use (unless you want the
-extra challenge, then ignore these as well). Once your mission is complete a few things will happen. First determine how the
-mission went.
+extra challenge, then ignore these as well). 
+
+Once your mission is complete a few things will happen. First determine how the mission went.
 
 - If you ever fail to complete the mission (you did not complete the primary objective), you lose, and your run is over. Select
   the Disgraceful Conduct button to end the run and view your final score.
