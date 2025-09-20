@@ -11,6 +11,14 @@ body {
 	align-items: flex-start; /* Align items to the top */
 }
 
+.landscape-message {
+	display: none;
+}
+
+.content {
+	display: flex;
+}
+
 h1 {
 	text-align: center;
 	color: #F9EB0F;
@@ -298,3 +306,4 @@ img {
 /* #home { */
 	/* display: block; Initially show the Home tab content */
 /* } */
+
