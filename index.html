@@ -39,7 +39,7 @@ Initial creation date: 3.20.2025
 	<body>
 		<div class='landscape-message' style="flex-direction: column;">
 			<h1>Welcome to Randomdivers</h1>
-			<p style="max-width: 90%;">Randomdivers is not optimized for portrait mode. Please rotate your device to landscape mode for the best experience.</p>
+			<p style="max-width: 400px;">Randomdivers is not optimized for portrait mode. Please rotate your device to landscape mode for the best experience.</p>
 			<div id="logoSplash" class="row" style="margin-top: 20px;">
 				<img src="./images/misc/RandomDivers-yellow.webp" style="justify-content: center; align-content: center; width: 400px; height: auto;">
 			</div>	
@@ -273,6 +273,7 @@ Initial creation date: 3.20.2025
 					if (navigator.userAgent.match(/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
 						const temp = document.getElementById('info');
 						temp.style.maxWidth = '95%';
+						temp.style.width = '95%';
 						fetch('contentMobile.txt')
 						.then(response => response.text())
 						.then(data => {
@@ -386,9 +387,10 @@ Initial creation date: 3.20.2025
 
 		</div>
 
-		<script src="script.js?v=1.39"></script>
+		<script src="script.js?v=1.40"></script>
 	</body>
 </html>
+
 
 
 
