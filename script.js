@@ -1773,6 +1773,10 @@ function singleRoll() {
 	container.innerHTML = '';
 	container = document.getElementById('checkButt');
 	container.style.display = 'none';
+	container = document.getElementById('planetResults');
+	container.style.display = 'none';
+	container = document.getElementById('planetResultsImage');
+	container.style.display = 'none';
 	container = document.getElementById('topRandomLoad');
 	container.innerHTML = '';
 	container = document.getElementById('bottomRandomLoad');
@@ -1792,6 +1796,10 @@ function randomLoadout() {
 	container.innerHTML = '';
 	container = document.getElementById('checkButt');
 	container.style.display = 'none';
+	container = document.getElementById('planetResults');
+	container.style.display = 'none';
+	container = document.getElementById('planetResultsImage');
+	container.style.display = 'none';
 	
 	generateRandomLoadoutTable();
 }
@@ -1805,6 +1813,10 @@ function planetPage() {
 	container = document.getElementById('table-results');
 	container.innerHTML = '';
 	container = document.getElementById('checkButt');
+	container.style.display = 'flex';
+	container = document.getElementById('planetResults');
+	container.style.display = 'flex';
+	container = document.getElementById('planetResultsImage');
 	container.style.display = 'flex';
 	container = document.getElementById('checks');
 	container.innerHTML = '';
