@@ -103,7 +103,7 @@ a functional loadout as the difficulty slowly ramps up. Sometimes you will have 
 you don’t get a single stratagem. Such is the way of the Randomdiver!
 
 ===section19===
-This application was haphazardly made by Heathmann. Special thanks to Tyler for the logo edit. Extra thanks to the guineapigs, er-
+This application was haphazardly made by Heathmann. Special thanks to tmitch for the logo edit. Extra thanks to the guineapigs, er-
 testers, that helped develop and refine this idea. Bryan, Jacob, Corey, Nigel, and facelessfools. I could not have done this without them!
 
 ===section20===
@@ -126,3 +126,4 @@ Of our very existence.
 But the war rages on. And everything is once again under threat.
 
 Join the greatest military force the galaxy has ever seen and make this a safe and free place to live. 
+
