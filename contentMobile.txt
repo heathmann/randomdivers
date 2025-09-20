@@ -1,0 +1,79 @@
+===section1===
+IMPORTANT! Before you play for the first time, I strongly encourage you to take a moment to go to the My Armoury section above and uncheck all items you do not currently have unlocked. By doing this, your randomizer will be tailored to what you have meaning that you will only ever see items that you actually have and can use while playing. Failing to do this step will result in items that you do not have unlocked appearing in your randomizer which can be very frustrating and not so fun. And don’t forget to revisit your armoury to add new items as you unlock them.
+
+===section2===
+Please note that since Randomdivers was designed with veteran players in mind and to preserve the element of randomness, you will only be able to uncheck items to a certain minimum in each category. If you are a new player, you may lack enough unlocked items to provide meaningful variety to make Randomdivers an interesting experience. I encourage new players to  continue progressing through the game normally until you have built out your armoury more or begin to find yourself always selecting the same loadout each mission and then return to try this game mode.
+
+===section3===
+Click the Play Randomdivers button above to begin. Here you will have the option to start a new game or continue a saved run. Select Start a New Game to initiate a new run. You must now decide the enemy you will fight. This will be the only enemy you face for the duration of the run. If you want an extra challenge or simply do not care who you fight, select Pandemonium. Pandemonium mode randomly selects an enemy you will face for each difficulty.
+
+===section4===
+Once you have chosen your enemy for this run, it is time to start! You will be presented with the run loadout screen. Each run begins the same. Select the loadout on the screen as your in-game loadout (Fun fact: this is the loadout every Helldiver started the game with). Next, select your mission. Your first mission will be at difficulty 1 against the chosen enemy. You may choose any planet and campaign to fight. I recommend fighting on Major Order planets or those that most other Helldivers are fighting on. For a little extra randomness, randomly choose your missions as well.
+
+===section5===
+Enter your Hellpod and get ready to start your run. Note that you will not have any boosters or stratagems to begin with. Simply do not select a booster for this. However, currently the game will not allow you to leave empty stratagem slots. I recommend taking stratagems that will not have an impact on the game if you accidentally call them in like a smoke strike or support weapons that you simply do not pick up. Otherwise, just select stratagems that you can easily identify as “filler.”
+
+===section6===
+Finally, drop your pod and fight! Only use stratagems that you and your squad have as valid selections. Any equipment you find planetside is still fair game. And any stratagems granted for free to all Helldivers are also valid to use (unless you want the extra challenge, then ignore these as well). 
+
+===section7===
+Once your mission is complete a few things will happen. First determine how the mission went.
+
+- If you ever fail to complete the mission (you did not complete the primary objective), you lose, and your run is over. Select the Disgraceful Conduct button to end the run and view your final score.
+ 
+===section8===
+- If you completed the mission but you did not earn all of the stars at the end of the mission, you were partially successful. Select the Honorable Duty button. This will reward you with one roll of items and advance you to the next mission.
+  
+===section9===
+- If you completed the mission and you earned all of the stars at the end of the mission, you were completely successful (this means you earned all available stars). Select the Outstanding Patriotism button. This will reward you with two rolls of items and advance you to the next mission.
+
+
+===section10===
+If successful, you will get a number of rolls depending on how successful you were. Each roll will contain a random assortment of three items from among the checked items in your My Armoury section. Simply select the item you like most from the three and it will be added to your loadout. Single slots such as boosters or weapons will automatically replace what you currently have equipped. If you have four stratagems already and a new one is selected, you will be able to choose which stratagem it replaces.
+
+===section11===
+Once you have made your selections, you are ready to move on to the next mission. After completing a campaign at a given difficulty, the difficulty moves up by one. So, progression will look like this:
+
+===section12===
+1. Difficulty 1 Mission
+2. Difficulty 2 Mission
+3. Difficulty 3 Mission One
+4. Difficulty 3 Mission Two 
+5. Difficulty 4 Mission One
+6. Etc…
+
+===section13===
+Pay attention to the mission tracker above your run loadout. This will keep track of exactly what difficulty and mission you are currently on. And that is it! From here on you simply repeat the above process and advance up the difficulties until you are defeated. Good luck and happy Randomdiving, Helldiver!
+
+===section14===
+Are you and your team just that skilled? Did you get great rolls in your run? Then perhaps you made it all the way through to difficulty 10. What happens next? Now you are in the end game of the run!
+
+===section15===
+After completing the third and final mission of your difficulty 10 campaign, you will make your final one or two item selections depending on how it went as normal. Once that selection is complete, you will be prompted to get rid of an item in your loadout. The item you select will be returned to the state it was in when you began the run. This means your stratagem is removed and items like weapons or armour are returned to their default state. This is your new loadout.
+
+===section16===
+You will now begin another difficulty 10 campaign. Your goal is to complete this campaign with your now slightly reduced loadout. In addition to playing with one less item, you will now no longer receive item selections upon successful mission completion. Should you push through and complete yet another difficulty 10 campaign, you will once again be prompted to get rid of another item and then you will begin another difficulty 10 campaign. This process will repeat until you are reduced to nothing but the starting loadout.
+
+===section17===
+How far can you make it in the end game, Helldiver?
+
+===section18===
+Randomdivers is an alternative way of playing Helldivers 2 that is inspired by roguelikes and aims to make the game a little more challenging and interesting for veterans and new players alike. The core idea is to encourage players to use equipment that is off meta or that they otherwise rarely (if ever) use. I’m looking at you, Orbital Smoke Strike. With the challenge being trying to build a functional loadout as the difficulty slowly ramps up. Sometimes you will have the best luck and get great rolls and other times you don’t get a single stratagem. Such is the way of the Randomdiver!
+
+===section19===
+This application was haphazardly made by Heathmann. Special thanks to tmitch for the logo edit. Extra thanks to the guineapigs, er- testers, that helped develop and refine this idea. Bryan, Jacob, Corey, Nigel, and facelessfools. I could not have done this without them!
+
+===section20===
+Please note that your armoury and any saved runs you have are cached with your browser locally. This means that you will not be able access saved runs across different devices and browsers, and you will have to reconfigure your armoury on each device and browser you wish to use this application on. Additionally, if you clear your browser cache, your armoury and all saved runs will be lost. If you have your browser set to clear the cache on program exit, please set this page's URL as an exception in order to save your settings and runs properly. Also note, this app is not optimized for mobile platforms. Use in mobile browsers will likely result in a poor and frustrating experience.
+
+===section21===
+I intend to do my best to maintain this and add new items as soon as I can. But understand that I am doing this for fun and do not get paid for this so please be patient. If you have any suggestions for improvements, fixes, new features, or just have bugs/issues to report feel free to message me on Reddit at u/Decent_Cupcake. And with that, I hope you enjoy! Happy diving, Helldivers!
+
+===section69===
+Freedom. Peace. Democracy.
+Your Super Earth-born rights. The key pillars of our civilization.
+Of our very existence.
+But the war rages on. And everything is once again under threat.
+
+Join the greatest military force the galaxy has ever seen and make this a safe and free place to live. 
+
