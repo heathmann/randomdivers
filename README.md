@@ -24,7 +24,7 @@ feel free to message me on Reddit at u/Decent_Cupcake. And with that, I hope you
 
 **Logo Edit:** Tyler
 
-**Testers:** Bryan, Jacob, Corey, Nigel, and Marek
+**Testers:** Bryan, Jacob, Corey, Nigel, and facelessfools
 
 # How to Play
 
