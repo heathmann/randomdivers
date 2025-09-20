@@ -244,24 +244,45 @@ Initial creation date: 3.20.2025
 				<div id="section21" style="color: #ffffff; margin-bottom: 20px;">Loading...</div>
 
 				<script>
-					fetch('content.txt')
-					.then(response => response.text())
-					.then(data => {
-						// Split the file by section markers
-						const sections = {};
-						const parts = data.split(/===([a-zA-Z0-9_]+)===/g);
-						for (let i = 1; i < parts.length; i += 2) {
-							const key = parts[i].trim();
-							const value = parts[i + 1].trim();
-							sections[key] = value;
-						}
-
-						// Display each section
-						for (const [id, content] of Object.entries(sections)) {
-							const container = document.getElementById(id);
-							if (container) container.innerText = content;
-						}
-					});
+					if (navigator.userAgent.match(/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i)) {
+						fetch('contentMobile.txt')
+						.then(response => response.text())
+						.then(data => {
+							// Split the file by section markers
+							const sections = {};
+							const parts = data.split(/===([a-zA-Z0-9_]+)===/g);
+							for (let i = 1; i < parts.length; i += 2) {
+								const key = parts[i].trim();
+								const value = parts[i + 1].trim();
+								sections[key] = value;
+							}
+	
+							// Display each section
+							for (const [id, content] of Object.entries(sections)) {
+								const container = document.getElementById(id);
+								if (container) container.innerText = content;
+							}
+						});
+					} else {
+						fetch('content.txt')
+						.then(response => response.text())
+						.then(data => {
+							// Split the file by section markers
+							const sections = {};
+							const parts = data.split(/===([a-zA-Z0-9_]+)===/g);
+							for (let i = 1; i < parts.length; i += 2) {
+								const key = parts[i].trim();
+								const value = parts[i + 1].trim();
+								sections[key] = value;
+							}
+	
+							// Display each section
+							for (const [id, content] of Object.entries(sections)) {
+								const container = document.getElementById(id);
+								if (container) container.innerText = content;
+							}
+						});
+					}
 				</script>
 			</div>
 			
@@ -340,6 +361,7 @@ Initial creation date: 3.20.2025
 		<script src="script.js?v=1.31"></script>
 	</body>
 </html>
+
 
 
 
