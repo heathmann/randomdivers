@@ -17,8 +17,34 @@ Initial creation date: 3.20.2025
 		<link rel="stylesheet" href="style.css">
 	</head>
 	
+    <script>
+		function checkOrientation() {
+			if (navigator.userAgent.match(/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i && window.innerHeight > window.innerWidth) {
+				// Portrait Mode
+				document.querySelector('.landscape-message').style.display = 'block';
+				document.querySelector('.content').style.display = 'none';
+			} else {
+				// Landscape Mode
+				document.querySelector('.landscape-message').style.display = 'none';
+				document.querySelector('.content').style.display = 'block';
+			}
+		}
+		
+		window.addEventListener('resize', checkOrientation);
+		window.addEventListener('orientationchange', checkOrientation);
+		
+		window.onload = checkOrientation;
+    </script>
+	
 	<body>
-		<div style="flex-direction: column;">
+		<div class='landscape-message' style="flex-direction: column; display: none;">
+			<h1>Welcome to Randomdivers</h1>
+			<p>Randomdivers is not optimized for portrait mode. Please rotate your device to landscape mode for the best experience.</p>
+			<div id="logoSplash" class="row" style="margin-top: 20px;">
+				<img src="./images/misc/RandomDivers-yellow.webp" style="justify-content: center; align-content: center; width: 500px; height: auto;">
+			</div>	
+		</div>
+		<div class='content' style="flex-direction: column; display: block;">
 			<!-- Top row of buttons / master navigation -->
 			<div class="button-container" style="justify-content: center; align-content: center;">
 				<div class="row">
@@ -358,9 +384,10 @@ Initial creation date: 3.20.2025
 
 		</div>
 
-		<script src="script.js?v=1.32"></script>
+		<script src="script.js?v=1.33"></script>
 	</body>
 </html>
+
 
 
 
