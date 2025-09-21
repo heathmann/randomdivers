@@ -29,7 +29,7 @@ are fighting on. For a little extra randomness, randomly choose your missions as
 Enter your Hellpod and get ready to start your run. Note that you will not have any boosters or stratagems to begin with.
 Simply do not select a booster for this. However, currently the game will not allow you to leave empty stratagem slots. I
 recommend taking stratagems that will not have an impact on the game if you accidentally call them in like a smoke strike or
-support weapons that you simply do not pick up. Otherwise, just select stratagems that you can easily identify as “filler.”
+support weapons that you simply do not pick up. Otherwise, just select stratagems that you can easily identify as filler.
 
 ===section6===
 Finally, drop your pod and fight! Only use stratagems that you and your squad have as valid selections. Any equipment you find
@@ -126,5 +126,6 @@ Of our very existence.
 But the war rages on. And everything is once again under threat.
 
 Join the greatest military force the galaxy has ever seen and make this a safe and free place to live. 
+
 
 
