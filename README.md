@@ -61,7 +61,7 @@ are fighting on. For a little extra randomness, randomly choose your missions as
 Enter your Hellpod and get ready to start your run. Note that you will not have any boosters or stratagems to begin with.
 Simply do not select a booster for this. However, currently the game will not allow you to leave empty stratagem slots. I
 recommend taking stratagems that will not have an impact on the game if you accidentally call them in like a smoke strike or
-support weapons that you simply do not pick up. Otherwise, just select stratagems that you can easily identify as “filler.”
+support weapons that you simply do not pick up. Otherwise, just select stratagems that you can easily identify as filler.
 
 ## Progressing your run
 
