@@ -48,10 +48,22 @@ Initial creation date: 3.20.2025
 			<!-- Top row of buttons / master navigation -->
 			<div class="button-container" style="justify-content: center; align-content: center;">
 				<div class="row">
-					<button class="tab-button" onclick="openTabGame('game')" style="z-index: 100;">Play Randomdivers</button>
-					<button class="tab-button" onclick="openTabGame('randomizer')" style="z-index: 100;">Randomizer</button>
-					<button class="tab-button" onclick="armouryButtons()" style="z-index: 100;">My Armoury</button>
-					<button class="tab-button" onclick="openTabGame('info')" style="z-index: 100;">How to Play</button>
+					<div class="tooltip-container">
+						<button class="tab-button" onclick="openTabGame('game')" style="z-index: 100;">Play Randomdivers</button>
+						<div class="tooltip-text-bottom" style="width: 150px;">Play or continue a game of Randomdivers</div>
+					</div>
+					<div class="tooltip-container">
+						<button class="tab-button" onclick="openTabGame('randomizer')" style="z-index: 100;">Randomizer</button>
+						<div class="tooltip-text-bottom" style="width: 150px;">Randomizing tools to use outside of a regular game of Randomdivers</div>
+					</div>
+					<div class="tooltip-container">
+						<button class="tab-button" onclick="armouryButtons()" style="z-index: 100;">My Armoury</button>
+						<div class="tooltip-text-bottom" style="width: 150px;">Add or remove items from your collection</div>
+					</div>
+					<div class="tooltip-container">
+						<button class="tab-button" onclick="openTabGame('info')" style="z-index: 100;">How to Play</button>
+						<div class="tooltip-text-bottom" style="width: 150px;">Learn how to play Randomdivers</div>
+					</div>
 				</div>
 				<div id="myArmoury" class="row" style="display: none; margin-bottom: -90px;">
 					<div id="special" class="specialRow">
@@ -161,6 +173,9 @@ Initial creation date: 3.20.2025
 			<div id="randomizer" class="tab-content" style="margin-top: 50px;">
 				<!-- <div class="container"> -->
 					<h1>Randomizer</h1>
+					<p style="font-size: 15px; margin-bottom: -12px; margin-top: -15px;"><b>One Roll:</b> Click to generate a single roll of items based off of your current Armoury.</p>
+					<p style="font-size: 15px; margin-bottom: -12px;"><b>Random Loadout:</b> Click to generate a complete loadout based off of your current Armoury.</p>
+					<p style="font-size: 15px; margin-bottom: -12px;"><b>Planet Picker:</b> A tool that randomly picks an available planet based off your enemy selection.</p>
 					<div id="table-results" style="margin-top: 40px; margin-bottom: 50px;"></div>
 					<div class="row" style="justify-content: center; margin-bottom: 0px;">
 						<div id="topRandomLoad" style="justify-content: center;"></div>
@@ -184,6 +199,7 @@ Initial creation date: 3.20.2025
 			</div>
 			
 			<div id="info" class="tab-content" style="margin-top: 50px;">
+				<h1>How to play Randomdivers</h1>
 				<h2>Set up your armoury</h2>
 				<div id="section1" style="color: #ffffff; margin-bottom: 20px;">Loading...</div>
 				<div style="text-align: center;">
@@ -389,7 +405,7 @@ Initial creation date: 3.20.2025
 
 		</div>
 
-		<script src="script.js?v=1.43"></script>
+		<script src="script.js?v=1.44"></script>
 	</body>
 </html>
 
