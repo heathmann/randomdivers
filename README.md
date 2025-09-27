@@ -118,8 +118,8 @@ loadout.
 
 ## Thank you for playing Randomdivers!
 
-All due credit to the fantastic and hard working folks at Arrowhead Studios for making and maintaing this wonderful game. If you have
-enjoyed playing Randomdivers and would like to throw a tip my way, please do. And tip or not, I appreciate you for taking the time to
-try Randomdivers :)
+All due credit to the fantastic and hard working folks at Arrowhead Studios for making and maintaining this wonderful game. If you
+have enjoyed playing Randomdivers and would like to throw a tip my way, please do. And tip or not, I appreciate you for taking the
+time to try Randomdivers :)
 
 https://ko-fi.com/heathmann
