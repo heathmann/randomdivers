@@ -325,9 +325,9 @@ img {
 		justify-self: center;
 		justify-content: center;
 		margin-top: 5px;
-		grid-gap: 8px;
+		gap: 16px;
 		margin-bottom: 10px;
-		width: 95vw;
+		width: 80vw;
 		max-width: 100%;
 	}
 	
@@ -343,6 +343,7 @@ img {
 /* #home { */
 	/* display: block; Initially show the Home tab content */
 /* } */
+
 
 
 
