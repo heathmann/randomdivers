@@ -321,10 +321,11 @@ img {
 
 @media (orientation: landscape) {
 	.specialRow {
-		grid-template-columns: repeat(6, 1fr);
+		justify-self: center;
 		justify-content: center;
 		margin-top: 5px;
-		grid-gap: 10px;
+		grid-gap: 8px;
+		margin-bottom: 10px;
 	}
 	
 	.landscape-message {
@@ -339,6 +340,7 @@ img {
 /* #home { */
 	/* display: block; Initially show the Home tab content */
 /* } */
+
 
 
 
