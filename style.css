@@ -329,6 +329,7 @@ img {
 		margin-bottom: 10px;
 		width: 80vw;
 		max-width: 100%;
+		row-gap: 16px;;
 	}
 	
 	.landscape-message {
@@ -343,6 +344,7 @@ img {
 /* #home { */
 	/* display: block; Initially show the Home tab content */
 /* } */
+
 
 
 
