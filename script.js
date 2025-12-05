@@ -7,6 +7,7 @@ const MasterList = [
 		["AR-23 Liberator", "./images/Primary/AR-23_Liberator_Primary_Weaponry.png", true],
 		["AR-23P Liberator Penetrator", "./images/Primary/AR-23P_Liberator_Penetrator_Primary_Weaponry.png", true],
 		["AR-23C Liberator Concussive", "./images/Primary/AR-23C_Liberator_Concussive_Primary_Weaponry.png", true],
+		["AR/GL-21 One-Two", "./images/Primary/AR_GL-21_One-Two.png", true],
 		["StA-52 Assault Rifle", "./images/Primary/StA-52_Assault_Rifle_Primary_Weaponry.png", true],
 		["AR-32 Pacifier", "./images/Primary/AR-32_Pacifier_Primary_Weaponry.png", true],
 		["MA5C Assault Rifle", "./images/Primary/MA5C_Assault_Rifle.png", true],
@@ -30,6 +31,7 @@ const MasterList = [
 		["SG-8S Slugger", "./images/Primary/SG-8S_Slugger_Primary_Weaponry.png", true],
 		["SG-20 Halt", "./images/Primary/SG-20_Halt_Primary_Weaponry.png", true],
 		["SG-451 Cookout", "./images/Primary/SG-451_Cookout_Primary_Weaponry.png", true],
+		["DBS-2 Double Freedom", "./images/Primary/DBS-2_Double_Freedom.png", true],
 		["M90A Shotgun", "./images/Primary/M90A_Shotgun.png", true],
 		["SG-225 Breaker", "./images/Primary/SG-225_Breaker_Primary_Weaponry.png", true],
 		["SG-225SP Breaker Spray & Pray", "./images/Primary/SG-225SP_Breaker_Spray&Pray_Primary_Weaponry.png", true],
@@ -106,6 +108,7 @@ const MasterList = [
 		["Eagle Cluster Bomb", "./images/Strat/Eagle_Cluster_Bomb_Stratagem_Icon.png", true],
 		["Eagle Napalm Airstrike", "./images/Strat/Eagle_Napalm_Airstrike_Stratagem_Icon.png", true],
 		["Eagle Smoke Strike", "./images/Strat/Eagle_Smoke_Strike_Stratagem_Icon.png", true],
+		["CQC-9 Defoliation Tool", skull, true],
 		["CQC-1 One True Flag", "./images/Strat/CQC-1_One_True_Flag_Stratagem_Icon.png", true],
 		["MG-43 Machine Gun", "./images/Strat/Machine_Gun_Stratagem_Icon.png", true],
 		["M-105 Stalwart", "./images/Strat/Stalwart_Stratagem_Icon.png", true],
@@ -129,6 +132,7 @@ const MasterList = [
 		["RL-77 Airburst Rocket Launcher", "./images/Strat/RL-77_Airburst_Rocket_Launcher_Stratagem_Icon.png", true],
 		["FAF-14 Spear", "./images/Strat/Spear_Stratagem_Icon.png", true],
 		["StA-X3 W.A.S.P. Launcher", "./images/Strat/StA-X3_W.A.S.P._Launcher_Stratagem_Icon.png", true],
+		["M-1000 Maxigun", skull, true],
 		["GR-8 Recoilless Rifle", "./images/Strat/Recoilless_Rifle_Stratagem_Icon.png", true],
 		["B-1 Supply Pack", "./images/Strat/Supply_Pack_Stratagem_Icon.png", true],
 		["B-100 Portable Hellbomb", "./images/Strat/Portable_Hellbomb_Stratagem_Icon.png", true],
@@ -139,6 +143,7 @@ const MasterList = [
 		["SH-51 Directional Shield", "./images/Strat/SH-51_Directional_Shield_Stratagem_Icon.png", true],
 		["SH-20 Ballistic Shield Backpack", "./images/Strat/Ballistic_Shield_Backpack_Stratagem_Icon.png", true],
 		["AX/ARC-3 \"Guard Dog\" K-9", "./images/Strat/AX_ARC-3__Guard_Dog__K-9_Stratagem_Icon.png", true],
+		["AX/FLAM-75 \"Guard Dog\" Hot Dog", "./images/Strat/AX_FLAM-75_Guard_Dog_Hot_Dog_Stratagem_Icon.png", true],
 		["AX/AR-23 \"Guard Dog\"", "./images/Strat/Guard_Dog_Stratagem_Icon.png", true],
 		["AX/LAS-5 \"Guard Dog\" Rover", "./images/Strat/Guard_Dog_Rover_Stratagem_Icon.png", true],
 		["AX/TX-13 \"Guard Dog\" Dog Breath", "./images/Strat/Guard_Dog_Dog_Breath_Stratagem_Icon.png", true],
@@ -206,6 +211,7 @@ const MasterList = [
 		["SR-24 Street Scout", "./images/Armour/SR-24_Street_Scout_Body_Armory.png", true],
 		["RE-1861 Parade Commander", "./images/Armour/RE-1861_Parade_Commander_Body_Armory.png", true],
 		["BP-32 Jackboot", "./images/Armour/BP-32_Jackboot_Body_Armory.png", true],
+		["RS-20 Constrictor", "./images/Armour/RS-20_Constrictor.png", true],
 		["PH-9 Predator", "./images/Armour/PH-9_Predator_Body_Armory.png", true],
 		["I-09 Heatseeker", "./images/Armour/I-09_Heatseeker_Body_Armory.png", true],
 		["AC-2 Obedient", "./images/Armour/AC-2_Obedient_Body_Armory.png", true],
@@ -242,6 +248,7 @@ const MasterList = [
 		["CW-9 White Wolf", "./images/Armour/CW-9_White_Wolf_Body_Armory.png", true],
 		["PH-56 Jaguar", "./images/Armour/PH-56_Jaguar_Body_Armory.png", true],
 		["I-92 Fire Fighter", "./images/Armour/I-92_Fire_Fighter_Body_Armory.png", true],
+		["RS-6 Fiend Destroyer", "./images/Armour/RS-6_Fiend_Destroyer.png", true],
 		["SA-04 Combat Technician", "./images/Armour/SA-04_Combat_Technician_Body_Armory.png", true],
 		["AF-02 Haz-Master", "./images/Armour/AF-02_Haz-Master_Body_Armory.png", true],
 		["UF-50 Bloodhound", "./images/Armour/UF-50_Bloodhound_Body_Armory.png", true],
@@ -273,6 +280,7 @@ const MasterList = [
 		["GS-66 Lawmaker", "./images/Armour/GS-66_Lawmaker_Body_Armory.png", true],
 		["AD-49 Apollonian", "./images/Armour/AD-49_Apollonian_Body_Icon.png", true],
 		["DS-42 Federation's Blade", "./images/Armour/DS-42_Federations_Blade.png", true],
+		["RS-40 Beast of Prey", "./images/Armour/RS-40_Beast_of_Prey.png", true],
 		["PH-202 Twigsnapper", "./images/Armour/PH-202_Twigsnapper_Body_Armory.png", true],
 		["FS-23 Battle Master", "./images/Armour/FS-23_Battle_Master_Body_Armory.png", true],
 		["CW-36 Winter Warrior", "./images/Armour/CW-36_Winter_Warrior_Body_Armory.png", true],
@@ -297,7 +305,7 @@ var columnCount = 5;
 const startPrimaryIndex = 0;
 const startThrowIndex = 3;
 const startSideIndex = 1;
-const tacticalArmourIndex = 47;
+const tacticalArmourIndex = 48;
 
 // [date], [difficulty], [mission], [enemy (string)], [endgame], [score], [chaos], [loadoutArray], [lockedLoadoutArray (bool)] (for endgame)
 var savedRuns = [];
@@ -2771,6 +2779,7 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[5], 'table-armour', true);
 	}
 });
+
 
 
 
