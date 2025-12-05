@@ -108,7 +108,7 @@ const MasterList = [
 		["Eagle Cluster Bomb", "./images/Strat/Eagle_Cluster_Bomb_Stratagem_Icon.png", true],
 		["Eagle Napalm Airstrike", "./images/Strat/Eagle_Napalm_Airstrike_Stratagem_Icon.png", true],
 		["Eagle Smoke Strike", "./images/Strat/Eagle_Smoke_Strike_Stratagem_Icon.png", true],
-		["CQC-9 Defoliation Tool", skull, true],
+		["CQC-9 Defoliation Tool", "./images/Strat/CQC-9_Defoliation_Tool_Stratagem_Icon.png", true],
 		["CQC-1 One True Flag", "./images/Strat/CQC-1_One_True_Flag_Stratagem_Icon.png", true],
 		["MG-43 Machine Gun", "./images/Strat/Machine_Gun_Stratagem_Icon.png", true],
 		["M-105 Stalwart", "./images/Strat/Stalwart_Stratagem_Icon.png", true],
@@ -132,7 +132,7 @@ const MasterList = [
 		["RL-77 Airburst Rocket Launcher", "./images/Strat/RL-77_Airburst_Rocket_Launcher_Stratagem_Icon.png", true],
 		["FAF-14 Spear", "./images/Strat/Spear_Stratagem_Icon.png", true],
 		["StA-X3 W.A.S.P. Launcher", "./images/Strat/StA-X3_W.A.S.P._Launcher_Stratagem_Icon.png", true],
-		["M-1000 Maxigun", skull, true],
+		["M-1000 Maxigun", "./images/Strat/M-1000_Maxigun_Stratagem_Icon.png", true],
 		["GR-8 Recoilless Rifle", "./images/Strat/Recoilless_Rifle_Stratagem_Icon.png", true],
 		["B-1 Supply Pack", "./images/Strat/Supply_Pack_Stratagem_Icon.png", true],
 		["B-100 Portable Hellbomb", "./images/Strat/Portable_Hellbomb_Stratagem_Icon.png", true],
@@ -2779,6 +2779,7 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[5], 'table-armour', true);
 	}
 });
+
 
 
 
