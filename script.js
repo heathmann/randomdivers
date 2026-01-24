@@ -13,10 +13,12 @@ const MasterList = [
 		["MA5C Assault Rifle", "./images/Primary/MA5C_Assault_Rifle.png", true],
 		["AR-23A Liberator Carbine", "./images/Primary/AR-23A_Liberator_Carbine_Primary_Weaponry.png", true],
 		["AR-61 Tenderizer", "./images/Primary/AR-61_Tenderizer_Primary_Weaponry.png", true],
+		["AR-59 Suppressor", "./images/Primary/AR-59_Suppressor_Primary_Weaponry.png", true],
 		["BR-14 Adjudicator", "./images/Primary/BR-14_Adjudicator_Primary_Weaponry.png", true],
 		["R-2 Amendment", "./images/Primary/R-2_Amendment_Primary_Weaponry.png", true],
 		["R-2124 Constitution", "./images/Primary/R-2124_Constitution_Primary_Weaponry.png", true],
 		["R-6 Deadeye", "./images/Primary/R-6_Deadeye_Primary_Weaponry.png", true],
+		["R-72 Censor", "./images/Primary/R-72_Censor_Primary_Weaponry.png", true],
 		["R-63 Diligence", "./images/Primary/R-63_Diligence_Primary_Weaponry.png", true],
 		["R-63CS Diligence Counter Sniper", "./images/Primary/R-63CS_Diligence_Counter_Sniper_Primary_Weaponry.png", true],
 		["PLAS-39 Accelerator Rifle", "./images/Primary/PLAS-39_Accelerator_Rifle_Primary_Weaponry.png", true],
@@ -63,6 +65,7 @@ const MasterList = [
 		["CQC-42 Machete", "./images/Side/CQC-42_Machete.png", true],
 		["P-11 Stim Pistol", "./images/Side/P-11_Stim_Pistol_Secondary_Weaponry.png", true],
 		["SG-22 Bushwhacker", "./images/Side/SG-22_Bushwhacker_Secondary_Weaponry.png", true],
+		["P-35 Re-Educator", "./images/Side/P-35_Re-Educator_Secondary_Weaponry.png", true],
 		["LAS-58 Talon", "./images/Side/LAS-58_Talon_Secondary_Weaponry.png", true],
 		["P-72 Crisper", "./images/Side/P-72_Crisper_Secondary_Weaponry.png", true],
 		["GP-31 Grenade Pistol", "./images/Side/GP-31_Grenade_Pistol_Secondary_Weaponry.png", true],
@@ -78,9 +81,11 @@ const MasterList = [
 		["G-10 Incendiary", "./images/Throw/G-10_Incendiary_Throwable_Weaponry.png", true],
 		["G-31 Arc", "./images/Throw/G-31_Arc_Throwable_Icon.png", true],
 		["G-16 Impact", "./images/Throw/G-16_Impact_Throwable_Weaponry.png", true],
+		["G-89 Smokescreen", "./images/Throw/G-89_Smokescreen_Throwable_Weaponry.png", true],
 		["G-13 Incendiary Impact", "./images/Throw/G-13_Incendiary_Impact_Throwable_Weaponry.png", true],
 		["G-23 Stun", "./images/Throw/G-23_Stun_Throwable_Weaponry.png", true],
 		["G-4 Gas", "./images/Throw/G-4_Gas_Throwable_Weaponry.png", true],
+		["TM-1 Lure Mine", skull, true],
 		["G-50 Seeker", "./images/Throw/G-50_Seeker_Throwable_Weaponry.png", true],
 		["G-3 Smoke", "./images/Throw/G-3_Smoke_Throwable_Weaponry.png", true],
 		["G-123 Thermite", "./images/Throw/G-123_Thermite_Throwable_Weaponry.png", true],
@@ -134,6 +139,7 @@ const MasterList = [
 		["StA-X3 W.A.S.P. Launcher", "./images/Strat/StA-X3_W.A.S.P._Launcher_Stratagem_Icon.png", true],
 		["M-1000 Maxigun", "./images/Strat/M-1000_Maxigun_Stratagem_Icon.png", true],
 		["GR-8 Recoilless Rifle", "./images/Strat/Recoilless_Rifle_Stratagem_Icon.png", true],
+		["B/MD C4 Pack", "./images/Strat/B-MD_C4_Pack_Stratagem_Icon.png", true],
 		["B-1 Supply Pack", "./images/Strat/Supply_Pack_Stratagem_Icon.png", true],
 		["B-100 Portable Hellbomb", "./images/Strat/Portable_Hellbomb_Stratagem_Icon.png", true],
 		["LIFT-182 Warp Pack", "./images/Strat/LIFT-182_Warp_Pack_Stratagem_Icon.png", true],
@@ -187,6 +193,7 @@ const MasterList = [
 		["Armed Resupply Pods", "./images/Boost/Armed_Resupply_Pods_Booster_Icon.svg", true],
 		["Sample Extricator", "./images/Boost/Sample_Extricator_Booster_Icon.png", true],
 		["Stun Pods", "./images/Boost/Stun_Pods_Booster_Icon.png", true],
+		["Concealed Insertion", "./images/Boost/Concealed_Insertion_Booster_Icon.png", true],
 		["No booster", skull, false]
 	],[
 	// 5 = Armours
@@ -206,6 +213,7 @@ const MasterList = [
 		["GS-11 Democracy's Deputy", "./images/Armour/300px-GS-11_Democracy's_Deputy_Body_Armory.png", true],
 		["AD-11 Livewire", "./images/Armour/AD-11_Livewire_Body_Icon.png", true],
 		["DS-10 Big Game Hunter", "./images/Armour/DS-10_Big_Game_Hunter.png", true],
+		["RS-100 Sanctioner", "./images/Armour/RS-100_Sanctioner.png", true],
 		["AF-50 Noxious Ranger", "./images/Armour/AF-50_Noxious_Ranger_Body_Armory.png", true],
 		["UF-16 Inspector", "./images/Armour/UF-16_Inspector_Body_Armory.png", true],
 		["SR-24 Street Scout", "./images/Armour/SR-24_Street_Scout_Body_Armory.png", true],
@@ -215,6 +223,7 @@ const MasterList = [
 		["PH-9 Predator", "./images/Armour/PH-9_Predator_Body_Armory.png", true],
 		["I-09 Heatseeker", "./images/Armour/I-09_Heatseeker_Body_Armory.png", true],
 		["AC-2 Obedient", "./images/Armour/AC-2_Obedient_Body_Armory.png", true],
+		["RS-89 Shadow Paragon", "./images/Armour/RS-89_Shadow_Paragon_Body_Armory.png", true],
 		["SA-25 Steel Trooper", "./images/Armour/SA-25_Steel_Trooper_Body_Armory.png", true],
 		["SA-12 Servo Assisted", "./images/Armour/SA-12_Servo_Assisted_Body_Armory.png", true],
 		["DP-00 Tactical", "./images/Armour/DP-00_Tactical_Body_Armory.png", true],
@@ -261,6 +270,7 @@ const MasterList = [
 		["DS-191 Scorpion", "./images/Armour/DS-191_Scorpion.png", true],
 		["I-102 Draconaught", "./images/Armour/I-102_Draconaught_Body_Armory.png", true],
 		["AC-1 Dutiful", "./images/Armour/AC-1_Dutiful_Body_Armory.png", true],
+		["RS-67 Null Cipher", "./images/Armour/RS-67_Null_Cipher_Body_Armory.png", true],
 		["FS-55 Devastator", "./images/Armour/FS-55_Devastator_Body_Armory.png", true],
 		["CW-22 Kodiak", "./images/Armour/CW-22_Kodiak_Body_Armory.png", true],
 		["SA-32 Dynamo", "./images/Armour/SA-32_Dynamo_Body_Armory.png", true],
@@ -305,7 +315,7 @@ var columnCount = 5;
 const startPrimaryIndex = 0;
 const startThrowIndex = 3;
 const startSideIndex = 1;
-const tacticalArmourIndex = 48;
+const tacticalArmourIndex = 50;
 
 // [date], [difficulty], [mission], [enemy (string)], [endgame], [score], [chaos], [loadoutArray], [lockedLoadoutArray (bool)] (for endgame)
 var savedRuns = [];
@@ -2779,6 +2789,7 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[5], 'table-armour', true);
 	}
 });
+
 
 
 
