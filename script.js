@@ -777,8 +777,8 @@ function pickUpRun(savedData, oldSaveIndex) {
 		}
 	}
 
-	currentEnemy = savedData[3];
 	updateMission();
+	currentEnemy = savedData[3];
 	generateLoadoutTable();
 	currentSaveIndex = oldSaveIndex;
 	
@@ -2789,6 +2789,7 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[5], 'table-armour', true);
 	}
 });
+
 
 
 
