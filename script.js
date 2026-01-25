@@ -85,7 +85,7 @@ const MasterList = [
 		["G-13 Incendiary Impact", "./images/Throw/G-13_Incendiary_Impact_Throwable_Weaponry.png", true],
 		["G-23 Stun", "./images/Throw/G-23_Stun_Throwable_Weaponry.png", true],
 		["G-4 Gas", "./images/Throw/G-4_Gas_Throwable_Weaponry.png", true],
-		["TM-1 Lure Mine", skull, true],
+		["TM-1 Lure Mine", "./images/Throw/TM-1_Lure_Mine_Throwable_Weaponry.png", true],
 		["G-50 Seeker", "./images/Throw/G-50_Seeker_Throwable_Weaponry.png", true],
 		["G-3 Smoke", "./images/Throw/G-3_Smoke_Throwable_Weaponry.png", true],
 		["G-123 Thermite", "./images/Throw/G-123_Thermite_Throwable_Weaponry.png", true],
@@ -2789,6 +2789,7 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[5], 'table-armour', true);
 	}
 });
+
 
 
 
