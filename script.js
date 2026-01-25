@@ -741,6 +741,7 @@ function createResultTable(data, tableName) {
 function pickUpRun(savedData, oldSaveIndex) {
 	currentDifficulty = savedData[1];
 	currentMission = savedData[2];
+	currentEnemy = savedData[3];
 	currentEndgameRound = savedData[4];
 	currentScore = savedData[5];
 	currentChaos = savedData[6];
@@ -777,8 +778,7 @@ function pickUpRun(savedData, oldSaveIndex) {
 		}
 	}
 
-	updateMission();
-	currentEnemy = savedData[3];
+	updateMission(true);
 	generateLoadoutTable();
 	currentSaveIndex = oldSaveIndex;
 	
@@ -2301,11 +2301,11 @@ function loseItem() {
 	}
 }
 
-function updateMission() {
+function updateMission(pickedUpRun) {
 	if (currentDifficulty == 0 || currentDifficulty == 1 || currentDifficulty == 2) {
 		currentScore += currentDifficulty;
 		currentDifficulty++;
-		if (currentChaos) {
+		if (currentChaos && !pickedUpRun) {
 			currentEnemy = pickEnemy();
 		}
 		if (currentDifficulty == 1 || currentDifficulty == 2) {
@@ -2321,7 +2321,7 @@ function updateMission() {
 		} else if (currentDifficulty == 3) {
 			currentScore += currentDifficulty;
 			currentDifficulty++;
-			if (currentChaos) {
+			if (currentChaos && !pickedUpRun) {
 				currentEnemy = pickEnemy();
 			}
 			currentMission = 1;
@@ -2329,7 +2329,7 @@ function updateMission() {
 		} else {
 			currentScore += currentDifficulty;
 			currentDifficulty++;
-			if (currentChaos) {
+			if (currentChaos && !pickedUpRun) {
 				currentEnemy = pickEnemy();
 			}
 			currentMission = 1;
@@ -2344,14 +2344,14 @@ function updateMission() {
 			currentMission = 1;
 			currentScore += currentDifficulty;
 			currentEndgameRound++;
-			if (currentChaos) {
+			if (currentChaos && !pickedUpRun) {
 				currentEnemy = pickEnemy();
 			}
 			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " (Round " + currentEndgameRound + ") " + currentEnemy + " Mission " + currentMission + " of 3";
 		} else {
 			currentScore += currentDifficulty;
 			currentDifficulty++;
-			if (currentChaos) {
+			if (currentChaos && !pickedUpRun) {
 				currentEnemy = pickEnemy();
 			}
 			currentMission = 1;
@@ -2368,7 +2368,7 @@ function updateMission() {
 			currentScore += currentDifficulty;
 			currentScore += (currentEndgameRound - 1);
 			currentEndgameRound++;
-			if (currentChaos) {
+			if (currentChaos && !pickedUpRun) {
 				currentEnemy = pickEnemy();
 			}
 			document.getElementById('missionTracker').innerText = "Level " + currentDifficulty + " (Round " + currentEndgameRound + ") " + currentEnemy + " Mission " + currentMission + " of 3";
@@ -2380,7 +2380,7 @@ function selectBug() {
 	var contents = document.querySelectorAll('.enemy-row');
 	contents.forEach(content => content.style.display = 'none');
 	currentEnemy = "Terminids";
-	updateMission();
+	updateMission(false);
 	generateLoadoutTable();
 	
 	contents = document.querySelectorAll('.game-row');
@@ -2397,7 +2397,7 @@ function selectBot() {
 	var contents = document.querySelectorAll('.enemy-row');
 	contents.forEach(content => content.style.display = 'none');
 	currentEnemy = "Automatons";
-	updateMission();
+	updateMission(false);
 	generateLoadoutTable();
 	
 	contents = document.querySelectorAll('.game-row');
@@ -2414,7 +2414,7 @@ function selectSquid() {
 	var contents = document.querySelectorAll('.enemy-row');
 	contents.forEach(content => content.style.display = 'none');
 	currentEnemy = "Illuminate";
-	updateMission();
+	updateMission(false);
 	generateLoadoutTable();
 	
 	contents = document.querySelectorAll('.game-row');
@@ -2432,7 +2432,7 @@ function selectChaos() {
 	contents.forEach(content => content.style.display = 'none');
 	currentEnemy = pickEnemy();
 	currentChaos = true;
-	updateMission();
+	updateMission(false);
 	generateLoadoutTable();
 	
 	contents = document.querySelectorAll('.game-row');
@@ -2453,7 +2453,7 @@ function notFullStar() {
 	contents = document.querySelectorAll('.save-button');
 	contents.forEach(content => content.style.display = 'none');
 	nonFullStarWins++;
-	updateMission();
+	updateMission(false);
 	
 	if (currentEndgameRound >= 2) {
 		document.getElementById('notFullStarText').innerHTML = endNotFullText;
@@ -2488,7 +2488,7 @@ function fullStar() {
 	contents = document.querySelectorAll('.save-button');
 	contents.forEach(content => content.style.display = 'none');
 	fullStarWins++;
-	updateMission();
+	updateMission(false);
 	
 	if (currentEndgameRound >= 2) {
 		document.getElementById('notFullStarText').innerHTML = endNotFullText;
@@ -2789,6 +2789,7 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[5], 'table-armour', true);
 	}
 });
+
 
 
 
