@@ -741,7 +741,6 @@ function createResultTable(data, tableName) {
 function pickUpRun(savedData, oldSaveIndex) {
 	currentDifficulty = savedData[1];
 	currentMission = savedData[2];
-	currentEnemy = savedData[3];
 	currentEndgameRound = savedData[4];
 	currentScore = savedData[5];
 	currentChaos = savedData[6];
@@ -777,7 +776,8 @@ function pickUpRun(savedData, oldSaveIndex) {
 			currentScore -= (currentEndgameRound - 1);
 		}
 	}
-	
+
+	currentEnemy = savedData[3];
 	updateMission();
 	generateLoadoutTable();
 	currentSaveIndex = oldSaveIndex;
@@ -2789,6 +2789,7 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[5], 'table-armour', true);
 	}
 });
+
 
 
 
