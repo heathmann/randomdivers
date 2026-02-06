@@ -45,7 +45,7 @@ const MasterList = [
 		["LAS-5 Scythe", "./images/Primary/LAS-5_Scythe_Primary_Weaponry.png", true],
 		["LAS-16 Sickle", "./images/Primary/LAS-16_Sickle_Primary_Weaponry.png", true],
 		["LAS-17 Double-Edge Sickle", "./images/Primary/LAS-17_Double-Edge_Sickle_Primary_Weaponry.png", true],
-		["LAS-16 Trident", skull, true],
+		["LAS-16 Trident", "./images/Primary/LAS-16_Trident.png", true],
 		["PLAS-1 Scorcher", "./images/Primary/PLAS-1_Scorcher_Primary_Weaponry.png", true],
 		["PLAS-101 Purifier", "./images/Primary/PLAS-101_Purifier_Primary_Weaponry.png", true],
 		["VG-70 Variable", "./images/Primary/VG-70_Variable_Primary_Weaponry.png", true],
@@ -84,7 +84,7 @@ const MasterList = [
 		["G-16 Impact", "./images/Throw/G-16_Impact_Throwable_Weaponry.png", true],
 		["G-89 Smokescreen", "./images/Throw/G-89_Smokescreen_Throwable_Weaponry.png", true],
 		["G-13 Incendiary Impact", "./images/Throw/G-13_Incendiary_Impact_Throwable_Weaponry.png", true],
-		["G/SH-39 Shield", skull, true],
+		["G/SH-39 Shield", "./images/Throw/G_SH-39_Shield.png", true],
 		["G-23 Stun", "./images/Throw/G-23_Stun_Throwable_Weaponry.png", true],
 		["G-4 Gas", "./images/Throw/G-4_Gas_Throwable_Weaponry.png", true],
 		["TM-1 Lure Mine", "./images/Throw/TM-1_Lure_Mine_Throwable_Weaponry.png", true],
@@ -274,7 +274,7 @@ const MasterList = [
 		["AD-26 Bleeding Edge", "./images/Armour/AD-26_Bleeding_Edge_Body_Icon.png", true],
 		["BP-20 Corrections Officer", "./images/Armour/BP-20_Corrections_Officer_Body_Armory.png", true],
 		["DS-191 Scorpion", "./images/Armour/DS-191_Scorpion.png", true],
-		["SA-7 Headfirst", skull, true],
+		["SA-7 Headfirst", "./images/Armour/SA-7_Headfirst.png", true],
 		["I-102 Draconaught", "./images/Armour/I-102_Draconaught_Body_Armory.png", true],
 		["AC-1 Dutiful", "./images/Armour/AC-1_Dutiful_Body_Armory.png", true],
 		["RS-67 Null Cipher", "./images/Armour/RS-67_Null_Cipher_Body_Armory.png", true],
@@ -298,7 +298,7 @@ const MasterList = [
 		["AD-49 Apollonian", "./images/Armour/AD-49_Apollonian_Body_Icon.png", true],
 		["DS-42 Federation's Blade", "./images/Armour/DS-42_Federations_Blade.png", true],
 		["RS-40 Beast of Prey", "./images/Armour/RS-40_Beast_of_Prey.png", true],
-		["SA-8 Ram", skull, true],
+		["SA-8 Ram", "./images/Armour/SA-8_Ram.png", true],
 		["PH-202 Twigsnapper", "./images/Armour/PH-202_Twigsnapper_Body_Armory.png", true],
 		["FS-23 Battle Master", "./images/Armour/FS-23_Battle_Master_Body_Armory.png", true],
 		["CW-36 Winter Warrior", "./images/Armour/CW-36_Winter_Warrior_Body_Armory.png", true],
@@ -2797,6 +2797,7 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[5], 'table-armour', true);
 	}
 });
+
 
 
 
