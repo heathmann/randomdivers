@@ -248,6 +248,7 @@ const MasterList = [
 		["CM-14 Physician", "./images/Armour/CM-14_Physician_Body_Armory.png", true],
 		["TR-117 Alpha Commander", "./images/Armour/TR-117_Alpha_Commander_Body_Armory.png", true],
 		["CE-81 Juggernaut", "./images/Armour/CE-81_Juggernaut_Body_Armory.png", true],
+		["DP-8 Mountain-Scaled", "./images/Armour/DP-8_Mountain-Scaled.png", true],
 		["A-9 Helljumper", "./images/Armour/A-9_Helljumper.png", true],
 		["A-35 Recon", "./images/Armour/A-35_Recon.png", true],
 		["DP-53 Savior of the Free", "./images/Armour/DP-53_Savior_of_the_Free_Body_Armory.png", true],
@@ -2797,6 +2798,7 @@ window.addEventListener('resize', function() {
 		createTable(userMaster[5], 'table-armour', true);
 	}
 });
+
 
 
 
