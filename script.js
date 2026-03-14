@@ -324,7 +324,7 @@ var columnCount = 5;
 const startPrimaryIndex = 0;
 const startThrowIndex = 3;
 const startSideIndex = 1;
-const tacticalArmourIndex = 50;
+const tacticalArmourIndex = 51;
 
 // [date], [difficulty], [mission], [enemy (string)], [endgame], [score], [chaos], [loadoutArray], [lockedLoadoutArray (bool)] (for endgame)
 var savedRuns = [];
