@@ -23,6 +23,7 @@ const MasterList = [
 		["R-63CS Diligence Counter Sniper", "./images/Primary/R-63CS_Diligence_Counter_Sniper_Primary_Weaponry.png", true],
 		["PLAS-39 Accelerator Rifle", "./images/Primary/PLAS-39_Accelerator_Rifle_Primary_Weaponry.png", true],
 		["MP-98 Knight", "./images/Primary/MP-98_Knight_Primary_Weaponry.png", true],
+		["SMG/FLAM-34 Stoker", "./images/Primary/SMG_FLAM-34_Stoker.png", true],
 		["StA-11 SMG", "./images/Primary/StA-11_SMG_Primary_Weaponry.png", true],
 		["AR-2 Coyote", "./images/Primary/AR-2_Coyote.png", true],
 		["M7S SMG", "./images/Primary/M7S_SMG.png", true],
@@ -33,6 +34,7 @@ const MasterList = [
 		["SG-8S Slugger", "./images/Primary/SG-8S_Slugger_Primary_Weaponry.png", true],
 		["SG-20 Halt", "./images/Primary/SG-20_Halt_Primary_Weaponry.png", true],
 		["SG-451 Cookout", "./images/Primary/SG-451_Cookout_Primary_Weaponry.png", true],
+		["SG-97 Sweeper", "./images/Primary/SG-97_Sweeper.png", true],
 		["DBS-2 Double Freedom", "./images/Primary/DBS-2_Double_Freedom.png", true],
 		["M90A Shotgun", "./images/Primary/M90A_Shotgun.png", true],
 		["SG-225 Breaker", "./images/Primary/SG-225_Breaker_Primary_Weaponry.png", true],
@@ -57,9 +59,11 @@ const MasterList = [
 		["P-2 Peacemaker", "./images/Side/P-2_Peacemaker_Secondary_Weaponry.png", true],
 		["P-19 Redeemer", "./images/Side/P-19_Redeemer_Secondary_Weaponry.png", true],
 		["P-113 Verdict", "./images/Side/P-113_Verdict_Secondary_Weaponry.png", true],
+		["P-69 Veto", "./images/Side/P-69_Veto.png", true],
 		["M6C/SOCOM Pistol", "./images/Side/M6C_SOCOM_Pistol.png", true],
 		["P-4 Senator", "./images/Side/P-4_Senator_Secondary_Weaponry.png", true],
 		["CQC-19 Stun Lance", "./images/Side/CQC-19_Stun_Lance_Secondary_Weaponry.png", true],
+		["CQC-73 Entrenchment Tool", "./images/Side/CQC-73_Entrenchment_Tool.png", true],
 		["CQC-2 Saber", "./images/Side/CQC-2_Saber_Secondary_Weaponry.png", true],
 		["CQC-30 Stun Baton", "./images/Side/CQC-30_Stun_Baton_Secondary_Weaponry.png", true],
 		["CQC-5 Combat Hatchet", "./images/Side/CQC-5_Combat_Hatchet_Secondary_Weaponry.png", true],
@@ -81,6 +85,7 @@ const MasterList = [
 		["G-12 High Explosive", "./images/Throw/G-12_High_Explosive_Throwable_Weaponry.png", true],
 		["G-10 Incendiary", "./images/Throw/G-10_Incendiary_Throwable_Weaponry.png", true],
 		["G-31 Arc", "./images/Throw/G-31_Arc_Throwable_Icon.png", true],
+		["G-48 Giga Grenade", "./images/Throw/G-48_Giga_Grenade.png", true],
 		["G-16 Impact", "./images/Throw/G-16_Impact_Throwable_Weaponry.png", true],
 		["G-89 Smokescreen", "./images/Throw/G-89_Smokescreen_Throwable_Weaponry.png", true],
 		["G-13 Incendiary Impact", "./images/Throw/G-13_Incendiary_Impact_Throwable_Weaponry.png", true],
@@ -140,6 +145,7 @@ const MasterList = [
 		["AC-8 Autocannon", "./images/Strat/Autocannon_Stratagem_Icon.png", true],
 		["RL-77 Airburst Rocket Launcher", "./images/Strat/RL-77_Airburst_Rocket_Launcher_Stratagem_Icon.png", true],
 		["FAF-14 Spear", "./images/Strat/Spear_Stratagem_Icon.png", true],
+		["B/FLAM-80 Cremator", "./images/Strat/Cremator_Stratagem_Icon.png", true],
 		["StA-X3 W.A.S.P. Launcher", "./images/Strat/StA-X3_W.A.S.P._Launcher_Stratagem_Icon.png", true],
 		["M-1000 Maxigun", "./images/Strat/M-1000_Maxigun_Stratagem_Icon.png", true],
 		["GL-28 Belt-Fed Grenade Launcher", "./images/Strat/GL-28_Belt-Fed_Grenade_Launcher_Stratagem_Icon.png", true],
@@ -169,6 +175,7 @@ const MasterList = [
 		["A/MLS-4X Rocket Sentry", "./images/Strat/Rocket_Sentry_Stratagem_Icon.png", true],
 		["A/AC-8 Autocannon Sentry", "./images/Strat/Autocannon_Sentry_Stratagem_Icon.png", true],
 		["A/M-23 EMS Mortar Sentry", "./images/Strat/AM-23_EMS_Mortar_Sentry_Stratagem_Icon.png", true],
+		["A/GM-17 Gas Mortar Sentry", "./images/Strat/Gas_Mortar_Sentry_Stratagem_Icon.png", true],
 		["A/M-12 Mortar Sentry", "./images/Strat/Mortar_Sentry_Stratagem_Icon.png", true],
 		["FX-12 Shield Generator Relay", "./images/Strat/Shield_Generator_Relay_Stratagem_Icon.png", true],
 		["E/GL-21 Grenadier Battlement", "./images/Strat/GL-21_Grenadier_Battlement_Stratagem_Icon.png", true],
@@ -230,6 +237,7 @@ const MasterList = [
 		["I-09 Heatseeker", "./images/Armour/I-09_Heatseeker_Body_Armory.png", true],
 		["AC-2 Obedient", "./images/Armour/AC-2_Obedient_Body_Armory.png", true],
 		["RS-89 Shadow Paragon", "./images/Armour/RS-89_Shadow_Paragon_Body_Armory.png", true],
+		["CPH-26 Commandant", "./images/Armour/CPH-26_Commandant.png", true],
 		["SA-25 Steel Trooper", "./images/Armour/SA-25_Steel_Trooper_Body_Armory.png", true],
 		["SA-12 Servo Assisted", "./images/Armour/SA-12_Servo_Assisted_Body_Armory.png", true],
 		["DP-00 Tactical", "./images/Armour/DP-00_Tactical_Body_Armory.png", true],
@@ -279,6 +287,7 @@ const MasterList = [
 		["I-102 Draconaught", "./images/Armour/I-102_Draconaught_Body_Armory.png", true],
 		["AC-1 Dutiful", "./images/Armour/AC-1_Dutiful_Body_Armory.png", true],
 		["RS-67 Null Cipher", "./images/Armour/RS-67_Null_Cipher_Body_Armory.png", true],
+		["CPG-48 Sapper", "./images/Armour/CPG-48_Sapper.png", true],
 		["FS-55 Devastator", "./images/Armour/FS-55_Devastator_Body_Armory.png", true],
 		["CW-22 Kodiak", "./images/Armour/CW-22_Kodiak_Body_Armory.png", true],
 		["SA-32 Dynamo", "./images/Armour/SA-32_Dynamo_Body_Armory.png", true],
@@ -294,6 +303,7 @@ const MasterList = [
 		["CE-64 Grenadier", "./images/Armour/CE-64_Grenadier_Body_Armory.png", true],
 		["CE-101 Guerilla Gorilla", "./images/Armour/CE-101_Guerilla_Gorilla_Body_Armory.png", true],
 		["I-44 Salamander", "./images/Armour/I-44_Salamander_Body_Armory.png", true],
+		["CPR-80 Bulwark", "./images/Armour/CPR-80_Bulwark.png", true],
 		["SR-18 Roadblock", "./images/Armour/SR-18_Roadblock_Body_Armory.png", true],
 		["GS-66 Lawmaker", "./images/Armour/GS-66_Lawmaker_Body_Armory.png", true],
 		["AD-49 Apollonian", "./images/Armour/AD-49_Apollonian_Body_Icon.png", true],
@@ -324,7 +334,7 @@ var columnCount = 5;
 const startPrimaryIndex = 0;
 const startThrowIndex = 3;
 const startSideIndex = 1;
-const tacticalArmourIndex = 51;
+const tacticalArmourIndex = 52;
 
 // [date], [difficulty], [mission], [enemy (string)], [endgame], [score], [chaos], [loadoutArray], [lockedLoadoutArray (bool)] (for endgame)
 var savedRuns = [];
